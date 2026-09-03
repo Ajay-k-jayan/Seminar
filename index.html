@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -897,35 +897,25 @@
       white-space: nowrap;
     }
 
-    /* September 1st - THE EXCITING AUTO-RENEWAL TRAP DAY */
-    /* September 1st - Auto-Renewal Trap Day */
+        /* September 1st - THE EXCITING AUTO-RENEWAL TRAP DAY */
     .cal-day-cell.renewal-day {
       background: radial-gradient(circle at center, rgba(239, 68, 68, 0.55) 0%, rgba(185, 28, 28, 0.25) 100%);
       border: 2px solid #ef4444;
       color: #ffffff;
-      background: rgba(239, 68, 68, 0.22);
-      border: 1.5px solid #ef4444;
-      color: #f87171;
       font-weight: 800;
       cursor: pointer;
       box-shadow: 0 0 20px rgba(239, 68, 68, 0.8), inset 0 0 10px rgba(239, 68, 68, 0.4);
       animation: pulseRedTrap 1.4s infinite alternate;
       position: relative;
-      box-shadow: 0 0 16px rgba(239, 68, 68, 0.5);
-      animation: pulseRedRenewal 1.6s infinite alternate;
     }
 
     @keyframes pulseRedTrap {
       0% { transform: scale(1); box-shadow: 0 0 14px rgba(239, 68, 68, 0.6); }
       100% { transform: scale(1.1); box-shadow: 0 0 28px rgba(239, 68, 68, 1); }
-    @keyframes pulseRedRenewal {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.07); }
     }
 
     .cal-day-cell.renewal-day::before {
       content: '';
-    .renewal-day-tag {
       position: absolute;
       top: -4px; left: -4px; right: -4px; bottom: -4px;
       border-radius: 12px;
@@ -946,37 +936,17 @@
       font-weight: 900;
       color: #fca5a5;
       letter-spacing: 0.02em;
-      font-size: 0.5rem;
-      font-weight: 800;
-      color: #f87171;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
     }
 
     /* Anchor wide-card layout and expand width */
     .slide-card.wide-card {
       max-width: 1240px;
       padding: 40px 48px;
-    .cal-status-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 14px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      font-size: 0.74rem;
-      color: var(--text-secondary);
-      font-family: var(--font-sans);
     }
 
     .slide-card.wide-card .slide-main-layout {
       align-items: flex-start;
       gap: 36px;
-    .status-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #38bdf8;
     }
 
     /* ==========================================================================
@@ -991,38 +961,23 @@
       overflow: hidden;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(22, 163, 74, 0.2);
       animation: slideInFromRight 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    /* Bank Auto-Debit Alert Card */
-    .debit-notification-card {
-      width: 100%;
-      background: linear-gradient(135deg, rgba(28, 16, 22, 0.96) 0%, rgba(16, 10, 14, 0.98) 100%);
-      border: 1px solid rgba(239, 68, 68, 0.55);
-      border-radius: 18px;
-      padding: 14px 16px;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(239, 68, 68, 0.25);
-      animation: slideDownAlert 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     @keyframes slideInFromRight {
       0% { opacity: 0; transform: translateX(30px) scale(0.95); }
       100% { opacity: 1; transform: translateX(0) scale(1); }
-    @keyframes slideDownAlert {
-      0% { opacity: 0; transform: translateY(-16px) scale(0.95); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .sms-header {
-    .notif-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 12px 14px;
       background: #181b24;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      margin-bottom: 6px;
     }
 
     .sms-header-left {
-    .bank-tag {
       display: flex;
       align-items: center;
       gap: 12px;
@@ -1041,13 +996,9 @@
     .sms-sender-title {
       font-family: var(--font-sans);
       font-size: 0.95rem;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
       font-weight: 700;
       color: #ffffff;
       letter-spacing: 0.02em;
-      color: #f87171;
     }
 
     .sms-header-right {
@@ -1055,10 +1006,6 @@
       align-items: center;
       gap: 12px;
       color: #94a3b8;
-    .notif-time {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--text-muted);
     }
 
     .sms-icon {
@@ -1066,14 +1013,10 @@
     }
 
     .sms-screen-body {
-      padding: 16px 14px 12px 14px;
-    .notif-amount-box {
+      padding: 16px 14px 18px 14px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      align-items: baseline;
-      justify-content: space-between;
-      margin: 4px 0 6px 0;
     }
 
     .sms-time-stamp {
@@ -1083,12 +1026,7 @@
       padding: 3px 10px;
       border-radius: 12px;
       margin-bottom: 14px;
-    .amount-minus {
       font-family: var(--font-mono);
-      font-size: 1.55rem;
-      font-weight: 800;
-      color: #f87171;
-      text-shadow: 0 0 14px rgba(248, 113, 113, 0.5);
     }
 
     .sms-message-row {
@@ -1096,14 +1034,6 @@
       align-items: flex-start;
       gap: 10px;
       width: 100%;
-    .amount-tag {
-      font-family: var(--font-sans);
-      font-size: 0.68rem;
-      font-weight: 600;
-      background: rgba(239, 68, 68, 0.15);
-      color: #fca5a5;
-      padding: 2px 8px;
-      border-radius: 10px;
     }
 
     .sms-avatar {
@@ -1112,7 +1042,6 @@
       border-radius: 50%;
       background: #15803d;
       color: #ffffff;
-    .notif-desc-box {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1125,8 +1054,6 @@
       flex-direction: column;
       gap: 4px;
       flex: 1;
-      gap: 2px;
-      margin-bottom: 10px;
     }
 
     .sms-bubble {
@@ -1140,11 +1067,6 @@
       border-radius: 16px 16px 16px 4px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
       word-break: break-word;
-    .merchant-name {
-      font-family: var(--font-display);
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: #f8fafc;
     }
 
     .sms-bubble-sub {
@@ -1152,85 +1074,6 @@
       color: #64748b;
       margin-left: 4px;
       font-family: var(--font-mono);
-    .notif-memo {
-      font-size: 0.72rem;
-      color: var(--text-secondary);
-    }
-
-    .sms-cancel-action {
-      padding: 4px 14px 14px 14px;
-    .notif-actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .btn-cancel-trap {
-      width: 100%;
-      background: rgba(239, 68, 68, 0.12);
-      border: 1px solid rgba(239, 68, 68, 0.35);
-      color: #fca5a5;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      color: #f8fafc;
-      font-family: var(--font-sans);
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 9px 12px;
-      border-radius: 12px;
-      padding: 8px 12px;
-      border-radius: 10px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-    }
-
-    .btn-cancel-trap:hover {
-      background: rgba(239, 68, 68, 0.25);
-      border-color: #ef4444;
-      color: #ffffff;
-      background: rgba(239, 68, 68, 0.18);
-      border-color: rgba(239, 68, 68, 0.5);
-      color: #fca5a5;
-    }
-
-    /* The Friction Roadblock Toast */
-    .friction-lock-toast {
-      margin: 0 14px 14px 14px;
-      background: rgba(18, 12, 12, 0.98);
-      border: 1px solid rgba(251, 191, 36, 0.65);
-      margin-top: 10px;
-      background: rgba(12, 10, 8, 0.96);
-      border: 1px solid rgba(251, 191, 36, 0.6);
-      padding: 10px 12px;
-      border-radius: 12px;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.72rem;
-      color: #fbbf24;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
-      animation: shakeRoadblock 0.4s ease;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-      animation: shakeLock 0.35s ease;
-    }
-
-    @keyframes shakeRoadblock {
-    @keyframes shakeLock {
-      0%, 100% { transform: translateX(0); }
-      20%, 60% { transform: translateX(-5px); }
-      40%, 80% { transform: translateX(5px); }
-    }
-
-    .toast-lock-icon {
-      font-size: 1.1rem;
-    }
-
-    .toast-body {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
     }
   </style>
 </head>
@@ -1390,10 +1233,7 @@
                     </div>
                   </div>
                 </div>
-
-              </div>
-
-            </div>
+              </div></div>
           </div>
         </div>
       </div>
@@ -2278,9 +2118,7 @@
         }
 
         renderCalendar();
-      }
-
-      // Start engine
+      }// Start engine
       init();
     });
   </script>
