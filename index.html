@@ -3,17 +3,712 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TRAPPED BY DESIGN</title>
+  <title>TRAPPED BY DESIGN — Seminar Presentation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* ==========================================================================
+       PRESENTATION DESIGN SYSTEM
+       Theme: Obsidian Dark / Neon Emerald & Amber Accents
+       ========================================================================== */
+    :root {
+      --bg-space: #08090c;
+      --bg-card: rgba(14, 17, 23, 0.92);
+      --bg-card-border: rgba(255, 255, 255, 0.08);
+
+      --accent-emerald: #00ff88;
+      --accent-emerald-dim: #059669;
+      --accent-cyan: #38bdf8;
+      --accent-amber: #fbbf24;
+
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+
+      --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--bg-space);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* TOP PROGRESS BAR */
+    .progress-bar-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.05);
+      z-index: 100;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 33.3%;
+      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-cyan));
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* HEADER BAR */
+    .presentation-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      padding: 0 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(180deg, rgba(8, 9, 12, 0.95) 0%, rgba(8, 9, 12, 0) 100%);
+      z-index: 50;
+      pointer-events: auto;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-emerald);
+      box-shadow: 0 0 12px var(--accent-emerald);
+      animation: pulseDot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .seminar-title {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+    }
+
+    .divider {
+      color: rgba(255, 255, 255, 0.2);
+      margin: 0 6px;
+    }
+
+    .header-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .slide-counter {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+
+    .slide-counter #currentSlideNum {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .slide-counter .slash {
+      color: var(--text-muted);
+      margin: 0 4px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .timer-pill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 5px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .timer-pill:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-primary);
+    }
+
+    .hud-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-secondary);
+      padding: 7px 14px;
+      border-radius: 10px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .hud-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--text-primary);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .hud-btn.icon-only {
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    .icon {
+      width: 17px;
+      height: 17px;
+    }
+
+    /* PRESENTATION STAGE & CANVAS */
+    .presentation-stage {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .visual-viewport {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: auto;
+      z-index: 1;
+    }
+
+    #visualCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .vignette-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, transparent 30%, rgba(8, 9, 12, 0.75) 100%);
+      pointer-events: none;
+    }
+
+    /* SLIDE CONTENT CARD */
+    .slide-viewport {
+      position: relative;
+      z-index: 20;
+      width: 100%;
+      max-width: 1260px;
+      padding: 0 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .slide-card {
+      max-width: 840px;
+      width: 100%;
+      background: var(--bg-card);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 24px;
+      padding: 56px 64px;
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 50px rgba(0, 255, 136, 0.04);
+      pointer-events: auto;
+      transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
+    }
+
+    .slide-card.wide-card {
+      max-width: 1160px;
+      padding: 44px 56px;
+    }
+
+    .slide-card.animate-in {
+      animation: slideFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes slideFadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.985);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .slide-main-layout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 44px;
+    }
+
+    .slide-text-col {
+      flex: 1 1 58%;
+      min-width: 0;
+    }
+
+    .slide-title {
+      font-family: var(--font-display);
+      font-size: 3.6rem;
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #ffffff 45%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .slide-subtitle {
+      font-size: 1.4rem;
+      line-height: 1.5;
+      color: var(--accent-cyan);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .slide-body {
+      margin-top: 26px;
+    }
+
+    .key-points-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .key-points-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 1.1rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+
+    .key-points-list li::before {
+      content: "→";
+      color: var(--accent-emerald);
+      font-weight: 700;
+      font-family: var(--font-mono);
+      font-size: 1.15rem;
+      line-height: 1.3;
+      flex-shrink: 0;
+    }
+
+    /* SLIDE 3: CHARACTER ILLUSTRATION & ANIMATED THUMB */
+    .slide-visual-col {
+      flex: 0 0 360px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .character-scene {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      user-select: none;
+    }
+
+    /* Speech / Deal Bubble: HIDDEN by default, shown ONLY on hover */
+    .deal-bubble {
+      position: absolute;
+      top: -76px;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px) scale(0.9);
+      opacity: 0;
+      visibility: hidden;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(18, 22, 30, 0.96);
+      border: 1px solid rgba(251, 191, 36, 0.5);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(251, 191, 36, 0.25);
+      padding: 10px 18px;
+      border-radius: 18px;
+      z-index: 30;
+      white-space: nowrap;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .deal-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid rgba(18, 22, 30, 0.96);
+    }
+
+    .bubble-icon {
+      font-size: 1.6rem;
+      animation: candyBounce 1.5s ease-in-out infinite;
+    }
+
+    .bubble-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .bubble-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fbbf24;
+      letter-spacing: -0.01em;
+    }
+
+    .bubble-sub {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* Character Wrapper & Base */
+    .character-wrapper {
+      position: relative;
+      width: 320px;
+      cursor: pointer;
+      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.7));
+      transition: transform 0.3s ease;
+    }
+
+    .character-wrapper:hover {
+      transform: scale(1.03) translateY(-4px);
+    }
+
+    .character-base-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* The Two Chocolates: HIDDEN by default, shown ONLY on hover */
+    .two-chocolates {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.65);
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 20;
+    }
+
+    .chocolate-icon {
+      position: absolute;
+      font-size: 2.2rem;
+      filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.7));
+    }
+
+    .choco-1 {
+      right: 14%;
+      top: 28%;
+      animation: floatChoco1 2s ease-in-out infinite alternate;
+    }
+
+    .choco-2 {
+      right: 2%;
+      top: 42%;
+      animation: floatChoco2 2.3s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatChoco1 {
+      0% { transform: translateY(0) rotate(-10deg) scale(0.95); }
+      100% { transform: translateY(-16px) rotate(15deg) scale(1.15); }
+    }
+
+    @keyframes floatChoco2 {
+      0% { transform: translateY(0) rotate(10deg) scale(1); }
+      100% { transform: translateY(-20px) rotate(-15deg) scale(1.2); }
+    }
+
+    /* HOVER TRIGGER: Show Dialogue Box & The Two Chocolates ONLY when hovered */
+    .character-scene:hover .deal-bubble,
+    .character-wrapper:hover .deal-bubble {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    .character-scene:hover .two-chocolates,
+    .character-wrapper:hover .two-chocolates {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    @keyframes floatCandy1 {
+      0% { transform: translateY(0) rotate(0deg) scale(0.9); }
+      100% { transform: translateY(-12px) rotate(15deg) scale(1.1); }
+    }
+
+    @keyframes floatCandy2 {
+      0% { transform: translateY(0) rotate(-10deg) scale(1); }
+      100% { transform: translateY(-15px) rotate(10deg) scale(1.15); }
+    }
+
+    @keyframes floatCoin {
+      0% { transform: translateY(0) scale(0.95); opacity: 0.6; }
+      100% { transform: translateY(-8px) scale(1.05); opacity: 0.95; }
+    }
+
+    @keyframes bubbleFloat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-6px); }
+    }
+
+    @keyframes candyBounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-4px) scale(1.15); }
+    }
+
+    /* Scene Badge */
+    .scene-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--accent-emerald);
+      background: rgba(0, 255, 136, 0.08);
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .scene-badge .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent-emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-emerald);
+      animation: pulseDot 2s infinite;
+    }
+
+    /* SLIDE FOOTER */
+    .slide-footer {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .footer-text {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    .footer-text .author-name {
+      color: var(--text-secondary);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    /* BOTTOM FLOATING HUD NAVIGATION */
+    .bottom-hud {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+    }
+
+    .hud-inner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(14, 18, 26, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 8px 18px;
+      border-radius: 40px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55), 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-arrow-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-arrow-btn:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-arrow-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .nav-arrow-btn.primary-next {
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.25), rgba(56, 189, 248, 0.2));
+      border-color: rgba(0, 255, 136, 0.5);
+      color: #ffffff;
+    }
+
+    .nav-arrow-btn.primary-next:hover:not(:disabled) {
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.4), rgba(56, 189, 248, 0.35));
+      border-color: var(--accent-emerald);
+      box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
+    }
+
+    .dots-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 8px;
+    }
+
+    .slide-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.22);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 0;
+    }
+
+    .slide-dot:hover {
+      background: rgba(255, 255, 255, 0.5);
+      transform: scale(1.3);
+    }
+
+    .slide-dot.active {
+      width: 28px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-cyan));
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 1024px) {
+      .slide-main-layout {
+        flex-direction: column;
+        gap: 32px;
+      }
+      .slide-visual-col {
+        flex: 0 0 auto;
+        width: 100%;
+      }
+      .character-wrapper {
+        width: 260px;
+      }
+      .slide-card.wide-card {
+        padding: 36px 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .slide-viewport {
+        padding: 0 20px;
+      }
+      .slide-card {
+        padding: 32px 24px;
+      }
+      .slide-title {
+        font-size: 2.4rem;
+      }
+      .slide-subtitle {
+        font-size: 1.1rem;
+      }
+      .seminar-title {
+        font-size: 0.76rem;
+      }
+    }
+  </style>
 </head>
 <body class="theme-dark">
 
   <!-- Top Progress Bar -->
   <div class="progress-bar-container">
-    <div id="progressBar" class="progress-bar" style="width: 50%;"></div>
+    <div id="progressBar" class="progress-bar"></div>
   </div>
 
   <!-- Header Bar -->
@@ -27,7 +722,7 @@
       <div class="slide-counter">
         <span id="currentSlideNum">01</span>
         <span class="slash">/</span>
-        <span id="totalSlideNum">02</span>
+        <span id="totalSlideNum">03</span>
       </div>
     </div>
 
@@ -58,23 +753,47 @@
     <!-- Slide Content Card -->
     <section class="slide-viewport">
       <div id="slideContent" class="slide-card animate-in">
-        <!-- Tag & Visual Theme (Shown on Slide 2 and future slides, hidden on Slide 1) -->
-        <div class="slide-meta" id="slideMeta" style="display: none;">
-          <span id="slideTag" class="slide-tag">Slide 02 • Core Concept</span>
-          <span class="slide-theme-pill" id="slideVisualTheme">Emerald Monolith & Glowing Maze</span>
-        </div>
+        <div class="slide-main-layout">
+          <!-- Text Content Column -->
+          <div class="slide-text-col">
+            <h1 id="slideTitle" class="slide-title">TRAPPED BY DESIGN</h1>
+            <p id="slideSubtitle" class="slide-subtitle">The Hidden Psychology of How Modern Business Steals Your Money and Attention</p>
 
-        <h1 id="slideTitle" class="slide-title">TRAPPED BY DESIGN</h1>
-        <p id="slideSubtitle" class="slide-subtitle">The Hidden Psychology of How Modern Business Steals Your Money and Attention</p>
+            <!-- Bullet Points (Shown on Slide 2 & 3, hidden on Slide 1) -->
+            <div id="slideBody" class="slide-body" style="display: none;">
+              <ul id="slideKeyPoints" class="key-points-list"></ul>
+            </div>
 
-        <!-- Bullet Points (Shown on Slide 2 and future slides, hidden on Slide 1) -->
-        <div id="slideBody" class="slide-body" style="display: none;">
-          <ul id="slideKeyPoints" class="key-points-list"></ul>
-        </div>
+            <!-- Minimal Footer (Only visible on Slide 1) -->
+            <div class="slide-footer" id="slideFooter">
+              <span class="footer-text" id="footerText">Powered by <strong class="author-name">Ajay K J</strong></span>
+            </div>
+          </div>
 
-        <!-- Minimal Footer (Only visible on Slide 1) -->
-        <div class="slide-footer" id="slideFooter">
-          <span class="footer-text" id="footerText">Powered by <strong class="author-name">Ajay K J</strong></span>
+          <!-- Character Illustration Column (Shown on Slide 3) -->
+          <div class="slide-visual-col" id="characterCol" style="display: none;">
+            <div class="character-scene">
+              <!-- Speech / Deal Bubble: Shown ONLY on hover -->
+              <div class="deal-bubble" id="dealBubble">
+                <span class="bubble-icon">🍫</span>
+                <div class="bubble-content">
+                  <span class="bubble-title" id="bubbleTitle">"Change ila mwone!"</span>
+                  <span class="bubble-sub" id="bubbleSub">Take this chocolate 😉</span>
+                </div>
+              </div>
+
+              <!-- Character wrapper: clean shopkeeper image, two chocolates shown ONLY on hover -->
+              <div class="character-wrapper" id="characterWrapper">
+                <img src="shopkeeper-nobg.png" onerror="this.onerror=null;this.src='shopkeeper.png';" alt="Shopkeeper" class="character-base-img" id="shopkeeperBase">
+                
+                <!-- The Two Chocolates: Shown ONLY on hover -->
+                <div class="two-chocolates" id="twoChocolates">
+                  <span class="chocolate-icon choco-1">🍫</span>
+                  <span class="chocolate-icon choco-2">🍫</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -105,8 +824,589 @@
     </div>
   </nav>
 
-  <!-- Scripts -->
-  <script src="slides.js"></script>
-  <script src="app.js"></script>
+  <!-- ======================================================================= -->
+  <!-- JAVASCRIPT ENGINE & SLIDE DATA                                          -->
+  <!-- ======================================================================= -->
+  <script>
+    // Embedded Slide Data
+    const slidesData = [
+      {
+        id: 1,
+        title: "TRAPPED BY DESIGN",
+        subtitle: "The Hidden Psychology of How Modern Business Steals Your Money and Attention",
+        footer: "Powered by Ajay K J",
+        visualType: "grid-3d",
+        bulletPoints: []
+      },
+      {
+        id: 2,
+        title: "The Illusion of Choice",
+        subtitle: "",
+        visualType: "monolith-maze",
+        bulletPoints: [
+          "We believe our buying decisions belong entirely to us.",
+          "The truth is, human psychology is highly hackable.",
+          "Every interface, notification, and price tag is a silent trap designed to bypass your defenses."
+        ]
+      },
+      {
+        id: 3,
+        title: "My First Lesson in Business",
+        subtitle: "",
+        visualType: "exchange-story",
+        bulletPoints: [
+          "\"When I was a kid, I went to a shop to buy an 8-rupee pen. I gave the shopkeeper a 10-rupee note, expecting 2 rupees back.\"",
+          "\"Instead of coins, he handed me two chocolates and said, 'I don't have any change.'\"",
+          "\"I didn't want the candy, but I took it anyway. Looking back, I realized it wasn't a coin shortage at all—it was a trick.\"",
+          "\"The shopkeeper forced me to buy something I never asked for. I didn't make the choice. He made it for me.\""
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // State
+      let currentSlideIndex = 0;
+      const totalSlides = slidesData.length;
+      let timerSeconds = 0;
+      let timerInterval = null;
+      let isTimerRunning = false;
+
+      // DOM Elements
+      const progressBar = document.getElementById('progressBar');
+      const currentSlideNum = document.getElementById('currentSlideNum');
+      const totalSlideNum = document.getElementById('totalSlideNum');
+
+      const slideCard = document.getElementById('slideContent');
+      const slideTitle = document.getElementById('slideTitle');
+      const slideSubtitle = document.getElementById('slideSubtitle');
+      const slideBody = document.getElementById('slideBody');
+      const slideKeyPoints = document.getElementById('slideKeyPoints');
+      const slideFooter = document.getElementById('slideFooter');
+      const footerText = document.getElementById('footerText');
+      const characterCol = document.getElementById('characterCol');
+      const characterWrapper = document.getElementById('characterWrapper');
+      const shopkeeperThumb = document.getElementById('shopkeeperThumb');
+
+      const btnPrev = document.getElementById('btnPrev');
+      const btnNext = document.getElementById('btnNext');
+      const dotsContainer = document.getElementById('dotsContainer');
+
+      const btnFullscreen = document.getElementById('btnFullscreen');
+      const timerPill = document.getElementById('timerPill');
+      const presentationTimer = document.getElementById('presentationTimer');
+
+      // Canvas Setup
+      const canvas = document.getElementById('visualCanvas');
+      const ctx = canvas.getContext('2d');
+      let canvasWidth = window.innerWidth;
+      let canvasHeight = window.innerHeight;
+      let mouseX = canvasWidth / 2;
+      let mouseY = canvasHeight / 2;
+      let targetMouseX = mouseX;
+      let targetMouseY = mouseY;
+      let animTime = 0;
+
+      // INITIALIZATION
+      function init() {
+        totalSlideNum.textContent = String(totalSlides).padStart(2, '0');
+        renderNavigationDots();
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('mousemove', onMouseMove);
+
+        // Render first slide
+        goToSlide(0);
+
+        // Start timer
+        startTimer();
+
+        // Start animation loop
+        animateCanvas();
+
+        // Interactive character click
+        if (characterWrapper && shopkeeperThumb) {
+          characterWrapper.addEventListener('click', () => {
+            shopkeeperThumb.classList.add('fast-wiggle');
+            setTimeout(() => shopkeeperThumb.classList.remove('fast-wiggle'), 1200);
+          });
+        }
+      }
+
+      // NAVIGATION DOTS
+      function renderNavigationDots() {
+        dotsContainer.innerHTML = '';
+        slidesData.forEach((slide, idx) => {
+          const dot = document.createElement('button');
+          dot.className = `slide-dot ${idx === currentSlideIndex ? 'active' : ''}`;
+          dot.setAttribute('title', `Go to Slide ${idx + 1}`);
+          dot.setAttribute('aria-label', `Slide ${idx + 1}`);
+          dot.addEventListener('click', () => goToSlide(idx));
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      function updateNavigationDots() {
+        const dots = dotsContainer.querySelectorAll('.slide-dot');
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentSlideIndex);
+        });
+      }
+
+      // SLIDE TRANSITIONS
+      function goToSlide(index) {
+        if (index < 0 || index >= totalSlides) return;
+        currentSlideIndex = index;
+        const slide = slidesData[currentSlideIndex];
+
+        // Update Counter & Progress
+        currentSlideNum.textContent = String(currentSlideIndex + 1).padStart(2, '0');
+        const progressPercent = ((currentSlideIndex + 1) / totalSlides) * 100;
+        progressBar.style.width = `${progressPercent}%`;
+
+        // Button states
+        btnPrev.disabled = currentSlideIndex === 0;
+        btnNext.disabled = currentSlideIndex === totalSlides - 1;
+
+        // Trigger slide card animation
+        slideCard.classList.remove('animate-in');
+        void slideCard.offsetWidth;
+        slideCard.classList.add('animate-in');
+
+        // Title
+        slideTitle.textContent = slide.title || '';
+
+        // Subtitle
+        if (slide.subtitle && slide.subtitle.trim().length > 0) {
+          slideSubtitle.style.display = 'block';
+          slideSubtitle.textContent = slide.subtitle;
+        } else {
+          slideSubtitle.style.display = 'none';
+          slideSubtitle.textContent = '';
+        }
+
+        // Bullet Points
+        if (slide.bulletPoints && slide.bulletPoints.length > 0) {
+          slideBody.style.display = 'block';
+          slideKeyPoints.innerHTML = '';
+          slide.bulletPoints.forEach(point => {
+            const li = document.createElement('li');
+            li.textContent = point;
+            slideKeyPoints.appendChild(li);
+          });
+        } else {
+          slideBody.style.display = 'none';
+          slideKeyPoints.innerHTML = '';
+        }
+
+        // Slide Footer (only on Slide 1)
+        if (slide.footer && slide.footer.trim().length > 0) {
+          slideFooter.style.display = 'flex';
+          const cleanAuthor = slide.footer.replace(/^(powered\s*by\s*:?)/i, '').trim();
+          footerText.innerHTML = `Powered by <strong class="author-name">${cleanAuthor || 'Ajay K J'}</strong>`;
+        } else {
+          slideFooter.style.display = 'none';
+        }
+
+        // Slide 3 Character Illustration with moving thumb
+        if (currentSlideIndex === 2) { // Slide 3
+          if (characterCol) characterCol.style.display = 'flex';
+          slideCard.classList.add('wide-card');
+        } else {
+          if (characterCol) characterCol.style.display = 'none';
+          slideCard.classList.remove('wide-card');
+        }
+
+        updateNavigationDots();
+      }
+
+      function nextSlide() {
+        if (currentSlideIndex < totalSlides - 1) {
+          goToSlide(currentSlideIndex + 1);
+        }
+      }
+
+      function prevSlide() {
+        if (currentSlideIndex > 0) {
+          goToSlide(currentSlideIndex - 1);
+        }
+      }
+
+      // TIMER
+      function startTimer() {
+        if (timerInterval) clearInterval(timerInterval);
+        isTimerRunning = true;
+        timerInterval = setInterval(() => {
+          timerSeconds++;
+          const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+          const secs = String(timerSeconds % 60).padStart(2, '0');
+          presentationTimer.textContent = `${mins}:${secs}`;
+        }, 1000);
+      }
+
+      function toggleTimer() {
+        if (isTimerRunning) {
+          clearInterval(timerInterval);
+          isTimerRunning = false;
+          timerPill.style.opacity = '0.5';
+        } else {
+          startTimer();
+          timerPill.style.opacity = '1';
+        }
+      }
+
+      // FULLSCREEN
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(err => {
+            console.warn(`Fullscreen error: ${err.message}`);
+          });
+        } else {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          }
+        }
+      }
+
+      // KEYBOARD CONTROLS
+      btnNext.addEventListener('click', nextSlide);
+      btnPrev.addEventListener('click', prevSlide);
+      btnFullscreen.addEventListener('click', toggleFullscreen);
+      timerPill.addEventListener('click', toggleTimer);
+
+      window.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+        switch (e.key) {
+          case 'ArrowRight':
+          case 'PageDown':
+          case ' ':
+            e.preventDefault();
+            nextSlide();
+            break;
+
+          case 'ArrowLeft':
+          case 'PageUp':
+          case 'Backspace':
+            e.preventDefault();
+            prevSlide();
+            break;
+
+          case 'f':
+          case 'F':
+            e.preventDefault();
+            toggleFullscreen();
+            break;
+
+          case 't':
+          case 'T':
+            e.preventDefault();
+            toggleTimer();
+            break;
+
+          case '1':
+            goToSlide(0);
+            break;
+
+          case '2':
+            goToSlide(1);
+            break;
+
+          case '3':
+            goToSlide(2);
+            break;
+        }
+      });
+
+      // TOUCH SWIPE
+      let touchStartX = 0;
+      let touchEndX = 0;
+      window.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      window.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchEndX - touchStartX;
+        if (diff < -50) nextSlide();
+        else if (diff > 50) prevSlide();
+      }, { passive: true });
+
+      function onMouseMove(e) {
+        targetMouseX = e.clientX;
+        targetMouseY = e.clientY;
+      }
+
+      // CANVAS BACKGROUND ANIMATIONS
+      function resizeCanvas() {
+        canvasWidth = window.innerWidth;
+        canvasHeight = window.innerHeight;
+        canvas.width = canvasWidth * window.devicePixelRatio;
+        canvas.height = canvasHeight * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      }
+
+      function animateCanvas() {
+        animTime += 0.02;
+        mouseX += (targetMouseX - mouseX) * 0.05;
+        mouseY += (targetMouseY - mouseY) * 0.05;
+
+        ctx.fillStyle = '#08090c';
+        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+        const currentSlide = slidesData[currentSlideIndex];
+        if (currentSlide && currentSlide.visualType === 'grid-3d') {
+          render3DGrid();
+        } else if (currentSlide && currentSlide.visualType === 'monolith-maze') {
+          renderMonolithMaze();
+        } else if (currentSlide && currentSlide.visualType === 'exchange-story') {
+          renderExchangeStory();
+        }
+
+        requestAnimationFrame(animateCanvas);
+      }
+
+      // SLIDE 1: 3D GRID
+      function render3DGrid() {
+        const horizonY = canvasHeight * 0.45;
+        const offsetX = (mouseX - canvasWidth / 2) * 0.08;
+        const offsetY = (mouseY - canvasHeight / 2) * 0.05;
+
+        const horizonGlow = ctx.createRadialGradient(
+          canvasWidth * 0.65 + offsetX, horizonY + offsetY, 10,
+          canvasWidth * 0.65 + offsetX, horizonY + offsetY, canvasWidth * 0.5
+        );
+        horizonGlow.addColorStop(0, 'rgba(0, 255, 136, 0.12)');
+        horizonGlow.addColorStop(0.5, 'rgba(56, 189, 248, 0.04)');
+        horizonGlow.addColorStop(1, 'rgba(8, 9, 12, 0)');
+        ctx.fillStyle = horizonGlow;
+        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+        const vpX = canvasWidth * 0.62 + offsetX;
+        const vpY = horizonY + offsetY;
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(0, horizonY - 10, canvasWidth, canvasHeight - horizonY + 10);
+        ctx.clip();
+
+        const numRadials = 28;
+        for (let i = -numRadials; i <= numRadials; i++) {
+          const spread = i * (canvasWidth / 14);
+          const bottomX = vpX + spread * 2.2;
+          const bottomY = canvasHeight + 100;
+
+          const grad = ctx.createLinearGradient(vpX, vpY, bottomX, bottomY);
+          grad.addColorStop(0, 'rgba(0, 255, 136, 0)');
+          grad.addColorStop(0.3, 'rgba(0, 255, 136, 0.08)');
+          grad.addColorStop(1, 'rgba(56, 189, 248, 0.22)');
+
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.moveTo(vpX, vpY);
+          ctx.lineTo(bottomX, bottomY);
+          ctx.stroke();
+        }
+
+        const numHorizontals = 16;
+        const speed = (animTime * 28) % 60;
+        for (let i = 0; i < numHorizontals; i++) {
+          const progress = ((i * 35 + speed) % 550) / 550;
+          if (progress <= 0.01) continue;
+
+          const y = vpY + Math.pow(progress, 2.2) * (canvasHeight - vpY);
+          const halfWidth = Math.pow(progress, 1.8) * canvasWidth * 1.5;
+
+          const alpha = Math.min(progress * 0.45, 0.3);
+          ctx.strokeStyle = `rgba(0, 255, 136, ${alpha})`;
+          ctx.lineWidth = Math.max(0.8, progress * 2);
+
+          ctx.beginPath();
+          ctx.moveTo(vpX - halfWidth, y);
+          ctx.lineTo(vpX + halfWidth, y);
+          ctx.stroke();
+        }
+
+        for (let p = 0; p < 30; p++) {
+          const px = (Math.sin(p * 99 + animTime * 0.4) * 0.5 + 0.5) * canvasWidth;
+          const py = vpY + (Math.cos(p * 37 + animTime * 0.3) * 0.5 + 0.5) * (canvasHeight - vpY);
+          const pSize = (py - vpY) / (canvasHeight - vpY) * 2.5 + 0.5;
+
+          ctx.fillStyle = p % 2 === 0 ? 'rgba(0, 255, 136, 0.55)' : 'rgba(56, 189, 248, 0.45)';
+          ctx.beginPath();
+          ctx.arc(px, py, pSize, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+
+      // SLIDE 2: MONOLITH MAZE
+      function renderMonolithMaze() {
+        const centerX = canvasWidth * 0.68 + (mouseX - canvasWidth / 2) * 0.04;
+        const groundY = canvasHeight * 0.62;
+
+        const monolithGlow = ctx.createRadialGradient(
+          centerX, groundY - 180, 20,
+          centerX, groundY - 180, 480
+        );
+        monolithGlow.addColorStop(0, 'rgba(0, 255, 136, 0.3)');
+        monolithGlow.addColorStop(0.4, 'rgba(16, 185, 129, 0.12)');
+        monolithGlow.addColorStop(1, 'rgba(8, 9, 12, 0)');
+        ctx.fillStyle = monolithGlow;
+        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+        // Perspective maze
+        ctx.save();
+        const rows = 12;
+        const cols = 22;
+        const cellWidth = canvasWidth * 0.045;
+        for (let r = 0; r < rows; r++) {
+          const zProgress = (r + 1) / rows;
+          const nextZProgress = (r + 2) / rows;
+          const y1 = groundY + Math.pow(zProgress, 1.8) * (canvasHeight - groundY);
+          const y2 = groundY + Math.pow(nextZProgress, 1.8) * (canvasHeight - groundY);
+
+          for (let c = -cols / 2; c < cols / 2; c++) {
+            const x1 = centerX + c * cellWidth * Math.pow(zProgress, 1.3);
+            const x2 = centerX + (c + 1) * cellWidth * Math.pow(zProgress, 1.3);
+            const nextX1 = centerX + c * cellWidth * Math.pow(nextZProgress, 1.3);
+
+            const seed = Math.abs(Math.sin(r * 41.3 + c * 17.7));
+            if (seed > 0.42) {
+              const alpha = 0.08 + Math.pow(zProgress, 1.5) * 0.28;
+              ctx.strokeStyle = seed > 0.7 ? `rgba(0, 255, 136, ${alpha})` : `rgba(56, 189, 248, ${alpha * 0.8})`;
+              ctx.lineWidth = Math.max(1, zProgress * 2.2);
+
+              ctx.beginPath();
+              ctx.moveTo(x1, y1);
+              ctx.lineTo(x2, y1);
+              ctx.stroke();
+
+              if (seed > 0.6) {
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(nextX1, y2);
+                ctx.stroke();
+              }
+            }
+          }
+        }
+        ctx.restore();
+
+        // Monolith
+        ctx.save();
+        const monoWidth = 140;
+        const monoHeight = 360;
+        const topY = groundY - monoHeight;
+
+        const beamGrad = ctx.createLinearGradient(centerX, topY, centerX, groundY + 150);
+        beamGrad.addColorStop(0, 'rgba(0, 255, 136, 0.45)');
+        beamGrad.addColorStop(0.3, 'rgba(0, 255, 136, 0.15)');
+        beamGrad.addColorStop(1, 'rgba(0, 255, 136, 0)');
+        ctx.fillStyle = beamGrad;
+        ctx.beginPath();
+        ctx.moveTo(centerX, topY - 10);
+        ctx.lineTo(centerX + monoWidth * 2.5, groundY + 200);
+        ctx.lineTo(centerX - monoWidth * 2.5, groundY + 200);
+        ctx.closePath();
+        ctx.fill();
+
+        const baseShadow = ctx.createRadialGradient(centerX, groundY, 10, centerX, groundY, monoWidth * 1.5);
+        baseShadow.addColorStop(0, 'rgba(0, 0, 0, 0.9)');
+        baseShadow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = baseShadow;
+        ctx.beginPath();
+        ctx.ellipse(centerX, groundY, monoWidth * 1.3, 30, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        const leftGrad = ctx.createLinearGradient(centerX - monoWidth / 2, topY, centerX, groundY);
+        leftGrad.addColorStop(0, '#062d1f');
+        leftGrad.addColorStop(0.5, '#021810');
+        leftGrad.addColorStop(1, '#080d0b');
+        ctx.fillStyle = leftGrad;
+        ctx.beginPath();
+        ctx.moveTo(centerX, topY);
+        ctx.lineTo(centerX - monoWidth * 0.45, topY + 40);
+        ctx.lineTo(centerX - monoWidth * 0.5, groundY);
+        ctx.lineTo(centerX, groundY + 15);
+        ctx.closePath();
+        ctx.fill();
+
+        const rightGrad = ctx.createLinearGradient(centerX, topY, centerX + monoWidth / 2, groundY);
+        rightGrad.addColorStop(0, '#00ff88');
+        rightGrad.addColorStop(0.25, '#10b981');
+        rightGrad.addColorStop(0.7, '#044e33');
+        rightGrad.addColorStop(1, '#021e14');
+        ctx.fillStyle = rightGrad;
+        ctx.beginPath();
+        ctx.moveTo(centerX, topY);
+        ctx.lineTo(centerX + monoWidth * 0.5, topY + 35);
+        ctx.lineTo(centerX + monoWidth * 0.55, groundY);
+        ctx.lineTo(centerX, groundY + 15);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.strokeStyle = 'rgba(0, 255, 136, 0.85)';
+        ctx.lineWidth = 2.5;
+        ctx.shadowColor = '#00ff88';
+        ctx.shadowBlur = 15;
+        ctx.beginPath();
+        ctx.moveTo(centerX, topY);
+        ctx.lineTo(centerX, groundY + 15);
+        ctx.stroke();
+
+        const eyeY = topY + 110 + Math.sin(animTime * 1.5) * 4;
+        ctx.beginPath();
+        ctx.moveTo(centerX - 24, eyeY);
+        ctx.lineTo(centerX, eyeY - 14);
+        ctx.lineTo(centerX + 24, eyeY);
+        ctx.lineTo(centerX, eyeY + 14);
+        ctx.closePath();
+        ctx.stroke();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(centerX, eyeY, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      // SLIDE 3: VALUE EXCHANGE ORBITS
+      function renderExchangeStory() {
+        const cx = canvasWidth * 0.76 + (mouseX - canvasWidth / 2) * 0.03;
+        const cy = canvasHeight * 0.52 + (mouseY - canvasHeight / 2) * 0.03;
+
+        const aura = ctx.createRadialGradient(cx, cy, 10, cx, cy, canvasWidth * 0.35);
+        aura.addColorStop(0, 'rgba(251, 191, 36, 0.12)');
+        aura.addColorStop(0.4, 'rgba(0, 255, 136, 0.05)');
+        aura.addColorStop(1, 'rgba(8, 9, 12, 0)');
+        ctx.fillStyle = aura;
+        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+        ctx.save();
+        const rings = 4;
+        for (let r = 1; r <= rings; r++) {
+          const radiusX = r * 50;
+          const radiusY = r * 24;
+          const rot = animTime * 0.12 * (r % 2 === 0 ? 1 : -1);
+
+          ctx.save();
+          ctx.translate(cx, cy);
+          ctx.rotate(rot);
+          ctx.strokeStyle = r % 2 === 0 ? 'rgba(251, 191, 36, 0.18)' : 'rgba(0, 255, 136, 0.18)';
+          ctx.lineWidth = 1;
+          ctx.setLineDash([6, 10]);
+          ctx.lineDashOffset = animTime * 15 * (r % 2 === 0 ? 1 : -1);
+          ctx.beginPath();
+          ctx.ellipse(0, 0, radiusX, radiusY, 0, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.restore();
+        }
+        ctx.restore();
+      }
+
+      // Start engine
+      init();
+    });
+  </script>
 </body>
 </html>

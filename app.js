@@ -1,16 +1,50 @@
 // =============================================================================
 // SEMINAR PRESENTATION ENGINE
-// Complete presentation system with canvas animations, speaker notes drawer,
-// shortcuts guide, and responsive slide layouts.
-// Clean presentation engine with dynamic canvas visuals and smooth slide transitions.
+// Clean presentation engine with dynamic canvas visuals, character animations,
+// and failsafe data initialization.
 // =============================================================================
+
+// Failsafe Slide Data (Guarantees slides work even if slides.js is blocked)
+if (typeof slidesData === 'undefined' || !Array.isArray(slidesData) || slidesData.length === 0) {
+  window.slidesData = [
+    {
+      id: 1,
+      title: "TRAPPED BY DESIGN",
+      subtitle: "The Hidden Psychology of How Modern Business Steals Your Money and Attention",
+      footer: "Powered by Ajay K J",
+      visualType: "grid-3d",
+      bulletPoints: []
+    },
+    {
+      id: 2,
+      title: "The Illusion of Choice",
+      subtitle: "",
+      visualType: "monolith-maze",
+      bulletPoints: [
+        "We believe our buying decisions belong entirely to us.",
+        "The truth is, human psychology is highly hackable.",
+        "Every interface, notification, and price tag is a silent trap designed to bypass your defenses."
+      ]
+    },
+    {
+      id: 3,
+      title: "My First Lesson in Business",
+      subtitle: "",
+      visualType: "exchange-story",
+      bulletPoints: [
+        "\"When I was a kid, I went to a shop to buy an 8-rupee pen. I gave the shopkeeper a 10-rupee note, expecting 2 rupees back.\"",
+        "\"Instead of coins, he handed me two chocolates and said, 'I don't have any change.'\"",
+        "\"I didn't want the candy, but I took it anyway. Looking back, I realized it wasn't a coin shortage at all—it was a trick.\"",
+        "\"The shopkeeper forced me to buy something I never asked for. I didn't make the choice. He made it for me.\""
+      ]
+    }
+  ];
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   // State
   let currentSlideIndex = 0;
   const totalSlides = slidesData.length;
-  let isNotesOpen = false;
-  let scriptFontSize = 1.35; // rem
   let timerSeconds = 0;
   let timerInterval = null;
   let isTimerRunning = false;
@@ -21,15 +55,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalSlideNum = document.getElementById('totalSlideNum');
 
   const slideCard = document.getElementById('slideContent');
-  const slideMeta = document.getElementById('slideMeta');
-  const slideTag = document.getElementById('slideTag');
-  const slideVisualTheme = document.getElementById('slideVisualTheme');
   const slideTitle = document.getElementById('slideTitle');
   const slideSubtitle = document.getElementById('slideSubtitle');
   const slideBody = document.getElementById('slideBody');
   const slideKeyPoints = document.getElementById('slideKeyPoints');
   const slideFooter = document.getElementById('slideFooter');
   const footerText = document.getElementById('footerText');
+  const characterCol = document.getElementById('characterCol');
+  const characterWrapper = document.getElementById('characterWrapper');
+  const shopkeeperThumb = document.getElementById('shopkeeperThumb');
 
   const btnPrev = document.getElementById('btnPrev');
   const btnNext = document.getElementById('btnNext');
@@ -38,22 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnFullscreen = document.getElementById('btnFullscreen');
   const timerPill = document.getElementById('timerPill');
   const presentationTimer = document.getElementById('presentationTimer');
-
-  // Speaker Script Panel Elements
-  const speakerPanel = document.getElementById('speakerPanel');
-  const btnNotesToggle = document.getElementById('btnNotesToggle');
-  const btnCloseScript = document.getElementById('btnCloseScript');
-  const speakerScriptText = document.getElementById('speakerScriptText');
-  const scriptSlideContext = document.getElementById('scriptSlideContext');
-  const scriptEstTime = document.getElementById('scriptEstTime');
-  const scriptWordCount = document.getElementById('scriptWordCount');
-  const btnFontDown = document.getElementById('btnFontDown');
-  const btnFontUp = document.getElementById('btnFontUp');
-
-  // Shortcuts Modal Elements
-  const btnHelp = document.getElementById('btnHelp');
-  const shortcutsModal = document.getElementById('shortcutsModal');
-  const btnCloseModal = document.getElementById('btnCloseModal');
 
   // Canvas Setup
   const canvas = document.getElementById('visualCanvas');
@@ -84,6 +102,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start background canvas animation loop
     animateCanvas();
+
+    // Interactive shopkeeper hover & click effects
+    const dealBubble = document.getElementById('dealBubble');
+    const bubbleTitle = document.getElementById('bubbleTitle');
+    const bubbleSub = document.getElementById('bubbleSub');
+
+    if (characterWrapper) {
+      characterWrapper.addEventListener('mouseenter', () => {
+        characterWrapper.classList.add('fast-pump');
+        if (bubbleTitle) bubbleTitle.textContent = '"Change ila mwone!"';
+        if (bubbleSub) bubbleSub.textContent = 'Chocolates aano vendathu? 🍫😉';
+        if (dealBubble) dealBubble.classList.add('bubble-glow');
+      });
+
+      characterWrapper.addEventListener('mouseleave', () => {
+        characterWrapper.classList.remove('fast-pump');
+        if (bubbleTitle) bubbleTitle.textContent = '"Change ila mwone!"';
+        if (bubbleSub) bubbleSub.textContent = 'Take 2 chocolates instead 😉';
+        if (dealBubble) dealBubble.classList.remove('bubble-glow');
+      });
+
+      characterWrapper.addEventListener('click', () => {
+        characterWrapper.classList.add('fast-pump');
+        if (bubbleTitle) bubbleTitle.textContent = '"Change ila mwone! 🍫"';
+        if (bubbleSub) bubbleSub.textContent = 'Here, take chocolates! ✨';
+        setTimeout(() => {
+          if (bubbleTitle) bubbleTitle.textContent = '"Change ila mwone!"';
+          if (bubbleSub) bubbleSub.textContent = 'Take 2 chocolates instead 😉';
+          characterWrapper.classList.remove('fast-pump');
+        }, 2200);
+      });
+    }
   }
 
   // ===========================================================================
@@ -130,11 +180,10 @@ document.addEventListener('DOMContentLoaded', () => {
     void slideCard.offsetWidth; // Force CSS reflow
     slideCard.classList.add('animate-in');
 
-    // Title & Subtitle
     // Title
     slideTitle.textContent = slide.title || '';
 
-    // Subtitle (only show if non-empty)
+    // Subtitle
     if (slide.subtitle && slide.subtitle.trim().length > 0) {
       slideSubtitle.style.display = 'block';
       slideSubtitle.textContent = slide.subtitle;
@@ -143,17 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
       slideSubtitle.textContent = '';
     }
 
-    // Slide 1 vs Subsequent Slides Layout
-    if (slide.isTitleSlide || currentSlideIndex === 0) {
-      // First page (Title / Header page): Clean minimal layout matching user screenshot
-      if (slideMeta) slideMeta.style.display = 'none';
-      if (slideBody) slideBody.style.display = 'none';
-      if (slideFooter) {
-        slideFooter.style.display = 'flex';
-        const cleanAuthor = (slide.footer || '').replace(/^(powered\s*by\s*:?)/i, '').trim();
-        footerText.innerHTML = `Powered by <strong class="author-name">${cleanAuthor || 'Ajay K J'}</strong>`;
-      }
-    // Bullet Points (only show if present in slide data)
+    // Bullet Points
     if (slide.bulletPoints && slide.bulletPoints.length > 0) {
       slideBody.style.display = 'block';
       slideKeyPoints.innerHTML = '';
@@ -163,31 +202,11 @@ document.addEventListener('DOMContentLoaded', () => {
         slideKeyPoints.appendChild(li);
       });
     } else {
-      // Subsequent slides: Full features enabled (tags, theme pills, bullet points)
-      if (slideMeta) {
-        slideMeta.style.display = 'flex';
-        slideTag.textContent = slide.tag || `Slide ${String(currentSlideIndex + 1).padStart(2, '0')}`;
-        slideVisualTheme.textContent = slide.themePill || 'Visual Perspective';
-      }
       slideBody.style.display = 'none';
       slideKeyPoints.innerHTML = '';
     }
 
-      if (slideBody && slide.bulletPoints && slide.bulletPoints.length > 0) {
-        slideBody.style.display = 'block';
-        slideKeyPoints.innerHTML = '';
-        slide.bulletPoints.forEach(point => {
-          const li = document.createElement('li');
-          li.textContent = point;
-          slideKeyPoints.appendChild(li);
-        });
-      } else if (slideBody) {
-        slideBody.style.display = 'none';
-      }
-
-      // Hide "Powered by" on other slides as requested
-      if (slideFooter) slideFooter.style.display = 'none';
-    // Slide Footer (only show on slides that have footer defined, e.g. Slide 1)
+    // Slide Footer (only on Slide 1)
     if (slide.footer && slide.footer.trim().length > 0) {
       slideFooter.style.display = 'flex';
       const cleanAuthor = slide.footer.replace(/^(powered\s*by\s*:?)/i, '').trim();
@@ -196,8 +215,15 @@ document.addEventListener('DOMContentLoaded', () => {
       slideFooter.style.display = 'none';
     }
 
-    // Update Speaker Notes Panel for this slide
-    updateSpeakerNotes(slide);
+    // Slide 3 Shopkeeper Character Column & Wide Card
+    if (currentSlideIndex === 2) { // Slide 3
+      if (characterCol) characterCol.style.display = 'flex';
+      slideCard.classList.add('wide-card');
+    } else {
+      if (characterCol) characterCol.style.display = 'none';
+      slideCard.classList.remove('wide-card');
+    }
+
     updateNavigationDots();
   }
 
@@ -211,68 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentSlideIndex > 0) {
       goToSlide(currentSlideIndex - 1);
     }
-  }
-
-  // ===========================================================================
-  // SPEAKER SCRIPT PANEL
-  // ===========================================================================
-  function updateSpeakerNotes(slide) {
-    if (!speakerPanel) return;
-    scriptSlideContext.textContent = `Slide ${slide.id}: ${slide.title}`;
-    speakerScriptText.textContent = `"${slide.speakerScript || 'No notes for this slide.'}"`;
-
-    const script = slide.speakerScript || '';
-    const words = script.trim().length > 0 ? script.trim().split(/\s+/).length : 0;
-    const estimatedSeconds = Math.max(5, Math.round((words / 130) * 60));
-    scriptWordCount.textContent = `${words} words`;
-    scriptEstTime.textContent = `~${estimatedSeconds} seconds`;
-  }
-
-  function toggleSpeakerNotes(forceState) {
-    if (!speakerPanel) return;
-    isNotesOpen = forceState !== undefined ? forceState : !isNotesOpen;
-    speakerPanel.classList.toggle('hidden', !isNotesOpen);
-    if (btnNotesToggle) btnNotesToggle.classList.toggle('active', isNotesOpen);
-  }
-
-  // Script Font Scaling
-  if (btnFontUp) {
-    btnFontUp.addEventListener('click', () => {
-      if (scriptFontSize < 2.0) {
-        scriptFontSize += 0.15;
-        speakerScriptText.style.fontSize = `${scriptFontSize}rem`;
-      }
-    });
-  }
-
-  if (btnFontDown) {
-    btnFontDown.addEventListener('click', () => {
-      if (scriptFontSize > 1.0) {
-        scriptFontSize -= 0.15;
-        speakerScriptText.style.fontSize = `${scriptFontSize}rem`;
-      }
-    });
-  }
-
-  if (btnNotesToggle) btnNotesToggle.addEventListener('click', () => toggleSpeakerNotes());
-  if (btnCloseScript) btnCloseScript.addEventListener('click', () => toggleSpeakerNotes(false));
-
-  // ===========================================================================
-  // SHORTCUTS MODAL
-  // ===========================================================================
-  function toggleShortcutsModal(forceState) {
-    if (!shortcutsModal) return;
-    const isHidden = shortcutsModal.classList.contains('hidden');
-    const newState = forceState !== undefined ? !forceState : isHidden;
-    shortcutsModal.classList.toggle('hidden', !newState);
-  }
-
-  if (btnHelp) btnHelp.addEventListener('click', () => toggleShortcutsModal(true));
-  if (btnCloseModal) btnCloseModal.addEventListener('click', () => toggleShortcutsModal(false));
-  if (shortcutsModal) {
-    shortcutsModal.addEventListener('click', (e) => {
-      if (e.target === shortcutsModal) toggleShortcutsModal(false);
-    });
   }
 
   // ===========================================================================
@@ -316,7 +280,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ===========================================================================
-  // EVENT LISTENERS & KEYBOARD SHORTCUTS
   // EVENT LISTENERS & KEYBOARD CONTROLS
   // ===========================================================================
   btnNext.addEventListener('click', nextSlide);
@@ -342,12 +305,6 @@ document.addEventListener('DOMContentLoaded', () => {
         prevSlide();
         break;
 
-      case 's':
-      case 'S':
-        e.preventDefault();
-        toggleSpeakerNotes();
-        break;
-
       case 'f':
       case 'F':
         e.preventDefault();
@@ -360,22 +317,16 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleTimer();
         break;
 
-      case '?':
-        e.preventDefault();
-        toggleShortcutsModal();
-        break;
-
-      case 'Escape':
-        toggleSpeakerNotes(false);
-        toggleShortcutsModal(false);
-        break;
-
       case '1':
         goToSlide(0);
         break;
 
       case '2':
         goToSlide(1);
+        break;
+
+      case '3':
+        goToSlide(2);
         break;
     }
   });
@@ -433,6 +384,8 @@ document.addEventListener('DOMContentLoaded', () => {
       render3DGrid();
     } else if (currentSlide && currentSlide.visualType === 'monolith-maze') {
       renderMonolithMaze();
+    } else if (currentSlide && currentSlide.visualType === 'exchange-story') {
+      renderExchangeStory();
     }
 
     requestAnimationFrame(animateCanvas);
@@ -446,7 +399,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const offsetX = (mouseX - canvasWidth / 2) * 0.08;
     const offsetY = (mouseY - canvasHeight / 2) * 0.05;
 
-    // Deep space glow behind horizon
     const horizonGlow = ctx.createRadialGradient(
       canvasWidth * 0.65 + offsetX, horizonY + offsetY, 10,
       canvasWidth * 0.65 + offsetX, horizonY + offsetY, canvasWidth * 0.5
@@ -457,7 +409,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.fillStyle = horizonGlow;
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
-    // Perspective floor lines radiating from vanishing point
     const vpX = canvasWidth * 0.62 + offsetX;
     const vpY = horizonY + offsetY;
 
@@ -485,7 +436,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.stroke();
     }
 
-    // Moving horizontal cross lines (giving infinite forward motion)
     const numHorizontals = 16;
     const speed = (animTime * 28) % 60;
 
@@ -506,7 +456,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.stroke();
     }
 
-    // Floating data particles
     for (let p = 0; p < 30; p++) {
       const px = (Math.sin(p * 99 + animTime * 0.4) * 0.5 + 0.5) * canvasWidth;
       const py = vpY + (Math.cos(p * 37 + animTime * 0.3) * 0.5 + 0.5) * (canvasHeight - vpY);
@@ -528,7 +477,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const centerX = canvasWidth * 0.68 + (mouseX - canvasWidth / 2) * 0.04;
     const groundY = canvasHeight * 0.62;
 
-    // Ambient emerald back aura
     const monolithGlow = ctx.createRadialGradient(
       centerX, groundY - 180, 20,
       centerX, groundY - 180, 480
@@ -539,13 +487,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.fillStyle = monolithGlow;
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
-    // 1. Perspective Glowing Maze on the Ground
     drawPerspectiveMaze(centerX, groundY);
-
-    // 2. Towering Emerald Monolith
     drawMonolith(centerX, groundY);
-
-    // 3. Trapped Digital Pulses navigating the maze
     drawMazePulses(centerX, groundY);
   }
 
@@ -599,7 +542,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const monoHeight = 360;
     const topY = gy - monoHeight;
 
-    // Projected Volumetric Downward Light Beam from the Monolith
     const beamGrad = ctx.createLinearGradient(cx, topY, cx, gy + 150);
     beamGrad.addColorStop(0, 'rgba(0, 255, 136, 0.45)');
     beamGrad.addColorStop(0.3, 'rgba(0, 255, 136, 0.15)');
@@ -613,7 +555,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.closePath();
     ctx.fill();
 
-    // Shadow at the base
     const baseShadow = ctx.createRadialGradient(cx, gy, 10, cx, gy, monoWidth * 1.5);
     baseShadow.addColorStop(0, 'rgba(0, 0, 0, 0.9)');
     baseShadow.addColorStop(1, 'rgba(0, 0, 0, 0)');
@@ -622,7 +563,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.ellipse(cx, gy, monoWidth * 1.3, 30, 0, 0, Math.PI * 2);
     ctx.fill();
 
-    // Monolith Left Facet (Dark Obsidian)
     const leftGrad = ctx.createLinearGradient(cx - monoWidth / 2, topY, cx, gy);
     leftGrad.addColorStop(0, '#062d1f');
     leftGrad.addColorStop(0.5, '#021810');
@@ -637,7 +577,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.closePath();
     ctx.fill();
 
-    // Monolith Right Facet (Emerald Light Catch)
     const rightGrad = ctx.createLinearGradient(cx, topY, cx + monoWidth / 2, gy);
     rightGrad.addColorStop(0, '#00ff88');
     rightGrad.addColorStop(0.25, '#10b981');
@@ -653,7 +592,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.closePath();
     ctx.fill();
 
-    // Glowing Monolith Edges
     ctx.strokeStyle = 'rgba(0, 255, 136, 0.85)';
     ctx.lineWidth = 2.5;
     ctx.shadowColor = '#00ff88';
@@ -676,7 +614,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.closePath();
     ctx.stroke();
 
-    // Glowing Glyph
     ctx.shadowBlur = 20;
     ctx.strokeStyle = '#00ff88';
     ctx.lineWidth = 2;
@@ -722,6 +659,47 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.arc(x, y, size, 0, Math.PI * 2);
       ctx.fill();
     }
+    ctx.restore();
+  }
+
+  // ---------------------------------------------------------------------------
+  // SLIDE 3: VALUE EXCHANGE / TRANSACTION ORBITS
+  // ---------------------------------------------------------------------------
+  function renderExchangeStory() {
+    const cx = canvasWidth * 0.76 + (mouseX - canvasWidth / 2) * 0.03;
+    const cy = canvasHeight * 0.52 + (mouseY - canvasHeight / 2) * 0.03;
+
+    const aura = ctx.createRadialGradient(cx, cy, 10, cx, cy, canvasWidth * 0.35);
+    aura.addColorStop(0, 'rgba(251, 191, 36, 0.12)');
+    aura.addColorStop(0.4, 'rgba(0, 255, 136, 0.05)');
+    aura.addColorStop(1, 'rgba(8, 9, 12, 0)');
+    ctx.fillStyle = aura;
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+    ctx.save();
+
+    const rings = 4;
+    for (let r = 1; r <= rings; r++) {
+      const radiusX = r * 50;
+      const radiusY = r * 24;
+      const rot = animTime * 0.12 * (r % 2 === 0 ? 1 : -1);
+
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(rot);
+
+      ctx.strokeStyle = r % 2 === 0 ? 'rgba(251, 191, 36, 0.18)' : 'rgba(0, 255, 136, 0.18)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([6, 10]);
+      ctx.lineDashOffset = animTime * 15 * (r % 2 === 0 ? 1 : -1);
+
+      ctx.beginPath();
+      ctx.ellipse(0, 0, radiusX, radiusY, 0, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
     ctx.restore();
   }
 
