@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRAPPED BY DESIGN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark">
+
+  <!-- Top Progress Bar -->
+  <div class="progress-bar-container">
+    <div id="progressBar" class="progress-bar" style="width: 50%;"></div>
+  </div>
+
+  <!-- Header Bar -->
+  <header class="presentation-header">
+    <div class="header-left">
+      <span class="live-dot"></span>
+      <span class="seminar-title">SEMINAR <span class="divider">/</span> TRAPPED BY DESIGN</span>
+    </div>
+
+    <div class="header-center">
+      <div class="slide-counter">
+        <span id="currentSlideNum">01</span>
+        <span class="slash">/</span>
+        <span id="totalSlideNum">02</span>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="timer-pill" id="timerPill" title="Seminar Timer (Click to pause/resume)">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span id="presentationTimer">00:00</span>
+      </div>
+
+      <button id="btnFullscreen" class="hud-btn icon-only" title="Toggle Fullscreen (Shortcut: F)">
+        <svg class="icon" id="fullscreenIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Presentation Stage with Animated Canvas Background -->
+  <main class="presentation-stage">
+    <div class="visual-viewport">
+      <canvas id="visualCanvas"></canvas>
+      <div class="vignette-overlay"></div>
+    </div>
+
+    <!-- Slide Content Card -->
+    <section class="slide-viewport">
+      <div id="slideContent" class="slide-card animate-in">
+        <!-- Tag & Visual Theme (Shown on Slide 2 and future slides, hidden on Slide 1) -->
+        <div class="slide-meta" id="slideMeta" style="display: none;">
+          <span id="slideTag" class="slide-tag">Slide 02 • Core Concept</span>
+          <span class="slide-theme-pill" id="slideVisualTheme">Emerald Monolith & Glowing Maze</span>
+        </div>
+
+        <h1 id="slideTitle" class="slide-title">TRAPPED BY DESIGN</h1>
+        <p id="slideSubtitle" class="slide-subtitle">The Hidden Psychology of How Modern Business Steals Your Money and Attention</p>
+
+        <!-- Bullet Points (Shown on Slide 2 and future slides, hidden on Slide 1) -->
+        <div id="slideBody" class="slide-body" style="display: none;">
+          <ul id="slideKeyPoints" class="key-points-list"></ul>
+        </div>
+
+        <!-- Minimal Footer (Only visible on Slide 1) -->
+        <div class="slide-footer" id="slideFooter">
+          <span class="footer-text" id="footerText">Powered by <strong class="author-name">Ajay K J</strong></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom Navigation HUD -->
+  <nav class="bottom-hud">
+    <div class="hud-inner">
+      <button id="btnPrev" class="nav-arrow-btn" aria-label="Previous Slide">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span class="btn-text">Back</span>
+      </button>
+
+      <div class="dots-container" id="dotsContainer">
+        <!-- Dots rendered via JavaScript -->
+      </div>
+
+      <button id="btnNext" class="nav-arrow-btn primary-next" aria-label="Next Slide">
+        <span class="btn-text">Next</span>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="slides.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
