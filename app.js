@@ -37,6 +37,18 @@ if (typeof slidesData === 'undefined' || !Array.isArray(slidesData) || slidesDat
         "\"I didn't want the candy, but I took it anyway. Looking back, I realized it wasn't a coin shortage at all—it was a trick.\"",
         "\"The shopkeeper forced me to buy something I never asked for. I didn't make the choice. He made it for me.\""
       ]
+    },
+    {
+      id: 4,
+      title: "The Coca-Cola Ice Trick",
+      subtitle: "",
+      visualType: "cola-ice-trick",
+      bulletPoints: [
+        "\"Think about the last time you bought a cold Coca-Cola at a fast-food restaurant.\"",
+        "\"You see two options on the menu: a medium cup or a massive large cup. You pay the extra money because the large cup looks like a much better deal.\"",
+        "\"But here is the trick: the workers fill that large cup straight to the top with ice. If you take the ice out, the medium and the large hold the exact same amount of actual soda.\"",
+        "\"You didn't buy more to drink. You just paid extra money for frozen water and a bigger paper cup.\""
+      ]
     }
   ];
 }
@@ -62,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const slideFooter = document.getElementById('slideFooter');
   const footerText = document.getElementById('footerText');
   const characterCol = document.getElementById('characterCol');
+  const cocaColaCol = document.getElementById('cocaColaCol');
   const characterWrapper = document.getElementById('characterWrapper');
   const shopkeeperThumb = document.getElementById('shopkeeperThumb');
 
@@ -215,11 +228,11 @@ document.addEventListener('DOMContentLoaded', () => {
       slideFooter.style.display = 'none';
     }
 
-    // Slide 3 Shopkeeper Character Column & Wide Card
-    if (currentSlideIndex === 2) { // Slide 3
+    // Slide 3 Character Illustration (Shopkeeper)
+    if (currentSlideIndex === 2) { // Slide 3: Shopkeeper
       if (characterCol) characterCol.style.display = 'flex';
       slideCard.classList.add('wide-card');
-    } else {
+    } else { // Slides 1, 2, 4
       if (characterCol) characterCol.style.display = 'none';
       slideCard.classList.remove('wide-card');
     }
@@ -328,6 +341,10 @@ document.addEventListener('DOMContentLoaded', () => {
       case '3':
         goToSlide(2);
         break;
+
+      case '4':
+        goToSlide(3);
+        break;
     }
   });
 
@@ -386,6 +403,8 @@ document.addEventListener('DOMContentLoaded', () => {
       renderMonolithMaze();
     } else if (currentSlide && currentSlide.visualType === 'exchange-story') {
       renderExchangeStory();
+    } else if (currentSlide && currentSlide.visualType === 'cola-ice-trick') {
+      renderColaIceVisual();
     }
 
     requestAnimationFrame(animateCanvas);
@@ -701,6 +720,231 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     ctx.restore();
+  }
+
+  // ---------------------------------------------------------------------------
+  // SLIDE 4: COCA-COLA ICE TRICK CANVAS VISUAL
+  // ---------------------------------------------------------------------------
+  function renderColaIceVisual() {
+    const cx = canvasWidth * 0.76 + (mouseX - canvasWidth / 2) * 0.03;
+    const cy = canvasHeight * 0.5;
+
+    // Cold cyan & crimson fizzy gradient aura
+    const aura = ctx.createRadialGradient(cx, cy, 20, cx, cy, canvasWidth * 0.4);
+    aura.addColorStop(0, 'rgba(56, 189, 248, 0.16)');
+    aura.addColorStop(0.35, 'rgba(239, 68, 68, 0.06)');
+    aura.addColorStop(1, 'rgba(8, 9, 12, 0)');
+    ctx.fillStyle = aura;
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+    // Effervescent rising soda bubbles & cold sparkles
+    ctx.save();
+    const bubbleCount = 45;
+    for (let b = 0; b < bubbleCount; b++) {
+      const speed = 1.2 + (b % 5) * 0.5;
+      const yProgress = ((animTime * speed * 35 + b * 45) % (canvasHeight * 0.85));
+      const y = canvasHeight * 0.9 - yProgress;
+      const xSpread = Math.sin(b * 33.7 + animTime * 0.8) * 160;
+      const x = cx + xSpread;
+
+      const size = 1.5 + (b % 4) * 1.8;
+      const alpha = Math.sin((yProgress / (canvasHeight * 0.85)) * Math.PI) * 0.45;
+
+      ctx.fillStyle = b % 2 === 0 ? `rgba(56, 189, 248, ${alpha})` : `rgba(255, 255, 255, ${alpha * 0.8})`;
+      ctx.beginPath();
+      ctx.arc(x, y, size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Shimmering ice crystal flakes
+    for (let f = 0; f < 18; f++) {
+      const fx = cx + Math.sin(f * 43.1 + animTime * 0.5) * 220;
+      const fy = cy + Math.cos(f * 27.3 + animTime * 0.4) * 180;
+      const fSize = 2 + (f % 3) * 2;
+      const fAlpha = 0.25 + Math.sin(animTime * 2 + f) * 0.2;
+
+      ctx.strokeStyle = `rgba(56, 189, 248, ${fAlpha})`;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(fx - fSize, fy);
+      ctx.lineTo(fx + fSize, fy);
+      ctx.moveTo(fx, fy - fSize);
+      ctx.lineTo(fx, fy + fSize);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  // SLIDE 5: THE TRAP OF THE FREE TRIAL CANVAS VISUAL
+  function renderFreeTrialTrapVisual() {
+    const cx = canvasWidth * 0.72 + (mouseX - canvasWidth / 2) * 0.04;
+    const cy = canvasHeight * 0.5 + (mouseY - canvasHeight / 2) * 0.04;
+
+    // Dark amber & crimson ambient radial gradient aura
+    const aura = ctx.createRadialGradient(cx, cy, 30, cx, cy, canvasWidth * 0.45);
+    aura.addColorStop(0, 'rgba(251, 191, 36, 0.12)');
+    aura.addColorStop(0.35, 'rgba(239, 68, 68, 0.06)');
+    aura.addColorStop(1, 'rgba(8, 9, 12, 0)');
+    ctx.fillStyle = aura;
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+    // Floating digital date particles & padlocks
+    ctx.save();
+    const numParticles = 24;
+    for (let i = 0; i < numParticles; i++) {
+      const speed = 0.8 + (i % 4) * 0.3;
+      const y = ((animTime * speed * 25 + i * 50) % canvasHeight);
+      const x = cx + Math.sin(i * 19.3 + animTime * 0.7) * 200;
+      const alpha = Math.sin((y / canvasHeight) * Math.PI) * 0.35;
+
+      ctx.fillStyle = i % 3 === 0 ? `rgba(251, 191, 36, ${alpha})` : (i % 3 === 1 ? `rgba(239, 68, 68, ${alpha})` : `rgba(56, 189, 248, ${alpha})`);
+      ctx.font = '10px monospace';
+      const labels = ['AUG 1', 'SEP 1', 'Rs 1499', '🔒', 'FREE', 'DEBIT'];
+      ctx.fillText(labels[i % labels.length], x, y);
+    }
+    ctx.restore();
+  }
+
+  // =========================================================================
+  // SLIDE 5: FREE TRIAL CALENDAR & DEBIT SIMULATOR
+  // =========================================================================
+  let calState = {
+    month: 7, // 7 = August (0-indexed)
+    year: 2026,
+    trialStarted: false
+  };
+
+  const USER_LINKEDIN_URL = "https://www.linkedin.com";
+
+  function initCalendarSimulator() {
+    const calMonthName = document.getElementById('calMonthName');
+    const calYearName = document.getElementById('calYearName');
+    const calGrid = document.getElementById('calGrid');
+    const debitNotificationCard = document.getElementById('debitNotificationCard');
+    const calendarCard = document.getElementById('calendarCard');
+    const calPrevBtn = document.getElementById('calPrevBtn');
+    const calNextBtn = document.getElementById('calNextBtn');
+    const btnCancelTrap = document.getElementById('btnCancelTrap');
+    const frictionLockToast = document.getElementById('frictionLockToast');
+
+    if (!calGrid) return;
+
+    function renderCalendar() {
+      calGrid.innerHTML = '';
+      const isAugust = calState.month === 7;
+
+      if (calMonthName) calMonthName.textContent = isAugust ? 'AUGUST' : 'SEPTEMBER';
+      if (calYearName) calYearName.textContent = '2026';
+
+      if (isAugust) {
+        if (calendarCard) calendarCard.classList.remove('september-trap');
+        if (debitNotificationCard) debitNotificationCard.style.display = 'none';
+        if (frictionLockToast) frictionLockToast.style.display = 'none';
+
+        // August 2026 starts on Saturday (5 empty cells for Mon-Fri)
+        for (let e = 0; e < 5; e++) {
+          const empty = document.createElement('div');
+          empty.className = 'cal-day-cell empty';
+          calGrid.appendChild(empty);
+        }
+
+        // Days 1 to 31
+        for (let d = 1; d <= 31; d++) {
+          const cell = document.createElement('div');
+          cell.className = 'cal-day-cell';
+          cell.textContent = d;
+
+          if (d === 1) {
+            cell.classList.add('active-trial-day');
+            cell.title = 'August 1 (Click to visit LinkedIn)';
+            cell.addEventListener('click', (e) => {
+              e.stopPropagation();
+              calState.trialStarted = true;
+              window.open(USER_LINKEDIN_URL, '_blank');
+              if (calNextBtn) calNextBtn.classList.add('hint-pulse');
+            });
+          }
+
+          calGrid.appendChild(cell);
+        }
+      } else {
+        // September 2026
+        if (calendarCard) calendarCard.classList.add('september-trap');
+        if (calNextBtn) calNextBtn.classList.remove('hint-pulse');
+
+        // September 2026 starts on Tuesday (1 empty cell)
+        for (let e = 0; e < 1; e++) {
+          const empty = document.createElement('div');
+          empty.className = 'cal-day-cell empty';
+          calGrid.appendChild(empty);
+        }
+
+        // Days 1 to 30
+        for (let d = 1; d <= 30; d++) {
+          const cell = document.createElement('div');
+          cell.className = 'cal-day-cell';
+          cell.textContent = d;
+
+          if (d === 1) {
+            cell.classList.add('renewal-day');
+            cell.title = 'Day 31: LinkedIn Auto-Renewal Date (Card Charged)';
+            const tag = document.createElement('span');
+            tag.className = 'renewal-day-tag';
+            tag.textContent = 'CHARGED';
+            cell.appendChild(tag);
+
+            cell.addEventListener('click', (e) => {
+              e.stopPropagation();
+              if (debitNotificationCard) {
+                debitNotificationCard.style.display = 'block';
+              }
+            });
+          }
+
+          calGrid.appendChild(cell);
+        }
+
+        // Show the exact BZCBSSBI SMS debit notification from user's image
+        if (debitNotificationCard) debitNotificationCard.style.display = 'block';
+      }
+    }
+
+    // Navigation buttons
+    if (calPrevBtn) {
+      calPrevBtn.onclick = () => {
+        calState.month = 7; // Back to August
+        renderCalendar();
+      };
+    }
+
+    if (calNextBtn) {
+      calNextBtn.onclick = () => {
+        calState.month = 8; // Forward to September
+        renderCalendar();
+      };
+    }
+
+    // Also allow clicking the month name to toggle
+    if (calMonthName) {
+      calMonthName.style.cursor = 'pointer';
+      calMonthName.title = 'Click to switch month';
+      calMonthName.onclick = () => {
+        calState.month = calState.month === 7 ? 8 : 7;
+        renderCalendar();
+      };
+    }
+
+    // Cancel button friction trap
+    if (btnCancelTrap) {
+      btnCancelTrap.onclick = (e) => {
+        e.stopPropagation();
+        if (frictionLockToast) {
+          frictionLockToast.style.display = 'flex';
+        }
+      };
+    }
+
+    renderCalendar();
   }
 
   // Initialize

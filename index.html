@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   
   <style>
     /* ==========================================================================
@@ -702,6 +703,535 @@
         font-size: 0.76rem;
       }
     }
+    /* ==========================================================================
+       SLIDE 5: THE TRAP OF THE FREE TRIAL (CALENDAR & DEBIT SIMULATION)
+       ========================================================================== */
+    .trial-sim-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 24px;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      width: 410px;
+      max-width: 100%;
+      user-select: none;
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sim-header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(14, 20, 32, 0.95);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #38bdf8;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .sim-pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 8px var(--accent-emerald);
+      animation: pulseGreenGlow 1.4s infinite alternate;
+    }
+
+    @keyframes pulseGreenGlow {
+      0% { opacity: 0.5; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1.3); }
+    }
+
+    /* Calendar Card */
+    .calendar-card {
+      width: 320px;
+      flex-shrink: 0;
+      width: 100%;
+      background: rgba(13, 18, 28, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 16px 18px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(56, 189, 248, 0.1);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .calendar-card.september-trap {
+      border-color: rgba(239, 68, 68, 0.55);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75), 0 0 30px rgba(239, 68, 68, 0.25);
+    }
+
+    .cal-month-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .cal-arrow-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cal-arrow-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: rgba(56, 189, 248, 0.6);
+      color: #38bdf8;
+      transform: scale(1.08);
+    }
+
+    .cal-arrow-btn.hint-pulse {
+      animation: pulseBtnAlert 1.5s infinite alternate;
+      border-color: #38bdf8;
+    }
+
+    @keyframes pulseBtnAlert {
+      0% { box-shadow: 0 0 5px rgba(56, 189, 248, 0.3); transform: scale(1); }
+      100% { box-shadow: 0 0 16px rgba(56, 189, 248, 0.8); transform: scale(1.1); }
+    }
+
+    .cal-month-display {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f8fafc;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .cal-year {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+    }
+
+    .cal-weekday-row {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+    }
+
+    .cal-day-cell {
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .cal-day-cell.empty {
+      background: transparent;
+      border-color: transparent;
+      pointer-events: none;
+    }
+
+    /* August 1st - Start Free Trial Day */
+    .cal-day-cell.active-trial-day {
+      background: rgba(0, 255, 136, 0.18);
+      border: 1.5px solid var(--accent-emerald);
+      color: #00ff88;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 0 16px rgba(0, 255, 136, 0.4);
+      animation: pulseTrialCell 1.8s infinite alternate;
+    }
+
+    .cal-day-cell.active-trial-day:hover {
+      transform: scale(1.12);
+      background: rgba(0, 255, 136, 0.3);
+      box-shadow: 0 0 22px rgba(0, 255, 136, 0.7);
+    }
+
+    @keyframes pulseTrialCell {
+      0% { transform: scale(1); border-color: rgba(0, 255, 136, 0.6); }
+      100% { transform: scale(1.06); border-color: rgba(0, 255, 136, 1); }
+    }
+
+    .trial-day-tag {
+      position: absolute;
+      bottom: 2px;
+      font-size: 0.5rem;
+      font-weight: 800;
+      color: #00ff88;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    /* September 1st - THE EXCITING AUTO-RENEWAL TRAP DAY */
+    /* September 1st - Auto-Renewal Trap Day */
+    .cal-day-cell.renewal-day {
+      background: radial-gradient(circle at center, rgba(239, 68, 68, 0.55) 0%, rgba(185, 28, 28, 0.25) 100%);
+      border: 2px solid #ef4444;
+      color: #ffffff;
+      background: rgba(239, 68, 68, 0.22);
+      border: 1.5px solid #ef4444;
+      color: #f87171;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.8), inset 0 0 10px rgba(239, 68, 68, 0.4);
+      animation: pulseRedTrap 1.4s infinite alternate;
+      position: relative;
+      box-shadow: 0 0 16px rgba(239, 68, 68, 0.5);
+      animation: pulseRedRenewal 1.6s infinite alternate;
+    }
+
+    @keyframes pulseRedTrap {
+      0% { transform: scale(1); box-shadow: 0 0 14px rgba(239, 68, 68, 0.6); }
+      100% { transform: scale(1.1); box-shadow: 0 0 28px rgba(239, 68, 68, 1); }
+    @keyframes pulseRedRenewal {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.07); }
+    }
+
+    .cal-day-cell.renewal-day::before {
+      content: '';
+    .renewal-day-tag {
+      position: absolute;
+      top: -4px; left: -4px; right: -4px; bottom: -4px;
+      border-radius: 12px;
+      border: 2px solid #ef4444;
+      animation: trapPing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+      pointer-events: none;
+    }
+
+    @keyframes trapPing {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      100% { transform: scale(1.35); opacity: 0; }
+    }
+
+    .trap-mini-tag {
+      position: absolute;
+      bottom: 2px;
+      font-size: 0.46rem;
+      font-weight: 900;
+      color: #fca5a5;
+      letter-spacing: 0.02em;
+      font-size: 0.5rem;
+      font-weight: 800;
+      color: #f87171;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    /* Anchor wide-card layout and expand width */
+    .slide-card.wide-card {
+      max-width: 1240px;
+      padding: 40px 48px;
+    .cal-status-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.74rem;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+    }
+
+    .slide-card.wide-card .slide-main-layout {
+      align-items: flex-start;
+      gap: 36px;
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #38bdf8;
+    }
+
+    /* ==========================================================================
+       REALISTIC PHONE SMS DEBIT CARD (BZCBSSBI)
+       ========================================================================== */
+    .sms-phone-card {
+      width: 320px;
+      flex-shrink: 0;
+      background: #11141b;
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(22, 163, 74, 0.2);
+      animation: slideInFromRight 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    /* Bank Auto-Debit Alert Card */
+    .debit-notification-card {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(28, 16, 22, 0.96) 0%, rgba(16, 10, 14, 0.98) 100%);
+      border: 1px solid rgba(239, 68, 68, 0.55);
+      border-radius: 18px;
+      padding: 14px 16px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(239, 68, 68, 0.25);
+      animation: slideDownAlert 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes slideInFromRight {
+      0% { opacity: 0; transform: translateX(30px) scale(0.95); }
+      100% { opacity: 1; transform: translateX(0) scale(1); }
+    @keyframes slideDownAlert {
+      0% { opacity: 0; transform: translateY(-16px) scale(0.95); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .sms-header {
+    .notif-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      background: #181b24;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 6px;
+    }
+
+    .sms-header-left {
+    .bank-tag {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sms-back-btn {
+      background: none;
+      border: none;
+      color: #cbd5e1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 0;
+    }
+
+    .sms-sender-title {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+      color: #f87171;
+    }
+
+    .sms-header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #94a3b8;
+    .notif-time {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+    }
+
+    .sms-icon {
+      cursor: pointer;
+    }
+
+    .sms-screen-body {
+      padding: 16px 14px 12px 14px;
+    .notif-amount-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-items: baseline;
+      justify-content: space-between;
+      margin: 4px 0 6px 0;
+    }
+
+    .sms-time-stamp {
+      font-size: 0.68rem;
+      color: #64748b;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+    .amount-minus {
+      font-family: var(--font-mono);
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #f87171;
+      text-shadow: 0 0 14px rgba(248, 113, 113, 0.5);
+    }
+
+    .sms-message-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      width: 100%;
+    .amount-tag {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      background: rgba(239, 68, 68, 0.15);
+      color: #fca5a5;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    .sms-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #15803d;
+      color: #ffffff;
+    .notif-desc-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(21, 128, 61, 0.4);
+    }
+
+    .sms-bubble-container {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+      gap: 2px;
+      margin-bottom: 10px;
+    }
+
+    .sms-bubble {
+      background: #222632;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      padding: 12px 14px;
+      border-radius: 16px 16px 16px 4px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+      word-break: break-word;
+    .merchant-name {
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+
+    .sms-bubble-sub {
+      font-size: 0.65rem;
+      color: #64748b;
+      margin-left: 4px;
+      font-family: var(--font-mono);
+    .notif-memo {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+    }
+
+    .sms-cancel-action {
+      padding: 4px 14px 14px 14px;
+    .notif-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-cancel-trap {
+      width: 100%;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #fca5a5;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #f8fafc;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 9px 12px;
+      border-radius: 12px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .btn-cancel-trap:hover {
+      background: rgba(239, 68, 68, 0.25);
+      border-color: #ef4444;
+      color: #ffffff;
+      background: rgba(239, 68, 68, 0.18);
+      border-color: rgba(239, 68, 68, 0.5);
+      color: #fca5a5;
+    }
+
+    /* The Friction Roadblock Toast */
+    .friction-lock-toast {
+      margin: 0 14px 14px 14px;
+      background: rgba(18, 12, 12, 0.98);
+      border: 1px solid rgba(251, 191, 36, 0.65);
+      margin-top: 10px;
+      background: rgba(12, 10, 8, 0.96);
+      border: 1px solid rgba(251, 191, 36, 0.6);
+      padding: 10px 12px;
+      border-radius: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.72rem;
+      color: #fbbf24;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+      animation: shakeRoadblock 0.4s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      animation: shakeLock 0.35s ease;
+    }
+
+    @keyframes shakeRoadblock {
+    @keyframes shakeLock {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-5px); }
+      40%, 80% { transform: translateX(5px); }
+    }
+
+    .toast-lock-icon {
+      font-size: 1.1rem;
+    }
+
+    .toast-body {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
   </style>
 </head>
 <body class="theme-dark">
@@ -722,7 +1252,7 @@
       <div class="slide-counter">
         <span id="currentSlideNum">01</span>
         <span class="slash">/</span>
-        <span id="totalSlideNum">03</span>
+        <span id="totalSlideNum">05</span>
       </div>
     </div>
 
@@ -794,6 +1324,77 @@
               </div>
             </div>
           </div>
+
+          <!-- Slide 5: The Trap of the Free Trial Visual Column -->
+          <div class="slide-visual-col" id="trialCalendarCol" style="display: none;">
+            <div class="trial-sim-container">
+
+              <!-- Interactive Calendar Card -->
+              <div class="calendar-card" id="calendarCard">
+                <div class="cal-month-header">
+                  <button class="cal-arrow-btn" id="calPrevBtn" title="Previous Month" aria-label="Previous Month">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                  </button>
+                  <div class="cal-month-display">
+                    <span id="calMonthName">AUGUST</span>
+                    <span id="calYearName" class="cal-year">2026</span>
+                  </div>
+                  <button class="cal-arrow-btn" id="calNextBtn" title="Next Month" aria-label="Next Month">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </button>
+                </div>
+
+                <!-- Weekday Headers -->
+                <div class="cal-weekday-row">
+                  <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+                </div>
+
+                <!-- Days Grid -->
+                <div class="cal-grid" id="calGrid"></div>
+
+              </div>
+
+              <!-- Phone SMS Debit Screen (Exact replica of BZCBSSBI SMS from user's uploaded Image) -->
+              <div class="sms-phone-card" id="debitNotificationCard" style="display: none;">
+                <!-- Android SMS App Header -->
+                <div class="sms-header">
+                  <div class="sms-header-left">
+                    <button class="sms-back-btn" aria-label="Back">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <span class="sms-sender-title">BZCBSSBI</span>
+                  </div>
+                  <div class="sms-header-right">
+                    <svg class="sms-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <svg class="sms-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="12" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></svg>
+                  </div>
+                </div>
+
+                <!-- SMS Body Content -->
+                <div class="sms-screen-body">
+                  <div class="sms-time-stamp">8:15 pm</div>
+                  
+                  <div class="sms-message-row">
+                    <div class="sms-avatar">
+                      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </div>
+                    <div class="sms-bubble-container">
+                      <div class="sms-bubble">
+                        Your A/C XXXXX345456<br>
+                        has debited for 00000018632<br>
+                        010926 LINKEDIN of Rs 1,499.00<br>
+                        on 01/09/26. Avl Bal Rs<br>
+                        978.74.-SBI
+                      </div>
+                      <div class="sms-bubble-sub">16 min</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -859,6 +1460,30 @@
           "\"Instead of coins, he handed me two chocolates and said, 'I don't have any change.'\"",
           "\"I didn't want the candy, but I took it anyway. Looking back, I realized it wasn't a coin shortage at all—it was a trick.\"",
           "\"The shopkeeper forced me to buy something I never asked for. I didn't make the choice. He made it for me.\""
+        ]
+      },
+      {
+        id: 4,
+        title: "The Coca-Cola Ice Trick",
+        subtitle: "",
+        visualType: "cola-ice-trick",
+        bulletPoints: [
+          "\"Think about the last time you bought a cold Coca-Cola at a fast-food restaurant.\"",
+          "\"You see two options on the menu: a medium cup or a massive large cup. You pay the extra money because the large cup looks like a much better deal.\"",
+          "\"But here is the trick: the workers fill that large cup straight to the top with ice. If you take the ice out, the medium and the large hold the exact same amount of actual soda.\"",
+          "\"You didn't buy more to drink. You just paid extra money for frozen water and a bigger paper cup.\""
+        ]
+      },
+      {
+        id: 5,
+        title: "The Trap of the Free Trial",
+        subtitle: "",
+        visualType: "free-trial-trap",
+        bulletPoints: [
+          "\"We have all signed up for a free trial or a software subscription online, thinking it is risk-free.\"",
+          "\"They make it effortless to join—just one click, a saved card, and you are inside. But when you finally want to leave, the door is locked.\"",
+          "\"They hide the cancellation button behind five different menus, force you to click through popups, or even make you talk to a customer service agent just to stop paying.\"",
+          "\"They use friction as a weapon. They count on the fact that you will get too tired, too busy, or too annoyed to finish canceling, forcing you to pay for another month you never wanted.\""
         ]
       }
     ];
@@ -1007,12 +1632,22 @@
           slideFooter.style.display = 'none';
         }
 
-        // Slide 3 Character Illustration with moving thumb
-        if (currentSlideIndex === 2) { // Slide 3
+        // Visual Columns Toggle (Slide 3: Shopkeeper, Slide 5: Free Trial Trap Calendar)
+        const characterCol = document.getElementById('characterCol');
+        const trialCalendarCol = document.getElementById('trialCalendarCol');
+
+        if (currentSlideIndex === 2) { // Slide 3: Shopkeeper
           if (characterCol) characterCol.style.display = 'flex';
+          if (trialCalendarCol) trialCalendarCol.style.display = 'none';
           slideCard.classList.add('wide-card');
-        } else {
+        } else if (currentSlideIndex === 4) { // Slide 5: Free Trial Trap Calendar
           if (characterCol) characterCol.style.display = 'none';
+          if (trialCalendarCol) trialCalendarCol.style.display = 'flex';
+          slideCard.classList.add('wide-card');
+          initCalendarSimulator();
+        } else { // Slide 1, 2, 4
+          if (characterCol) characterCol.style.display = 'none';
+          if (trialCalendarCol) trialCalendarCol.style.display = 'none';
           slideCard.classList.remove('wide-card');
         }
 
@@ -1114,6 +1749,14 @@
           case '3':
             goToSlide(2);
             break;
+
+          case '4':
+            goToSlide(3);
+            break;
+
+          case '5':
+            goToSlide(4);
+            break;
         }
       });
 
@@ -1159,6 +1802,10 @@
           renderMonolithMaze();
         } else if (currentSlide && currentSlide.visualType === 'exchange-story') {
           renderExchangeStory();
+        } else if (currentSlide && currentSlide.visualType === 'cola-ice-trick') {
+          renderColaIceVisual();
+        } else if (currentSlide && currentSlide.visualType === 'free-trial-trap') {
+          renderFreeTrialTrapVisual();
         }
 
         requestAnimationFrame(animateCanvas);
@@ -1402,6 +2049,235 @@
           ctx.restore();
         }
         ctx.restore();
+      }
+
+      // SLIDE 4: COCA-COLA ICE TRICK CANVAS VISUAL
+      function renderColaIceVisual() {
+        const cx = canvasWidth * 0.76 + (mouseX - canvasWidth / 2) * 0.03;
+        const cy = canvasHeight * 0.5;
+
+        // Cold cyan & crimson fizzy gradient aura
+        const aura = ctx.createRadialGradient(cx, cy, 20, cx, cy, canvasWidth * 0.4);
+        aura.addColorStop(0, 'rgba(56, 189, 248, 0.16)');
+        aura.addColorStop(0.35, 'rgba(239, 68, 68, 0.06)');
+        aura.addColorStop(1, 'rgba(8, 9, 12, 0)');
+        ctx.fillStyle = aura;
+        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+        // Effervescent rising soda bubbles & cold sparkles
+        ctx.save();
+        const bubbleCount = 45;
+        for (let b = 0; b < bubbleCount; b++) {
+          const speed = 1.2 + (b % 5) * 0.5;
+          const yProgress = ((animTime * speed * 35 + b * 45) % (canvasHeight * 0.85));
+          const y = canvasHeight * 0.9 - yProgress;
+          const xSpread = Math.sin(b * 33.7 + animTime * 0.8) * 160;
+          const x = cx + xSpread;
+
+          const size = 1.5 + (b % 4) * 1.8;
+          const alpha = Math.sin((yProgress / (canvasHeight * 0.85)) * Math.PI) * 0.45;
+
+          ctx.fillStyle = b % 2 === 0 ? `rgba(56, 189, 248, ${alpha})` : `rgba(255, 255, 255, ${alpha * 0.8})`;
+          ctx.beginPath();
+          ctx.arc(x, y, size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Shimmering ice crystal flakes
+        for (let f = 0; f < 18; f++) {
+          const fx = cx + Math.sin(f * 43.1 + animTime * 0.5) * 220;
+          const fy = cy + Math.cos(f * 27.3 + animTime * 0.4) * 180;
+          const fSize = 2 + (f % 3) * 2;
+          const fAlpha = 0.25 + Math.sin(animTime * 2 + f) * 0.2;
+
+          ctx.strokeStyle = `rgba(56, 189, 248, ${fAlpha})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(fx - fSize, fy);
+          ctx.lineTo(fx + fSize, fy);
+          ctx.moveTo(fx, fy - fSize);
+          ctx.lineTo(fx, fy + fSize);
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+
+      // SLIDE 5: THE TRAP OF THE FREE TRIAL CANVAS VISUAL
+      function renderFreeTrialTrapVisual() {
+        const cx = canvasWidth * 0.72 + (mouseX - canvasWidth / 2) * 0.04;
+        const cy = canvasHeight * 0.5 + (mouseY - canvasHeight / 2) * 0.04;
+
+        // Dark amber & crimson ambient radial gradient aura
+        const aura = ctx.createRadialGradient(cx, cy, 30, cx, cy, canvasWidth * 0.45);
+        aura.addColorStop(0, 'rgba(251, 191, 36, 0.12)');
+        aura.addColorStop(0.35, 'rgba(239, 68, 68, 0.06)');
+        aura.addColorStop(1, 'rgba(8, 9, 12, 0)');
+        ctx.fillStyle = aura;
+        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+        // Floating digital date particles & padlocks
+        ctx.save();
+        const numParticles = 24;
+        for (let i = 0; i < numParticles; i++) {
+          const speed = 0.8 + (i % 4) * 0.3;
+          const y = ((animTime * speed * 25 + i * 50) % canvasHeight);
+          const x = cx + Math.sin(i * 19.3 + animTime * 0.7) * 200;
+          const alpha = Math.sin((y / canvasHeight) * Math.PI) * 0.35;
+
+          ctx.fillStyle = i % 3 === 0 ? `rgba(251, 191, 36, ${alpha})` : (i % 3 === 1 ? `rgba(239, 68, 68, ${alpha})` : `rgba(56, 189, 248, ${alpha})`);
+          ctx.font = '10px monospace';
+          const labels = ['AUG 1', 'SEP 1', '$29.99', '🔒', 'FREE TRIAL', 'AUTO-DEBIT'];
+          ctx.fillText(labels[i % labels.length], x, y);
+        }
+        ctx.restore();
+      }
+
+      // =========================================================================
+      // SLIDE 5: FREE TRIAL CALENDAR & DEBIT SIMULATOR
+      // =========================================================================
+      let calState = {
+        month: 7, // 7 = August (0-indexed)
+        year: 2026,
+        trialStarted: false
+      };
+
+      // User's LinkedIn Profile URL
+      const USER_LINKEDIN_URL = "https://www.linkedin.com/in/ajay-k-jayan/";
+
+      function initCalendarSimulator() {
+        const calMonthName = document.getElementById('calMonthName');
+        const calYearName = document.getElementById('calYearName');
+        const calGrid = document.getElementById('calGrid');
+        const debitNotificationCard = document.getElementById('debitNotificationCard');
+        const calendarCard = document.getElementById('calendarCard');
+        const calPrevBtn = document.getElementById('calPrevBtn');
+        const calNextBtn = document.getElementById('calNextBtn');
+
+        if (!calGrid) return;
+
+        function renderCalendar() {
+          calGrid.innerHTML = '';
+          const isAugust = calState.month === 7;
+
+          if (isAugust) {
+            // August view: Calendar visible, phone SMS message hidden
+            if (calendarCard) {
+              calendarCard.style.display = 'block';
+              calendarCard.classList.remove('september-trap');
+            }
+            if (debitNotificationCard) debitNotificationCard.style.display = 'none';
+
+            if (calMonthName) calMonthName.textContent = 'AUGUST';
+            if (calYearName) calYearName.textContent = '2026';
+            if (calPrevBtn) calPrevBtn.style.opacity = '0.35';
+            if (calNextBtn) calNextBtn.style.opacity = '1';
+
+            // August 2026 starts on Saturday (5 empty cells for Mon-Fri)
+            for (let e = 0; e < 5; e++) {
+              const empty = document.createElement('div');
+              empty.className = 'cal-day-cell empty';
+              calGrid.appendChild(empty);
+            }
+
+            // Days 1 to 31
+            for (let d = 1; d <= 31; d++) {
+              const cell = document.createElement('div');
+              cell.className = 'cal-day-cell';
+              cell.textContent = d;
+
+              if (d === 1) {
+                cell.classList.add('active-trial-day');
+                cell.title = 'August 1 (Click to open Ajay K Jayan LinkedIn Profile)';
+                cell.addEventListener('click', (e) => {
+                  e.stopPropagation();
+                  calState.trialStarted = true;
+                  window.open(USER_LINKEDIN_URL, '_blank');
+                  if (calNextBtn) calNextBtn.classList.add('hint-pulse');
+                });
+              }
+
+              calGrid.appendChild(cell);
+            }
+          } else {
+            // September view: Calendar visible, phone SMS is HIDDEN until Sept 1 is clicked!
+            if (calendarCard) {
+              calendarCard.style.display = 'block';
+              calendarCard.classList.add('september-trap');
+            }
+            if (debitNotificationCard) debitNotificationCard.style.display = 'none';
+
+            if (calMonthName) calMonthName.textContent = 'SEPTEMBER';
+            if (calYearName) calYearName.textContent = '2026';
+            if (calPrevBtn) calPrevBtn.style.opacity = '1';
+            if (calNextBtn) calNextBtn.style.opacity = '0.35';
+
+            // September 2026 starts on Tuesday (1 empty cell)
+            for (let e = 0; e < 1; e++) {
+              const empty = document.createElement('div');
+              empty.className = 'cal-day-cell empty';
+              calGrid.appendChild(empty);
+            }
+
+            // Days 1 to 30
+            for (let d = 1; d <= 30; d++) {
+              const cell = document.createElement('div');
+              cell.className = 'cal-day-cell';
+              cell.textContent = d;
+
+              if (d === 1) {
+                cell.classList.add('renewal-day');
+                cell.title = 'September 1 (Click to trigger Auto-Debit SMS!)';
+                const tag = document.createElement('span');
+                tag.className = 'trap-mini-tag';
+                tag.textContent = 'TRAP';
+                cell.appendChild(tag);
+
+                // User directive: WHEN CLICK SEPT 1 -> NO NEED TO SHOW CALENDAR, SHOW PHONE MESSAGE!
+                cell.addEventListener('click', (e) => {
+                  e.stopPropagation();
+                  if (calendarCard) {
+                    calendarCard.style.display = 'none';
+                  }
+                  if (debitNotificationCard) {
+                    debitNotificationCard.style.display = 'block';
+                  }
+                });
+              }
+
+              calGrid.appendChild(cell);
+            }
+          }
+        }
+
+        // Backward navigation (< button) -> Goes back to August Calendar & hides message
+        if (calPrevBtn) {
+          calPrevBtn.onclick = (e) => {
+            e.stopPropagation();
+            calState.month = 7; // Back to August
+            renderCalendar();
+          };
+        }
+
+        // Forward navigation (> button) -> Goes to September Calendar (message hidden until Sept 1 clicked)
+        if (calNextBtn) {
+          calNextBtn.onclick = (e) => {
+            e.stopPropagation();
+            calState.month = 8; // Forward to September
+            renderCalendar();
+          };
+        }
+
+        // Back button on Phone SMS Header -> Restores the September Calendar!
+        const smsBackBtn = document.querySelector('.sms-back-btn') || document.querySelector('.sms-back-arrow');
+        if (smsBackBtn) {
+          smsBackBtn.onclick = (e) => {
+            e.stopPropagation();
+            if (calendarCard) calendarCard.style.display = 'block';
+            if (debitNotificationCard) debitNotificationCard.style.display = 'none';
+          };
+        }
+
+        renderCalendar();
       }
 
       // Start engine

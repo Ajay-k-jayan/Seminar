@@ -291,6 +291,10 @@ html, body {
   gap: 48px;
 }
 
+.slide-card.wide-card .slide-main-layout {
+  align-items: flex-start;
+}
+
 .slide-text-col {
   flex: 1 1 58%;
   min-width: 0;
@@ -666,4 +670,606 @@ html, body {
   .seminar-title {
     font-size: 0.76rem;
   }
+}
+
+/* ==========================================================================
+   SLIDE 5: THE TRAP OF THE FREE TRIAL (CALENDAR & DEBIT SIMULATION)
+   ========================================================================== */
+.trial-sim-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 410px;
+  max-width: 100%;
+  user-select: none;
+}
+
+.sim-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 20, 32, 0.95);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #38bdf8;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.sim-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  box-shadow: 0 0 8px var(--accent-emerald);
+  animation: pulseGreenGlow 1.4s infinite alternate;
+}
+
+@keyframes pulseGreenGlow {
+  0% { opacity: 0.5; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Calendar Card */
+.calendar-card {
+  width: 100%;
+  background: rgba(13, 18, 28, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 16px 18px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(56, 189, 248, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calendar-card.september-trap {
+  border-color: rgba(239, 68, 68, 0.55);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75), 0 0 30px rgba(239, 68, 68, 0.25);
+}
+
+.cal-month-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.cal-arrow-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cal-arrow-btn:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: rgba(56, 189, 248, 0.6);
+  color: #38bdf8;
+  transform: scale(1.08);
+}
+
+.cal-arrow-btn.hint-pulse {
+  animation: pulseBtnAlert 1.5s infinite alternate;
+  border-color: #38bdf8;
+}
+
+@keyframes pulseBtnAlert {
+  0% { box-shadow: 0 0 5px rgba(56, 189, 248, 0.3); transform: scale(1); }
+  100% { box-shadow: 0 0 16px rgba(56, 189, 248, 0.8); transform: scale(1.1); }
+}
+
+.cal-month-display {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.cal-year {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent-cyan);
+}
+
+.cal-weekday-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.cal-day-cell {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.cal-day-cell.empty {
+  background: transparent;
+  border-color: transparent;
+  pointer-events: none;
+}
+
+/* August 1st - Start Free Trial Day */
+.cal-day-cell.active-trial-day {
+  background: rgba(0, 255, 136, 0.18);
+  border: 1.5px solid var(--accent-emerald);
+  color: #00ff88;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 0 16px rgba(0, 255, 136, 0.4);
+  animation: pulseTrialCell 1.8s infinite alternate;
+}
+
+.cal-day-cell.active-trial-day:hover {
+  transform: scale(1.12);
+  background: rgba(0, 255, 136, 0.3);
+  box-shadow: 0 0 22px rgba(0, 255, 136, 0.7);
+}
+
+@keyframes pulseTrialCell {
+  0% { transform: scale(1); border-color: rgba(0, 255, 136, 0.6); }
+  100% { transform: scale(1.06); border-color: rgba(0, 255, 136, 1); }
+}
+
+.trial-day-tag {
+  position: absolute;
+  bottom: 2px;
+  font-size: 0.5rem;
+  font-weight: 800;
+  color: #00ff88;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+/* September 1st - Auto-Renewal Trap Day */
+.cal-day-cell.renewal-day {
+  background: rgba(239, 68, 68, 0.22);
+  border: 1.5px solid #ef4444;
+  color: #f87171;
+  font-weight: 800;
+  box-shadow: 0 0 16px rgba(239, 68, 68, 0.5);
+  animation: pulseRedRenewal 1.6s infinite alternate;
+  cursor: pointer;
+}
+
+@keyframes pulseRedRenewal {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.07); }
+}
+
+.cal-day-cell.renewal-day {
+  background: radial-gradient(circle at center, rgba(239, 68, 68, 0.55) 0%, rgba(185, 28, 28, 0.25) 100%);
+  border: 2px solid #ef4444;
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.8), inset 0 0 10px rgba(239, 68, 68, 0.4);
+  animation: pulseRedTrap 1.4s infinite alternate;
+  position: relative;
+}
+
+@keyframes pulseRedTrap {
+  0% { transform: scale(1); box-shadow: 0 0 14px rgba(239, 68, 68, 0.6); }
+  100% { transform: scale(1.1); box-shadow: 0 0 28px rgba(239, 68, 68, 1); }
+}
+
+.renewal-day-tag,
+.trap-mini-tag {
+  position: absolute;
+  bottom: 2px;
+  font-size: 0.46rem;
+  font-weight: 900;
+  color: #fca5a5;
+  letter-spacing: 0.02em;
+}
+
+.cal-day-cell.renewal-day::before {
+  content: '';
+  position: absolute;
+  top: -4px; left: -4px; right: -4px; bottom: -4px;
+  border-radius: 12px;
+  border: 2px solid #ef4444;
+  animation: trapPing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes trapPing {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+.trap-mini-tag {
+  position: absolute;
+  bottom: 2px;
+  font-size: 0.46rem;
+  font-weight: 900;
+  color: #fca5a5;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   REALISTIC PHONE SMS DEBIT CARD (BZCBSSBI)
+   ========================================================================== */
+.sms-phone-card {
+  width: 320px;
+  flex-shrink: 0;
+  background: #11141b;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(22, 163, 74, 0.2);
+  animation: slideInFromRight 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInFromRight {
+  0% { opacity: 0; transform: translateX(30px) scale(0.95); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+.sms-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: #181b24;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sms-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sms-back-btn {
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.sms-sender-title {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.sms-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #94a3b8;
+}
+
+.sms-icon {
+  cursor: pointer;
+}
+
+.sms-screen-body {
+  padding: 16px 14px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sms-time-stamp {
+  font-size: 0.68rem;
+  color: #64748b;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+}
+
+.sms-message-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+.sms-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #15803d;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(21, 128, 61, 0.4);
+}
+
+.sms-bubble-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.sms-bubble {
+  background: #222632;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f1f5f9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  padding: 12px 14px;
+  border-radius: 16px 16px 16px 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  word-break: break-word;
+}
+
+.sms-bubble-sub {
+  font-size: 0.65rem;
+  color: #64748b;
+  margin-left: 4px;
+  font-family: var(--font-mono);
+}
+
+.sms-cancel-action {
+  padding: 4px 14px 14px 14px;
+}
+
+.btn-cancel-trap {
+  width: 100%;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #fca5a5;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 9px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel-trap:hover {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: #ef4444;
+  color: #ffffff;
+}
+
+.friction-lock-toast {
+  margin: 0 14px 14px 14px;
+  background: rgba(18, 12, 12, 0.98);
+  border: 1px solid rgba(251, 191, 36, 0.65);
+  padding: 10px 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.72rem;
+  color: #fbbf24;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+  animation: shakeRoadblock 0.4s ease;
+}
+
+@keyframes shakeRoadblock {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+.cal-status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38bdf8;
+}
+
+/* Bank & LinkedIn Auto-Debit Alert Card */
+.debit-notification-card {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(28, 16, 22, 0.96) 0%, rgba(16, 10, 14, 0.98) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.55);
+  border-radius: 18px;
+  padding: 14px 16px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(239, 68, 68, 0.25);
+  animation: slideDownAlert 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideDownAlert {
+  0% { opacity: 0; transform: translateY(-16px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.notif-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.linkedin-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.linkedin-icon-box {
+  width: 20px;
+  height: 20px;
+  background: #0a66c2;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+}
+
+.linkedin-title {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.notif-time {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.notif-amount-box {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 4px 0 6px 0;
+}
+
+.amount-minus {
+  font-family: var(--font-mono);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #f87171;
+  text-shadow: 0 0 14px rgba(248, 113, 113, 0.5);
+}
+
+.amount-tag {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.notif-desc-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 10px;
+}
+
+.merchant-name {
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.notif-memo {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+.notif-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-cancel-trap {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #f8fafc;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel-trap:hover {
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #fca5a5;
+}
+
+/* The Friction Roadblock Toast */
+.friction-lock-toast {
+  margin-top: 10px;
+  background: rgba(12, 10, 8, 0.96);
+  border: 1px solid rgba(251, 191, 36, 0.6);
+  padding: 10px 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.72rem;
+  color: #fbbf24;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  animation: shakeLock 0.35s ease;
+}
+
+@keyframes shakeLock {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+.toast-lock-icon {
+  font-size: 1.1rem;
+}
+
+.toast-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
