@@ -57,5 +57,17 @@ const slidesData = [
       "\"They hide the cancellation button behind five different menus, force you to click through popups, or even make you talk to a customer service agent just to stop paying.\"",
       "\"They use friction as a weapon. They count on the fact that you will get too tired, too busy, or too annoyed to finish canceling, forcing you to pay for another month you never wanted.\""
     ]
+  },
+  {
+    id: 6,
+    title: "The Illusion of Progress",
+    subtitle: "(The Coffee Stamp Trick)",
+    visualType: "coffee-stamp-trick",
+    bulletPoints: [
+      "\"Have you ever received a coffee loyalty card that requires 10 stamps to get one free cup, but the first two or three stamps are already pre-stamped for you?\"",
+      "\"It feels like a generous gift. They are giving you a head start, making you feel closer to the finish line.\"",
+      "\"But psychology shows us something fascinating. When people feel they have already made progress toward a goal, they accelerate their behavior to finish it.\"",
+      "\"The cafe isn't giving you free coffee. They are tricking your brain into a false sense of momentum, guaranteeing you will keep coming back until that card is full.\""
+    ]
   }
 ];

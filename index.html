@@ -1075,7 +1075,475 @@
       margin-left: 4px;
       font-family: var(--font-mono);
     }
-  </style>
+  
+
+    /* ==========================================================================
+       SLIDE 6: COFFEE STAMP TRICK (ENDOWED PROGRESS EFFECT)
+       ========================================================================== */
+    .audience-prompt-box {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1.5px solid rgba(245, 158, 11, 0.35);
+      border-radius: 16px;
+      padding: 22px 24px;
+      margin-top: 18px;
+      animation: fadeInPrompt 0.5s ease;
+    }
+
+    @keyframes fadeInPrompt {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .prompt-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #fbbf24;
+      background: rgba(245, 158, 11, 0.18);
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      font-family: var(--font-mono);
+      letter-spacing: 0.04em;
+    }
+
+    .prompt-heading {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .prompt-description {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .prompt-callout {
+      background: rgba(0, 0, 0, 0.3);
+      border-left: 3px solid #fbbf24;
+      padding: 10px 14px;
+      border-radius: 0 10px 10px 0;
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .coffee-sim-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      max-width: 540px;
+      position: relative;
+    }
+
+    .coffee-ticket-card {
+      display: flex;
+      background: #faf6ee;
+      color: #3d2714;
+      border-radius: 16px;
+      border: 2px solid #dfd3c3;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(220, 205, 180, 0.3);
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      min-height: 240px;
+      font-family: var(--font-sans);
+    }
+
+    .ticket-stub-left {
+      width: 130px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 10px;
+      background: #f3ece0;
+      position: relative;
+    }
+
+    .stub-coffee-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .stub-cup-saucer {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid #dfd3c3;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cup-top-down {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid #bba993;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .coffee-liquid {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #542e12 0%, #301708 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .latte-heart {
+      color: #f5ebe0;
+      font-size: 1.15rem;
+      opacity: 0.92;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+    }
+
+    .stub-serial-no {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #5a3d28;
+      letter-spacing: 0.05em;
+    }
+
+    .ticket-tear-line {
+      width: 16px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tear-dashed {
+      position: absolute;
+      top: 12px;
+      bottom: 12px;
+      width: 0;
+      border-right: 2px dashed #bba993;
+    }
+
+    .tear-notch {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #11141b;
+    }
+    .tear-notch.top { top: -8px; }
+    .tear-notch.bottom { bottom: -8px; }
+
+    .ticket-body-right {
+      flex: 1;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .ticket-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .ticket-main-title {
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      font-weight: 900;
+      color: #3d2314;
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+
+    .stamp-progress-badge {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 800;
+      background: #e8d9c5;
+      color: #5c3a21;
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+
+    .stamp-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .stamp-box {
+      aspect-ratio: 1;
+      border: 2px solid #b8a28a;
+      border-radius: 10px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: default;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .stamp-box .slot-num {
+      position: absolute;
+      top: 3px;
+      left: 5px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #8a715d;
+      font-family: var(--font-mono);
+    }
+
+    .stamp-box.pre-stamped {
+      background: #fdf6ec;
+      border-color: #78350f;
+      box-shadow: inset 0 0 8px rgba(120, 53, 15, 0.12);
+    }
+
+    .cup-stamp-icon {
+      font-size: 1.35rem;
+      color: #78350f;
+      filter: drop-shadow(0 2px 3px rgba(120, 53, 15, 0.25));
+    }
+
+    .stamp-box.stamped .cup-stamp-icon {
+      animation: stampSlam 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @keyframes stampSlam {
+      0% { transform: scale(2.4) rotate(-18deg); opacity: 0; }
+      70% { transform: scale(0.9) rotate(3deg); opacity: 1; }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+
+    .prestamp-label {
+      position: absolute;
+      bottom: 2px;
+      font-size: 0.44rem;
+      font-weight: 900;
+      background: #78350f;
+      color: #ffffff;
+      padding: 1px 4px;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    .stamp-box.buyable {
+      cursor: pointer;
+    }
+
+    .stamp-box.buyable:hover {
+      border-color: #b45309;
+      background: #fffaf0;
+      transform: scale(1.05);
+    }
+
+    .stamp-box.active-next {
+      border-color: #d97706;
+      background: #fffdfa;
+      box-shadow: 0 0 14px rgba(217, 119, 6, 0.6);
+      animation: pulseNextSlot 1.4s infinite alternate;
+    }
+
+    @keyframes pulseNextSlot {
+      0% { transform: scale(1); box-shadow: 0 0 8px rgba(217, 119, 6, 0.4); }
+      100% { transform: scale(1.08); box-shadow: 0 0 18px rgba(217, 119, 6, 0.9); }
+    }
+
+    .stamp-click-hint {
+      font-size: 0.55rem;
+      font-weight: 800;
+      color: #b45309;
+      background: rgba(217, 119, 6, 0.15);
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    .stamp-box.reward-slot {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 2px dashed #d97706;
+    }
+
+    .rosette-badge {
+      text-align: center;
+      font-size: 0.5rem;
+      font-weight: 900;
+      line-height: 1.1;
+      color: #92400e;
+      font-family: var(--font-display);
+    }
+
+    .ticket-terms-footer {
+      font-size: 0.64rem;
+      color: #786555;
+      text-align: center;
+      border-top: 1px solid #e8decb;
+      padding-top: 8px;
+      font-style: italic;
+    }
+
+    .coffee-action-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 4px 6px;
+    }
+
+    .coffee-status-hint {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--accent-amber);
+      font-weight: 600;
+    }
+
+    .btn-replay-coffee {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #cbd5e1;
+      border-radius: 10px;
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-replay-coffee:hover {
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .coffee-winner-modal {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: rgba(8, 9, 12, 0.94);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 60;
+      animation: fadeInModal 0.4s ease;
+    }
+
+    @keyframes fadeInModal {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .winner-modal-card {
+      background: linear-gradient(145deg, #1e1b18 0%, #12100e 100%);
+      border: 2px solid #f59e0b;
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+      max-width: 380px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(245, 158, 11, 0.35);
+    }
+
+    .winner-trophy-ring {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1.5px solid #f59e0b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px auto;
+      font-size: 1.8rem;
+    }
+
+    .winner-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fbbf24;
+      margin: 4px 0;
+    }
+
+    .winner-subtitle {
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      margin-bottom: 12px;
+    }
+
+    .winner-cup-glow {
+      font-size: 3.2rem;
+      margin: 8px 0 14px 0;
+      animation: bounceCup 1.8s ease infinite;
+      filter: drop-shadow(0 0 18px rgba(245, 158, 11, 0.6));
+    }
+
+    @keyframes bounceCup {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .winner-psych-quote {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      line-height: 1.5;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 10px 12px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+    }
+
+    .btn-dismiss-winner {
+      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+      color: #ffffff;
+      border: none;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .btn-dismiss-winner:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.6);
+    }</style>
 </head>
 <body class="theme-dark">
 
@@ -1135,6 +1603,17 @@
             <!-- Bullet Points (Shown on Slide 2 & 3, hidden on Slide 1) -->
             <div id="slideBody" class="slide-body" style="display: none;">
               <ul id="slideKeyPoints" class="key-points-list"></ul>
+            </div>
+
+            <!-- Slide 6: Audience Engagement Prompt (Shown initially before 10th stamp) -->
+            <div class="audience-prompt-box" id="coffeeAudiencePrompt" style="display: none;">
+              <div class="prompt-badge">â˜• SEMINAR QUESTION</div>
+              <h3 class="prompt-heading">"Have you ever seen this type of card?"</h3>
+              <p class="prompt-description">Take a close look at the loyalty card on the right. Notice how the first <strong>3 stamps are already stamped</strong> for you as a 'free head start' before you even bought anything.</p>
+              <div class="prompt-callout">
+                <span class="callout-icon">ðŸ’¡</span>
+                <span class="callout-text">It tricks your brain into feeling you are already 30% towards the goal. <strong>Click Slot #4</strong> on the card to buy your first cup and watch your momentum build!</span>
+              </div>
             </div>
 
             <!-- Minimal Footer (Only visible on Slide 1) -->
@@ -1232,6 +1711,141 @@
                       <div class="sms-bubble-sub">16 min</div>
                     </div>
                   </div>
+
+          <!-- Slide 6: The Coffee Stamp Trick Visual Column -->
+          <div class="slide-visual-col" id="coffeeStampCol" style="display: none;">
+            <div class="coffee-sim-wrapper">
+              
+              <!-- Real Vintage Coffee Loyalty Ticket Card matching media_1788469408254.png -->
+              <div class="coffee-ticket-card" id="coffeeTicketCard">
+                <!-- Left Stub with Coffee Cup & Serial -->
+                <div class="ticket-stub-left">
+                  <div class="stub-coffee-visual">
+                    <div class="stub-cup-saucer">
+                      <div class="cup-top-down">
+                        <div class="coffee-liquid">
+                          <div class="latte-heart">â™¥</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="stub-serial-no">NO. 1536 -359</div>
+                </div>
+
+                <!-- Perforated Tear-off Line -->
+                <div class="ticket-tear-line">
+                  <span class="tear-notch top"></span>
+                  <span class="tear-dashed"></span>
+                  <span class="tear-notch bottom"></span>
+                </div>
+
+                <!-- Right Stamp Section -->
+                <div class="ticket-body-right">
+                  <div class="ticket-title-row">
+                    <h3 class="ticket-main-title">COLLECT 10 STAMPS</h3>
+                    <div class="stamp-progress-badge" id="coffeeProgressBadge">3 / 10</div>
+                  </div>
+
+                  <!-- 10 Stamp Grid (2 rows of 5) -->
+                  <div class="stamp-grid" id="stampGrid">
+                    <!-- Slot 1 (Pre-stamped) -->
+                    <div class="stamp-box pre-stamped stamped" data-slot="1" title="Free Head Start!">
+                      <span class="slot-num">1</span>
+                      <div class="cup-stamp-icon">â˜•</div>
+                      <span class="prestamp-label">FREE</span>
+                    </div>
+                    <!-- Slot 2 (Pre-stamped) -->
+                    <div class="stamp-box pre-stamped stamped" data-slot="2" title="Free Head Start!">
+                      <span class="slot-num">2</span>
+                      <div class="cup-stamp-icon">â˜•</div>
+                      <span class="prestamp-label">FREE</span>
+                    </div>
+                    <!-- Slot 3 (Pre-stamped) -->
+                    <div class="stamp-box pre-stamped stamped" data-slot="3" title="Free Head Start!">
+                      <span class="slot-num">3</span>
+                      <div class="cup-stamp-icon">â˜•</div>
+                      <span class="prestamp-label">FREE</span>
+                    </div>
+
+                    <!-- Slot 4 (First Buyable Coffee) -->
+                    <div class="stamp-box buyable active-next" data-slot="4" title="Click to Buy 1st Coffee!">
+                      <span class="slot-num">4</span>
+                      <div class="stamp-placeholder">
+                        <span class="stamp-click-hint">BUY â˜•</span>
+                      </div>
+                    </div>
+
+                    <!-- Slot 5 -->
+                    <div class="stamp-box buyable" data-slot="5" title="Slot 5">
+                      <span class="slot-num">5</span>
+                    </div>
+
+                    <!-- Slot 6 -->
+                    <div class="stamp-box buyable" data-slot="6" title="Slot 6">
+                      <span class="slot-num">6</span>
+                    </div>
+
+                    <!-- Slot 7 -->
+                    <div class="stamp-box buyable" data-slot="7" title="Slot 7">
+                      <span class="slot-num">7</span>
+                    </div>
+
+                    <!-- Slot 8 -->
+                    <div class="stamp-box buyable" data-slot="8" title="Slot 8">
+                      <span class="slot-num">8</span>
+                    </div>
+
+                    <!-- Slot 9 -->
+                    <div class="stamp-box buyable" data-slot="9" title="Slot 9">
+                      <span class="slot-num">9</span>
+                    </div>
+
+                    <!-- Slot 10 (Special Rosette Reward Slot) -->
+                    <div class="stamp-box buyable reward-slot" data-slot="10" title="Slot 10: 1 Free Cup Reward!">
+                      <span class="slot-num">10</span>
+                      <div class="rosette-badge">
+                        <span class="rosette-text">GET 1<br>FREE<br>CUP</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Ticket Footer Terms -->
+                  <div class="ticket-terms-footer">
+                    Collect Terms &amp; Conditions : 10 stamps to get 1 free cup of coffee.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive Stamp Status & Replay Bar -->
+              <div class="coffee-action-bar">
+                <div class="coffee-status-hint" id="coffeeStatusHint">
+                  <span class="status-pulse-dot"></span>
+                  <span id="coffeeStatusText">ðŸ‘‰ Click slot <strong>#4</strong> to buy your next cup!</span>
+                </div>
+                <button class="btn-replay-coffee" id="btnReplayCoffee" title="Reset Card to 3 Stamps">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                  <span>Reset Demo</span>
+                </button>
+              </div>
+
+              <!-- Winner / Achievement Celebration Modal -->
+              <div class="coffee-winner-modal" id="coffeeWinnerModal" style="display: none;">
+                <div class="winner-modal-card">
+                  <div class="winner-trophy-ring">
+                    <span class="winner-trophy-icon">ðŸ†</span>
+                  </div>
+                  <h4 class="winner-title">10 STAMPS COMPLETED!</h4>
+                  <p class="winner-subtitle">Achievement Unlocked: <strong>1 Free Cup of Coffee!</strong></p>
+                  <div class="winner-cup-glow">
+                    <span class="cup-emoji">â˜•âœ¨</span>
+                  </div>
+                  <p class="winner-psych-quote">"Notice how fast you stamped the last few cups? That is the <strong>Endowed Progress Effect</strong> in action."</p>
+                  <button class="btn-dismiss-winner" id="btnDismissWinner">See Psychological Breakdown &darr;</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
                 </div>
               </div></div>
           </div>
@@ -1324,6 +1938,18 @@
           "\"They make it effortless to join—just one click, a saved card, and you are inside. But when you finally want to leave, the door is locked.\"",
           "\"They hide the cancellation button behind five different menus, force you to click through popups, or even make you talk to a customer service agent just to stop paying.\"",
           "\"They use friction as a weapon. They count on the fact that you will get too tired, too busy, or too annoyed to finish canceling, forcing you to pay for another month you never wanted.\""
+        ]
+      },
+      {
+        id: 6,
+        title: "The Illusion of Progress",
+        subtitle: "(The Coffee Stamp Trick)",
+        visualType: "coffee-stamp-trick",
+        bulletPoints: [
+          "\"Have you ever received a coffee loyalty card that requires 10 stamps to get one free cup, but the first two or three stamps are already pre-stamped for you?\"",
+          "\"It feels like a generous gift. They are giving you a head start, making you feel closer to the finish line.\"",
+          "\"But psychology shows us something fascinating. When people feel they have already made progress toward a goal, they accelerate their behavior to finish it.\"",
+          "\"The cafe isn't giving you free coffee. They are tricking your brain into a false sense of momentum, guaranteeing you will keep coming back until that card is full.\""
         ]
       }
     ];
@@ -1471,23 +2097,39 @@
         } else {
           slideFooter.style.display = 'none';
         }
-
-        // Visual Columns Toggle (Slide 3: Shopkeeper, Slide 5: Free Trial Trap Calendar)
+        // Visual Columns Toggle (Slide 3: Shopkeeper, Slide 5: Free Trial Trap, Slide 6: Coffee Stamp Trick)
         const characterCol = document.getElementById('characterCol');
         const trialCalendarCol = document.getElementById('trialCalendarCol');
+        const coffeeStampCol = document.getElementById('coffeeStampCol');
+        const coffeeAudiencePrompt = document.getElementById('coffeeAudiencePrompt');
 
         if (currentSlideIndex === 2) { // Slide 3: Shopkeeper
           if (characterCol) characterCol.style.display = 'flex';
           if (trialCalendarCol) trialCalendarCol.style.display = 'none';
+          if (coffeeStampCol) coffeeStampCol.style.display = 'none';
+          if (coffeeAudiencePrompt) coffeeAudiencePrompt.style.display = 'none';
+          if (slideKeyPoints) slideKeyPoints.style.display = 'block';
           slideCard.classList.add('wide-card');
         } else if (currentSlideIndex === 4) { // Slide 5: Free Trial Trap Calendar
           if (characterCol) characterCol.style.display = 'none';
           if (trialCalendarCol) trialCalendarCol.style.display = 'flex';
+          if (coffeeStampCol) coffeeStampCol.style.display = 'none';
+          if (coffeeAudiencePrompt) coffeeAudiencePrompt.style.display = 'none';
+          if (slideKeyPoints) slideKeyPoints.style.display = 'block';
           slideCard.classList.add('wide-card');
           initCalendarSimulator();
+        } else if (currentSlideIndex === 5) { // Slide 6: The Coffee Stamp Trick
+          if (characterCol) characterCol.style.display = 'none';
+          if (trialCalendarCol) trialCalendarCol.style.display = 'none';
+          if (coffeeStampCol) coffeeStampCol.style.display = 'flex';
+          slideCard.classList.add('wide-card');
+          initCoffeeStampSimulator();
         } else { // Slide 1, 2, 4
           if (characterCol) characterCol.style.display = 'none';
           if (trialCalendarCol) trialCalendarCol.style.display = 'none';
+          if (coffeeStampCol) coffeeStampCol.style.display = 'none';
+          if (coffeeAudiencePrompt) coffeeAudiencePrompt.style.display = 'none';
+          if (slideKeyPoints) slideKeyPoints.style.display = 'block';
           slideCard.classList.remove('wide-card');
         }
 
@@ -1597,6 +2239,10 @@
           case '5':
             goToSlide(4);
             break;
+
+          case '6':
+            goToSlide(5);
+            break;
         }
       });
 
@@ -1646,6 +2292,8 @@
           renderColaIceVisual();
         } else if (currentSlide && currentSlide.visualType === 'free-trial-trap') {
           renderFreeTrialTrapVisual();
+        } else if (currentSlide && currentSlide.visualType === 'coffee-stamp-trick') {
+          renderCoffeeStampVisual();
         }
 
         requestAnimationFrame(animateCanvas);
@@ -1972,6 +2620,36 @@
         ctx.restore();
       }
 
+      // SLIDE 6: COFFEE STAMP TRICK VISUAL
+      function renderCoffeeStampVisual() {
+        const cx = canvasWidth * 0.72 + (mouseX - canvasWidth / 2) * 0.04;
+        const cy = canvasHeight * 0.5 + (mouseY - canvasHeight / 2) * 0.04;
+
+        // Warm coffee amber aura
+        const aura = ctx.createRadialGradient(cx, cy, 40, cx, cy, canvasWidth * 0.45);
+        aura.addColorStop(0, 'rgba(180, 83, 9, 0.14)');
+        aura.addColorStop(0.4, 'rgba(120, 53, 15, 0.06)');
+        aura.addColorStop(1, 'rgba(8, 9, 12, 0)');
+        ctx.fillStyle = aura;
+        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+        // Subtle floating coffee stamps and percentage particles
+        ctx.save();
+        const numParticles = 20;
+        for (let i = 0; i < numParticles; i++) {
+          const speed = 0.6 + (i % 3) * 0.3;
+          const y = ((animTime * speed * 22 + i * 55) % canvasHeight);
+          const x = cx + Math.sin(i * 14.5 + animTime * 0.6) * 190;
+          const alpha = Math.sin((y / canvasHeight) * Math.PI) * 0.28;
+
+          ctx.fillStyle = i % 2 === 0 ? `rgba(245, 158, 11, ${alpha})` : `rgba(217, 119, 6, ${alpha})`;
+          ctx.font = '10px monospace';
+          const labels = ['â˜•', '30%', 'STAMP', '+1 FREE', 'MOMENTUM', '10/10'];
+          ctx.fillText(labels[i % labels.length], x, y);
+        }
+        ctx.restore();
+      }
+
       // =========================================================================
       // SLIDE 5: FREE TRIAL CALENDAR & DEBIT SIMULATOR
       // =========================================================================
@@ -2118,7 +2796,125 @@
         }
 
         renderCalendar();
-      }// Start engine
+      }
+      // =========================================================================
+      // SLIDE 6: THE COFFEE STAMP TRICK (ENDOWED PROGRESS EFFECT)
+      // =========================================================================
+      let coffeeState = {
+        stamps: 3, // Initially 3 pre-stamped slots (1, 2, 3)
+        completed: false
+      };
+
+      function initCoffeeStampSimulator() {
+        const stampGrid = document.getElementById('stampGrid');
+        const coffeeProgressBadge = document.getElementById('coffeeProgressBadge');
+        const coffeeStatusText = document.getElementById('coffeeStatusText');
+        const coffeeWinnerModal = document.getElementById('coffeeWinnerModal');
+        const btnDismissWinner = document.getElementById('btnDismissWinner');
+        const btnReplayCoffee = document.getElementById('btnReplayCoffee');
+        const coffeeAudiencePrompt = document.getElementById('coffeeAudiencePrompt');
+        const slideKeyPoints = document.getElementById('slideKeyPoints');
+
+        if (!stampGrid) return;
+
+        function updateUI() {
+          if (coffeeProgressBadge) {
+            coffeeProgressBadge.textContent = `${coffeeState.stamps} / 10`;
+          }
+
+          const boxes = stampGrid.querySelectorAll('.stamp-box');
+          boxes.forEach((box) => {
+            const slot = parseInt(box.dataset.slot, 10);
+            box.classList.remove('stamped', 'active-next');
+
+            if (slot <= coffeeState.stamps) {
+              box.classList.add('stamped');
+              if (!box.querySelector('.cup-stamp-icon')) {
+                const cupIcon = document.createElement('div');
+                cupIcon.className = 'cup-stamp-icon';
+                cupIcon.textContent = 'â˜•';
+                box.appendChild(cupIcon);
+              }
+              const hint = box.querySelector('.stamp-placeholder');
+              if (hint) hint.style.display = 'none';
+            } else {
+              const existingCup = box.querySelector('.cup-stamp-icon');
+              if (existingCup && !box.classList.contains('pre-stamped')) {
+                existingCup.remove();
+              }
+              if (slot === coffeeState.stamps + 1) {
+                box.classList.add('active-next');
+                const hint = box.querySelector('.stamp-placeholder');
+                if (hint) hint.style.display = 'flex';
+              }
+            }
+          });
+
+          // State-based narrative reveal:
+          if (!coffeeState.completed) {
+            if (coffeeAudiencePrompt) coffeeAudiencePrompt.style.display = 'block';
+            if (slideKeyPoints) slideKeyPoints.style.display = 'none';
+            if (coffeeWinnerModal) coffeeWinnerModal.style.display = 'none';
+
+            if (coffeeState.stamps === 3) {
+              if (coffeeStatusText) coffeeStatusText.innerHTML = 'ðŸ‘‰ Click slot <strong>#4</strong> to buy your 1st cup!';
+            } else if (coffeeState.stamps === 9) {
+              if (coffeeStatusText) coffeeStatusText.innerHTML = 'ðŸ”¥ <strong>Only 1 cup left!</strong> Click slot #10 to claim free coffee!';
+            } else {
+              if (coffeeStatusText) coffeeStatusText.innerHTML = `â˜• Bought: <strong>${coffeeState.stamps - 3}</strong> (Total: ${coffeeState.stamps}/10) &mdash; Click slot #${coffeeState.stamps + 1}!`;
+            }
+          } else {
+            // COMPLETED: Reveal quotes on left and show winner celebration
+            if (coffeeAudiencePrompt) coffeeAudiencePrompt.style.display = 'none';
+            if (slideKeyPoints) {
+              slideKeyPoints.style.display = 'block';
+              slideKeyPoints.querySelectorAll('li').forEach((li, idx) => {
+                li.style.animation = `fadeInUp 0.5s ease ${idx * 0.15}s forwards`;
+              });
+            }
+            if (coffeeStatusText) {
+              coffeeStatusText.innerHTML = 'ðŸŽ‰ <strong>GOAL ACHIEVED!</strong> 1 Free Coffee Cup Unlocked!';
+            }
+          }
+        }
+
+        // Slot click handling
+        const boxes = stampGrid.querySelectorAll('.stamp-box.buyable');
+        boxes.forEach((box) => {
+          box.onclick = (e) => {
+            e.stopPropagation();
+            const slot = parseInt(box.dataset.slot, 10);
+            if (slot === coffeeState.stamps + 1 || (slot > coffeeState.stamps && slot <= 10)) {
+              coffeeState.stamps = slot;
+              if (coffeeState.stamps === 10) {
+                coffeeState.completed = true;
+                if (coffeeWinnerModal) coffeeWinnerModal.style.display = 'flex';
+              }
+              updateUI();
+            }
+          };
+        });
+
+        if (btnDismissWinner) {
+          btnDismissWinner.onclick = (e) => {
+            e.stopPropagation();
+            if (coffeeWinnerModal) coffeeWinnerModal.style.display = 'none';
+          };
+        }
+
+        if (btnReplayCoffee) {
+          btnReplayCoffee.onclick = (e) => {
+            e.stopPropagation();
+            coffeeState.stamps = 3;
+            coffeeState.completed = false;
+            updateUI();
+          };
+        }
+
+        updateUI();
+      }
+
+      // Start engine
       init();
     });
   </script>
