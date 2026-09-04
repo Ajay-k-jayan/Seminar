@@ -2605,8 +2605,15 @@
         window.addEventListener('resize', resizeCanvas);
         window.addEventListener('mousemove', onMouseMove);
 
-        // Render first slide
-        goToSlide(0);
+        // Render initial slide (respecting URL hash like #15)
+        let initialSlide = 0;
+        if (window.location.hash) {
+          const hashNum = parseInt(window.location.hash.replace('#', ''), 10);
+          if (!isNaN(hashNum) && hashNum >= 1 && hashNum <= totalSlides) {
+            initialSlide = hashNum - 1;
+          }
+        }
+        goToSlide(initialSlide);
 
         // Start timer
         startTimer();
@@ -2665,8 +2672,8 @@
         dots.forEach((dot, i) => {
           const slideIdx = startIdx + i;
           dot.dataset.targetIndex = slideIdx;
-          dot.setAttribute('title', `Go to Slide ${slideIdx + 1} of ${count}`);
-          dot.setAttribute('aria-label', `Slide ${slideIdx + 1}`);
+          dot.setAttribute('title', 'Go to Slide ' + (slideIdx + 1) + ' of ' + count);
+          dot.setAttribute('aria-label', 'Slide ' + (slideIdx + 1));
 
           dot.classList.toggle('active', slideIdx === currentSlideIndex);
 
