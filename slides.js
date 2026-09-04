@@ -172,5 +172,30 @@ const slidesData = [
       "\"Rather than paying a steep delivery fee on a cheap item, you start tossing chips, biscuits, and sodas into your cart just to make the order feel 'worth it.'\"",
       "\"They set artificial cart limits to hold your urgent essentials hostage, tricking you into spending five times more money on snacks you never wanted in the first place.\""
     ]
+  },
+  {
+    id: 16,
+    title: "Dark Patterns in Action",
+    subtitle: "Real-World Video Demonstration",
+    visualType: "video-case",
+    bulletPoints: [
+      "Watch how modern interfaces manipulate user choices in real time.",
+      "Visual urgency and hidden traps bypass logical decision making.",
+      "Always pause and inspect order details before the final click."
+    ]
+  },
+  {
+    id: 17,
+    title: "Questions & Answers",
+    subtitle: "",
+    visualType: "qa-creative",
+    bulletPoints: []
+  },
+  {
+    id: 18,
+    title: "Thank You!",
+    subtitle: "",
+    visualType: "thank-you-creative",
+    bulletPoints: []
   }
 ];
