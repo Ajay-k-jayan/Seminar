@@ -4140,7 +4140,6 @@ html, body {
   margin: 0;
 }
 
-/* Slide 18: Thank You Card (matching media_1788546981930.png) */
 /* Slide 18: Thank You (Single Content Only - Nothing Else) */
 .thank-you-card-col {
   width: 100%;
@@ -4150,130 +4149,49 @@ html, body {
   padding: 30px 0;
 }
 
-.thank-you-card {
-  width: 100%;
-  max-width: 460px;
-  background: rgba(14, 17, 23, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
-  padding: 36px 32px 30px;
 .thank-you-single-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-  animation: slideFadeUp 0.4s ease;
   gap: 24px;
   animation: slideFadeUp 0.45s ease;
 }
 
 .thank-you-avatar-glow {
-  width: 76px;
-  height: 76px;
   width: 110px;
   height: 110px;
   border-radius: 50%;
   border: 2px solid var(--accent-emerald, #00ff88);
-  box-shadow: 0 0 24px rgba(0, 255, 136, 0.35);
   box-shadow: 0 0 35px rgba(0, 255, 136, 0.4), inset 0 0 20px rgba(0, 255, 136, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
-  background: rgba(0, 255, 136, 0.05);
   background: radial-gradient(circle, rgba(0, 255, 136, 0.15) 0%, rgba(8, 9, 12, 0.6) 80%);
   cursor: pointer;
-  transition: transform 0.3s ease;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
   animation: floatOrb 3.5s ease-in-out infinite;
 }
 
 .thank-you-avatar-glow:hover {
-  transform: scale(1.08);
   transform: scale(1.12);
   box-shadow: 0 0 55px rgba(0, 255, 136, 0.65);
 }
 
 .thank-you-avatar {
-  font-size: 2.2rem;
   font-size: 3.2rem;
   line-height: 1;
 }
 
-.thank-you-name {
 .thank-you-single-title {
   font-family: var(--font-display, inherit);
-  font-size: 1.85rem;
   font-size: 3.8rem;
   font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 6px;
   letter-spacing: -0.02em;
   background: linear-gradient(135deg, #ffffff 40%, var(--accent-emerald, #00ff88) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.thank-you-role {
-  font-size: 0.92rem;
-  color: #94a3b8;
-  font-weight: 500;
-  margin-bottom: 22px;
-}
-
-.thank-you-takeaway {
-  width: 100%;
-  background: rgba(245, 158, 11, 0.08);
-  border: 1px solid rgba(245, 158, 11, 0.45);
-  border-radius: 14px;
-  padding: 14px 18px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 22px;
-  text-align: left;
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: #fbbf24;
-  line-height: 1.45;
-}
-
-.takeaway-bulb {
-  font-size: 1.25rem;
-  flex-shrink: 0;
-}
-
-.thank-you-linkedin-btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: #0284c7;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 13px 20px;
-  border-radius: 14px;
-  transition: all 0.25s ease;
-  box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.5);
-  margin-bottom: 22px;
-}
-
-.thank-you-linkedin-btn:hover {
-  background: #0ea5e9;
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px -5px rgba(14, 165, 233, 0.6);
-  color: #ffffff;
-}
-
-.thank-you-footer-note {
-  font-size: 0.85rem;
-  color: #64748b;
-  font-style: italic;
 }
