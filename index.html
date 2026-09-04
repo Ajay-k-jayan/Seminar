@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -1563,7 +1563,7 @@
       <div class="slide-counter">
         <span id="currentSlideNum">01</span>
         <span class="slash">/</span>
-        <span id="totalSlideNum">05</span>
+        <span id="totalSlideNum">15</span>
       </div>
     </div>
 
@@ -1781,46 +1781,31 @@
           <!-- Slide 7: The Trap of Manufactured Scarcity Visual Column -->
           <div class="slide-visual-col" id="scarcityCol" style="display: none;">
             <div class="scarcity-card-container">
-              <!-- E-commerce Shopping Card -->
-              <div class="ecommerce-product-card" id="ecommerceCard">
-                <!-- Urgency Ribbon -->
-                <div class="scarcity-top-badge">
-                  <span class="pulse-fire">&#128293;</span>
-                  <span>HIGH DEMAND LIMITED EDITION</span>
+              <!-- Real-World E-commerce Scarcity Card -->
+              <div class="real-evidence-card" id="ecommerceCard">
+                <!-- Top Evidence Header -->
+                <div class="evidence-top-bar">
+                  <div class="evidence-brand">
+                    <span class="brand-dot-fk">&#128722;</span>
+                    <span class="brand-name">FLIPKART.COM EVIDENCE</span>
+                  </div>
+                  <span class="evidence-badge-live">REAL-WORLD CAPTURE</span>
                 </div>
 
-                <!-- Product Hero Image with Viewer Count Tag -->
-                <div class="product-img-wrapper">
-                  <img src="scarcity-product.jpg" alt="Limited Edition Sneaker" class="product-hero-img" id="productHeroImg">
-                  <div class="viewer-count-pill" id="viewerCountPill">
-                    <span class="live-blink-dot"></span>
-                    <span id="viewerCountText">28 people viewing now</span>
+                <!-- Real Flipkart Screenshot Display -->
+                <div class="flipkart-screenshot-wrapper">
+                  <img src="flipkart-scarcity.png" alt="Flipkart Real Example - Only 1 left" class="flipkart-real-img" id="flipkartRealImg">
+                  <!-- Red Warning Callout Pointer -->
+                  <div class="scarcity-spotlight-callout">
+                    <span class="siren-pulse">&#128680;</span>
+                    <span>Dark Pattern: <strong>"Only 1 left"</strong></span>
                   </div>
                 </div>
 
-                <!-- Product Details -->
-                <div class="product-info-section">
-                  <div class="product-brand-line">
-                    <span class="brand-tag">AETHER LTD</span>
-                    <span class="stock-sku">SKU: AETH-902</span>
-                  </div>
-                  <h3 class="product-model-title">Cyber-Phantom Low-Tops</h3>
-                  <div class="price-row">
-                    <span class="current-price">$199.00</span>
-                    <span class="strike-price">$280.00</span>
-                    <span class="discount-badge">-29% OFF</span>
-                  </div>
-
-                  <!-- THE MANUFACTURED SCARCITY ALERT BOX -->
-                  <div class="scarcity-warning-banner" id="scarcityBanner">
-                    <div class="warning-headline">
-                      <span class="siren-icon">&#128680;</span>
-                      <strong class="warning-text">ONLY 1 ITEM LEFT IN STOCK!</strong>
-                    </div>
-                    <div class="deal-timer-line">
-                      <span>&#9889; Flash Deal expires in:</span>
-                      <span class="countdown-digits" id="scarcityCountdown">02:45</span>
-                    </div>
+                <!-- Evidence Analysis & Action Panel -->
+                <div class="evidence-info-panel">
+                  <div class="evidence-caption">
+                    Notice the bright red text <strong>"Only 1 left"</strong> right next to the price. It bypasses logical thinking, induces urgency, and forces you to buy before checking elsewhere.
                   </div>
 
                   <!-- Interactive Action Buttons -->
@@ -1840,11 +1825,518 @@
                       <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
                       <span class="inspector-title">scarcity_script.js (BEHIND THE CURTAIN)</span>
                     </div>
-                    <pre class="inspector-code"><code><span class="code-comment">// &#9888; FAKE SCARCITY GENERATOR</span>
-<span class="code-keyword">const</span> stock = <span class="code-num">1</span>; <span class="code-comment">// Hardcoded to trigger panic!</span>
-<span class="code-keyword">const</span> viewers = Math.<span class="code-func">floor</span>(Math.<span class="code-func">random</span>() * <span class="code-num">15</span>) + <span class="code-num">20</span>;
-<span class="code-comment">// Timer loops forever when it hits zero:</span>
-<span class="code-keyword">if</span> (time &lt;= <span class="code-num">0</span>) time = <span class="code-num">180</span>;</code></pre>
+                    <pre class="inspector-code"><code><span class="code-comment">// &#9888; REALITY: INVENTORY IS OFTEN NOT 1</span>
+<span class="code-keyword">const</span> actualStock = <span class="code-num">250</span>;
+<span class="code-keyword">const</span> displayStock = <span class="code-str">"Only 1 left"</span>; <span class="code-comment">// Injected to trigger panic!</span>
+<span class="code-func">triggerFOMOPanic</span>({ rushCheckout: <span class="code-keyword">true</span> });</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 8: The Phantom Countdown Timer Visual Column -->
+          <div class="slide-visual-col" id="phantomTimerCol" style="display: none;">
+            <div class="phantom-card-container">
+              <!-- Ticket / Flight Booking Card with Phantom Timer -->
+              <div class="flight-booking-card" id="flightBookingCard">
+                <!-- Top Urgency Banner -->
+                <div class="flight-top-banner">
+                  <div class="flight-brand-title">
+                    <span class="deal-icon">&#127915;</span>
+                    <span>ONLINE TICKET / SEAT CHECKOUT</span>
+                  </div>
+                  <span class="seat-badge">SEATS LOCKED FOR 10:00</span>
+                </div>
+
+                <!-- Real Desktop Checkout Screenshot Wrapper -->
+                <div class="ticket-screenshot-wrapper">
+                  <img src="real-ticket-timer.jpg" alt="Online Booking Checkout with 10 Minute Timer" class="ticket-real-img" id="ticketRealImg">
+                  <!-- Floating Active Digital Timer Overlay -->
+                  <div class="ticket-live-timer-overlay">
+                    <span class="timer-overlay-title">ACTIVE PHANTOM CLOCK:</span>
+                    <div class="digital-countdown-display" id="flightCountdownDisplay">09:59</div>
+                    <span class="timer-sub-warning">&#128680; Release in progress...</span>
+                  </div>
+                </div>
+
+                <!-- Simulation Controls & Reveal Section -->
+                <div class="flight-sim-panel">
+                  <div class="flight-hold-status" id="flightHoldStatus">
+                    <span class="status-pulse-red" id="statusPulseDot"></span>
+                    <span id="flightHoldText">Your seats are temporarily locked! Complete booking before the timer expires.</span>
+                  </div>
+
+                  <!-- Interactive Action Buttons -->
+                  <div class="phantom-action-row">
+                    <button class="btn-phantom-refresh" id="btnPhantomRefresh" title="Click to reload page like an ordinary user">
+                      <span class="btn-icon">&#128260;</span>
+                      <span>Refresh Page (Reset)</span>
+                    </button>
+                    <button class="btn-phantom-fastforward" id="btnPhantomFastForward" title="Jump to zero to see what happens">
+                      <span class="btn-icon">&#9889;</span>
+                      <span>Jump to 00:00</span>
+                    </button>
+                  </div>
+
+                  <!-- Exposed Trick Notice (Reveals the illusion) -->
+                  <div class="phantom-exposed-box" id="phantomExposedBox" style="display: none;">
+                    <div class="exposed-badge">&#9888; TRICK EXPOSED</div>
+                    <p id="exposedMessage">The countdown reached zero or was refreshed, and the timer simply reset back to 10:00! Your seats were never in danger.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 9: The PDF Editor Subscription Trap Visual Column -->
+          <div class="slide-visual-col" id="pdfTrapCol" style="display: none;">
+            <div class="pdf-card-container">
+              <!-- PDF Editor Paywall Evidence Card -->
+              <div class="pdf-trap-card" id="pdfTrapCard">
+                <!-- Top Browser / App Header -->
+                <div class="pdf-top-bar">
+                  <div class="pdf-brand-title">
+                    <span class="pdf-file-icon">&#128196;</span>
+                    <span>ONLINE PDF TOOL &bull; contract_signed.pdf</span>
+                  </div>
+                  <span class="pdf-trap-tag">HOSTAGE FILE TRAP</span>
+                </div>
+
+                <!-- Real Web Screenshot with Interactive Paywall Focus -->
+                <div class="pdf-screenshot-wrapper" id="pdfScreenshotWrapper">
+                  <img src="pdf-editor-paywall.jpg" alt="PDF Editor Paywall Blocking Download" class="pdf-real-img" id="pdfRealImg">
+                  
+                  <!-- Pulsing Dark Pattern Callout -->
+                  <div class="pdf-paywall-callout" id="pdfPaywallCallout">
+                    <span class="lock-siren">&#128274;</span>
+                    <span>Paywall: <strong>$19.99/mo to Download</strong></span>
+                  </div>
+                </div>
+
+                <!-- Simulation Controls & Insight Section -->
+                <div class="pdf-sim-panel">
+                  <div class="pdf-status-banner" id="pdfStatusBanner">
+                    <span class="status-dot-locked" id="pdfLockDot"></span>
+                    <span id="pdfStatusText">Workflow trapped: User spent 15 minutes editing, only to find the download button locked behind a subscription!</span>
+                  </div>
+
+                  <!-- Interactive Action Buttons -->
+                  <div class="pdf-actions-row">
+                    <button class="btn-pdf-download" id="btnSimulateDownload" title="Click to experience the final-click paywall shock">
+                      <span class="btn-icon">&#11015;</span>
+                      <span id="btnDownloadText">Click "Download PDF"</span>
+                    </button>
+                    <button class="btn-pdf-inspect" id="btnPdfInspect" title="Expose the psychology">
+                      <span>&#128269; Dark Pattern Anatomy</span>
+                    </button>
+                  </div>
+
+                  <!-- Dark Pattern Breakdown Drawer -->
+                  <div class="pdf-exposed-box" id="pdfExposedBox" style="display: none;">
+                    <div class="exposed-badge">&#9888; THE SUNK COST TRAP</div>
+                    <p id="pdfExposedMessage">They let you upload, format, and sign for free. Once your time is invested and you have a deadline, they hold your finished file hostage at the very last click knowing you won't want to start over.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 10: The Free Delivery Cart Trap Visual Column -->
+          <div class="slide-visual-col" id="freeDeliveryCol" style="display: none;">
+            <div class="cart-card-container">
+              <!-- Free Delivery Threshold Card -->
+              <div class="cart-trap-card" id="cartTrapCard">
+                <!-- Top E-commerce Header -->
+                <div class="cart-top-bar">
+                  <div class="cart-brand-title">
+                    <span class="cart-icon-symbol">&#128722;</span>
+                    <span>ONLINE CHECKOUT &bull; SHOPPING CART</span>
+                  </div>
+                  <span class="cart-trap-tag">THRESHOLD DARK PATTERN</span>
+                </div>
+
+                <!-- Real Desktop Cart Screenshot Wrapper -->
+                <div class="cart-screenshot-wrapper" id="cartScreenshotWrapper">
+                  <img src="free-delivery-trap.jpg" alt="Online Shopping Cart Free Delivery Trap" class="cart-real-img" id="cartRealImg">
+                  
+                  <!-- Floating Threshold Urgency Callout -->
+                  <div class="cart-threshold-callout" id="cartThresholdCallout">
+                    <span class="delivery-van-icon">&#128666;</span>
+                    <span><strong>Add $15.00</strong> to get Free Delivery!</span>
+                  </div>
+                </div>
+
+                <!-- Simulation Controls & Live Financial Impact Calculator -->
+                <div class="cart-sim-panel">
+                  <!-- Dynamic Cart Calculation Row -->
+                  <div class="cart-math-box" id="cartMathBox">
+                    <div class="cart-math-item">
+                      <span class="math-label">Items Subtotal:</span>
+                      <span class="math-val" id="mathSubtotal">$35.00</span>
+                    </div>
+                    <div class="cart-math-item">
+                      <span class="math-label">Shipping Cost:</span>
+                      <span class="math-val" id="mathShipping">$5.00</span>
+                    </div>
+                    <div class="cart-math-total">
+                      <span class="math-total-label">Total Charged:</span>
+                      <span class="math-total-val" id="mathTotal">$40.00</span>
+                    </div>
+                  </div>
+
+                  <!-- Delivery Progress Meter -->
+                  <div class="threshold-meter-wrapper">
+                    <div class="threshold-labels">
+                      <span id="thresholdStatusLbl">Free Shipping Progress ($35 / $50)</span>
+                      <span class="threshold-pct" id="thresholdPct">70%</span>
+                    </div>
+                    <div class="threshold-track">
+                      <div class="threshold-fill" id="thresholdFill" style="width: 70%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Interactive Action Buttons -->
+                  <div class="cart-actions-row">
+                    <button class="btn-add-filler" id="btnAddFiller" title="Add unneeded filler item to beat the $50 threshold">
+                      <span class="btn-icon">&#10133;</span>
+                      <span id="btnAddFillerText">Add $20 Filler Item (Socks / Belt)</span>
+                    </button>
+                    <button class="btn-cart-inspect" id="btnCartInspect" title="Expose the math illusion">
+                      <span>&#128269; Dark Pattern Math</span>
+                    </button>
+                  </div>
+
+                  <!-- The Trap Breakdown Box -->
+                  <div class="cart-exposed-box" id="cartExposedBox" style="display: none;">
+                    <div class="exposed-badge" id="exposedBadgeTitle">&#9888; THE FREEBIE FALLACY</div>
+                    <p id="cartExposedMessage">You spent $20 on something you never wanted just to avoid a $5 delivery fee! The store successfully manipulated your basket size from $40 to $55.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 11: The Invisible Digital Ear Visual Column -->
+          <div class="slide-visual-col" id="targetedAdCol" style="display: none;">
+            <div class="targeted-ad-card-container">
+              <!-- Surveillance Ad Card -->
+              <div class="targeted-ad-card" id="targetedAdCard">
+                <!-- Top Social Feed Header -->
+                <div class="targeted-top-bar">
+                  <div class="targeted-brand-title">
+                    <span class="social-icon">&#128241;</span>
+                    <span>SOCIAL MEDIA FEED &bull; INSTAGRAM / TIKTOK</span>
+                  </div>
+                  <span class="targeted-trap-tag">SURVEILLANCE AD</span>
+                </div>
+
+                <!-- Real Mobile Feed Screenshot with Audio Radar Focus -->
+                <div class="targeted-screenshot-wrapper" id="targetedScreenshotWrapper">
+                  <img src="targeted-ad-ear.jpg" alt="Instagram Targeted Ad Running Shoes" class="targeted-real-img" id="targetedRealImg">
+                  
+                  <!-- Floating Audio/Proximity Intercept Pill -->
+                  <div class="targeted-radar-pill" id="targetedRadarPill">
+                    <span class="pulse-mic">&#127897;</span>
+                    <span id="targetedRadarText">Audio/Proximity Match: <strong>"Running Shoes"</strong></span>
+                  </div>
+                </div>
+
+                <!-- Simulation Controls & Insight Section -->
+                <div class="targeted-sim-panel">
+                  <div class="targeted-status-banner" id="targetedStatusBanner">
+                    <span class="status-dot-radar" id="targetedRadarDot"></span>
+                    <span id="targetedStatusText">Spoken keyword intercepted: Feed instantly flooded with glossy running shoe ads!</span>
+                  </div>
+
+                  <!-- Interactive Action Buttons -->
+                  <div class="targeted-actions-row">
+                    <button class="btn-voice-trigger" id="btnVoiceTrigger" title="Simulate mentioning running shoes out loud to a friend">
+                      <span class="btn-icon">&#128483;</span>
+                      <span id="btnVoiceTriggerText">Mention "Running Shoes"</span>
+                    </button>
+                    <button class="btn-targeted-inspect" id="btnTargetedInspect" title="Expose how algorithms predict your thoughts">
+                      <span>&#128269; How It Really Works</span>
+                    </button>
+                  </div>
+
+                  <!-- The Algorithm Breakdown Box -->
+                  <div class="targeted-exposed-box" id="targetedExposedBox" style="display: none;">
+                    <div class="exposed-badge">&#9888; THE PREDICTIVE SURVEILLANCE MATRIX</div>
+                    <p id="targetedExposedMessage">Even without active voice recording, ad algorithms link mutual Wi-Fi networks with your friends, physical GPS co-location, browsing history, and behavioral micro-habits. If your friend searched for shoes, their phone tags your phoneâ€”serving the ad before you even search.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 12: The Bait Price Switch (Drip Pricing) Visual Column -->
+          <div class="slide-visual-col" id="dripPricingCol" style="display: none;">
+            <div class="drip-card-container">
+              <!-- Drip Pricing Card -->
+              <div class="drip-trap-card" id="dripTrapCard">
+                <!-- Top Header -->
+                <div class="drip-top-bar">
+                  <div class="drip-brand-title">
+                    <span class="drip-icon">&#128178;</span>
+                    <span>ONLINE COURSE CHECKOUT &bull; DRIP PRICING</span>
+                  </div>
+                  <span class="drip-trap-tag">BAIT &amp; SWITCH</span>
+                </div>
+
+                <!-- Real Desktop Screenshot Wrapper -->
+                <div class="drip-screenshot-wrapper" id="dripScreenshotWrapper">
+                  <img src="drip-pricing-course.jpg" alt="Drip Pricing Course Checkout" class="drip-real-img" id="dripRealImg">
+                  
+                  <!-- Floating Bait Price Callout Pill -->
+                  <div class="drip-price-callout" id="dripPriceCallout">
+                    <span class="bait-star">&#11088;</span>
+                    <span id="dripCalloutText">Bait: <strong>$10.00</strong> &rarr; Final: <strong>$43.00</strong></span>
+                  </div>
+                </div>
+
+                <!-- Simulation Controls & Drip Breakdown Calculator -->
+                <div class="drip-sim-panel">
+                  <!-- Dynamic Fee Splitting Breakdown -->
+                  <div class="drip-breakdown-box" id="dripBreakdownBox">
+                    <div class="drip-fee-line">
+                      <span>Advertised Promo Price:</span>
+                      <span class="drip-fee-amt" id="dripBaseAmt">$10.00</span>
+                    </div>
+                    <div class="drip-fee-line drip-hidden-fee" id="feePlatform" style="display: none;">
+                      <span>+ Platform Access Fee:</span>
+                      <span class="drip-fee-amt">+$15.00</span>
+                    </div>
+                    <div class="drip-fee-line drip-hidden-fee" id="feeMaterial" style="display: none;">
+                      <span>+ Instructor Material Fee:</span>
+                      <span class="drip-fee-amt">+$10.00</span>
+                    </div>
+                    <div class="drip-fee-line drip-hidden-fee" id="feeCert" style="display: none;">
+                      <span>+ Mandatory Certification Fee:</span>
+                      <span class="drip-fee-amt">+$8.00</span>
+                    </div>
+                    <div class="drip-total-line">
+                      <span>Total Amount Charged:</span>
+                      <span class="drip-total-amt" id="dripTotalAmt">$10.00</span>
+                    </div>
+                  </div>
+
+                  <!-- Interactive Action Buttons -->
+                  <div class="drip-actions-row">
+                    <button class="btn-drip-trigger" id="btnDripTrigger" title="Watch the true price get drip-fed piece by piece">
+                      <span class="btn-icon">&#128167;</span>
+                      <span id="btnDripTriggerText">Drip-Feed Hidden Fees</span>
+                    </button>
+                    <button class="btn-drip-inspect" id="btnDripInspect" title="Expose the psychology of Drip Pricing">
+                      <span>&#128269; Dark Pattern Anatomy</span>
+                    </button>
+                  </div>
+
+                  <!-- The Breakdown Box -->
+                  <div class="drip-exposed-box" id="dripExposedBox" style="display: none;">
+                    <div class="exposed-badge">&#9888; THE DRIP PRICING ILLUSION</div>
+                    <p id="dripExposedMessage">The store anchored your brain at $10. After investing 10 minutes typing your credentials, you feel 'almost done' (Sunk Cost Fallacy). Rather than walking away and wasting your time, you begrudgingly accept the 330% markup!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 13: Zomato Push Notification Marketing Visual Column -->
+          <div class="slide-visual-col" id="zomatoCol" style="display: none;">
+            <div class="zomato-card-container">
+              <!-- Zomato Marketing Card -->
+              <div class="zomato-trap-card" id="zomatoTrapCard">
+                <!-- Top Header -->
+                <div class="zomato-top-bar">
+                  <div class="zomato-brand-title">
+                    <span class="zomato-icon">&#127829;</span>
+                    <span>ZOMATO MARKETING &bull; PUSH NOTIFICATION COLLAGE</span>
+                  </div>
+                  <span class="zomato-badge-live">REAL NOTIFICATIONS</span>
+                </div>
+
+                <!-- Real Collage Screenshot Wrapper with Fullscreen Trigger -->
+                <div class="zomato-screenshot-wrapper" id="zomatoScreenshotWrapper" title="Click to view full screen">
+                  <img src="zomato-notifications.png" alt="Zomato Push Notifications Collage" class="zomato-real-img" id="zomatoRealImg">
+                  
+                  <!-- Fullscreen Action Hint Badge -->
+                  <div class="fullscreen-action-badge" id="btnZomatoZoom">
+                    <span class="expand-icon">&#x26F6;</span>
+                    <span>Click to View Fullscreen</span>
+                  </div>
+                </div>
+
+                <!-- Simulation Controls & Notification Analysis Panel -->
+                <div class="zomato-sim-panel">
+                  <div class="zomato-quote-bubble" id="zomatoQuoteBubble">
+                    <span class="zomato-bell-icon">&#128276;</span>
+                    <span id="zomatoQuoteText">"dessert menu hi padh lo &#128064; love letter toh kisi ne bheja hoga nahi &#128148;"</span>
+                  </div>
+
+                  <!-- Interactive Action Buttons -->
+                  <div class="zomato-actions-row">
+                    <button class="btn-zomato-fullscreen" id="btnZomatoFullscreen" title="Open full screen lightbox view">
+                      <span class="btn-icon">&#x26F6;</span>
+                      <span>View Fullscreen Evidence</span>
+                    </button>
+                    <button class="btn-zomato-cycle" id="btnZomatoCycle" title="Cycle through notification psychological hooks">
+                      <span class="btn-icon">&#128260;</span>
+                      <span id="btnCycleText">Next Tactic</span>
+                    </button>
+                  </div>
+
+                  <!-- The Breakdown Box -->
+                  <div class="zomato-exposed-box" id="zomatoExposedBox">
+                    <div class="exposed-badge" id="zomatoTacticBadge">&#9888; THE FRIEND-ZONE ILLUSION</div>
+                    <p id="zomatoExposedMessage">By mimicking personal banter, Zomato plays on emotional vulnerabilities so you seek instant dopamine via sugar or comfort food.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 14: The Fake Scratch Card (The Gamified Ad Trap) Visual Column -->
+          <div class="slide-visual-col" id="scratchCardCol" style="display: none;">
+            <div class="scratch-card-container">
+              <!-- GPay / PhonePe Gamified Reward Card -->
+              <div class="scratch-trap-card" id="scratchTrapCard">
+                <!-- Top Header -->
+                <div class="scratch-top-bar">
+                  <div class="scratch-brand-title">
+                    <span class="gpay-dot-icon">&#128179;</span>
+                    <span>GOOGLE PAY &bull; PHONEPE UPI REWARDS</span>
+                  </div>
+                  <span class="scratch-badge-gamified">GAMIFIED AD REWARD</span>
+                </div>
+
+                <!-- Real Mobile Screenshot Wrapper with Fullscreen and Scratch Overlay -->
+                <div class="scratch-screenshot-wrapper" id="scratchScreenshotWrapper" title="Click to view fullscreen">
+                  <img src="upi-scratch-card.jpg" alt="Google Pay Fake Scratch Card Rummy Ad" class="scratch-real-img" id="scratchRealImg">
+                  
+                  <!-- Golden / Silver Scratch Foil Overlay Simulator -->
+                  <div class="scratch-foil-overlay" id="scratchFoilOverlay">
+                    <div class="scratch-foil-inner">
+                      <span class="foil-trophy">&#127942;</span>
+                      <span class="foil-title">YOU WON A REWARD!</span>
+                      <span class="foil-subtitle">Click or tap to scratch</span>
+                    </div>
+                  </div>
+
+                  <!-- Fullscreen Action Hint Badge -->
+                  <div class="fullscreen-action-badge" id="btnScratchZoom">
+                    <span class="expand-icon">&#x26F6;</span>
+                    <span>Click to View Fullscreen</span>
+                  </div>
+                </div>
+
+                <!-- Simulation Controls & Reward Analysis Panel -->
+                <div class="scratch-sim-panel">
+                  <div class="scratch-status-bubble" id="scratchStatusBubble">
+                    <span class="confetti-emoji" id="scratchStatusIcon">&#127881;</span>
+                    <span id="scratchStatusText">Reward waiting: Scratch the card above to claim your cashback!</span>
+                  </div>
+
+                  <!-- Interactive Action Buttons -->
+                  <div class="scratch-actions-row">
+                    <button class="btn-scratch-reveal" id="btnScratchReveal" title="Simulate scratching the card">
+                      <span class="btn-icon">&#129689;</span>
+                      <span id="btnScratchRevealText">Scratch Card (Reveal)</span>
+                    </button>
+                    <button class="btn-scratch-fullscreen" id="btnScratchFullscreen" title="Open full screen lightbox view">
+                      <span class="btn-icon">&#x26F6;</span>
+                      <span>View Fullscreen Evidence</span>
+                    </button>
+                  </div>
+
+                  <!-- The Breakdown Box -->
+                  <div class="scratch-exposed-box" id="scratchExposedBox" style="display: none;">
+                    <div class="exposed-badge">&#9888; THE VARIABLE REWARD LOTTERY TRAP</div>
+                    <p id="scratchExposedMessage">When UPI apps launched, scratch cards offered real cash (&#8377;10&ndash;&#8377;100) to hook users on the slot machine dopamine loop. Once habituated, they replaced cash with paid affiliate sponsorships&mdash;tricking you into gambling apps while pretending you won a prize.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 15: The Cart-Padding Trap (Minimum Order Hostage) Visual Column -->
+          <div class="slide-visual-col" id="cartPaddingCol" style="display: none;">
+            <div class="cart-padding-container">
+              <!-- Quick Commerce Cart Hostage Card -->
+              <div class="cart-hostage-card" id="cartHostageCard">
+                <!-- Top Header -->
+                <div class="cart-padding-top-bar">
+                  <div class="cart-padding-brand-title">
+                    <span class="delivery-lightning-icon">&#9889;</span>
+                    <span>BLINKIT &bull; ZEPTO &bull; INSTAMART</span>
+                  </div>
+                  <span class="cart-badge-hostage">MINIMUM ORDER HOSTAGE</span>
+                </div>
+
+                <!-- Real App Mobile Screenshot Wrapper with Fullscreen -->
+                <div class="cart-padding-screenshot-wrapper" id="cartPaddingScreenshotWrapper" title="Click to view fullscreen">
+                  <img src="cart-padding-hostage.jpg" alt="10-Minute Grocery App Cart Hostage UI" class="cart-padding-real-img" id="cartPaddingRealImg">
+
+                  <!-- Live Interactive Threshold Overlay -->
+                  <div class="cart-threshold-overlay" id="cartThresholdOverlay">
+                    <div class="threshold-pill-alert" id="thresholdPillAlert">
+                      <span class="alert-pulse-dot"></span>
+                      <span id="thresholdAlertText">&#9888; Add &#8377;165 more to place order!</span>
+                    </div>
+                  </div>
+
+                  <!-- Fullscreen Action Hint Badge -->
+                  <div class="fullscreen-action-badge" id="btnCartPaddingZoom">
+                    <span class="expand-icon">&#x26F6;</span>
+                    <span>Click to View Fullscreen</span>
+                  </div>
+                </div>
+
+                <!-- Simulation Controls & Breakdown Panel -->
+                <div class="cart-padding-sim-panel">
+                  <!-- Live Cart Math breakdown -->
+                  <div class="cart-math-row" id="cartMathRow">
+                    <div class="math-stat-box">
+                      <span class="math-label">Original Need</span>
+                      <span class="math-val" id="mathValOriginal">&#8377;35</span>
+                      <span class="math-sub">1x Milk Packet</span>
+                    </div>
+                    <div class="math-arrow">&rarr;</div>
+                    <div class="math-stat-box" id="mathBoxPadded">
+                      <span class="math-label">Cart Total</span>
+                      <span class="math-val highlight-red" id="mathValTotal">&#8377;35</span>
+                      <span class="math-sub" id="mathValStatus">Checkout Blocked</span>
+                    </div>
+                    <div class="math-arrow">&rarr;</div>
+                    <div class="math-stat-box">
+                      <span class="math-label">Unwanted Cost</span>
+                      <span class="math-val" id="mathValUnwanted">&#8377;0</span>
+                      <span class="math-sub" id="mathValMultiplier">1.0x (Baseline)</span>
+                    </div>
+                  </div>
+
+                  <!-- Status Bubble -->
+                  <div class="cart-status-bubble" id="cartPaddingStatusBubble">
+                    <span class="bubble-icon" id="cartStatusIcon">&#128308;</span>
+                    <span id="cartPaddingStatusText">Hostage State: &#8377;35 milk held hostage behind &#8377;200 threshold!</span>
+                  </div>
+
+                  <!-- Action Buttons -->
+                  <div class="cart-padding-actions-row">
+                    <button class="btn-pad-cart" id="btnPadCart" title="Simulate tossing snacks into cart to reach limit">
+                      <span class="btn-icon">&#127850;</span>
+                      <span id="btnPadCartText">Pad Cart With Snacks (+&#8377;170)</span>
+                    </button>
+                    <button class="btn-cart-fullscreen" id="btnCartPaddingFullscreen" title="Open full screen lightbox view">
+                      <span class="btn-icon">&#x26F6;</span>
+                      <span>View Fullscreen Evidence</span>
+                    </button>
+                  </div>
+
+                  <!-- The Breakdown Box -->
+                  <div class="cart-padding-exposed-box" id="cartPaddingExposedBox" style="display: none;">
+                    <div class="exposed-badge">&#9888; THE ARTIFICIAL THRESHOLD TRAP</div>
+                    <p id="cartPaddingExposedMessage">Quick commerce companies know cooking essentials are non-negotiable emergencies. By placing artificial &#8377;200 cart minimums or &#8377;49 delivery penalties on a &#8377;35 packet of milk, they trigger loss aversion&mdash;manipulating you into buying high-margin junk food (chips, soda, chocolate) and spending nearly 600% more!</p>
                   </div>
                 </div>
               </div>
@@ -1959,6 +2451,106 @@
       "\"You stop comparing prices, skip your research, and rush to buy it right away before you lose your chance.\"",
       "\"The trick is that the warning is often completely fake. It's just a piece of code designed to manufacture panic, bypass your logical thinking, and force you into an instant purchase.\""
     ]
+  },
+  {
+    id: 8,
+    title: "The Phantom Countdown Timer",
+    subtitle: "",
+    visualType: "phantom-timer",
+    bulletPoints: [
+      "\"Have you ever tried to buy tickets online or book a flight, only to see a bright red clock ticking down from ten minutes, warning you that your seats will expire?\"",
+      "\"Panic sets in instantly. You rush to enter your credit card details, skipping the fine print and ignoring extra fees because you are racing against the clock.\"",
+      "\"The moment the timer hits zero, what happens? If you refresh the page, the timer simply resets back to ten minutes.\"",
+      "\"The countdown isn't real. It is a manufactured emergency designed to rush your brain, shut down your critical thinking, and force you into an instant purchase.\""
+    ]
+  },
+  {
+    id: 9,
+    title: "The PDF Editor Subscription Trap",
+    subtitle: "",
+    visualType: "pdf-trap",
+    bulletPoints: [
+      "\"Have you ever needed to quickly edit, merge, or sign a single PDF document online, so you searched for a free PDF tool like Smallpdf or ILovePDF?\"",
+      "\"You upload your file, make your quick edit, and click 'Download PDF' with a sigh of relief.\"",
+      "\"Then, right at the final moment, a hard paywall blocks your download. A popup appears stating your free trial has ended, requiring an expensive monthly subscription just to get your own file back.\"",
+      "\"By that point, you are pressed for time, your document is locked behind their system, and you enter your credit card out of pure frustration. They trap your workflow at the final click.\""
+    ]
+  },
+  {
+    id: 10,
+    title: "The Free Delivery Cart Trap",
+    subtitle: "",
+    visualType: "cart-trap",
+    bulletPoints: [
+      "\"Have you ever added an item to your online shopping cart, only for a notification to pop up saying: 'Add just $15 more to unlock free delivery!'?\"",
+      "\"Your brain instantly shifts focus from what you actually wanted to buy, and you start scrambling through the catalog to find a cheap filler item just to beat the threshold.\"",
+      "\"You end up spending $20 on something you don't even need, just to save $5 on shipping.\"",
+      "\"You didn't save money. The store manipulated your cart to make you spend more than you originally planned.\""
+    ]
+  },
+  {
+    id: 11,
+    title: "The Invisible Digital Ear",
+    subtitle: "(The Targeted Ad Trap)",
+    visualType: "targeted-ad",
+    bulletPoints: [
+      "\"Have you ever casually mentioned out loud to a friend that you need to buy a new pair of shoes, without typing it anywhere?\"",
+      "\"Then, a few minutes later, you open Instagram or TikTok, and the very first post on your feed is a glossy ad for running shoes.\"",
+      "\"You feel like your phone is actively listening to your private conversations and spying on your everyday life.\"",
+      "\"Even if it's not always voice recording, background algorithms track your location, your typing speed, your pauses, and your friends' habits to predict your thoughts before you even search. They turn your personal life into an open billboard.\""
+    ]
+  },
+  {
+    id: 12,
+    title: "The Bait Price Switch",
+    subtitle: "(Drip Pricing)",
+    visualType: "drip-pricing",
+    bulletPoints: [
+      "\"Have you ever bought an online course or event ticket where the initial price tag looked like a fantastic bargainâ€”say, just $10?\"",
+      "\"Have you ever bought an online course or event ticket where the initial price tag looked like a fantastic bargain—say, just $10?\"",
+      "\"You feel excited about the great deal and spend your time going through all the registration steps.\"",
+      "\"Right at the final checkout screen, the price splits apart: a $15 'platform access fee', a $10 'instructor material fee', and an $8 'mandatory certification fee' are suddenly bolted on.\"",
+      "\"They drip-feed the true cost piece by piece instead of showing you the real total upfront. They trick your budget at the start by hiding the full price until you're too invested to turn back.\""
+    ]
+  },
+  {
+    id: 13,
+    title: "The Emotional Ping",
+    subtitle: "(Zomato's Push Notification Trap)",
+    visualType: "zomato-push",
+    bulletPoints: [
+      "\"Have you ever received a random notification at lunch or midnight that felt like a witty text from a close friend instead of an advertisement?\"",
+      "\"Food delivery apps like Zomato use self-deprecating jokes, heart emojis, and relatable humor to completely disarm your natural defense against ads.\"",
+      "\"They don't just sell foodâ€”they artificially manufacture cravings when you weren't even hungry, playing on loneliness, late-night boredom, or work stress.\"",
+      "\"They don't just sell food—they artificially manufacture cravings when you weren't even hungry, playing on loneliness, late-night boredom, or work stress.\"",
+      "\"By disguising continuous advertising as friendly entertainment, they manipulate you into opening the app and placing an impulse order you never planned to make.\""
+    ]
+  },
+  {
+    id: 14,
+    title: "The Fake Scratch Card",
+    subtitle: "(The Gamified Ad Trap - Google Pay & PhonePe)",
+    visualType: "scratch-card",
+    bulletPoints: [
+      "\"Have you ever made a quick UPI payment at a local shop or tea stall, and instantly heard your phone chime: 'Congratulations! You won a scratch card!'?\"",
+      "\"You swipe your finger across the screen with genuine excitement, hoping for a small cashback of â‚¹10 or â‚¹50 into your bank account.\"",
+      "\"Instead of real money, it reveals an advertisement disguised as a prizeâ€”a coupon for an online rummy app, fantasy betting, or â‚¹200 off a luxury brand you will never buy.\"",
+      "\"You swipe your finger across the screen with genuine excitement, hoping for a small cashback of ₹10 or ₹50 into your bank account.\"",
+      "\"Instead of real money, it reveals an advertisement disguised as a prize—a coupon for an online rummy app, fantasy betting, or ₹200 off a luxury brand you will never buy.\"",
+      "\"They hijack the psychological thrill of a lottery ticket to turn everyday bill payments into a slot machine, pushing paid sponsorships while pretending they rewarded you.\""
+    ]
+  },
+  {
+    id: 15,
+    title: "The Cart-Padding Trap",
+    subtitle: "(Minimum Order Hostage - Quick Commerce)",
+    visualType: "cart-padding",
+    bulletPoints: [
+      "\"Have you ever opened a 10-minute grocery app just to order a single packet of milk, eggs, or onions that you urgently needed for cooking?\"",
+      "\"You put the \u20B935 item in your cart, only for a bright red warning to pop up: 'Add \u20B9165 more to checkout' or 'Add \u20B9199 for free delivery!'\"",
+      "\"Rather than paying a steep delivery fee on a cheap item, you start tossing chips, biscuits, and sodas into your cart just to make the order feel 'worth it.'\"",
+      "\"They set artificial cart limits to hold your urgent essentials hostage, tricking you into spending five times more money on snacks you never wanted in the first place.\""
+    ]
   }
 ];
 
@@ -2031,23 +2623,58 @@
         }
       }
 
-      // NAVIGATION DOTS
+      // NAVIGATION DOTS: DYNAMIC 5-DOT CAROUSEL PAGINATION
+      const MAX_VISIBLE_DOTS = 5;
+
       function renderNavigationDots() {
         dotsContainer.innerHTML = '';
-        slidesData.forEach((slide, idx) => {
+        const visibleCount = Math.min(totalSlides, MAX_VISIBLE_DOTS);
+        for (let i = 0; i < visibleCount; i++) {
           const dot = document.createElement('button');
-          dot.className = `slide-dot ${idx === currentSlideIndex ? 'active' : ''}`;
-          dot.setAttribute('title', `Go to Slide ${idx + 1}`);
-          dot.setAttribute('aria-label', `Slide ${idx + 1}`);
-          dot.addEventListener('click', () => goToSlide(idx));
+          dot.className = 'slide-dot';
+          dot.addEventListener('click', function() {
+            const target = parseInt(this.dataset.targetIndex, 10);
+            if (!isNaN(target)) goToSlide(target);
+          });
           dotsContainer.appendChild(dot);
-        });
+        }
+        updateNavigationDots();
       }
 
       function updateNavigationDots() {
         const dots = dotsContainer.querySelectorAll('.slide-dot');
-        dots.forEach((dot, idx) => {
-          dot.classList.toggle('active', idx === currentSlideIndex);
+        const count = totalSlides;
+        if (count <= 0 || dots.length === 0) return;
+
+        let startIdx = 0;
+        let endIdx = count - 1;
+
+        if (count > MAX_VISIBLE_DOTS) {
+          if (currentSlideIndex <= 2) {
+            startIdx = 0;
+            endIdx = MAX_VISIBLE_DOTS - 1;
+          } else if (currentSlideIndex >= count - 3) {
+            startIdx = count - MAX_VISIBLE_DOTS;
+            endIdx = count - 1;
+          } else {
+            startIdx = currentSlideIndex - 2;
+            endIdx = currentSlideIndex + 2;
+          }
+        }
+
+        dots.forEach((dot, i) => {
+          const slideIdx = startIdx + i;
+          dot.dataset.targetIndex = slideIdx;
+          dot.setAttribute('title', `Go to Slide ${slideIdx + 1} of ${count}`);
+          dot.setAttribute('aria-label', `Slide ${slideIdx + 1}`);
+
+          dot.classList.toggle('active', slideIdx === currentSlideIndex);
+
+          const isEdge = count > MAX_VISIBLE_DOTS && (
+            (i === 0 && startIdx > 0) ||
+            (i === dots.length - 1 && endIdx < count - 1)
+          );
+          dot.classList.toggle('dot-edge', isEdge && slideIdx !== currentSlideIndex);
         });
       }
 
@@ -2059,6 +2686,10 @@
 
         const slide = slidesData[currentSlideIndex];
         if (!slide) return;
+
+        // Stop any running simulator timers when leaving
+        if (flightTimerInterval) { clearInterval(flightTimerInterval); flightTimerInterval = null; }
+        if (scarcityTimerInterval) { clearInterval(scarcityTimerInterval); scarcityTimerInterval = null; }
 
         // Header Slide Counter
         currentSlideNum.textContent = String(currentSlideIndex + 1).padStart(2, '0');
@@ -2103,11 +2734,19 @@
           slideFooter.style.display = 'none';
         }
 
-        // Visual Columns Toggle (Slides 1 to 7 completely preserved)
+        // Visual Columns Toggle (Slides 1 to 14 fully supported)
         const characterCol = document.getElementById('characterCol');
         const trialCalendarCol = document.getElementById('trialCalendarCol');
         const coffeeStampCol = document.getElementById('coffeeStampCol');
         const scarcityCol = document.getElementById('scarcityCol');
+        const phantomTimerCol = document.getElementById('phantomTimerCol');
+        const pdfTrapCol = document.getElementById('pdfTrapCol');
+        const freeDeliveryCol = document.getElementById('freeDeliveryCol');
+        const targetedAdCol = document.getElementById('targetedAdCol');
+        const dripPricingCol = document.getElementById('dripPricingCol');
+        const zomatoCol = document.getElementById('zomatoCol');
+        const scratchCardCol = document.getElementById('scratchCardCol');
+        const cartPaddingCol = document.getElementById('cartPaddingCol');
 
         if (currentSlideIndex === 2) { // Slide 3: Shopkeeper
           slideCard.classList.remove('slide-6-full');
@@ -2116,6 +2755,14 @@
           if (trialCalendarCol) trialCalendarCol.style.display = 'none';
           if (coffeeStampCol) coffeeStampCol.style.display = 'none';
           if (scarcityCol) scarcityCol.style.display = 'none';
+          if (phantomTimerCol) phantomTimerCol.style.display = 'none';
+          if (pdfTrapCol) pdfTrapCol.style.display = 'none';
+          if (freeDeliveryCol) freeDeliveryCol.style.display = 'none';
+          if (targetedAdCol) targetedAdCol.style.display = 'none';
+          if (dripPricingCol) dripPricingCol.style.display = 'none';
+          if (zomatoCol) zomatoCol.style.display = 'none';
+          if (scratchCardCol) scratchCardCol.style.display = 'none';
+          if (cartPaddingCol) cartPaddingCol.style.display = 'none';
           if (slideBody) slideBody.style.display = 'block';
         } else if (currentSlideIndex === 4) { // Slide 5: Free Trial Calendar
           slideCard.classList.remove('slide-6-full');
@@ -2124,6 +2771,14 @@
           if (trialCalendarCol) trialCalendarCol.style.display = 'flex';
           if (coffeeStampCol) coffeeStampCol.style.display = 'none';
           if (scarcityCol) scarcityCol.style.display = 'none';
+          if (phantomTimerCol) phantomTimerCol.style.display = 'none';
+          if (pdfTrapCol) pdfTrapCol.style.display = 'none';
+          if (freeDeliveryCol) freeDeliveryCol.style.display = 'none';
+          if (targetedAdCol) targetedAdCol.style.display = 'none';
+          if (dripPricingCol) dripPricingCol.style.display = 'none';
+          if (zomatoCol) zomatoCol.style.display = 'none';
+          if (scratchCardCol) scratchCardCol.style.display = 'none';
+          if (cartPaddingCol) cartPaddingCol.style.display = 'none';
           if (slideBody) slideBody.style.display = 'block';
           initCalendarSimulator();
         } else if (currentSlideIndex === 5) { // Slide 6: Coffee Stamp Trick
@@ -2132,6 +2787,14 @@
           if (trialCalendarCol) trialCalendarCol.style.display = 'none';
           if (coffeeStampCol) coffeeStampCol.style.display = 'flex';
           if (scarcityCol) scarcityCol.style.display = 'none';
+          if (phantomTimerCol) phantomTimerCol.style.display = 'none';
+          if (pdfTrapCol) pdfTrapCol.style.display = 'none';
+          if (freeDeliveryCol) freeDeliveryCol.style.display = 'none';
+          if (targetedAdCol) targetedAdCol.style.display = 'none';
+          if (dripPricingCol) dripPricingCol.style.display = 'none';
+          if (zomatoCol) zomatoCol.style.display = 'none';
+          if (scratchCardCol) scratchCardCol.style.display = 'none';
+          if (cartPaddingCol) cartPaddingCol.style.display = 'none';
           if (slideBody) slideBody.style.display = 'none';
           initCoffeeStampSimulator();
         } else if (currentSlideIndex === 6) { // Slide 7: Manufactured Scarcity
@@ -2141,14 +2804,166 @@
           if (trialCalendarCol) trialCalendarCol.style.display = 'none';
           if (coffeeStampCol) coffeeStampCol.style.display = 'none';
           if (scarcityCol) scarcityCol.style.display = 'flex';
+          if (phantomTimerCol) phantomTimerCol.style.display = 'none';
+          if (pdfTrapCol) pdfTrapCol.style.display = 'none';
+          if (freeDeliveryCol) freeDeliveryCol.style.display = 'none';
+          if (targetedAdCol) targetedAdCol.style.display = 'none';
+          if (dripPricingCol) dripPricingCol.style.display = 'none';
+          if (zomatoCol) zomatoCol.style.display = 'none';
+          if (scratchCardCol) scratchCardCol.style.display = 'none';
+          if (cartPaddingCol) cartPaddingCol.style.display = 'none';
           if (slideBody) slideBody.style.display = 'block';
           initScarcitySimulator();
+        } else if (currentSlideIndex === 7) { // Slide 8: Phantom Countdown Timer
+          slideCard.classList.remove('slide-6-full');
+          slideCard.classList.add('wide-card');
+          if (characterCol) characterCol.style.display = 'none';
+          if (trialCalendarCol) trialCalendarCol.style.display = 'none';
+          if (coffeeStampCol) coffeeStampCol.style.display = 'none';
+          if (scarcityCol) scarcityCol.style.display = 'none';
+          if (phantomTimerCol) phantomTimerCol.style.display = 'flex';
+          if (pdfTrapCol) pdfTrapCol.style.display = 'none';
+          if (freeDeliveryCol) freeDeliveryCol.style.display = 'none';
+          if (targetedAdCol) targetedAdCol.style.display = 'none';
+          if (dripPricingCol) dripPricingCol.style.display = 'none';
+          if (zomatoCol) zomatoCol.style.display = 'none';
+          if (scratchCardCol) scratchCardCol.style.display = 'none';
+          if (cartPaddingCol) cartPaddingCol.style.display = 'none';
+          if (slideBody) slideBody.style.display = 'block';
+          initPhantomTimerSimulator();
+        } else if (currentSlideIndex === 8) { // Slide 9: PDF Editor Subscription Trap
+          slideCard.classList.remove('slide-6-full');
+          slideCard.classList.add('wide-card');
+          if (characterCol) characterCol.style.display = 'none';
+          if (trialCalendarCol) trialCalendarCol.style.display = 'none';
+          if (coffeeStampCol) coffeeStampCol.style.display = 'none';
+          if (scarcityCol) scarcityCol.style.display = 'none';
+          if (phantomTimerCol) phantomTimerCol.style.display = 'none';
+          if (pdfTrapCol) pdfTrapCol.style.display = 'flex';
+          if (freeDeliveryCol) freeDeliveryCol.style.display = 'none';
+          if (targetedAdCol) targetedAdCol.style.display = 'none';
+          if (dripPricingCol) dripPricingCol.style.display = 'none';
+          if (zomatoCol) zomatoCol.style.display = 'none';
+          if (scratchCardCol) scratchCardCol.style.display = 'none';
+          if (cartPaddingCol) cartPaddingCol.style.display = 'none';
+          if (slideBody) slideBody.style.display = 'block';
+          initPdfTrapSimulator();
+        } else if (currentSlideIndex === 9) { // Slide 10: Free Delivery Cart Trap
+          slideCard.classList.remove('slide-6-full');
+          slideCard.classList.add('wide-card');
+          if (characterCol) characterCol.style.display = 'none';
+          if (trialCalendarCol) trialCalendarCol.style.display = 'none';
+          if (coffeeStampCol) coffeeStampCol.style.display = 'none';
+          if (scarcityCol) scarcityCol.style.display = 'none';
+          if (phantomTimerCol) phantomTimerCol.style.display = 'none';
+          if (pdfTrapCol) pdfTrapCol.style.display = 'none';
+          if (freeDeliveryCol) freeDeliveryCol.style.display = 'flex';
+          if (targetedAdCol) targetedAdCol.style.display = 'none';
+          if (dripPricingCol) dripPricingCol.style.display = 'none';
+          if (zomatoCol) zomatoCol.style.display = 'none';
+          if (scratchCardCol) scratchCardCol.style.display = 'none';
+          if (cartPaddingCol) cartPaddingCol.style.display = 'none';
+          if (slideBody) slideBody.style.display = 'block';
+          initFreeDeliverySimulator();
+        } else if (currentSlideIndex === 10) { // Slide 11: The Invisible Digital Ear
+          slideCard.classList.remove('slide-6-full');
+          slideCard.classList.add('wide-card');
+          if (characterCol) characterCol.style.display = 'none';
+          if (trialCalendarCol) trialCalendarCol.style.display = 'none';
+          if (coffeeStampCol) coffeeStampCol.style.display = 'none';
+          if (scarcityCol) scarcityCol.style.display = 'none';
+          if (phantomTimerCol) phantomTimerCol.style.display = 'none';
+          if (pdfTrapCol) pdfTrapCol.style.display = 'none';
+          if (freeDeliveryCol) freeDeliveryCol.style.display = 'none';
+          if (targetedAdCol) targetedAdCol.style.display = 'flex';
+          if (dripPricingCol) dripPricingCol.style.display = 'none';
+          if (zomatoCol) zomatoCol.style.display = 'none';
+          if (scratchCardCol) scratchCardCol.style.display = 'none';
+          if (cartPaddingCol) cartPaddingCol.style.display = 'none';
+          if (slideBody) slideBody.style.display = 'block';
+          initTargetedAdSimulator();
+        } else if (currentSlideIndex === 11) { // Slide 12: The Bait Price Switch (Drip Pricing)
+          slideCard.classList.remove('slide-6-full');
+          slideCard.classList.add('wide-card');
+          if (characterCol) characterCol.style.display = 'none';
+          if (trialCalendarCol) trialCalendarCol.style.display = 'none';
+          if (coffeeStampCol) coffeeStampCol.style.display = 'none';
+          if (scarcityCol) scarcityCol.style.display = 'none';
+          if (phantomTimerCol) phantomTimerCol.style.display = 'none';
+          if (pdfTrapCol) pdfTrapCol.style.display = 'none';
+          if (freeDeliveryCol) freeDeliveryCol.style.display = 'none';
+          if (targetedAdCol) targetedAdCol.style.display = 'none';
+          if (dripPricingCol) dripPricingCol.style.display = 'flex';
+          if (zomatoCol) zomatoCol.style.display = 'none';
+          if (scratchCardCol) scratchCardCol.style.display = 'none';
+          if (cartPaddingCol) cartPaddingCol.style.display = 'none';
+          if (slideBody) slideBody.style.display = 'block';
+          initDripPricingSimulator();
+        } else if (currentSlideIndex === 12) { // Slide 13: Zomato Emotional Marketing
+          slideCard.classList.remove('slide-6-full');
+          slideCard.classList.add('wide-card');
+          if (characterCol) characterCol.style.display = 'none';
+          if (trialCalendarCol) trialCalendarCol.style.display = 'none';
+          if (coffeeStampCol) coffeeStampCol.style.display = 'none';
+          if (scarcityCol) scarcityCol.style.display = 'none';
+          if (phantomTimerCol) phantomTimerCol.style.display = 'none';
+          if (pdfTrapCol) pdfTrapCol.style.display = 'none';
+          if (freeDeliveryCol) freeDeliveryCol.style.display = 'none';
+          if (targetedAdCol) targetedAdCol.style.display = 'none';
+          if (dripPricingCol) dripPricingCol.style.display = 'none';
+          if (zomatoCol) zomatoCol.style.display = 'flex';
+          if (scratchCardCol) scratchCardCol.style.display = 'none';
+          if (cartPaddingCol) cartPaddingCol.style.display = 'none';
+          if (slideBody) slideBody.style.display = 'block';
+          initZomatoSimulator();
+        } else if (currentSlideIndex === 13) { // Slide 14: The Fake Scratch Card (Google Pay & PhonePe)
+          slideCard.classList.remove('slide-6-full');
+          slideCard.classList.add('wide-card');
+          if (characterCol) characterCol.style.display = 'none';
+          if (trialCalendarCol) trialCalendarCol.style.display = 'none';
+          if (coffeeStampCol) coffeeStampCol.style.display = 'none';
+          if (scarcityCol) scarcityCol.style.display = 'none';
+          if (phantomTimerCol) phantomTimerCol.style.display = 'none';
+          if (pdfTrapCol) pdfTrapCol.style.display = 'none';
+          if (freeDeliveryCol) freeDeliveryCol.style.display = 'none';
+          if (targetedAdCol) targetedAdCol.style.display = 'none';
+          if (dripPricingCol) dripPricingCol.style.display = 'none';
+          if (zomatoCol) zomatoCol.style.display = 'none';
+          if (scratchCardCol) scratchCardCol.style.display = 'flex';
+          if (cartPaddingCol) cartPaddingCol.style.display = 'none';
+          if (slideBody) slideBody.style.display = 'block';
+          initScratchCardSimulator();
+        } else if (currentSlideIndex === 14) { // Slide 15: The Cart-Padding Trap (Quick Commerce)
+          slideCard.classList.remove('slide-6-full');
+          slideCard.classList.add('wide-card');
+          if (characterCol) characterCol.style.display = 'none';
+          if (trialCalendarCol) trialCalendarCol.style.display = 'none';
+          if (coffeeStampCol) coffeeStampCol.style.display = 'none';
+          if (scarcityCol) scarcityCol.style.display = 'none';
+          if (phantomTimerCol) phantomTimerCol.style.display = 'none';
+          if (pdfTrapCol) pdfTrapCol.style.display = 'none';
+          if (freeDeliveryCol) freeDeliveryCol.style.display = 'none';
+          if (targetedAdCol) targetedAdCol.style.display = 'none';
+          if (dripPricingCol) dripPricingCol.style.display = 'none';
+          if (zomatoCol) zomatoCol.style.display = 'none';
+          if (scratchCardCol) scratchCardCol.style.display = 'none';
+          if (cartPaddingCol) cartPaddingCol.style.display = 'flex';
+          if (slideBody) slideBody.style.display = 'block';
+          initCartPaddingSimulator();
         } else { // Slides 1, 2, 4
           slideCard.classList.remove('slide-6-full', 'wide-card');
           if (characterCol) characterCol.style.display = 'none';
           if (trialCalendarCol) trialCalendarCol.style.display = 'none';
           if (coffeeStampCol) coffeeStampCol.style.display = 'none';
           if (scarcityCol) scarcityCol.style.display = 'none';
+          if (phantomTimerCol) phantomTimerCol.style.display = 'none';
+          if (pdfTrapCol) pdfTrapCol.style.display = 'none';
+          if (freeDeliveryCol) freeDeliveryCol.style.display = 'none';
+          if (targetedAdCol) targetedAdCol.style.display = 'none';
+          if (dripPricingCol) dripPricingCol.style.display = 'none';
+          if (zomatoCol) zomatoCol.style.display = 'none';
+          if (scratchCardCol) scratchCardCol.style.display = 'none';
+          if (cartPaddingCol) cartPaddingCol.style.display = 'none';
           if (slideBody) slideBody.style.display = (slide.bulletPoints && slide.bulletPoints.length > 0) ? 'block' : 'none';
         }
 
@@ -2263,6 +3078,18 @@
 
           case '7':
             goToSlide(6);
+            break;
+
+          case '8':
+            goToSlide(7);
+            break;
+
+          case '9':
+            goToSlide(8);
+            break;
+
+          case '0':
+            goToSlide(9);
             break;
         }
       });
@@ -2956,9 +3783,715 @@
           };
         }
       }
+
+
+      // =========================================================================
+      // SLIDE 8: THE PHANTOM COUNTDOWN TIMER SIMULATOR
+      // =========================================================================
+      let flightTimerInterval = null;
+      let flightTimerSeconds = 599; // 09:59 (10 minutes)
+
+      function initPhantomTimerSimulator() {
+        const display = document.getElementById('flightCountdownDisplay');
+        const refreshBtn = document.getElementById('btnPhantomRefresh');
+        const fastForwardBtn = document.getElementById('btnPhantomFastForward');
+        const exposedBox = document.getElementById('phantomExposedBox');
+        const exposedMsg = document.getElementById('exposedMessage');
+        const holdText = document.getElementById('flightHoldText');
+        const pulseDot = document.getElementById('statusPulseDot');
+
+        if (!display) return;
+
+        // Reset state
+        flightTimerSeconds = 599;
+        if (exposedBox) exposedBox.style.display = 'none';
+        if (holdText) holdText.textContent = 'Your seats are temporarily locked! Complete booking before the timer expires!';
+        if (pulseDot) pulseDot.style.background = '#ef4444';
+
+        function updateClock() {
+          const m = String(Math.floor(flightTimerSeconds / 60)).padStart(2, '0');
+          const s = String(flightTimerSeconds % 60).padStart(2, '0');
+          display.textContent = `${m}:${s}`;
+        }
+
+        if (flightTimerInterval) clearInterval(flightTimerInterval);
+        flightTimerInterval = setInterval(() => {
+          if (flightTimerSeconds > 0) {
+            flightTimerSeconds--;
+            updateClock();
+          } else {
+            // Reached zero: Reset back to 10 minutes, exposing the trick!
+            flightTimerSeconds = 600;
+            updateClock();
+            if (exposedBox) {
+              exposedBox.style.display = 'block';
+              exposedMsg.textContent = 'The countdown reached 00:00, but nothing was lost! The timer simply restarted. The emergency was fake.';
+            }
+          }
+        }, 1000);
+
+        updateClock();
+
+        // Refresh Page simulation
+        if (refreshBtn) {
+          refreshBtn.onclick = (e) => {
+            e.stopPropagation();
+            flightTimerSeconds = 600;
+            updateClock();
+            if (exposedBox) {
+              exposedBox.style.display = 'block';
+              exposedMsg.textContent = 'Page refreshed! Notice that the timer reset back to 10:00. The seats were never released!';
+            }
+            try {
+              const AudioCtx = window.AudioContext || window.webkitAudioContext;
+              if (AudioCtx) {
+                const ctx = new AudioCtx();
+                if (ctx.state === 'suspended') ctx.resume();
+                const osc = ctx.createOscillator();
+                const g = ctx.createGain();
+                osc.frequency.setValueAtTime(400, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(700, ctx.currentTime + 0.12);
+                g.gain.setValueAtTime(0.2, ctx.currentTime);
+                g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+                osc.connect(g);
+                g.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.16);
+              }
+            } catch(err) {}
+          };
+        }
+
+        // Fast forward to 00:00
+        if (fastForwardBtn) {
+          fastForwardBtn.onclick = (e) => {
+            e.stopPropagation();
+            flightTimerSeconds = 0;
+            updateClock();
+            setTimeout(() => {
+              flightTimerSeconds = 600;
+              updateClock();
+              if (exposedBox) {
+                exposedBox.style.display = 'block';
+                exposedMsg.textContent = 'The countdown hit 00:00! Notice how the timer quietly reset to 10:00 without releasing your seats. Pure psychological pressure!';
+              }
+            }, 800);
+          };
+        }
+      }
+
+
+      // =========================================================================
+      // SLIDE 9: THE PDF EDITOR SUBSCRIPTION TRAP SIMULATOR
+      // =========================================================================
+      function initPdfTrapSimulator() {
+        const btnDownload = document.getElementById('btnSimulateDownload');
+        const btnInspect = document.getElementById('btnPdfInspect');
+        const exposedBox = document.getElementById('pdfExposedBox');
+        const statusText = document.getElementById('pdfStatusText');
+        const statusBanner = document.getElementById('pdfStatusBanner');
+        const card = document.getElementById('pdfTrapCard');
+        const callout = document.getElementById('pdfPaywallCallout');
+
+        if (!btnDownload) return;
+
+        let isExposed = false;
+
+        // Reset state
+        if (exposedBox) exposedBox.style.display = 'none';
+        if (statusText) statusText.textContent = 'Workflow trapped: User spent 15 minutes editing, only to find the download button locked behind a subscription!';
+        if (statusBanner) statusBanner.classList.remove('status-alarm-active');
+
+        // Simulate "Click Download" Shock
+        btnDownload.onclick = (e) => {
+          e.stopPropagation();
+          if (statusText) {
+            statusText.innerHTML = '&#128274; <strong>DOWNLOAD BLOCKED!</strong> "Free trial ended &mdash; Enter credit card for $19.99/mo to download your document."';
+          }
+          if (statusBanner) statusBanner.classList.add('status-alarm-active');
+          if (exposedBox) exposedBox.style.display = 'block';
+
+          // Card shake effect
+          if (card) {
+            card.classList.remove('shake-alarm');
+            void card.offsetWidth;
+            card.classList.add('shake-alarm');
+          }
+
+          // Play blocked buzzer audio tone
+          try {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (AudioCtx) {
+              const ctx = new AudioCtx();
+              if (ctx.state === 'suspended') ctx.resume();
+              const osc = ctx.createOscillator();
+              const g = ctx.createGain();
+              osc.type = 'sawtooth';
+              osc.frequency.setValueAtTime(220, ctx.currentTime);
+              osc.frequency.setValueAtTime(140, ctx.currentTime + 0.12);
+              g.gain.setValueAtTime(0.3, ctx.currentTime);
+              g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.28);
+              osc.connect(g);
+              g.connect(ctx.destination);
+              osc.start();
+              osc.stop(ctx.currentTime + 0.3);
+            }
+          } catch(err) {}
+        };
+
+        // Dark pattern inspection toggle
+        if (btnInspect) {
+          btnInspect.onclick = (e) => {
+            e.stopPropagation();
+            isExposed = !isExposed;
+            if (exposedBox) exposedBox.style.display = isExposed ? 'block' : 'none';
+            btnInspect.style.borderColor = isExposed ? '#38bdf8' : 'rgba(255, 255, 255, 0.2)';
+            btnInspect.style.color = isExposed ? '#38bdf8' : '#fff';
+          };
+        }
+      }
+
+
+      // =========================================================================
+      // SLIDE 10: THE FREE DELIVERY CART TRAP SIMULATOR
+      // =========================================================================
+      function initFreeDeliverySimulator() {
+        const btnAdd = document.getElementById('btnAddFiller');
+        const btnText = document.getElementById('btnAddFillerText');
+        const btnInspect = document.getElementById('btnCartInspect');
+        const exposedBox = document.getElementById('cartExposedBox');
+        const exposedTitle = document.getElementById('exposedBadgeTitle');
+        const exposedMsg = document.getElementById('cartExposedMessage');
+        const mathSubtotal = document.getElementById('mathSubtotal');
+        const mathShipping = document.getElementById('mathShipping');
+        const mathTotal = document.getElementById('mathTotal');
+        const thresholdStatus = document.getElementById('thresholdStatusLbl');
+        const thresholdPct = document.getElementById('thresholdPct');
+        const thresholdFill = document.getElementById('thresholdFill');
+        const callout = document.getElementById('cartThresholdCallout');
+
+        if (!btnAdd) return;
+
+        let hasAddedFiller = false;
+        let isExposed = false;
+
+        // Reset state
+        hasAddedFiller = false;
+        isExposed = false;
+        if (mathSubtotal) mathSubtotal.textContent = '$35.00';
+        if (mathShipping) {
+          mathShipping.textContent = '$5.00';
+          mathShipping.style.color = '#e2e8f0';
+          mathShipping.style.textDecoration = 'none';
+        }
+        if (mathTotal) mathTotal.textContent = '$40.00';
+        if (thresholdStatus) thresholdStatus.textContent = 'Free Shipping Progress ($35 / $50)';
+        if (thresholdPct) thresholdPct.textContent = '70%';
+        if (thresholdFill) {
+          thresholdFill.style.width = '70%';
+          thresholdFill.style.background = 'linear-gradient(90deg, #f59e0b, #ef4444)';
+        }
+        if (btnText) btnText.textContent = 'Add $20 Filler Item (Socks / Belt)';
+        if (exposedBox) exposedBox.style.display = 'none';
+        if (callout) {
+          callout.innerHTML = '<span class="delivery-van-icon">&#128666;</span><span><strong>Add $15.00</strong> to get Free Delivery!</span>';
+          callout.style.background = 'rgba(239, 68, 68, 0.92)';
+        }
+
+        btnAdd.onclick = (e) => {
+          e.stopPropagation();
+          hasAddedFiller = !hasAddedFiller;
+
+          if (hasAddedFiller) {
+            // Added filler item ($20)
+            if (mathSubtotal) mathSubtotal.textContent = '$55.00 (+$20 item)';
+            if (mathShipping) {
+              mathShipping.innerHTML = '<span style="text-decoration: line-through; color: #94a3b8;">$5.00</span> <strong style="color: #22c55e;">FREE!</strong>';
+            }
+            if (mathTotal) mathTotal.innerHTML = '<span style="color: #f87171; font-weight: 900;">$55.00</span> <span style="font-size: 0.65rem; color: #ef4444;">(+$15 spent!)</span>';
+            if (thresholdStatus) thresholdStatus.innerHTML = '<strong style="color: #22c55e;">&#10004; Free Delivery Unlocked ($55 / $50)!</strong>';
+            if (thresholdPct) thresholdPct.textContent = '100%';
+            if (thresholdFill) {
+              thresholdFill.style.width = '100%';
+              thresholdFill.style.background = 'linear-gradient(90deg, #22c55e, #10b981)';
+            }
+            if (btnText) btnText.textContent = 'ðŸ”„ Reset Cart to Original ($40)';
+            if (callout) {
+              callout.innerHTML = '<span class="delivery-van-icon">&#127881;</span><span><strong>FREE Delivery Unlocked!</strong> (You paid $55)</span>';
+              callout.style.background = 'rgba(34, 197, 94, 0.92)';
+            }
+            if (exposedBox) {
+              exposedBox.style.display = 'block';
+              if (exposedTitle) exposedTitle.innerHTML = '&#9888; THE TRAP IN NUMBERS: -$15 NET LOSS';
+              if (exposedMsg) exposedMsg.innerHTML = 'You spent <strong>+$20.00</strong> on filler items just to avoid paying a <strong>$5.00</strong> shipping fee. Your original cost was $40; now you are paying $55! The store increased their revenue by 37.5%.';
+            }
+
+            // Audio chime
+            try {
+              const AudioCtx = window.AudioContext || window.webkitAudioContext;
+              if (AudioCtx) {
+                const ctx = new AudioCtx();
+                if (ctx.state === 'suspended') ctx.resume();
+                const osc = ctx.createOscillator();
+                const g = ctx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(523.25, ctx.currentTime);
+                osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1);
+                osc.frequency.setValueAtTime(783.99, ctx.currentTime + 0.2);
+                g.gain.setValueAtTime(0.25, ctx.currentTime);
+                g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.35);
+                osc.connect(g);
+                g.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.38);
+              }
+            } catch(err) {}
+
+          } else {
+            // Reset
+            if (mathSubtotal) mathSubtotal.textContent = '$35.00';
+            if (mathShipping) {
+              mathShipping.textContent = '$5.00';
+              mathShipping.style.color = '#e2e8f0';
+              mathShipping.style.textDecoration = 'none';
+            }
+            if (mathTotal) mathTotal.textContent = '$40.00';
+            if (thresholdStatus) thresholdStatus.textContent = 'Free Shipping Progress ($35 / $50)';
+            if (thresholdPct) thresholdPct.textContent = '70%';
+            if (thresholdFill) {
+              thresholdFill.style.width = '70%';
+              thresholdFill.style.background = 'linear-gradient(90deg, #f59e0b, #ef4444)';
+            }
+            if (btnText) btnText.textContent = 'Add $20 Filler Item (Socks / Belt)';
+            if (callout) {
+              callout.innerHTML = '<span class="delivery-van-icon">&#128666;</span><span><strong>Add $15.00</strong> to get Free Delivery!</span>';
+              callout.style.background = 'rgba(239, 68, 68, 0.92)';
+            }
+            if (exposedBox) exposedBox.style.display = 'none';
+          }
+        };
+
+        if (btnInspect) {
+          btnInspect.onclick = (e) => {
+            e.stopPropagation();
+            isExposed = !isExposed;
+            if (exposedBox) exposedBox.style.display = isExposed ? 'block' : 'none';
+            btnInspect.style.borderColor = isExposed ? '#38bdf8' : 'rgba(255, 255, 255, 0.2)';
+            btnInspect.style.color = isExposed ? '#38bdf8' : '#fff';
+          };
+        }
+      }
+
+
+      // =========================================================================
+      // SLIDE 11: THE INVISIBLE DIGITAL EAR SIMULATOR
+      // =========================================================================
+      function initTargetedAdSimulator() {
+        const btnVoice = document.getElementById('btnVoiceTrigger');
+        const btnInspect = document.getElementById('btnTargetedInspect');
+        const exposedBox = document.getElementById('targetedExposedBox');
+        const statusText = document.getElementById('targetedStatusText');
+        const statusBanner = document.getElementById('targetedStatusBanner');
+        const radarPill = document.getElementById('targetedRadarPill');
+        const card = document.getElementById('targetedAdCard');
+
+        if (!btnVoice) return;
+
+        let isExposed = false;
+
+        // Reset state
+        if (exposedBox) exposedBox.style.display = 'none';
+        if (statusText) statusText.textContent = 'Spoken keyword intercepted: Feed instantly flooded with glossy running shoe ads!';
+        if (statusBanner) statusBanner.classList.remove('targeted-alarm-active');
+
+        btnVoice.onclick = (e) => {
+          e.stopPropagation();
+          if (statusText) {
+            statusText.innerHTML = '&#127897; <strong>VOICE / PROXIMITY INTERCEPTED!</strong> "Running shoes" mentioned &rarr; Instagram instantly served targeted sneaker ad.';
+          }
+          if (statusBanner) statusBanner.classList.add('targeted-alarm-active');
+          if (radarPill) {
+            radarPill.classList.remove('radar-pulse-anim');
+            void radarPill.offsetWidth;
+            radarPill.classList.add('radar-pulse-anim');
+          }
+          if (exposedBox) exposedBox.style.display = 'block';
+
+          // Play sonar/radar ping sound
+          try {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (AudioCtx) {
+              const ctx = new AudioCtx();
+              if (ctx.state === 'suspended') ctx.resume();
+              const osc = ctx.createOscillator();
+              const g = ctx.createGain();
+              osc.type = 'sine';
+              osc.frequency.setValueAtTime(880, ctx.currentTime); // A5
+              osc.frequency.exponentialRampToValueAtTime(1760, ctx.currentTime + 0.15); // A6
+              g.gain.setValueAtTime(0.25, ctx.currentTime);
+              g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+              osc.connect(g);
+              g.connect(ctx.destination);
+              osc.start();
+              osc.stop(ctx.currentTime + 0.32);
+            }
+          } catch(err) {}
+        };
+
+        if (btnInspect) {
+          btnInspect.onclick = (e) => {
+            e.stopPropagation();
+            isExposed = !isExposed;
+            if (exposedBox) exposedBox.style.display = isExposed ? 'block' : 'none';
+            btnInspect.style.borderColor = isExposed ? '#38bdf8' : 'rgba(255, 255, 255, 0.2)';
+            btnInspect.style.color = isExposed ? '#38bdf8' : '#fff';
+          };
+        }
+      }
+
+
+      // =========================================================================
+      // SLIDE 12: THE BAIT PRICE SWITCH (DRIP PRICING) SIMULATOR
+      // =========================================================================
+      function initDripPricingSimulator() {
+        const btnDrip = document.getElementById('btnDripTrigger');
+        const btnText = document.getElementById('btnDripTriggerText');
+        const btnInspect = document.getElementById('btnDripInspect');
+        const exposedBox = document.getElementById('dripExposedBox');
+        const feePlatform = document.getElementById('feePlatform');
+        const feeMaterial = document.getElementById('feeMaterial');
+        const feeCert = document.getElementById('feeCert');
+        const totalAmt = document.getElementById('dripTotalAmt');
+        const callout = document.getElementById('dripPriceCallout');
+        const card = document.getElementById('dripTrapCard');
+
+        if (!btnDrip) return;
+
+        let isDripped = false;
+        let isExposed = false;
+
+        // Reset state
+        isDripped = false;
+        isExposed = false;
+        if (feePlatform) feePlatform.style.display = 'none';
+        if (feeMaterial) feeMaterial.style.display = 'none';
+        if (feeCert) feeCert.style.display = 'none';
+        if (totalAmt) {
+          totalAmt.textContent = '$10.00';
+          totalAmt.style.color = '#38bdf8';
+        }
+        if (btnText) btnText.textContent = 'Drip-Feed Hidden Fees';
+        if (exposedBox) exposedBox.style.display = 'none';
+        if (callout) {
+          callout.innerHTML = '<span class="bait-star">&#11088;</span><span>Advertised Bargain: <strong>$10.00</strong></span>';
+          callout.style.background = 'rgba(245, 158, 11, 0.92)';
+        }
+
+        btnDrip.onclick = (e) => {
+          e.stopPropagation();
+          isDripped = !isDripped;
+
+          if (isDripped) {
+            // Drip fees step by step
+            if (btnText) btnText.textContent = 'Revealing hidden fees...';
+            btnDrip.disabled = true;
+
+            setTimeout(() => {
+              if (feePlatform) feePlatform.style.display = 'flex';
+              if (totalAmt) totalAmt.textContent = '$25.00';
+            }, 300);
+
+            setTimeout(() => {
+              if (feeMaterial) feeMaterial.style.display = 'flex';
+              if (totalAmt) totalAmt.textContent = '$35.00';
+            }, 700);
+
+            setTimeout(() => {
+              if (feeCert) feeCert.style.display = 'flex';
+              if (totalAmt) {
+                totalAmt.textContent = '$43.00';
+                totalAmt.style.color = '#ef4444';
+              }
+              if (callout) {
+                callout.innerHTML = '<span class="bait-star">&#9888;</span><span>True Cost: <strong>$43.00</strong> (+330% markup!)</span>';
+                callout.style.background = 'rgba(239, 68, 68, 0.95)';
+              }
+              if (exposedBox) exposedBox.style.display = 'block';
+              if (btnText) btnText.textContent = 'ðŸ”„ Reset to $10.00 Bait';
+              btnDrip.disabled = false;
+
+              // Card alarm shake
+              if (card) {
+                card.classList.remove('shake-alarm');
+                void card.offsetWidth;
+                card.classList.add('shake-alarm');
+              }
+            }, 1100);
+
+            // Play warning chime
+            try {
+              const AudioCtx = window.AudioContext || window.webkitAudioContext;
+              if (AudioCtx) {
+                const ctx = new AudioCtx();
+                if (ctx.state === 'suspended') ctx.resume();
+                const osc = ctx.createOscillator();
+                const g = ctx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(320, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(160, ctx.currentTime + 0.25);
+                g.gain.setValueAtTime(0.3, ctx.currentTime);
+                g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.35);
+                osc.connect(g);
+                g.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.38);
+              }
+            } catch(err) {}
+
+          } else {
+            // Reset
+            if (feePlatform) feePlatform.style.display = 'none';
+            if (feeMaterial) feeMaterial.style.display = 'none';
+            if (feeCert) feeCert.style.display = 'none';
+            if (totalAmt) {
+              totalAmt.textContent = '$10.00';
+              totalAmt.style.color = '#38bdf8';
+            }
+            if (btnText) btnText.textContent = 'Drip-Feed Hidden Fees';
+            if (exposedBox) exposedBox.style.display = 'none';
+            if (callout) {
+              callout.innerHTML = '<span class="bait-star">&#11088;</span><span>Advertised Bargain: <strong>$10.00</strong></span>';
+              callout.style.background = 'rgba(245, 158, 11, 0.92)';
+            }
+          }
+        };
+
+        if (btnInspect) {
+          btnInspect.onclick = (e) => {
+            e.stopPropagation();
+            isExposed = !isExposed;
+            if (exposedBox) exposedBox.style.display = isExposed ? 'block' : 'none';
+            btnInspect.style.borderColor = isExposed ? '#38bdf8' : 'rgba(255, 255, 255, 0.2)';
+            btnInspect.style.color = isExposed ? '#38bdf8' : '#fff';
+          };
+        }
+      }
+
+
+      // =========================================================================
+      // GLOBAL LIGHTBOX FOR FULLSCREEN IMAGE VIEW
+      // =========================================================================
+      function openImageLightbox(src, caption) {
+        const modal = document.getElementById('imageLightboxModal');
+        const img = document.getElementById('lightboxImg');
+        const cap = document.getElementById('lightboxCaption');
+        if (!modal || !img) return;
+        img.src = src;
+        if (cap) cap.textContent = caption || 'Evidence Screenshot';
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeImageLightbox() {
+        const modal = document.getElementById('imageLightboxModal');
+        if (!modal) return;
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeImageLightbox();
+      });
+
+      const lightboxOverlay = document.getElementById('lightboxOverlay');
+      const btnCloseLightbox = document.getElementById('btnCloseLightbox');
+      if (lightboxOverlay) lightboxOverlay.onclick = closeImageLightbox;
+      if (btnCloseLightbox) btnCloseLightbox.onclick = closeImageLightbox;
+
+      // =========================================================================
+      // SLIDE 13: ZOMATO PUSH NOTIFICATION SIMULATOR
+      // =========================================================================
+      const zomatoTactics = [
+        {
+          quote: '"dessert menu hi padh lo ðŸ‘€ love letter toh kisi ne bheja hoga nahi ðŸ’”"',
+          badge: 'ðŸ’” GUILT & LONELINESS TRIGGER',
+          message: 'By mimicking personal banter, Zomato plays on emotional vulnerabilities so you seek instant dopamine via sugar or comfort food.'
+        },
+        {
+          quote: '"reminder to turn off your alarm for tomorrow morning ðŸ¤—"',
+          badge: 'â° PSEUDO-CARE ROUTINE',
+          message: 'Pretending to care about your sleep schedule keeps the brand top-of-mind late at night when impulse binge-ordering peaks.'
+        },
+        {
+          quote: '"before you become a millionaire, become a meal-ionaire ðŸ±"',
+          badge: 'ðŸ’¡ WITTY DISTRACTION',
+          message: 'Uses humor and puns to replace your logical budgeting habits with whimsical immediate gratification.'
+        },
+        {
+          quote: '"no plans tonight? okay, cancelling ours too, to be with you â¤ï¸"',
+          badge: 'â¤ï¸ THE LONELY COMPANION TRAP',
+          message: 'Frames the ordering app as a loyal companion on empty evenings, turning emotional void into food delivery revenue.'
+        }
+      ];
+
+      let currentTacticIndex = 0;
+
+      function initZomatoSimulator() {
+        const wrapper = document.getElementById('zomatoScreenshotWrapper');
+        const btnFullscreen = document.getElementById('btnZomatoFullscreen');
+        const btnCycle = document.getElementById('btnZomatoCycle');
+        const quoteText = document.getElementById('zomatoQuoteText');
+        const tacticBadge = document.getElementById('zomatoTacticBadge');
+        const exposedMsg = document.getElementById('zomatoExposedMessage');
+
+        // Fullscreen triggers
+        const triggerFullscreen = (e) => {
+          if (e) e.stopPropagation();
+          openImageLightbox('zomato-notifications.png', 'Zomato Push Notifications - Real-World Marketing Evidence');
+        };
+
+        if (wrapper) wrapper.onclick = triggerFullscreen;
+        if (btnFullscreen) btnFullscreen.onclick = triggerFullscreen;
+
+        // Cycle through notification tactics
+        if (btnCycle) {
+          btnCycle.onclick = (e) => {
+            e.stopPropagation();
+            currentTacticIndex = (currentTacticIndex + 1) % zomatoTactics.length;
+            const t = zomatoTactics[currentTacticIndex];
+            if (quoteText) quoteText.textContent = t.quote;
+            if (tacticBadge) tacticBadge.textContent = t.badge;
+            if (exposedMsg) exposedMsg.textContent = t.message;
+
+            try {
+              const AudioCtx = window.AudioContext || window.webkitAudioContext;
+              if (AudioCtx) {
+                const ctx = new AudioCtx();
+                if (ctx.state === 'suspended') ctx.resume();
+                const osc = ctx.createOscillator();
+                const g = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(659.25, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.12);
+                g.gain.setValueAtTime(0.2, ctx.currentTime);
+                g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.22);
+                osc.connect(g);
+                g.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.25);
+              }
+            } catch(err) {}
+          };
+        }
+      }
+
+
+      // =========================================================================
+      // SLIDE 14: THE FAKE SCRATCH CARD SIMULATOR (GOOGLE PAY & PHONEPE)
+      // =========================================================================
+      function initScratchCardSimulator() {
+        const foil = document.getElementById('scratchFoilOverlay');
+        const btnReveal = document.getElementById('btnScratchReveal');
+        const btnText = document.getElementById('btnScratchRevealText');
+        const btnFullscreen = document.getElementById('btnScratchFullscreen');
+        const wrapper = document.getElementById('scratchScreenshotWrapper');
+        const statusText = document.getElementById('scratchStatusText');
+        const statusIcon = document.getElementById('scratchStatusIcon');
+        const statusBubble = document.getElementById('scratchStatusBubble');
+        const exposedBox = document.getElementById('scratchExposedBox');
+
+        let isScratched = false;
+
+        // Reset state
+        isScratched = false;
+        if (foil) {
+          foil.style.opacity = '1';
+          foil.style.pointerEvents = 'auto';
+          foil.style.transform = 'scale(1)';
+        }
+        if (statusText) statusText.textContent = 'Reward waiting: Scratch the card above to claim your cashback!';
+        if (statusIcon) statusIcon.innerHTML = '&#127881;';
+        if (statusBubble) statusBubble.classList.remove('scratch-status-revealed');
+        if (btnText) btnText.textContent = 'Scratch Card (Reveal)';
+        if (exposedBox) exposedBox.style.display = 'none';
+
+        function doScratch() {
+          if (!isScratched) {
+            isScratched = true;
+            if (foil) {
+              foil.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+              foil.style.opacity = '0';
+              foil.style.pointerEvents = 'none';
+              foil.style.transform = 'scale(1.05)';
+            }
+            if (statusText) {
+              statusText.innerHTML = '&#128680; <strong>REWARD REVEALED:</strong> Flat â‚¹500 OFF on Fantasy Rummy! (Not cashback &mdash; a sponsored ad!)';
+            }
+            if (statusIcon) statusIcon.innerHTML = '&#127183;';
+            if (statusBubble) statusBubble.classList.add('scratch-status-revealed');
+            if (btnText) btnText.textContent = 'ðŸ”„ Reset Scratch Card';
+            if (exposedBox) exposedBox.style.display = 'block';
+
+            // Play celebratory chime followed by disappointed buzzer
+            try {
+              const AudioCtx = window.AudioContext || window.webkitAudioContext;
+              if (AudioCtx) {
+                const ctx = new AudioCtx();
+                if (ctx.state === 'suspended') ctx.resume();
+                const osc = ctx.createOscillator();
+                const g = ctx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(587.33, ctx.currentTime); // D5
+                osc.frequency.setValueAtTime(880, ctx.currentTime + 0.1); // A5
+                osc.frequency.exponentialRampToValueAtTime(330, ctx.currentTime + 0.3); // Drop
+                g.gain.setValueAtTime(0.3, ctx.currentTime);
+                g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.38);
+                osc.connect(g);
+                g.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.4);
+              }
+            } catch(err) {}
+
+          } else {
+            // Reset
+            isScratched = false;
+            if (foil) {
+              foil.style.opacity = '1';
+              foil.style.pointerEvents = 'auto';
+              foil.style.transform = 'scale(1)';
+            }
+            if (statusText) statusText.textContent = 'Reward waiting: Scratch the card above to claim your cashback!';
+            if (statusIcon) statusIcon.innerHTML = '&#127881;';
+            if (statusBubble) statusBubble.classList.remove('scratch-status-revealed');
+            if (btnText) btnText.textContent = 'Scratch Card (Reveal)';
+            if (exposedBox) exposedBox.style.display = 'none';
+          }
+        }
+
+        if (foil) foil.onclick = doScratch;
+        if (btnReveal) btnReveal.onclick = (e) => { e.stopPropagation(); doScratch(); };
+
+        const triggerFullscreen = (e) => {
+          if (e) e.stopPropagation();
+          openImageLightbox('upi-scratch-card.jpg', 'Google Pay & PhonePe - The Fake Scratch Card Ad Trap');
+        };
+
+        if (btnFullscreen) btnFullscreen.onclick = triggerFullscreen;
+      }
 // Start engine
       init();
     });
   </script>
+
+  <!-- Fullscreen Image Lightbox Modal -->
+  <div id="imageLightboxModal" class="image-lightbox-modal" style="display: none;">
+    <div class="lightbox-overlay" id="lightboxOverlay"></div>
+    <div class="lightbox-content-box">
+      <button class="btn-close-lightbox" id="btnCloseLightbox" title="Close Fullscreen View (Esc)">&times; Close</button>
+      <img src="" alt="Fullscreen Evidence" class="lightbox-img" id="lightboxImg">
+      <div class="lightbox-caption" id="lightboxCaption">Evidence Screenshot</div>
+    </div>
+  </div>
 </body>
 </html>
