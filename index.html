@@ -3695,6 +3695,154 @@
           }
         } catch(e) {}
       }
+
+      function initCoffeeStampSimulator() {
+        const overlay = document.getElementById('stampSlotsOverlay');
+        const badge = document.getElementById('coffeeCounterBadge');
+        const buyBtn = document.getElementById('btnBuyCoffeeStamp');
+        const buyNum = document.getElementById('stampBuyNum');
+        const resetBtn = document.getElementById('btnResetCoffee');
+        const gaugeFill = document.getElementById('gaugeFill');
+        const gaugeStatusText = document.getElementById('gaugeStatusText');
+        const cardWrapper = document.getElementById('coffeeCardWrapper');
+        const inlineReward = document.getElementById('coffeeInlineReward');
+        const slideBody = document.getElementById('slideBody');
+
+        if (!overlay) return;
+
+        // Slide 6 is visual-only, hide left body
+        if (slideBody) slideBody.style.display = 'none';
+
+        function updateUI() {
+          const count = coffeeState.stamps;
+          const percent = count * 10;
+
+          if (badge) badge.textContent = count + ' / 10 STAMPS';
+          if (buyNum) buyNum.textContent = count < 10 ? (count + 1) : '10';
+          if (gaugeFill) gaugeFill.style.width = percent + '%';
+
+          if (gaugeStatusText) {
+            if (count === 3) {
+              gaugeStatusText.textContent = '30% ARTIFICIAL HEAD START';
+              gaugeStatusText.style.color = '#38bdf8';
+            } else if (count < 7) {
+              gaugeStatusText.textContent = percent + '% BUYING ACCELERATION ACTIVATED';
+              gaugeStatusText.style.color = '#fbbf24';
+            } else if (count < 10) {
+              gaugeStatusText.textContent = percent + '% FEVER PITCH (GOAL GRADIENT EFFECT!)';
+              gaugeStatusText.style.color = '#f87171';
+            } else {
+              gaugeStatusText.textContent = '100% COMPLETE: YOU GOT A FREE COFFEE!';
+              gaugeStatusText.style.color = '#00ff88';
+            }
+          }
+
+          const slots = overlay.querySelectorAll('.stamp-slot');
+          slots.forEach(s => {
+            const slot = parseInt(s.dataset.slot, 10);
+            s.classList.remove('stamped', 'active-next');
+
+            if (slot <= count) {
+              s.classList.add('stamped');
+              if (slot <= 3) {
+                s.classList.add('pre-stamped');
+                if (!s.querySelector('.gift-tag')) {
+                  s.innerHTML = '<span class="gift-tag">&#10004; GIFT</span>';
+                }
+              } else if (slot >= 4 && slot <= 9) {
+                if (!s.querySelector('.cup-stamp-ink')) {
+                  s.innerHTML = '<div class="cup-stamp-ink">&#9749;</div>';
+                }
+              } else if (slot === 10) {
+                if (!s.querySelector('.cup-stamp-ink')) {
+                  s.innerHTML = '<div class="cup-stamp-ink gold-claimed"><span>CLAIMED!</span></div>';
+                }
+              }
+              const beacon = s.querySelector('.pulse-beacon');
+              if (beacon) beacon.remove();
+            } else {
+              if (slot <= 3) {
+                s.innerHTML = '<span class="gift-tag">&#10004; GIFT</span>';
+              } else {
+                s.innerHTML = '';
+              }
+
+              if (slot === count + 1) {
+                s.classList.add('active-next');
+                if (!s.querySelector('.pulse-beacon')) {
+                  const beacon = document.createElement('span');
+                  beacon.className = 'pulse-beacon';
+                  s.appendChild(beacon);
+                }
+              }
+            }
+          });
+
+          if (coffeeState.completed) {
+            if (inlineReward) inlineReward.style.display = 'block';
+            if (cardWrapper) cardWrapper.classList.add('winner-glow');
+          } else {
+            if (inlineReward) inlineReward.style.display = 'none';
+            if (cardWrapper) cardWrapper.classList.remove('winner-glow');
+          }
+        }
+
+        function triggerInlineCoffeeWin() {
+          coffeeState.completed = true;
+          playCoffeeStampSound(true);
+          updateUI();
+        }
+
+        function stampNextSlot() {
+          if (coffeeState.stamps < 10) {
+            coffeeState.stamps++;
+            const isWinner = coffeeState.stamps === 10;
+            if (isWinner) {
+              triggerInlineCoffeeWin();
+            } else {
+              playCoffeeStampSound(false);
+              updateUI();
+            }
+          }
+        }
+
+        if (buyBtn) {
+          buyBtn.onclick = (e) => {
+            e.stopPropagation();
+            stampNextSlot();
+          };
+        }
+
+        const slots = overlay.querySelectorAll('.stamp-slot');
+        slots.forEach(s => {
+          s.onclick = (e) => {
+            e.stopPropagation();
+            const slot = parseInt(s.dataset.slot, 10);
+            if (slot > coffeeState.stamps && slot <= 10) {
+              coffeeState.stamps = slot;
+              const isWinner = coffeeState.stamps === 10;
+              if (isWinner) {
+                triggerInlineCoffeeWin();
+              } else {
+                playCoffeeStampSound(false);
+                updateUI();
+              }
+            }
+          };
+        });
+
+        if (resetBtn) {
+          resetBtn.onclick = (e) => {
+            e.stopPropagation();
+            coffeeState.stamps = 3;
+            coffeeState.completed = false;
+            updateUI();
+          };
+        }
+
+        updateUI();
+      }
+
       // =========================================================================
       // SLIDE 7: MANUFACTURED SCARCITY SIMULATOR
       // =========================================================================
@@ -4487,6 +4635,132 @@
         if (btnFullscreen) btnFullscreen.onclick = triggerFullscreen;
       }
 // Start engine
+
+      // =========================================================================
+      // SLIDE 15: THE CART-PADDING TRAP SIMULATOR (10-Minute Grocery App Hostage)
+      // =========================================================================
+      function initCartPaddingSimulator() {
+        const wrapper = document.getElementById('cartPaddingScreenshotWrapper');
+        const btnZoom = document.getElementById('btnCartPaddingZoom');
+        const btnFullscreen = document.getElementById('btnCartPaddingFullscreen');
+        const btnPad = document.getElementById('btnPadCart');
+        const btnPadText = document.getElementById('btnPadCartText');
+        const mathTotal = document.getElementById('mathValTotal');
+        const mathStatus = document.getElementById('mathValStatus');
+        const mathUnwanted = document.getElementById('mathValUnwanted');
+        const mathMult = document.getElementById('mathValMultiplier');
+        const statusBubble = document.getElementById('cartPaddingStatusBubble');
+        const statusText = document.getElementById('cartPaddingStatusText');
+        const statusIcon = document.getElementById('cartStatusIcon');
+        const exposedBox = document.getElementById('cartPaddingExposedBox');
+        const thresholdOverlay = document.getElementById('cartThresholdOverlay');
+        const thresholdAlertText = document.getElementById('thresholdAlertText');
+
+        let isPadded = false;
+
+        // Reset state
+        if (mathTotal) {
+          mathTotal.innerHTML = '&#8377;35';
+          mathTotal.className = 'math-val highlight-red';
+        }
+        if (mathStatus) mathStatus.textContent = 'Checkout Blocked';
+        if (mathUnwanted) {
+          mathUnwanted.innerHTML = '&#8377;0';
+          mathUnwanted.className = 'math-val';
+        }
+        if (mathMult) mathMult.textContent = '1.0x (Baseline)';
+        if (thresholdAlertText) thresholdAlertText.innerHTML = '&#9888; Add &#8377;165 more to place order!';
+        if (thresholdOverlay) thresholdOverlay.classList.remove('threshold-unlocked');
+        if (statusBubble) statusBubble.classList.remove('cart-status-padded');
+        if (statusIcon) statusIcon.innerHTML = '&#128308;';
+        if (statusText) statusText.innerHTML = 'Hostage State: &#8377;35 milk held hostage behind &#8377;200 threshold!';
+        if (btnPadText) btnPadText.innerHTML = 'Pad Cart With Snacks (+&#8377;170)';
+        if (exposedBox) exposedBox.style.display = 'none';
+
+        function toggleCartPadding() {
+          if (!isPadded) {
+            isPadded = true;
+            if (mathTotal) {
+              mathTotal.innerHTML = '&#8377;205';
+              mathTotal.className = 'math-val highlight-green';
+            }
+            if (mathStatus) mathStatus.innerHTML = '&#9989; Checkout Unlocked';
+            if (mathUnwanted) {
+              mathUnwanted.innerHTML = '+&#8377;170';
+              mathUnwanted.className = 'math-val highlight-red';
+            }
+            if (mathMult) mathMult.textContent = '5.8x Spent on Junk!';
+
+            if (thresholdAlertText) thresholdAlertText.innerHTML = '&#9989; Threshold Met! Order Unlocked (&#8377;205)';
+            if (thresholdOverlay) thresholdOverlay.classList.add('threshold-unlocked');
+
+            if (statusBubble) statusBubble.classList.add('cart-status-padded');
+            if (statusIcon) statusIcon.innerHTML = '&#127850;';
+            if (statusText) statusText.innerHTML = '<strong>CART PADDED:</strong> Added &#8377;170 in chips, chocolate & soda just to release a &#8377;35 milk packet!';
+
+            if (btnPadText) btnPadText.innerHTML = '&#128260; Reset to &#8377;35 Milk Only';
+            if (exposedBox) exposedBox.style.display = 'block';
+
+            // Play cash register/checkout sound
+            try {
+              const AudioCtx = window.AudioContext || window.webkitAudioContext;
+              if (AudioCtx) {
+                const ctx = new AudioCtx();
+                if (ctx.state === 'suspended') ctx.resume();
+                const osc = ctx.createOscillator();
+                const g = ctx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
+                osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1); // E5
+                osc.frequency.setValueAtTime(783.99, ctx.currentTime + 0.2); // G5
+                osc.frequency.setValueAtTime(1046.50, ctx.currentTime + 0.3); // C6
+                g.gain.setValueAtTime(0.25, ctx.currentTime);
+                g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.5);
+                osc.connect(g);
+                g.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.55);
+              }
+            } catch(err) {}
+
+          } else {
+            isPadded = false;
+            if (mathTotal) {
+              mathTotal.innerHTML = '&#8377;35';
+              mathTotal.className = 'math-val highlight-red';
+            }
+            if (mathStatus) mathStatus.textContent = 'Checkout Blocked';
+            if (mathUnwanted) {
+              mathUnwanted.innerHTML = '&#8377;0';
+              mathUnwanted.className = 'math-val';
+            }
+            if (mathMult) mathMult.textContent = '1.0x (Baseline)';
+
+            if (thresholdAlertText) thresholdAlertText.innerHTML = '&#9888; Add &#8377;165 more to place order!';
+            if (thresholdOverlay) thresholdOverlay.classList.remove('threshold-unlocked');
+
+            if (statusBubble) statusBubble.classList.remove('cart-status-padded');
+            if (statusIcon) statusIcon.innerHTML = '&#128308;';
+            if (statusText) statusText.innerHTML = 'Hostage State: &#8377;35 milk held hostage behind &#8377;200 threshold!';
+
+            if (btnPadText) btnPadText.innerHTML = 'Pad Cart With Snacks (+&#8377;170)';
+            if (exposedBox) exposedBox.style.display = 'none';
+          }
+        }
+
+        if (btnPad) btnPad.onclick = (e) => { e.stopPropagation(); toggleCartPadding(); };
+
+        const triggerFullscreen = (e) => {
+          if (e) e.stopPropagation();
+          openImageLightbox('cart-padding-hostage.jpg', '10-Minute Grocery App Cart Hostage: Adding ₹165 in unwanted snacks just to checkout a ₹35 packet of milk');
+        };
+
+        if (wrapper) wrapper.onclick = triggerFullscreen;
+        if (btnZoom) btnZoom.onclick = triggerFullscreen;
+        if (btnFullscreen) btnFullscreen.onclick = triggerFullscreen;
+      }
+
+      // Start engine
       init();
     });
   </script>
