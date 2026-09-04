@@ -1,4 +1,4 @@
-// =============================================================================
+﻿// =============================================================================
 // SEMINAR SLIDES DATA
 // =============================================================================
 
@@ -30,7 +30,7 @@ const slidesData = [
     bulletPoints: [
       "\"When I was a kid, I went to a shop to buy an 8-rupee pen. I gave the shopkeeper a 10-rupee note, expecting 2 rupees back.\"",
       "\"Instead of coins, he handed me two chocolates and said, 'I don't have any change.'\"",
-      "\"I didn't want the candy, but I took it anyway. Looking back, I realized it wasn't a coin shortage at all—it was a trick.\"",
+      "\"I didn't want the candy, but I took it anyway. Looking back, I realized it wasn't a coin shortage at allâ€”it was a trick.\"",
       "\"The shopkeeper forced me to buy something I never asked for. I didn't make the choice. He made it for me.\""
     ]
   },
@@ -53,7 +53,7 @@ const slidesData = [
     visualType: "free-trial-trap",
     bulletPoints: [
       "\"We have all signed up for a free trial or a software subscription online, thinking it is risk-free.\"",
-      "\"They make it effortless to join—just one click, a saved card, and you are inside. But when you finally want to leave, the door is locked.\"",
+      "\"They make it effortless to joinâ€”just one click, a saved card, and you are inside. But when you finally want to leave, the door is locked.\"",
       "\"They hide the cancellation button behind five different menus, force you to click through popups, or even make you talk to a customer service agent just to stop paying.\"",
       "\"They use friction as a weapon. They count on the fact that you will get too tired, too busy, or too annoyed to finish canceling, forcing you to pay for another month you never wanted.\""
     ]
