@@ -107,10 +107,10 @@ const slidesData = [
     subtitle: "",
     visualType: "cart-trap",
     bulletPoints: [
-      "Stores notify you: 'Add just $15 more to unlock free delivery!'",
-      "Your brain shifts from what you need to finding filler items.",
-      "You spend $20 on extra items just to avoid a $5 delivery fee.",
-      "You don't save money—the store successfully makes you spend more."
+      "Stores notify you: 'Add items worth \u20b9200 to get FREE delivery!'",
+      "Your focus shifts from what you need to finding filler items.",
+      "You spend \u20b9250 on extra items just to avoid a \u20b950 delivery charge.",
+      "You don't save money\u2014the store successfully makes you spend 3x more."
     ]
   },
   {

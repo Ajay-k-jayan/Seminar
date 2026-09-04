@@ -1944,76 +1944,331 @@
 
           <!-- Slide 10: The Free Delivery Cart Trap Visual Column -->
           <div class="slide-visual-col" id="freeDeliveryCol" style="display: none;">
-            <div class="cart-card-container">
-              <!-- Free Delivery Threshold Card -->
-              <div class="cart-trap-card" id="cartTrapCard">
-                <!-- Top E-commerce Header -->
-                <div class="cart-top-bar">
-                  <div class="cart-brand-title">
-                    <span class="cart-icon-symbol">&#128722;</span>
-                    <span>ONLINE CHECKOUT &bull; SHOPPING CART</span>
+            <div class="cart-card-container free-delivery-sim-container">
+              <!-- Smartphone Frame (Flipkart Grocery Mobile App) -->
+              <div class="ecom-website-card fk-app-frame" id="fdWebsiteCard">
+                <!-- Phone Status Bar -->
+                <div class="fk-status-bar">
+                  <span class="fk-status-time">11:15 AM</span>
+                  <div class="fk-dynamic-island">
+                    <span class="island-camera"></span>
                   </div>
-                  <span class="cart-trap-tag">THRESHOLD DARK PATTERN</span>
-                </div>
-
-                <!-- Real Desktop Cart Screenshot Wrapper -->
-                <div class="cart-screenshot-wrapper" id="cartScreenshotWrapper">
-                  <img src="free-delivery-trap.jpg" alt="Online Shopping Cart Free Delivery Trap" class="cart-real-img" id="cartRealImg">
-                  
-                  <!-- Floating Threshold Urgency Callout -->
-                  <div class="cart-threshold-callout" id="cartThresholdCallout">
-                    <span class="delivery-van-icon">&#128666;</span>
-                    <span><strong>Add $15.00</strong> to get Free Delivery!</span>
+                  <div class="fk-status-icons">
+                    <button type="button" class="btn-phone-fs-icon" id="btnFdPhoneFsIcon" title="Expand Full Screen">&#x26F6;</button>
+                    <span class="fk-sig-badge">5G</span>
+                    <span class="fk-wifi-icon">&#128246;</span>
+                    <div class="fk-battery-icon"><div class="fk-battery-fill"></div></div>
                   </div>
                 </div>
 
-                <!-- Simulation Controls & Live Financial Impact Calculator -->
-                <div class="cart-sim-panel">
-                  <!-- Dynamic Cart Calculation Row -->
-                  <div class="cart-math-box" id="cartMathBox">
-                    <div class="cart-math-item">
-                      <span class="math-label">Items Subtotal:</span>
-                      <span class="math-val" id="mathSubtotal">$35.00</span>
+                <!-- Flipkart Blue App Navigation Bar -->
+                <div class="ecom-nav-bar fk-nav-bar">
+                  <div class="fk-nav-top-row">
+                    <div class="ecom-brand-group fk-brand-box">
+                      <div class="fk-brand-logo-group">
+                        <span class="fk-brand-name">Flipkart</span>
+                        <span class="fk-plus-spark">Plus ✦</span>
+                        <span class="fk-grocery-pill">GROCERY</span>
+                      </div>
+                      <div class="fk-loc-pill">
+                        <span class="loc-pin">&#128205;</span>
+                        <span class="loc-text">Deliver to <strong>560001</strong></span>
+                        <span class="loc-speed">⚡ 15 Mins</span>
+                      </div>
                     </div>
-                    <div class="cart-math-item">
-                      <span class="math-label">Shipping Cost:</span>
-                      <span class="math-val" id="mathShipping">$5.00</span>
-                    </div>
-                    <div class="cart-math-total">
-                      <span class="math-total-label">Total Charged:</span>
-                      <span class="math-total-val" id="mathTotal">$40.00</span>
+
+                    <div class="ecom-nav-actions">
+                      <button type="button" class="btn-tab-view active" id="btnFdTabStore" title="Browse Store">
+                        <span>&#127980; Store</span>
+                      </button>
+                      <button type="button" class="btn-tab-view" id="btnFdTabCart" title="View Shopping Cart">
+                        <span>&#128722; Cart (<span id="fdTabCartCount">1</span>)</span>
+                      </button>
                     </div>
                   </div>
 
-                  <!-- Delivery Progress Meter -->
-                  <div class="threshold-meter-wrapper">
-                    <div class="threshold-labels">
-                      <span id="thresholdStatusLbl">Free Shipping Progress ($35 / $50)</span>
-                      <span class="threshold-pct" id="thresholdPct">70%</span>
+                  <!-- Capsule Search Bar -->
+                  <div class="ecom-search-bar fk-search-bar">
+                    <span class="search-lens">&#128269;</span>
+                    <input type="text" class="ecom-search-input" value="Search groceries, dry fruits, snacks..." readonly>
+                    <div class="fk-search-tools">
+                      <span class="fk-search-tool-btn" title="Voice Search">&#127908;</span>
+                      <span class="fk-search-tool-btn" title="Camera Search">&#128247;</span>
                     </div>
-                    <div class="threshold-track">
-                      <div class="threshold-fill" id="thresholdFill" style="width: 70%;"></div>
+                  </div>
+                </div>
+
+                <!-- Super Deals Free Delivery Ribbon -->
+                <div class="fk-ticker-strip">
+                  <span class="ticker-bolt">&#9889;</span>
+                  <span><strong>SPECIAL OFFER:</strong> FREE Delivery on orders above &#8377;200! (Standard &#8377;50 below &#8377;200)</span>
+                </div>
+
+                <!-- VIEW 1: STORE PRODUCTS CATALOG -->
+                <div class="ecom-view-pane fk-store-pane" id="fdStoreView">
+                  <div class="store-section-header">
+                    <div class="section-title-box">
+                      <span class="section-title">DAILY ESSENTIALS &amp; SNACKS</span>
+                      <span class="section-subtitle">Buy above &#8377;200 to get FREE delivery</span>
+                    </div>
+                    <span class="section-badge">&#9889; Quick Delivery</span>
+                  </div>
+
+                  <div class="fk-product-grid">
+                    <!-- Product 1: Milk (₹35) - Needed Item -->
+                    <div class="ecom-product-card fk-product-card" id="fdProdMilk">
+                      <div class="prod-wishlist-heart">&#9825;</div>
+                      <div class="prod-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=260&q=80" alt="Amul Milk" class="prod-img" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="prod-img-fallback" style="display: none;">&#129371;</div>
+                        <span class="prod-discount-pill">8% OFF</span>
+                      </div>
+                      <div class="prod-details">
+                        <div class="fk-assured-tag"><span class="fk-f">F</span><span class="fk-ass">Assured ✦</span></div>
+                        <div class="prod-title">Amul Taaza Toned Milk</div>
+                        <div class="prod-weight">1 L &bull; Pouch</div>
+                        <div class="prod-rating">
+                          <span class="rating-badge">4.6 &#9733;</span>
+                          <span class="rating-count">(12,450)</span>
+                        </div>
+                        <div class="prod-price-row">
+                          <span class="current-price">&#8377;35</span>
+                          <span class="mrp-price">&#8377;38</span>
+                          <span class="discount-pct">8% off</span>
+                        </div>
+                      </div>
+                      <button type="button" class="btn-store-add in-cart" id="btnFdAddMilk">
+                        <span id="btnFdMilkText">&#10003; In Cart</span>
+                      </button>
+                    </div>
+
+                    <!-- Product 2: Mixed Dry Fruits (₹251) - Filler -->
+                    <div class="ecom-product-card fk-product-card" id="fdProdNuts">
+                      <div class="prod-wishlist-heart">&#9825;</div>
+                      <div class="prod-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=260&q=80" alt="Dry Fruits" class="prod-img" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="prod-img-fallback" style="display: none;">&#129364;</div>
+                        <span class="prod-discount-pill hot">79% OFF</span>
+                      </div>
+                      <div class="prod-details">
+                        <div class="fk-assured-tag"><span class="fk-f">F</span><span class="fk-ass">Assured ✦</span></div>
+                        <div class="prod-title">Panchmeva Mix Dry Fruits</div>
+                        <div class="prod-weight">500 g &bull; Premium Jar</div>
+                        <div class="prod-rating">
+                          <span class="rating-badge">3.7 &#9733;</span>
+                          <span class="rating-count">(530)</span>
+                        </div>
+                        <div class="prod-price-row">
+                          <span class="current-price">&#8377;251</span>
+                          <span class="mrp-price">&#8377;1,199</span>
+                          <span class="discount-pct">79% off</span>
+                        </div>
+                      </div>
+                      <button type="button" class="btn-store-add" id="btnFdAddNuts">
+                        <span>+ Add to Cart</span>
+                      </button>
+                    </div>
+
+                    <!-- Product 3: Spices (₹110) - Filler -->
+                    <div class="ecom-product-card fk-product-card" id="fdProdSpices">
+                      <div class="prod-wishlist-heart">&#9825;</div>
+                      <div class="prod-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=260&q=80" alt="Garam Masala" class="prod-img" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="prod-img-fallback" style="display: none;">&#129524;</div>
+                        <span class="prod-discount-pill">23% OFF</span>
+                      </div>
+                      <div class="prod-details">
+                        <div class="fk-assured-tag"><span class="fk-f">F</span><span class="fk-ass">Assured ✦</span></div>
+                        <div class="prod-title">Tarkash Garam Masala</div>
+                        <div class="prod-weight">100 g &bull; Fresh Spices</div>
+                        <div class="prod-rating">
+                          <span class="rating-badge">4.2 &#9733;</span>
+                          <span class="rating-count">(2,110)</span>
+                        </div>
+                        <div class="prod-price-row">
+                          <span class="current-price">&#8377;110</span>
+                          <span class="mrp-price">&#8377;145</span>
+                          <span class="discount-pct">23% off</span>
+                        </div>
+                      </div>
+                      <button type="button" class="btn-store-add" id="btnFdAddSpices">
+                        <span>+ Add to Cart</span>
+                      </button>
+                    </div>
+
+                    <!-- Product 4: Dried Anjeer (₹325) - Filler -->
+                    <div class="ecom-product-card fk-product-card" id="fdProdAnjeer">
+                      <div class="prod-wishlist-heart">&#9825;</div>
+                      <div class="prod-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=260&q=80" alt="Dried Figs" class="prod-img" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="prod-img-fallback" style="display: none;">&#127827;</div>
+                        <span class="prod-discount-pill hot">45% OFF</span>
+                      </div>
+                      <div class="prod-details">
+                        <div class="fk-assured-tag"><span class="fk-f">F</span><span class="fk-ass">Assured ✦</span></div>
+                        <div class="prod-title">Royal Afghan Dried Anjeer</div>
+                        <div class="prod-weight">500 g &bull; Figs Pack</div>
+                        <div class="prod-rating">
+                          <span class="rating-badge">4.4 &#9733;</span>
+                          <span class="rating-count">(980)</span>
+                        </div>
+                        <div class="prod-price-row">
+                          <span class="current-price">&#8377;325</span>
+                          <span class="mrp-price">&#8377;599</span>
+                          <span class="discount-pct">45% off</span>
+                        </div>
+                      </div>
+                      <button type="button" class="btn-store-add" id="btnFdAddAnjeer">
+                        <span>+ Add to Cart</span>
+                      </button>
                     </div>
                   </div>
 
-                  <!-- Interactive Action Buttons -->
-                  <div class="cart-actions-row">
-                    <button class="btn-add-filler" id="btnAddFiller" title="Add unneeded filler item to beat the $50 threshold">
-                      <span class="btn-icon">&#10133;</span>
-                      <span id="btnAddFillerText">Add $20 Filler Item (Socks / Belt)</span>
+                  <!-- Floating Bottom Cart Bar -->
+                  <div class="ecom-floating-cart-bar" id="fdFloatingCartBar">
+                    <div class="floating-cart-info">
+                      <span class="floating-bag">&#128717;</span>
+                      <span id="fdFloatingCartText">1 Item in Cart &bull; &#8377;35</span>
+                    </div>
+                    <button type="button" class="btn-go-to-cart" id="btnFdGoToCart">
+                      <span>VIEW CART &amp; CHECKOUT &rarr;</span>
                     </button>
-                    <button class="btn-cart-inspect" id="btnCartInspect" title="Expose the math illusion">
-                      <span>&#128269; Dark Pattern Math</span>
+                  </div>
+                </div>
+
+                <!-- VIEW 2: FLIPKART SHOPPING CART & FREE DELIVERY THRESHOLD SCREEN -->
+                <div class="ecom-view-pane fk-cart-pane" id="fdCartView" style="display: none;">
+                  <!-- Header -->
+                  <div class="cart-screen-header fk-cart-header">
+                    <button type="button" class="btn-back-to-store" id="btnFdBackToStore">
+                      <span>&larr; Shopping Cart</span>
+                    </button>
+                    <span class="cart-screen-title">(<span id="fdCartTotalItemsCount">1 item</span>)</span>
+                    <span class="cart-header-trash">&#128465;</span>
+                  </div>
+
+                  <!-- Cart Items List -->
+                  <div class="cart-items-list" id="fdCartItemsList">
+                    <!-- Populated dynamically via JS -->
+                  </div>
+
+                  <!-- FREE DELIVERY THRESHOLD ALERT BANNER -->
+                  <div class="cart-hostage-alert-box" id="fdThresholdAlertBox">
+                    <div class="hostage-alert-top">
+                      <span class="alert-siren" id="fdThresholdIcon">&#128666;</span>
+                      <span class="alert-title" id="fdThresholdTitle">Add &#8377;165 more for FREE Delivery!</span>
+                      <span class="alert-badge" id="fdThresholdBadge">&#8377;50 Delivery Fee</span>
+                    </div>
+                    <!-- Live Dynamic Progress Bar -->
+                    <div class="cart-meter-track">
+                      <div class="cart-meter-fill" id="fdThresholdMeterFill" style="width: 17.5%;">
+                        <span class="meter-scooter">&#128757;</span>
+                      </div>
+                    </div>
+                    <p class="cart-alert-note" id="fdThresholdNote">
+                      Orders above &#8377;200 get FREE Delivery. Currently paying &#8377;50 delivery charge.
+                    </p>
+                  </div>
+
+                  <!-- Quick Add More Items from Store CTA -->
+                  <div class="cart-add-more-box" id="fdAddMoreBox">
+                    <button type="button" class="btn-cart-add-more" id="btnFdAddMore" title="Add items to reach ₹200 free delivery">
+                      <span class="add-more-plus">&#10010;</span>
+                      <span class="add-more-text" id="fdAddMoreText">Add &#8377;165 More Items for FREE Delivery &rarr;</span>
                     </button>
                   </div>
 
-                  <!-- The Trap Breakdown Box -->
-                  <div class="cart-exposed-box" id="cartExposedBox" style="display: none;">
-                    <div class="exposed-badge" id="exposedBadgeTitle">&#9888; THE FREEBIE FALLACY</div>
-                    <p id="cartExposedMessage">You spent $20 on something you never wanted just to avoid a $5 delivery fee! The store successfully manipulated your basket size from $40 to $55.</p>
+                  <!-- Flipkart Bill Details -->
+                  <div class="fk-bill-details">
+                    <div class="fk-bill-title">Bill Details</div>
+                    <div class="cost-row">
+                      <span>Item Total</span>
+                      <span class="cost-val" id="fdTotalCostVal">&#8377;35</span>
+                    </div>
+                    <div class="cost-row">
+                      <span>Delivery Charge</span>
+                      <span class="cost-val" id="fdDeliveryFeeVal">&#8377;50</span>
+                    </div>
+                    <div class="cost-row">
+                      <span>Handling &amp; Packaging Fee</span>
+                      <span class="cost-val">&#8377;5</span>
+                    </div>
+                    <div class="fk-savings-banner" id="fdSavingsBanner" style="display: none;">
+                      <span>&#127881; You unlocked FREE Delivery! (Saved &#8377;50)</span>
+                    </div>
+                  </div>
+
+                  <!-- Checkout Bottom Sticky Payment Row (Priority Checkout) -->
+                  <div class="cart-checkout-sticky">
+                    <div class="cart-pay-summary">
+                      <span class="pay-label">PAYMENT</span>
+                      <span class="pay-grand-total">Total: <strong id="fdGrandTotalVal">&#8377;90</strong></span>
+                    </div>
+                    <button type="button" class="btn-cart-pay unlocked" id="btnFdPay">
+                      <span class="pay-icon" id="btnFdPayIcon">&#128179;</span>
+                      <span id="btnFdPayText">PAY &#8377;90 (INCL. &#8377;50 DELIVERY) &rarr;</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- VIEW 3: ORDER PLACED & TRAP REVEAL OVERLAY -->
+                <div class="order-placed-overlay" id="fdOrderPlacedOverlay" style="display: none;">
+                  <div class="receipt-card fk-receipt-card">
+                    <div class="receipt-header">
+                      <div class="receipt-tick">&#9989;</div>
+                      <h4 class="receipt-title" id="fdReceiptTitle">Order Placed Successfully!</h4>
+                      <p class="receipt-subtitle" id="fdReceiptSubtitle">Flipkart Grocery Order #59312 &bull; Express Delivery</p>
+                    </div>
+
+                    <div class="receipt-bill">
+                      <div class="bill-row">
+                        <span>🥛 What You Needed (Milk):</span>
+                        <span class="val">&#8377;35</span>
+                      </div>
+                      <div class="bill-row" id="fdReceiptFillerRow" style="display: none;">
+                        <span>🥜 Extra Filler Added to Save Delivery:</span>
+                        <span class="val highlight-red" id="fdReceiptFillerVal">+&#8377;251</span>
+                      </div>
+                      <div class="bill-row">
+                        <span>🚚 Delivery Charge:</span>
+                        <span class="val" id="fdReceiptDeliveryVal">&#8377;50</span>
+                      </div>
+                      <div class="bill-divider"></div>
+                      <div class="bill-row total-row">
+                        <span><strong>Total Amount Paid:</strong></span>
+                        <span class="val total-val" id="fdReceiptFinalTotal">&#8377;90</span>
+                      </div>
+                      <div class="trap-multiplier-pill" id="fdReceiptComparisonPill">
+                        &#9888; Analysis of your choice
+                      </div>
+                    </div>
+
+                    <div class="trap-moral-box">
+                      <strong id="fdMoralTitle">The Dark Pattern Exposed:</strong>
+                      <p id="fdMoralText">Notice how the "Free Delivery above &#8377;200" notification shifted your psychology. To avoid paying a &#8377;50 delivery fee, shoppers buy &#8377;250+ of items they never intended to purchase!</p>
+                    </div>
+
+                    <div class="receipt-actions">
+                      <button type="button" class="btn-demo-restart" id="btnFdDemoRestart">
+                        <span>&#128260; Try Demo Again</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <!-- Bottom Full Screen Expansion Bar -->
+              <div class="cart-fullscreen-bar" id="fdFullscreenBar">
+                <button type="button" class="btn-cart-fullscreen" id="btnFdFullscreen" title="Expand Right Side View to Full Screen">
+                  <span class="fs-icon">&#x26F6;</span>
+                  <span id="fdFsBtnText">Expand Simulator Full Screen</span>
+                </button>
+              </div>
+
+              <!-- Floating Exit Fullscreen Button -->
+              <button type="button" class="btn-exit-expanded-fs" id="btnExitFdFs" style="display: none;" title="Exit Full Screen (Esc)">
+                <span>&#x2715; Exit Full Screen</span>
+              </button>
             </div>
           </div>
 
@@ -2147,49 +2402,141 @@
             <div class="zomato-card-container">
               <!-- Zomato Marketing Card -->
               <div class="zomato-trap-card" id="zomatoTrapCard">
-                <!-- Top Header -->
+                <!-- Top Header with Dual Tabs -->
                 <div class="zomato-top-bar">
                   <div class="zomato-brand-title">
                     <span class="zomato-icon">&#127829;</span>
-                    <span>ZOMATO &bull; PUSH NOTIFICATIONS</span>
+                    <span>ZOMATO &bull; NOTIFICATION TRAP</span>
                   </div>
-                  <span class="zomato-badge-live">APP EXAMPLES</span>
-                </div>
-
-                <!-- Real Collage Screenshot Wrapper with Fullscreen Trigger -->
-                <div class="zomato-screenshot-wrapper" id="zomatoScreenshotWrapper" title="Click to view full screen">
-                  <img src="zomato-notifications.png" alt="Zomato Push Notifications Collage" class="zomato-real-img" id="zomatoRealImg">
-                  
-                  <!-- Fullscreen Action Hint Badge -->
-                  <div class="fullscreen-action-badge" id="btnZomatoZoom">
-                    <span class="expand-icon">&#x26F6;</span>
-                    <span>Click to View Fullscreen</span>
+                  <div class="zomato-tab-nav">
+                    <button class="zomato-tab-btn active" id="btnZomatoTabSim" title="Exact simulated mobile notification">
+                      <span>&#128241; Exact Notification</span>
+                    </button>
+                    <button class="zomato-tab-btn" id="btnZomatoTabProof" title="Actual uncropped proof image collage">
+                      <span>&#128248; Actual Proof Image</span>
+                    </button>
                   </div>
                 </div>
 
-                <!-- Simulation Controls & Notification Analysis Panel -->
-                <div class="zomato-sim-panel">
-                  <div class="zomato-quote-bubble" id="zomatoQuoteBubble">
-                    <span class="zomato-bell-icon">&#128276;</span>
-                    <span id="zomatoQuoteText">"dessert menu hi padh lo &#128064; love letter toh kisi ne bheja hoga nahi &#128148;"</span>
+                <!-- VIEW 1: EXACT NOTIFICATION LOCKSCREEN SIMULATOR -->
+                <div class="zomato-sim-view" id="zomatoSimView">
+                  <!-- Phone Mockup Frame -->
+                  <div class="zomato-phone-screen">
+                    <!-- Status Bar -->
+                    <div class="zomato-phone-status">
+                      <span class="phone-clock">10:42 PM</span>
+                      <div class="phone-notch"></div>
+                      <div class="phone-icons">
+                        <span>5G</span>
+                        <span>&#128267; 84%</span>
+                      </div>
+                    </div>
+
+                    <!-- Lockscreen Time & Date -->
+                    <div class="lockscreen-time-wrap">
+                      <div class="lockscreen-clock">10:42</div>
+                      <div class="lockscreen-date">Sunday, September 5</div>
+                    </div>
+
+                    <!-- EXACT ZOMATO PUSH NOTIFICATION CARD -->
+                    <div class="exact-znotif-card" id="exactZnotifCard" title="Click anywhere on card to cycle to next notification">
+                      <div class="znotif-header">
+                        <div class="znotif-app-info">
+                          <div class="znotif-app-logo">
+                            <svg viewBox="0 0 24 24" width="16" height="16">
+                              <circle cx="12" cy="12" r="12" fill="#e23744"/>
+                              <text x="12" y="16" font-size="11" font-weight="900" text-anchor="middle" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif">z</text>
+                            </svg>
+                          </div>
+                          <span class="znotif-app-name">Zomato</span>
+                          <span class="znotif-dot">&bull;</span>
+                          <span class="znotif-time" id="znotifTime">23m</span>
+                        </div>
+                        <div class="znotif-brand-badge">
+                          <span class="znotif-red-pill">zomato</span>
+                        </div>
+                      </div>
+
+                      <div class="znotif-body-wrap">
+                        <div class="znotif-title" id="znotifTitle">dessert menu hi padh lo &#128064;</div>
+                        <div class="znotif-message" id="znotifMessage">love letter toh kisi ne bheja hoga nahi &#128148;</div>
+                      </div>
+
+                      <div class="znotif-quick-actions">
+                        <button class="znotif-act-btn primary" id="btnZnotifAction1">
+                          <span id="znotifActionText">&#127856; Order Dessert</span>
+                        </button>
+                        <button class="znotif-act-btn secondary" id="btnZnotifAction2">
+                          <span>Dismiss</span>
+                        </button>
+                      </div>
+
+                      <!-- Subtle pulse indicator -->
+                      <div class="znotif-ping-indicator" title="Live push notification"></div>
+                    </div>
+
+                    <!-- Notification Feedback Toast (on tapping order) -->
+                    <div class="znotif-toast" id="znotifToast" style="display: none;">
+                      <span>&#128722; App Opened: Impulse craving triggered!</span>
+                    </div>
+
+                    <!-- Interactive Trigger & Cycle Buttons -->
+                    <div class="zomato-action-bar">
+                      <button class="btn-zomato-cycle" id="btnZomatoCycle" title="Cycle through real Zomato notification examples">
+                        <span class="btn-icon">&#128260;</span>
+                        <span id="btnCycleText">Next Notification (1 / 15)</span>
+                      </button>
+                      <button class="btn-zomato-open-proof" id="btnZomatoOpenProof" title="Switch to view the actual proof screenshot">
+                        <span class="btn-icon">&#128248;</span>
+                        <span>Show Proof Image</span>
+                      </button>
+                    </div>
+
+                    <!-- Psychology / Dark Pattern Breakdown -->
+                    <div class="zomato-exposed-box" id="zomatoExposedBox">
+                      <div class="exposed-badge" id="zomatoTacticBadge">&#128148; LONELINESS &amp; BOREDOM TRIGGER</div>
+                      <p id="zomatoExposedMessage">The app pokes fun at being single or bored so you forget it is an ad and order comfort food.</p>
+                    </div>
+
+                    <!-- Clickable Actual Proof Strip Preview -->
+                    <div class="zomato-proof-strip-card" id="zomatoProofStripCard" title="Click to view full uncropped proof collage">
+                      <div class="strip-thumb-wrap">
+                        <img src="zomato-notifications.png" alt="Zomato Proof Thumbnail" class="strip-thumb-img">
+                        <span class="strip-zoom-icon">&#x26F6;</span>
+                      </div>
+                      <div class="strip-meta">
+                        <div class="strip-title">&#128248; ACTUAL APP PROOF SCREENSHOT</div>
+                        <div class="strip-sub">Collage of 15+ authentic push notifications &bull; Click to open</div>
+                      </div>
+                      <button class="btn-strip-expand" id="btnStripExpand">View Full</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- VIEW 2: ACTUAL PROOF IMAGE FULL SHOWCASE -->
+                <div class="zomato-proof-view" id="zomatoProofView" style="display: none;">
+                  <div class="proof-view-header">
+                    <div class="proof-view-badge">&#128248; AUTHENTIC APP EVIDENCE</div>
+                    <div class="proof-view-sub">Uncropped screenshot collage of 15+ real Zomato push notifications</div>
                   </div>
 
-                  <!-- Interactive Action Buttons -->
-                  <div class="zomato-actions-row">
-                    <button class="btn-zomato-fullscreen" id="btnZomatoFullscreen" title="Open full screen lightbox view">
+                  <div class="zomato-proof-canvas" id="zomatoProofCanvas" title="Click to enlarge in fullscreen modal">
+                    <img src="zomato-notifications.png" alt="Actual Zomato Push Notifications Collage Proof" class="zomato-proof-img" id="zomatoProofImg">
+                    <div class="proof-hover-overlay">
+                      <span class="expand-icon">&#x26F6;</span>
+                      <span>Click to Enlarge Fullscreen Lightbox</span>
+                    </div>
+                  </div>
+
+                  <div class="proof-view-actions">
+                    <button class="btn-zomato-fullscreen" id="btnZomatoFullscreen" title="Open full screen lightbox modal">
                       <span class="btn-icon">&#x26F6;</span>
-                      <span>View Fullscreen Evidence</span>
+                      <span>Enlarge Evidence Fullscreen</span>
                     </button>
-                    <button class="btn-zomato-cycle" id="btnZomatoCycle" title="Cycle through notification examples">
-                      <span class="btn-icon">&#128260;</span>
-                      <span id="btnCycleText">Next Example</span>
+                    <button class="btn-zomato-back-sim" id="btnZomatoBackSim" title="Back to interactive notification">
+                      <span class="btn-icon">&#128241;</span>
+                      <span>Back to Exact Notification</span>
                     </button>
-                  </div>
-
-                  <!-- The Breakdown Box -->
-                  <div class="zomato-exposed-box" id="zomatoExposedBox">
-                    <div class="exposed-badge" id="zomatoTacticBadge">&#9888; THE FRIENDLY AD TRAP</div>
-                    <p id="zomatoExposedMessage">The app jokes like a friend so you forget it is an ad, making you order food when bored or stressed.</p>
                   </div>
                 </div>
               </div>
@@ -2262,84 +2609,342 @@
           <!-- Slide 15: The Cart-Padding Trap (Minimum Order Hostage) Visual Column -->
           <div class="slide-visual-col" id="cartPaddingCol" style="display: none;">
             <div class="cart-padding-container">
-              <!-- Quick Commerce Cart Hostage Card -->
-              <div class="cart-hostage-card" id="cartHostageCard">
-                <!-- Top Header -->
-                <div class="cart-padding-top-bar">
-                  <div class="cart-padding-brand-title">
-                    <span class="delivery-lightning-icon">&#9889;</span>
-                    <span>BLINKIT &bull; ZEPTO &bull; INSTAMART</span>
+              <!-- Advanced Mobile Device / Flipkart App Mockup Frame -->
+              <div class="ecom-website-card fk-app-frame" id="ecomWebsiteCard">
+                
+                <!-- Phone Status Bar -->
+                <div class="fk-status-bar">
+                  <span class="fk-status-time">11:08 AM</span>
+                  <div class="fk-dynamic-island">
+                    <span class="island-camera"></span>
                   </div>
-                  <span class="cart-badge-hostage">MINIMUM ORDER HOSTAGE</span>
-                </div>
-
-                <!-- Real App Mobile Screenshot Wrapper with Fullscreen -->
-                <div class="cart-padding-screenshot-wrapper" id="cartPaddingScreenshotWrapper" title="Click to view fullscreen">
-                  <img src="cart-padding-hostage.jpg" alt="10-Minute Grocery App Cart Hostage UI" class="cart-padding-real-img" id="cartPaddingRealImg">
-
-                  <!-- Live Interactive Threshold Overlay -->
-                  <div class="cart-threshold-overlay" id="cartThresholdOverlay">
-                    <div class="threshold-pill-alert" id="thresholdPillAlert">
-                      <span class="alert-pulse-dot"></span>
-                      <span id="thresholdAlertText">&#9888; Add &#8377;165 more to place order!</span>
-                    </div>
-                  </div>
-
-                  <!-- Fullscreen Action Hint Badge -->
-                  <div class="fullscreen-action-badge" id="btnCartPaddingZoom">
-                    <span class="expand-icon">&#x26F6;</span>
-                    <span>Click to View Fullscreen</span>
+                  <div class="fk-status-icons">
+                    <button type="button" class="btn-phone-fs-icon" id="btnPhoneFsIcon" title="Expand Full Screen">&#x26F6;</button>
+                    <span class="fk-sig-badge">5G</span>
+                    <span class="fk-wifi-icon">&#128246;</span>
+                    <div class="fk-battery-icon"><div class="fk-battery-fill"></div></div>
                   </div>
                 </div>
 
-                <!-- Simulation Controls & Breakdown Panel -->
-                <div class="cart-padding-sim-panel">
-                  <!-- Live Cart Math breakdown -->
-                  <div class="cart-math-row" id="cartMathRow">
-                    <div class="math-stat-box">
-                      <span class="math-label">Original Need</span>
-                      <span class="math-val" id="mathValOriginal">&#8377;35</span>
-                      <span class="math-sub">1x Milk Packet</span>
+                <!-- Flipkart Blue App Navigation Bar -->
+                <div class="ecom-nav-bar fk-nav-bar">
+                  <div class="fk-nav-top-row">
+                    <div class="ecom-brand-group fk-brand-box">
+                      <div class="fk-brand-logo-group">
+                        <span class="fk-brand-name">Flipkart</span>
+                        <span class="fk-plus-spark">Plus ✦</span>
+                        <span class="fk-grocery-pill">GROCERY</span>
+                      </div>
+                      <div class="fk-loc-pill">
+                        <span class="loc-pin">&#128205;</span>
+                        <span class="loc-text">Deliver to <strong>560001</strong></span>
+                        <span class="loc-speed">⚡ 10 Mins</span>
+                      </div>
                     </div>
-                    <div class="math-arrow">&rarr;</div>
-                    <div class="math-stat-box" id="mathBoxPadded">
-                      <span class="math-label">Cart Total</span>
-                      <span class="math-val highlight-red" id="mathValTotal">&#8377;35</span>
-                      <span class="math-sub" id="mathValStatus">Checkout Blocked</span>
-                    </div>
-                    <div class="math-arrow">&rarr;</div>
-                    <div class="math-stat-box">
-                      <span class="math-label">Unwanted Cost</span>
-                      <span class="math-val" id="mathValUnwanted">&#8377;0</span>
-                      <span class="math-sub" id="mathValMultiplier">1.0x (Baseline)</span>
+
+                    <div class="ecom-nav-actions">
+                      <button type="button" class="btn-tab-view active" id="btnTabStore" title="Browse Flipkart Store">
+                        <span>&#127980; Store</span>
+                      </button>
+                      <button type="button" class="btn-tab-view" id="btnTabCart" title="View Shopping Cart">
+                        <span>&#128722; Cart (<span id="tabCartCount">1</span>)</span>
+                      </button>
                     </div>
                   </div>
 
-                  <!-- Status Bubble -->
-                  <div class="cart-status-bubble" id="cartPaddingStatusBubble">
-                    <span class="bubble-icon" id="cartStatusIcon">&#128308;</span>
-                    <span id="cartPaddingStatusText">Hostage State: &#8377;35 milk held hostage behind &#8377;200 threshold!</span>
+                  <!-- Flipkart App Capsule Search Bar -->
+                  <div class="ecom-search-bar fk-search-bar">
+                    <span class="search-lens">&#128269;</span>
+                    <input type="text" class="ecom-search-input" value="milk, dry fruits, spices, snacks..." readonly>
+                    <div class="fk-search-tools">
+                      <span class="fk-search-tool-btn" title="Voice Search">&#127908;</span>
+                      <span class="fk-search-tool-btn" title="Camera Search">&#128247;</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Flipkart Super Deals Ticker Ribbon -->
+                <div class="fk-ticker-strip">
+                  <span class="ticker-bolt">&#9889;</span>
+                  <span class="ticker-text"><strong>SUPER DEALS:</strong> &#8377;1 Sugar Deals &bull; 79% OFF Dry Fruits &bull; Free Delivery above &#8377;200</span>
+                </div>
+
+                <!-- VIEW 1: STORE PRODUCTS CATALOG (FLIPKART GROCERY FEED) -->
+                <div class="ecom-view-pane fk-store-pane" id="storeCatalogView">
+                  <div class="store-section-header">
+                    <div class="section-title-box">
+                      <span class="section-title">DAILY ESSENTIALS &amp; DRY FRUITS</span>
+                      <span class="section-subtitle">Lowest prices guaranteed today</span>
+                    </div>
+                    <span class="section-badge">&#11088; Best Value</span>
                   </div>
 
-                  <!-- Action Buttons -->
-                  <div class="cart-padding-actions-row">
-                    <button class="btn-pad-cart" id="btnPadCart" title="Simulate tossing snacks into cart to reach limit">
-                      <span class="btn-icon">&#127850;</span>
-                      <span id="btnPadCartText">Pad Cart With Snacks (+&#8377;170)</span>
+                  <!-- Real Product Items Grid (Matching user's uploaded screenshot) -->
+                  <div class="ecom-products-grid fk-products-grid">
+                    
+                    <!-- Product 1: Fresh Milk (Urgent Need) -->
+                    <div class="ecom-product-card fk-product-card" id="prodCardMilk">
+                      <div class="prod-wishlist-heart">&#9825;</div>
+                      <div class="prod-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=260&q=80" alt="Amul Taaza Milk 1L" class="prod-img" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="prod-img-fallback" style="display: none;">&#129371;</div>
+                        <span class="prod-discount-pill">8% OFF</span>
+                      </div>
+                      <div class="prod-details">
+                        <div class="prod-title">Amul Taaza Toned Fresh Milk</div>
+                        <div class="prod-weight">1L &bull; Pouch</div>
+                        <div class="prod-rating">
+                          <span class="rating-badge">4.8 &#9733;</span>
+                          <span class="rating-count">(12,450)</span>
+                        </div>
+                        <div class="prod-price-row">
+                          <span class="current-price">&#8377;35</span>
+                          <span class="mrp-price">&#8377;38</span>
+                          <span class="discount-pct">8% off</span>
+                        </div>
+                      </div>
+                      <button type="button" class="btn-store-add in-cart" id="btnStoreAddMilk" data-id="milk" data-price="35" data-name="Amul Milk">
+                        <span id="btnStoreMilkText">&#10003; In Cart</span>
+                      </button>
+                    </div>
+
+                    <!-- Product 2: Mixed Dry Fruits (From User Screenshot) -->
+                    <div class="ecom-product-card fk-product-card" id="prodCardNuts">
+                      <div class="prod-wishlist-heart">&#9825;</div>
+                      <div class="prod-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=260&q=80" alt="Mixed Dry Fruits Jar" class="prod-img" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="prod-img-fallback" style="display: none;">&#129364;</div>
+                        <span class="prod-discount-pill hot">79% OFF</span>
+                      </div>
+                      <div class="prod-details">
+                        <div class="fk-assured-tag"><span class="fk-f">F</span><span class="fk-ass">Assured ✦</span></div>
+                        <div class="prod-title">Panchmeva Mix Dry Fruits Jar</div>
+                        <div class="prod-weight">1 x 500 g &bull; Premium Jar</div>
+                        <div class="prod-rating">
+                          <span class="rating-badge">3.7 &#9733;</span>
+                          <span class="rating-count">(530)</span>
+                        </div>
+                        <div class="prod-price-row">
+                          <span class="current-price">&#8377;251</span>
+                          <span class="mrp-price">&#8377;1,199</span>
+                          <span class="discount-pct">79% off</span>
+                        </div>
+                      </div>
+                      <button type="button" class="btn-store-add" id="btnStoreAddNuts" data-id="nuts" data-price="251" data-name="Mix Dry Fruits">
+                        <span>+ Add to Cart</span>
+                      </button>
+                    </div>
+
+                    <!-- Product 3: Garam Masala Powder (From User Screenshot) -->
+                    <div class="ecom-product-card fk-product-card" id="prodCardSpices">
+                      <div class="prod-wishlist-heart">&#9825;</div>
+                      <div class="prod-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=260&q=80" alt="Garam Masala Powder" class="prod-img" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="prod-img-fallback" style="display: none;">&#129524;</div>
+                        <span class="prod-discount-pill">23% OFF</span>
+                      </div>
+                      <div class="prod-details">
+                        <div class="fk-assured-tag"><span class="fk-f">F</span><span class="fk-ass">Assured ✦</span></div>
+                        <div class="prod-title">Tarkash Garam Masala Powder</div>
+                        <div class="prod-weight">100g &bull; Fresh Ground</div>
+                        <div class="prod-rating">
+                          <span class="rating-badge">4.1 &#9733;</span>
+                          <span class="rating-count">(210)</span>
+                        </div>
+                        <div class="prod-price-row">
+                          <span class="current-price">&#8377;110</span>
+                          <span class="mrp-price">&#8377;144</span>
+                          <span class="discount-pct">23% off</span>
+                        </div>
+                      </div>
+                      <button type="button" class="btn-store-add" id="btnStoreAddSpices" data-id="spices" data-price="110" data-name="Garam Masala">
+                        <span>+ Add to Cart</span>
+                      </button>
+                    </div>
+
+                    <!-- Product 4: Dried Afghan Anjeer (From User Screenshot) -->
+                    <div class="ecom-product-card fk-product-card" id="prodCardAnjeer">
+                      <div class="prod-wishlist-heart">&#9825;</div>
+                      <div class="prod-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=260&q=80" alt="Afghan Anjeer Figs" class="prod-img" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="prod-img-fallback" style="display: none;">&#127825;</div>
+                        <span class="prod-discount-pill hot">70% OFF</span>
+                      </div>
+                      <div class="prod-details">
+                        <div class="fk-assured-tag"><span class="fk-f">F</span><span class="fk-ass">Assured ✦</span></div>
+                        <div class="prod-title">Royal Afghan Dried Anjeer</div>
+                        <div class="prod-weight">1 x 500 g &bull; Organic Figs</div>
+                        <div class="prod-rating">
+                          <span class="rating-badge">4.5 &#9733;</span>
+                          <span class="rating-count">(3,200)</span>
+                        </div>
+                        <div class="prod-price-row">
+                          <span class="current-price">&#8377;325</span>
+                          <span class="mrp-price">&#8377;1,099</span>
+                          <span class="discount-pct">70% off</span>
+                        </div>
+                      </div>
+                      <button type="button" class="btn-store-add" id="btnStoreAddAnjeer" data-id="anjeer" data-price="325" data-name="Dried Anjeer">
+                        <span>+ Add to Cart</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Floating Bottom Cart Bar -->
+                  <div class="ecom-floating-cart-bar" id="ecomFloatingCartBar">
+                    <div class="floating-cart-info">
+                      <span class="floating-bag">&#128717;</span>
+                      <span id="floatingCartText">1 Item in Cart &bull; &#8377;35</span>
+                    </div>
+                    <button type="button" class="btn-go-to-cart" id="btnGoToCart">
+                      <span>VIEW CART &amp; CHECKOUT &rarr;</span>
                     </button>
-                    <button class="btn-cart-fullscreen" id="btnCartPaddingFullscreen" title="Open full screen lightbox view">
-                      <span class="btn-icon">&#x26F6;</span>
-                      <span>View Fullscreen Evidence</span>
+                  </div>
+                </div>
+
+                <!-- VIEW 2: CART & MINIMUM ORDER HOSTAGE SCREEN (MATCHING cart-padding-hostage.jpg) -->
+                <div class="ecom-view-pane fk-cart-pane" id="cartHostageView" style="display: none;">
+                  
+                  <!-- Cart Screen Header -->
+                  <div class="cart-screen-header fk-cart-header">
+                    <button type="button" class="btn-back-to-store" id="btnBackToStore">
+                      <span>&larr; Shopping Cart</span>
+                    </button>
+                    <span class="cart-screen-title">(<span id="cartTotalItemsCount">1 item</span>)</span>
+                    <span class="cart-header-trash">&#128465;</span>
+                  </div>
+
+                  <!-- Primary Urgent Cart Item (Amul Milk) -->
+                  <div class="cart-items-list" id="cartItemsList">
+                    <div class="cart-item-row" id="cartRowMilk">
+                      <div class="cart-item-thumb">
+                        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=100&q=80" alt="Amul Milk" class="cart-thumb-img" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span style="display:none;">&#129371;</span>
+                      </div>
+                      <div class="cart-item-meta">
+                        <span class="cart-item-name">Amul Taaza Homogenised Toned Milk (1L)</span>
+                        <span class="cart-item-sub">1L &bull; &#8377;38 <strong class="text-green">8% Off</strong> &bull; Urgent Need</span>
+                      </div>
+                      <div class="cart-item-stepper">
+                        <span class="stepper-tag">1x</span>
+                        <span class="cart-item-price">&#8377;35</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- THE HOSTAGE TRAP WARNING BANNER (Exact Match to cart-padding-hostage.jpg) -->
+                  <div class="cart-hostage-alert-box" id="cartHostageAlertBox">
+                    <div class="hostage-alert-top">
+                      <span class="alert-siren">&#9888;</span>
+                      <span class="alert-title" id="cartAlertTitle">Minimum order value is &#8377;200</span>
+                      <span class="alert-badge" id="cartAlertBadge">Add &#8377;165 more</span>
+                    </div>
+                    <!-- Live Dynamic Progress Bar with Scooter Indicator -->
+                    <div class="cart-meter-track">
+                      <div class="cart-meter-fill" id="cartMeterFill" style="width: 17.5%;">
+                        <span class="meter-scooter">&#128757;</span>
+                      </div>
+                    </div>
+                    <p class="cart-alert-note" id="cartAlertNote">
+                      Please add &#8377;165 more to place your order!
+                    </p>
+                  </div>
+
+                  <!-- Browse Store to Add More Items -->
+                  <div class="cart-add-more-box" id="cartAddMoreBox">
+                    <button type="button" class="btn-cart-add-more" id="btnCartAddMore" title="Add items from store to unlock checkout">
+                      <span class="add-more-plus">&#10010;</span>
+                      <span class="add-more-text" id="cartAddMoreText">Add &#8377;165 More Items from Store &rarr;</span>
                     </button>
                   </div>
 
-                  <!-- The Breakdown Box -->
-                  <div class="cart-padding-exposed-box" id="cartPaddingExposedBox" style="display: none;">
-                    <div class="exposed-badge">&#9888; THE ARTIFICIAL THRESHOLD TRAP</div>
-                    <p id="cartPaddingExposedMessage">Quick commerce companies know cooking essentials are non-negotiable emergencies. By placing artificial &#8377;200 cart minimums or &#8377;49 delivery penalties on a &#8377;35 packet of milk, they trigger loss aversion&mdash;manipulating you into buying high-margin junk food (chips, soda, chocolate) and spending nearly 600% more!</p>
+                  <!-- Flipkart Bill Details -->
+                  <div class="fk-bill-details">
+                    <div class="fk-bill-title">Bill Details</div>
+                    <div class="cost-row">
+                      <span>Item Total</span>
+                      <span class="cost-val" id="cartTotalCostVal">&#8377;35</span>
+                    </div>
+                    <div class="cost-row delivery">
+                      <span>Delivery Partner Fee</span>
+                      <span class="cost-val highlight-free" id="cartDeliveryFee">&#8377;49 (Free above &#8377;200)</span>
+                    </div>
+                    <div class="cost-row">
+                      <span>Handling &amp; Packaging Fee</span>
+                      <span class="cost-val">&#8377;5</span>
+                    </div>
+                    <div class="fk-savings-banner">
+                      <span>&#127881; You will save &#8377;28 on this order!</span>
+                    </div>
+                  </div>
+
+                  <!-- Checkout Bottom Sticky Payment Row -->
+                  <div class="cart-checkout-sticky">
+                    <div class="cart-pay-summary">
+                      <span class="pay-label">PAYMENT</span>
+                      <span class="pay-grand-total">Total: <strong id="cartGrandTotalVal">&#8377;35</strong></span>
+                    </div>
+                    <button type="button" class="btn-cart-pay locked" id="btnCartPay">
+                      <span class="pay-icon" id="btnPayIcon">&#128274;</span>
+                      <span id="btnPayText">ADD &#8377;165 MORE TO CHECKOUT &rarr;</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- VIEW 3: ORDER PLACED & TRAP REVEAL OVERLAY -->
+                <div class="order-placed-overlay" id="orderPlacedOverlay" style="display: none;">
+                  <div class="receipt-card fk-receipt-card">
+                    <div class="receipt-header">
+                      <div class="receipt-tick">&#9989;</div>
+                      <h4 class="receipt-title">Order Placed Successfully!</h4>
+                      <p class="receipt-subtitle">Flipkart Grocery Order #84920 &bull; Express 10-Min Delivery</p>
+                    </div>
+
+                    <div class="receipt-bill">
+                      <div class="bill-row need-row">
+                        <span>🥛 What You Actually Needed:</span>
+                        <span class="val">&#8377;35</span>
+                      </div>
+                      <div class="bill-row junk-row">
+                        <span>🍟🍫 Unwanted Junk Forced In:</span>
+                        <span class="val highlight-red" id="receiptJunkTotal">+&#8377;175</span>
+                      </div>
+                      <div class="bill-divider"></div>
+                      <div class="bill-row total-row">
+                        <span><strong>Total Money Spent:</strong></span>
+                        <span class="val total-val" id="receiptFinalTotal">&#8377;210</span>
+                      </div>
+                      <div class="trap-multiplier-pill" id="receiptMultiplier">
+                        &#9888; Spent 600% of your original need!
+                      </div>
+                    </div>
+
+                    <div class="trap-moral-box">
+                      <strong>The Dark Pattern Exposed:</strong>
+                      <p>The app held your urgent essential hostage, blocking checkout until you added high-margin junk snacks, forcing you to spend 6x more than intended.</p>
+                    </div>
+
+                    <div class="receipt-actions">
+                      <button type="button" class="btn-demo-restart" id="btnDemoRestart">
+                        <span>&#128260; Try Demo Again</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <!-- Bottom Full Screen Expansion Bar for Right-Side View -->
+              <div class="cart-fullscreen-bar" id="cartFullscreenBar">
+                <button type="button" class="btn-cart-fullscreen" id="btnCartFullscreen" title="Expand Right Side View to Full Screen">
+                  <span class="fs-icon">&#x26F6;</span>
+                  <span id="cartFsBtnText">Expand Simulator Full Screen</span>
+                </button>
+              </div>
+
+              <!-- Floating Exit Fullscreen Button (Shown in Fullscreen Mode) -->
+              <button type="button" class="btn-exit-expanded-fs" id="btnExitExpandedFs" style="display: none;" title="Exit Full Screen (Esc)">
+                <span>&#x2715; Exit Full Screen</span>
+              </button>
             </div>
           </div>
 
@@ -2571,10 +3176,10 @@
     subtitle: "",
     visualType: "cart-trap",
     bulletPoints: [
-      "Stores notify you: 'Add just $15 more to unlock free delivery!'",
-      "Your brain shifts from what you need to finding filler items.",
-      "You spend $20 on extra items just to avoid a $5 delivery fee.",
-      "You don't save money—the store successfully makes you spend more."
+      "Stores notify you: 'Add items worth \u20b9200 to get FREE delivery!'",
+      "Your focus shifts from what you need to finding filler items.",
+      "You spend \u20b9250 on extra items just to avoid a \u20b950 delivery charge.",
+      "You don't save money\u2014the store successfully makes you spend 3x more."
     ]
   },
   {
@@ -2822,6 +3427,15 @@
           try {
             ytPlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
           } catch(e) {}
+        }
+        // Close any simulator fullscreen mode when changing slides
+        document.body.classList.remove('has-simulator-fullscreen');
+        const activeFsContainers = document.querySelectorAll('.is-fullscreen-expanded');
+        activeFsContainers.forEach(c => c.classList.remove('is-fullscreen-expanded'));
+        const activeExitBtns = document.querySelectorAll('.btn-exit-expanded-fs');
+        activeExitBtns.forEach(b => b.style.display = 'none');
+        if (document.fullscreenElement && document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
         }
 
         // Header Slide Counter
@@ -4269,130 +4883,473 @@
       // SLIDE 10: THE FREE DELIVERY CART TRAP SIMULATOR
       // =========================================================================
       function initFreeDeliverySimulator() {
-        const btnAdd = document.getElementById('btnAddFiller');
-        const btnText = document.getElementById('btnAddFillerText');
-        const btnInspect = document.getElementById('btnCartInspect');
-        const exposedBox = document.getElementById('cartExposedBox');
-        const exposedTitle = document.getElementById('exposedBadgeTitle');
-        const exposedMsg = document.getElementById('cartExposedMessage');
-        const mathSubtotal = document.getElementById('mathSubtotal');
-        const mathShipping = document.getElementById('mathShipping');
-        const mathTotal = document.getElementById('mathTotal');
-        const thresholdStatus = document.getElementById('thresholdStatusLbl');
-        const thresholdPct = document.getElementById('thresholdPct');
-        const thresholdFill = document.getElementById('thresholdFill');
-        const callout = document.getElementById('cartThresholdCallout');
+        // Tab & Views
+        const btnFdTabStore = document.getElementById('btnFdTabStore');
+        const btnFdTabCart = document.getElementById('btnFdTabCart');
+        const fdTabCartCount = document.getElementById('fdTabCartCount');
+        const fdStoreView = document.getElementById('fdStoreView');
+        const fdCartView = document.getElementById('fdCartView');
+        const btnFdGoToCart = document.getElementById('btnFdGoToCart');
+        const btnFdBackToStore = document.getElementById('btnFdBackToStore');
+        const fdFloatingCartText = document.getElementById('fdFloatingCartText');
 
-        if (!btnAdd) return;
+        // Cart items container & header
+        const fdCartTotalItemsCount = document.getElementById('fdCartTotalItemsCount');
+        const fdCartItemsList = document.getElementById('fdCartItemsList');
 
-        let hasAddedFiller = false;
-        let isExposed = false;
+        // Alert banner & progress bar
+        const fdThresholdAlertBox = document.getElementById('fdThresholdAlertBox');
+        const fdThresholdIcon = document.getElementById('fdThresholdIcon');
+        const fdThresholdTitle = document.getElementById('fdThresholdTitle');
+        const fdThresholdBadge = document.getElementById('fdThresholdBadge');
+        const fdThresholdMeterFill = document.getElementById('fdThresholdMeterFill');
+        const fdThresholdNote = document.getElementById('fdThresholdNote');
+        const btnFdAddMore = document.getElementById('btnFdAddMore');
+        const fdAddMoreText = document.getElementById('fdAddMoreText');
 
-        // Reset state
-        hasAddedFiller = false;
-        isExposed = false;
-        if (mathSubtotal) mathSubtotal.textContent = '$35.00';
-        if (mathShipping) {
-          mathShipping.textContent = '$5.00';
-          mathShipping.style.color = '#e2e8f0';
-          mathShipping.style.textDecoration = 'none';
-        }
-        if (mathTotal) mathTotal.textContent = '$40.00';
-        if (thresholdStatus) thresholdStatus.textContent = 'Free Shipping Progress ($35 / $50)';
-        if (thresholdPct) thresholdPct.textContent = '70%';
-        if (thresholdFill) {
-          thresholdFill.style.width = '70%';
-          thresholdFill.style.background = 'linear-gradient(90deg, #f59e0b, #ef4444)';
-        }
-        if (btnText) btnText.textContent = 'Add $20 Filler Item (Socks / Belt)';
-        if (exposedBox) exposedBox.style.display = 'none';
-        if (callout) {
-          callout.innerHTML = '<span class="delivery-van-icon">&#128666;</span><span><strong>Add $15.00</strong> to get Free Delivery!</span>';
-          callout.style.background = 'rgba(239, 68, 68, 0.92)';
-        }
+        // Bill & Checkout Pay button
+        const fdTotalCostVal = document.getElementById('fdTotalCostVal');
+        const fdDeliveryFeeVal = document.getElementById('fdDeliveryFeeVal');
+        const fdSavingsBanner = document.getElementById('fdSavingsBanner');
+        const fdGrandTotalVal = document.getElementById('fdGrandTotalVal');
+        const btnFdPay = document.getElementById('btnFdPay');
+        const btnFdPayIcon = document.getElementById('btnFdPayIcon');
+        const btnFdPayText = document.getElementById('btnFdPayText');
 
-        btnAdd.onclick = (e) => {
-          e.stopPropagation();
-          hasAddedFiller = !hasAddedFiller;
+        // Overlay & Receipt elements
+        const fdOrderPlacedOverlay = document.getElementById('fdOrderPlacedOverlay');
+        const fdReceiptTitle = document.getElementById('fdReceiptTitle');
+        const fdReceiptSubtitle = document.getElementById('fdReceiptSubtitle');
+        const fdReceiptFillerRow = document.getElementById('fdReceiptFillerRow');
+        const fdReceiptFillerVal = document.getElementById('fdReceiptFillerVal');
+        const fdReceiptDeliveryVal = document.getElementById('fdReceiptDeliveryVal');
+        const fdReceiptFinalTotal = document.getElementById('fdReceiptFinalTotal');
+        const fdReceiptComparisonPill = document.getElementById('fdReceiptComparisonPill');
+        const fdMoralTitle = document.getElementById('fdMoralTitle');
+        const fdMoralText = document.getElementById('fdMoralText');
+        const btnFdDemoRestart = document.getElementById('btnFdDemoRestart');
 
-          if (hasAddedFiller) {
-            // Added filler item ($20)
-            if (mathSubtotal) mathSubtotal.textContent = '$55.00 (+$20 item)';
-            if (mathShipping) {
-              mathShipping.innerHTML = '<span style="text-decoration: line-through; color: #94a3b8;">$5.00</span> <strong style="color: #22c55e;">FREE!</strong>';
-            }
-            if (mathTotal) mathTotal.innerHTML = '<span style="color: #f87171; font-weight: 900;">$55.00</span> <span style="font-size: 0.65rem; color: #ef4444;">(+$15 spent!)</span>';
-            if (thresholdStatus) thresholdStatus.innerHTML = '<strong style="color: #22c55e;">&#10004; Free Delivery Unlocked ($55 / $50)!</strong>';
-            if (thresholdPct) thresholdPct.textContent = '100%';
-            if (thresholdFill) {
-              thresholdFill.style.width = '100%';
-              thresholdFill.style.background = 'linear-gradient(90deg, #22c55e, #10b981)';
-            }
-            if (btnText) btnText.textContent = 'ðŸ”„ Reset Cart to Original ($40)';
-            if (callout) {
-              callout.innerHTML = '<span class="delivery-van-icon">&#127881;</span><span><strong>FREE Delivery Unlocked!</strong> (You paid $55)</span>';
-              callout.style.background = 'rgba(34, 197, 94, 0.92)';
-            }
-            if (exposedBox) {
-              exposedBox.style.display = 'block';
-              if (exposedTitle) exposedTitle.innerHTML = '&#9888; THE TRAP IN NUMBERS: -$15 NET LOSS';
-              if (exposedMsg) exposedMsg.innerHTML = 'You spent <strong>+$20.00</strong> on filler items just to avoid paying a <strong>$5.00</strong> shipping fee. Your original cost was $40; now you are paying $55! The store increased their revenue by 37.5%.';
-            }
+        const MIN_FREE_DELIVERY = 200;
+        const DELIVERY_CHARGE = 50;
+        const PACKAGING_FEE = 5;
 
-            // Audio chime
-            try {
-              const AudioCtx = window.AudioContext || window.webkitAudioContext;
-              if (AudioCtx) {
-                const ctx = new AudioCtx();
-                if (ctx.state === 'suspended') ctx.resume();
-                const osc = ctx.createOscillator();
-                const g = ctx.createGain();
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(523.25, ctx.currentTime);
-                osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1);
-                osc.frequency.setValueAtTime(783.99, ctx.currentTime + 0.2);
-                g.gain.setValueAtTime(0.25, ctx.currentTime);
-                g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.35);
-                osc.connect(g);
-                g.connect(ctx.destination);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.38);
-              }
-            } catch(err) {}
-
-          } else {
-            // Reset
-            if (mathSubtotal) mathSubtotal.textContent = '$35.00';
-            if (mathShipping) {
-              mathShipping.textContent = '$5.00';
-              mathShipping.style.color = '#e2e8f0';
-              mathShipping.style.textDecoration = 'none';
-            }
-            if (mathTotal) mathTotal.textContent = '$40.00';
-            if (thresholdStatus) thresholdStatus.textContent = 'Free Shipping Progress ($35 / $50)';
-            if (thresholdPct) thresholdPct.textContent = '70%';
-            if (thresholdFill) {
-              thresholdFill.style.width = '70%';
-              thresholdFill.style.background = 'linear-gradient(90deg, #f59e0b, #ef4444)';
-            }
-            if (btnText) btnText.textContent = 'Add $20 Filler Item (Socks / Belt)';
-            if (callout) {
-              callout.innerHTML = '<span class="delivery-van-icon">&#128666;</span><span><strong>Add $15.00</strong> to get Free Delivery!</span>';
-              callout.style.background = 'rgba(239, 68, 68, 0.92)';
-            }
-            if (exposedBox) exposedBox.style.display = 'none';
+        // Store Catalog State
+        const fdProducts = {
+          milk: {
+            id: 'milk',
+            name: 'Amul Taaza Toned Milk (1L)',
+            sub: 'Urgent Cooking Need',
+            price: 35,
+            emoji: '🥛',
+            img: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=100&q=80',
+            btnId: 'btnFdAddMilk',
+            textId: 'btnFdMilkText',
+            inCart: true,
+            isNeed: true
+          },
+          nuts: {
+            id: 'nuts',
+            name: 'Panchmeva Mix Dry Fruits (500g)',
+            sub: '79% OFF • Premium Jar',
+            price: 251,
+            emoji: '🥜',
+            img: 'https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=100&q=80',
+            btnId: 'btnFdAddNuts',
+            inCart: false,
+            isNeed: false
+          },
+          spices: {
+            id: 'spices',
+            name: 'Tarkash Garam Masala (100g)',
+            sub: 'Fresh Ground Spices',
+            price: 110,
+            emoji: '🧂',
+            img: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=100&q=80',
+            btnId: 'btnFdAddSpices',
+            inCart: false,
+            isNeed: false
+          },
+          anjeer: {
+            id: 'anjeer',
+            name: 'Royal Afghan Dried Anjeer (500g)',
+            sub: 'Organic Afghan Figs',
+            price: 325,
+            emoji: '🫐',
+            img: 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=100&q=80',
+            btnId: 'btnFdAddAnjeer',
+            inCart: false,
+            isNeed: false
           }
         };
 
-        if (btnInspect) {
-          btnInspect.onclick = (e) => {
+        // Sound generator
+        function playFdTone(freq, type, duration, startGain = 0.2) {
+          try {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) return;
+            const ctx = new AudioCtx();
+            if (ctx.state === 'suspended') ctx.resume();
+            const osc = ctx.createOscillator();
+            const g = ctx.createGain();
+            osc.type = type || 'sine';
+            osc.frequency.setValueAtTime(freq, ctx.currentTime);
+            g.gain.setValueAtTime(startGain, ctx.currentTime);
+            g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+            osc.connect(g);
+            g.connect(ctx.destination);
+            osc.start();
+            osc.stop(ctx.currentTime + duration + 0.05);
+          } catch(e) {}
+        }
+
+        function playFdFanfare() {
+          try {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) return;
+            const ctx = new AudioCtx();
+            if (ctx.state === 'suspended') ctx.resume();
+            const notes = [523.25, 659.25, 783.99, 1046.50];
+            notes.forEach((freq, i) => {
+              const osc = ctx.createOscillator();
+              const g = ctx.createGain();
+              osc.type = 'triangle';
+              osc.frequency.setValueAtTime(freq, ctx.currentTime + (i * 0.09));
+              g.gain.setValueAtTime(0.25, ctx.currentTime + (i * 0.09));
+              g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + (i * 0.09) + 0.35);
+              osc.connect(g);
+              g.connect(ctx.destination);
+              osc.start(ctx.currentTime + (i * 0.09));
+              osc.stop(ctx.currentTime + (i * 0.09) + 0.4);
+            });
+          } catch(e) {}
+        }
+
+        // View Switcher (Store vs Cart)
+        function switchFdView(viewName) {
+          if (viewName === 'store') {
+            if (fdStoreView) fdStoreView.style.display = 'flex';
+            if (fdCartView) fdCartView.style.display = 'none';
+            if (btnFdTabStore) btnFdTabStore.classList.add('active');
+            if (btnFdTabCart) btnFdTabCart.classList.remove('active');
+          } else {
+            if (fdStoreView) fdStoreView.style.display = 'none';
+            if (fdCartView) fdCartView.style.display = 'flex';
+            if (btnFdTabStore) btnFdTabStore.classList.remove('active');
+            if (btnFdTabCart) btnFdTabCart.classList.add('active');
+          }
+        }
+
+        if (btnFdTabStore) btnFdTabStore.onclick = (e) => { e.stopPropagation(); switchFdView('store'); };
+        if (btnFdTabCart) btnFdTabCart.onclick = (e) => { e.stopPropagation(); switchFdView('cart'); };
+        if (btnFdGoToCart) btnFdGoToCart.onclick = (e) => { e.stopPropagation(); switchFdView('cart'); };
+        if (btnFdBackToStore) btnFdBackToStore.onclick = (e) => { e.stopPropagation(); switchFdView('store'); };
+        if (btnFdAddMore) btnFdAddMore.onclick = (e) => { e.stopPropagation(); switchFdView('store'); };
+
+        // Synchronize UI
+        function updateFdCartUI() {
+          let itemTotal = 0;
+          let count = 0;
+          let fillerCost = 0;
+          let neededCost = 0;
+          const activeItems = [];
+
+          for (const key in fdProducts) {
+            const prod = fdProducts[key];
+            const btn = document.getElementById(prod.btnId);
+            if (prod.inCart) {
+              itemTotal += prod.price;
+              count++;
+              if (prod.isNeed) neededCost += prod.price;
+              else fillerCost += prod.price;
+              activeItems.push(prod);
+
+              if (btn) {
+                btn.classList.add('in-cart');
+                const textEl = prod.textId ? document.getElementById(prod.textId) : null;
+                if (textEl) textEl.innerHTML = '&#10003; In Cart';
+                else btn.innerHTML = '<span>&#10003; In Cart</span>';
+              }
+            } else {
+              if (btn) {
+                btn.classList.remove('in-cart');
+                const textEl = prod.textId ? document.getElementById(prod.textId) : null;
+                if (textEl) textEl.innerHTML = '+ Add to Cart';
+                else btn.innerHTML = '<span>+ Add to Cart</span>';
+              }
+            }
+          }
+
+          const hasFreeDelivery = itemTotal >= MIN_FREE_DELIVERY;
+          const deliveryFee = hasFreeDelivery ? 0 : DELIVERY_CHARGE;
+          const grandTotal = itemTotal > 0 ? (itemTotal + deliveryFee + PACKAGING_FEE) : 0;
+
+          // Badges & Counters
+          if (fdTabCartCount) fdTabCartCount.textContent = count;
+          if (fdFloatingCartText) {
+            fdFloatingCartText.textContent = `${count} ${count === 1 ? 'Item' : 'Items'} in Cart • ₹${itemTotal}`;
+          }
+          if (fdCartTotalItemsCount) {
+            fdCartTotalItemsCount.textContent = `${count} ${count === 1 ? 'item' : 'items'}`;
+          }
+          if (fdTotalCostVal) {
+            fdTotalCostVal.textContent = '₹' + itemTotal;
+          }
+          if (fdDeliveryFeeVal) {
+            if (hasFreeDelivery) {
+              fdDeliveryFeeVal.innerHTML = '<span style="text-decoration:line-through; color:#94a3b8; font-weight:normal;">₹50</span> <strong style="color:#16a34a;">FREE</strong>';
+            } else {
+              fdDeliveryFeeVal.textContent = '₹' + DELIVERY_CHARGE;
+            }
+          }
+          if (fdSavingsBanner) {
+            fdSavingsBanner.style.display = hasFreeDelivery ? 'block' : 'none';
+          }
+          if (fdGrandTotalVal) {
+            fdGrandTotalVal.textContent = '₹' + grandTotal;
+          }
+
+          // Cart Items List
+          if (fdCartItemsList) {
+            if (activeItems.length === 0) {
+              fdCartItemsList.innerHTML = '<div class="cart-empty-msg" style="text-align:center; padding:15px; color:#64748b; font-size:0.75rem;">Your cart is empty! Add products from the store.</div>';
+            } else {
+              fdCartItemsList.innerHTML = activeItems.map(item => `
+                <div class="cart-item-row" id="fdCartRow_${item.id}">
+                  <div class="cart-item-thumb">
+                    ${item.img ? `<img src="${item.img}" alt="${item.name}" class="cart-thumb-img" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='block';"><span style="display:none;">${item.emoji}</span>` : `<span>${item.emoji}</span>`}
+                  </div>
+                  <div class="cart-item-meta">
+                    <span class="cart-item-name">${item.name}</span>
+                    <span class="cart-item-sub">&#8377;${item.price} &bull; ${item.sub}</span>
+                  </div>
+                  <div class="cart-item-stepper">
+                    <span class="stepper-tag">1x</span>
+                    <span class="cart-item-price">&#8377;${item.price}</span>
+                  </div>
+                </div>
+              `).join('');
+            }
+          }
+
+          // Progress Meter & Free Delivery Threshold Status
+          const percent = Math.min(100, Math.round((itemTotal / MIN_FREE_DELIVERY) * 100));
+          if (fdThresholdMeterFill) {
+            fdThresholdMeterFill.style.width = percent + '%';
+          }
+
+          if (hasFreeDelivery) {
+            // FREE DELIVERY UNLOCKED (Above ₹200)
+            if (fdThresholdAlertBox) fdThresholdAlertBox.classList.add('unlocked');
+            if (fdThresholdIcon) fdThresholdIcon.innerHTML = '&#127881;';
+            if (fdThresholdTitle) fdThresholdTitle.innerHTML = 'FREE Delivery Unlocked!';
+            if (fdThresholdBadge) {
+              fdThresholdBadge.textContent = 'Delivery: FREE';
+            }
+            if (fdThresholdNote) {
+              fdThresholdNote.innerHTML = `Orders above &#8377;200 get FREE Delivery! You saved &#8377;50 delivery fee.`;
+            }
+            if (fdAddMoreText) {
+              fdAddMoreText.innerHTML = 'Add More Items from Store &rarr;';
+            }
+
+            if (btnFdPay) {
+              btnFdPay.className = 'btn-cart-pay unlocked';
+              if (btnFdPayIcon) btnFdPayIcon.innerHTML = '&#128179;';
+              if (btnFdPayText) btnFdPayText.innerHTML = `PROCEED TO PAY &#8377;${grandTotal} (FREE DELIVERY) &rarr;`;
+            }
+          } else {
+            // STANDARD DELIVERY CHARGE (< ₹200)
+            const needed = MIN_FREE_DELIVERY - itemTotal;
+            if (fdThresholdAlertBox) fdThresholdAlertBox.classList.remove('unlocked');
+            if (fdThresholdIcon) fdThresholdIcon.innerHTML = '&#128666;';
+            if (fdThresholdTitle) fdThresholdTitle.innerHTML = `Add &#8377;${needed} more for FREE Delivery!`;
+            if (fdThresholdBadge) {
+              fdThresholdBadge.textContent = '&#8377;50 Delivery Fee';
+            }
+            if (fdThresholdNote) {
+              fdThresholdNote.innerHTML = `Orders above &#8377;200 get FREE Delivery. Currently paying &#8377;50 delivery charge.`;
+            }
+            if (fdAddMoreText) {
+              fdAddMoreText.innerHTML = `Add &#8377;${needed} More Items for FREE Delivery &rarr;`;
+            }
+
+            if (btnFdPay) {
+              btnFdPay.className = 'btn-cart-pay unlocked';
+              if (btnFdPayIcon) btnFdPayIcon.innerHTML = '&#128179;';
+              if (btnFdPayText) btnFdPayText.innerHTML = `PAY &#8377;${grandTotal} (INCL. &#8377;50 DELIVERY) &rarr;`;
+            }
+          }
+        }
+
+        // Product Click Listeners
+        for (const key in fdProducts) {
+          const prod = fdProducts[key];
+          const btn = document.getElementById(prod.btnId);
+          if (btn) {
+            btn.onclick = (e) => {
+              e.stopPropagation();
+              prod.inCart = !prod.inCart;
+              if (prod.inCart) {
+                playFdTone(784, 'sine', 0.12);
+              } else {
+                playFdTone(440, 'sine', 0.1);
+              }
+              updateFdCartUI();
+            };
+          }
+        }
+
+        // Checkout Pay Click
+        if (btnFdPay) {
+          btnFdPay.onclick = (e) => {
             e.stopPropagation();
-            isExposed = !isExposed;
-            if (exposedBox) exposedBox.style.display = isExposed ? 'block' : 'none';
-            btnInspect.style.borderColor = isExposed ? '#38bdf8' : 'rgba(255, 255, 255, 0.2)';
-            btnInspect.style.color = isExposed ? '#38bdf8' : '#fff';
+            let itemTotal = 0;
+            let fillerTotal = 0;
+            let neededTotal = fdProducts.milk.inCart ? fdProducts.milk.price : 0;
+
+            for (const key in fdProducts) {
+              const p = fdProducts[key];
+              if (p.inCart) {
+                itemTotal += p.price;
+                if (!p.isNeed) fillerTotal += p.price;
+              }
+            }
+
+            if (itemTotal === 0) {
+              playFdTone(180, 'sawtooth', 0.2);
+              alert('Please add at least one item to your cart!');
+              return;
+            }
+
+            const hasFreeDelivery = itemTotal >= MIN_FREE_DELIVERY;
+            const deliveryFee = hasFreeDelivery ? 0 : DELIVERY_CHARGE;
+            const grandTotal = itemTotal + deliveryFee + PACKAGING_FEE;
+
+            playFdFanfare();
+
+            if (hasFreeDelivery && fillerTotal > 0) {
+              // Trap Sprung: User bought filler items just to get free delivery
+              if (fdReceiptTitle) fdReceiptTitle.textContent = 'Order Placed! (Free Delivery Trap)';
+              if (fdReceiptSubtitle) fdReceiptSubtitle.textContent = 'Flipkart Grocery Order #59312 • 15-Min Delivery';
+              if (fdReceiptFillerRow) fdReceiptFillerRow.style.display = 'flex';
+              if (fdReceiptFillerVal) fdReceiptFillerVal.textContent = '+₹' + fillerTotal;
+              if (fdReceiptDeliveryVal) fdReceiptDeliveryVal.innerHTML = '<span style="text-decoration:line-through; color:#94a3b8;">₹50</span> <strong style="color:#16a34a;">FREE</strong>';
+              if (fdReceiptFinalTotal) fdReceiptFinalTotal.textContent = '₹' + grandTotal;
+
+              const originalBaseline = neededTotal > 0 ? (neededTotal + DELIVERY_CHARGE + PACKAGING_FEE) : 90;
+              const times = (grandTotal / originalBaseline).toFixed(1);
+              if (fdReceiptComparisonPill) {
+                fdReceiptComparisonPill.innerHTML = `&#9888; Spent <strong>&#8377;${grandTotal} instead of &#8377;${originalBaseline}</strong> (${times}x more!)`;
+              }
+              if (fdMoralTitle) fdMoralTitle.textContent = 'The Dark Pattern Exposed (The Freebie Fallacy):';
+              if (fdMoralText) {
+                fdMoralText.innerHTML = `You spent an extra <strong>&#8377;${fillerTotal}</strong> on snacks you never planned to buy just to avoid paying a <strong>&#8377;50</strong> delivery fee! The store successfully inflated your checkout basket from &#8377;${originalBaseline} to &#8377;${grandTotal}.`;
+              }
+            } else {
+              // Smart Choice: User paid delivery fee or bought only what they needed
+              if (fdReceiptTitle) fdReceiptTitle.textContent = 'Order Placed! (Disciplined Checkout)';
+              if (fdReceiptSubtitle) fdReceiptSubtitle.textContent = 'Flipkart Grocery Order #59312 • 15-Min Delivery';
+              if (fdReceiptFillerRow) fdReceiptFillerRow.style.display = 'none';
+              if (fdReceiptDeliveryVal) fdReceiptDeliveryVal.textContent = '₹' + deliveryFee;
+              if (fdReceiptFinalTotal) fdReceiptFinalTotal.textContent = '₹' + grandTotal;
+              if (fdReceiptComparisonPill) {
+                fdReceiptComparisonPill.innerHTML = '&#9989; Smart Choice: Avoided &#8377;200+ of unwanted impulse items!';
+              }
+              if (fdMoralTitle) fdMoralTitle.textContent = 'How You Beat The Dark Pattern:';
+              if (fdMoralText) {
+                fdMoralText.innerHTML = `Even with the &#8377;50 delivery fee, your total was only <strong>&#8377;${grandTotal}</strong>. By resisting the temptation to add filler items to hit the &#8377;200 threshold, you saved over &#8377;150 of wasteful spending!`;
+              }
+            }
+
+            if (fdOrderPlacedOverlay) fdOrderPlacedOverlay.style.display = 'flex';
           };
         }
+
+        // Restart Demo
+        if (btnFdDemoRestart) {
+          btnFdDemoRestart.onclick = (e) => {
+            e.stopPropagation();
+            if (fdOrderPlacedOverlay) fdOrderPlacedOverlay.style.display = 'none';
+
+            // Reset state: Milk only
+            fdProducts.milk.inCart = true;
+            fdProducts.nuts.inCart = false;
+            fdProducts.spices.inCart = false;
+            fdProducts.anjeer.inCart = false;
+
+            switchFdView('store');
+            updateFdCartUI();
+            playFdTone(520, 'sine', 0.15);
+          };
+        }
+
+        // Full Screen Theater Mode Toggle for Slide 10
+        const fdContainer = document.querySelector('.free-delivery-sim-container');
+        const btnFdFullscreen = document.getElementById('btnFdFullscreen');
+        const btnFdPhoneFsIcon = document.getElementById('btnFdPhoneFsIcon');
+        const btnExitFdFs = document.getElementById('btnExitFdFs');
+        const fdFsBtnText = document.getElementById('fdFsBtnText');
+
+        function toggleFdFullscreen(forceClose = false) {
+          if (!fdContainer) return;
+          const isCurrentlyExpanded = fdContainer.classList.contains('is-fullscreen-expanded');
+          if (forceClose || isCurrentlyExpanded) {
+            fdContainer.classList.remove('is-fullscreen-expanded');
+            document.body.classList.remove('has-simulator-fullscreen');
+            if (btnExitFdFs) btnExitFdFs.style.display = 'none';
+            if (fdFsBtnText) fdFsBtnText.textContent = 'Expand Simulator Full Screen';
+            if (document.fullscreenElement && document.exitFullscreen) {
+              document.exitFullscreen().catch(() => {});
+            }
+          } else {
+            fdContainer.classList.add('is-fullscreen-expanded');
+            document.body.classList.add('has-simulator-fullscreen');
+            if (btnExitFdFs) btnExitFdFs.style.display = 'flex';
+            if (fdFsBtnText) fdFsBtnText.textContent = 'Exit Full Screen';
+            if (fdContainer.requestFullscreen) {
+              fdContainer.requestFullscreen().catch(() => {});
+            }
+          }
+        }
+
+        if (btnFdFullscreen) {
+          btnFdFullscreen.onclick = (e) => {
+            e.stopPropagation();
+            toggleFdFullscreen();
+          };
+        }
+
+        if (btnFdPhoneFsIcon) {
+          btnFdPhoneFsIcon.onclick = (e) => {
+            e.stopPropagation();
+            toggleFdFullscreen();
+          };
+        }
+
+        if (btnExitFdFs) {
+          btnExitFdFs.onclick = (e) => {
+            e.stopPropagation();
+            toggleFdFullscreen(true);
+          };
+        }
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' || e.key === 'Esc') {
+            if (fdContainer && fdContainer.classList.contains('is-fullscreen-expanded')) {
+              toggleFdFullscreen(true);
+            }
+          }
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+          if (!document.fullscreenElement && fdContainer && fdContainer.classList.contains('is-fullscreen-expanded')) {
+            toggleFdFullscreen(true);
+          }
+        });
+
+        // Initial setup: start on store view with default milk in cart
+        switchFdView('store');
+        updateFdCartUI();
       }
 
 
@@ -4624,78 +5581,292 @@
       // =========================================================================
       // SLIDE 13: ZOMATO PUSH NOTIFICATION SIMULATOR
       // =========================================================================
-      const zomatoTactics = [
+      const allZomatoNotifications = [
         {
-          quote: '"dessert menu hi padh lo 👀 love letter toh kisi ne bheja hoga nahi 💔"',
-          badge: '💔 USING LONELINESS',
-          message: 'The app jokes about being single to make you order sweets for comfort.'
+          time: '23m',
+          title: 'dessert menu hi padh lo 👀',
+          message: 'love letter toh kisi ne bheja hoga nahi 💔',
+          action: '🍰 Order Dessert',
+          badge: '💔 EMOTIONAL LONELINESS TRAP',
+          desc: 'Jokes about being single so you feel lonely and order sweets for emotional comfort.'
         },
         {
-          quote: '"reminder to turn off your alarm for tomorrow morning 🤗"',
+          time: '1h',
+          title: 'before you become a',
+          message: 'millionaire, become a meal-ionaire 🍱',
+          action: '🍱 Order Meal',
+          badge: '💡 HUMOR AS A DISTRACTION',
+          desc: 'Uses funny rhymes so you smile, lower your guard, and order food on pure impulse.'
+        },
+        {
+          time: '6m',
+          title: 'we have great offers',
+          message: 'because your bank balance should be as big as your heart ❤️',
+          action: '💰 View Offers',
+          badge: '❤️ FLATTERY & FAKE SAVINGS',
+          desc: 'Flatters your self-worth to make spending money feel like a smart, generous choice.'
+        },
+        {
+          time: '1m',
+          title: 'giving you 4 love letters 💌',
+          message: 'I-D-L-I 🤗',
+          action: '🥟 Order Idli',
+          badge: '💌 CURIOSITY CLICKBAIT',
+          desc: 'Builds curiosity with romantic bait, then redirects your mind to a breakfast craving.'
+        },
+        {
+          time: '2h',
+          title: 'reminder to turn off',
+          message: 'your alarm for tomorrow morning 🤗',
+          action: '🌙 Late Night Cravings',
           badge: '⏰ FAKE FRIENDLY CARE',
-          message: 'Pretends to care about your sleep so you open the app late at night.'
+          desc: 'Pretends to care about your sleep so you unlock your phone late at night and order midnight food.'
         },
         {
-          quote: '"before you become a millionaire, become a meal-ionaire 🍕"',
-          badge: '💡 JOKES OVER REASON',
-          message: 'Funny jokes distract you from thinking about the money you spend.'
+          time: 'now 🔔',
+          title: 'no plans tonight?',
+          message: 'okay, cancelling ours too, to be with you ❤️',
+          action: '🍕 Order Dinner',
+          badge: '🤝 PARASOCIAL FRIENDSHIP',
+          desc: 'Acts like an affectionate friend on quiet evenings to turn your boredom into food delivery revenue.'
         },
         {
-          quote: '"no plans tonight? okay, cancelling ours too, to be with you ❤️"',
-          badge: '❤️ FAKE FRIENDSHIP',
-          message: 'Acts like a friend on quiet nights to turn your boredom into food orders.'
+          time: '10m',
+          title: 'everybody has a past',
+          message: 'but only the best have past-a 🍝',
+          action: '🍝 Order Pasta',
+          badge: '🍝 FOOD PUN ATTRACTION',
+          desc: 'Plants a vivid mental picture of delicious pasta in your mind during midday work hours.'
+        },
+        {
+          time: '2h',
+          title: "We don't usually take sides",
+          message: 'but garlic bread >>> pizza',
+          action: '🥖 Order Garlic Bread',
+          badge: '🍕 TRIGGERING FOOD DEBATES',
+          desc: 'Triggers a fun food debate in your thoughts, making you crave high-margin side items.'
+        },
+        {
+          time: '39m',
+          title: 'The only real deadline 🧑‍💻',
+          message: '...is having lunch on time',
+          action: '🥗 Order Lunch Now',
+          badge: '💼 WORK STRESS EXPLOITATION',
+          desc: 'Pings office workers right before lunchtime when decision fatigue is at its highest.'
+        },
+        {
+          time: '29m',
+          title: "it's okay if you order samosa",
+          message: 'just for the green chutney 😋🌿',
+          action: '🥟 Order Samosas',
+          badge: '😋 REMOVING GUILT',
+          desc: 'Validates your cravings so you feel zero guilt about ordering fried street snacks.'
+        },
+        {
+          time: '31m',
+          title: 'cupcakes are just cute kids',
+          message: 'of really good looking cakes 🎂',
+          action: '🧁 Order Cupcakes',
+          badge: '🧁 DOPAMINE CUTENESS TRAP',
+          desc: 'Uses cute comparisons to trigger a dopamine hit and spontaneous dessert purchases.'
+        },
+        {
+          time: 'now',
+          title: 'Your last chance to...',
+          message: 'wish them Happy Valentine\'s Day, before we do 😉',
+          action: '🍫 Send Treats',
+          badge: '⚡ SOCIAL FOMO & URGENCY',
+          desc: 'Leverages holiday pressure and fear of missing out to push high-ticket gift items.'
+        },
+        {
+          time: '6m',
+          title: 'Turn on savings mode 🟢',
+          message: 'Tap for discounts!',
+          action: '🏷️ Claim Discounts',
+          badge: '🟢 THE ILLUSION OF SAVING',
+          desc: 'Frames spending ₹400 as "saving money", disguising an unneeded expense as thrifty.'
+        },
+        {
+          time: '2h',
+          title: 'Have a nice Sunday...',
+          message: '...whether you order or not ❤️',
+          action: '☕ Browse Menu',
+          badge: '🕊️ REVERSE PSYCHOLOGY',
+          desc: 'Claims it doesn\'t care if you order, disarming your skepticism so you open the app anyway.'
+        },
+        {
+          time: '47m',
+          title: 'consistency is key',
+          message: 'trust us, we have been reminding people to have lunch since 15 years :)',
+          action: '🍱 Open App',
+          badge: '🔄 HABIT-LOOP CONDITIONING',
+          desc: 'Conditions you to rely on external notifications instead of your natural hunger cues.'
         }
       ];
 
       let currentTacticIndex = 0;
 
+      function playNotificationChime() {
+        try {
+          const AudioCtx = window.AudioContext || window.webkitAudioContext;
+          if (!AudioCtx) return;
+          const ctx = new AudioCtx();
+          if (ctx.state === 'suspended') ctx.resume();
+
+          // Pleasant two-tone chime (E6 -> G#6)
+          const notes = [1318.51, 1661.22];
+          notes.forEach((freq, i) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            const startTime = ctx.currentTime + (i * 0.08);
+            osc.frequency.setValueAtTime(freq, startTime);
+            gain.gain.setValueAtTime(0.18, startTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.22);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(startTime);
+            osc.stop(startTime + 0.25);
+          });
+        } catch(e) {}
+      }
+
       function initZomatoSimulator() {
-        const wrapper = document.getElementById('zomatoScreenshotWrapper');
-        const btnFullscreen = document.getElementById('btnZomatoFullscreen');
+        // Views & Tabs
+        const btnTabSim = document.getElementById('btnZomatoTabSim');
+        const btnTabProof = document.getElementById('btnZomatoTabProof');
+        const simView = document.getElementById('zomatoSimView');
+        const proofView = document.getElementById('zomatoProofView');
+
+        // Notification Elements
+        const notifCard = document.getElementById('exactZnotifCard');
+        const timeEl = document.getElementById('znotifTime');
+        const titleEl = document.getElementById('znotifTitle');
+        const msgEl = document.getElementById('znotifMessage');
+        const actionBtn1 = document.getElementById('btnZnotifAction1');
+        const actionBtn2 = document.getElementById('btnZnotifAction2');
+        const actionTextEl = document.getElementById('znotifActionText');
+        const toastEl = document.getElementById('znotifToast');
+
+        // Control & breakdown elements
         const btnCycle = document.getElementById('btnZomatoCycle');
-        const quoteText = document.getElementById('zomatoQuoteText');
+        const btnCycleText = document.getElementById('btnCycleText');
         const tacticBadge = document.getElementById('zomatoTacticBadge');
         const exposedMsg = document.getElementById('zomatoExposedMessage');
+        const btnOpenProof = document.getElementById('btnZomatoOpenProof');
+        const btnBackSim = document.getElementById('btnZomatoBackSim');
 
-        // Fullscreen triggers
-        const triggerFullscreen = (e) => {
+        // Proof elements
+        const proofStripCard = document.getElementById('zomatoProofStripCard');
+        const btnStripExpand = document.getElementById('btnStripExpand');
+        const proofCanvas = document.getElementById('zomatoProofCanvas');
+        const btnFullscreen = document.getElementById('btnZomatoFullscreen');
+
+        // View switching
+        function switchZomatoTab(tab) {
+          if (tab === 'sim') {
+            if (simView) simView.style.display = 'block';
+            if (proofView) proofView.style.display = 'none';
+            if (btnTabSim) btnTabSim.classList.add('active');
+            if (btnTabProof) btnTabProof.classList.remove('active');
+          } else {
+            if (simView) simView.style.display = 'none';
+            if (proofView) proofView.style.display = 'block';
+            if (btnTabSim) btnTabSim.classList.remove('active');
+            if (btnTabProof) btnTabProof.classList.add('active');
+          }
+        }
+
+        if (btnTabSim) btnTabSim.onclick = (e) => { e.stopPropagation(); switchZomatoTab('sim'); };
+        if (btnTabProof) btnTabProof.onclick = (e) => { e.stopPropagation(); switchZomatoTab('proof'); };
+        if (btnOpenProof) btnOpenProof.onclick = (e) => { e.stopPropagation(); switchZomatoTab('proof'); };
+        if (btnBackSim) btnBackSim.onclick = (e) => { e.stopPropagation(); switchZomatoTab('sim'); };
+
+        // Fullscreen Lightbox triggers
+        const triggerFullscreenProof = (e) => {
           if (e) e.stopPropagation();
-          openImageLightbox('zomato-notifications.png', 'Zomato Push Notifications - Real-World Marketing Evidence');
+          openImageLightbox('zomato-notifications.png', 'Zomato Push Notifications - 15+ Real-World Proof Screenshots');
         };
 
-        if (wrapper) wrapper.onclick = triggerFullscreen;
-        if (btnFullscreen) btnFullscreen.onclick = triggerFullscreen;
+        if (proofCanvas) proofCanvas.onclick = triggerFullscreenProof;
+        if (btnFullscreen) btnFullscreen.onclick = triggerFullscreenProof;
+        if (proofStripCard) proofStripCard.onclick = triggerFullscreenProof;
+        if (btnStripExpand) btnStripExpand.onclick = triggerFullscreenProof;
 
-        // Cycle through notification tactics
+        // Notification Switcher / Renderer
+        function renderCurrentNotification(playSound = true) {
+          const item = allZomatoNotifications[currentTacticIndex];
+          if (!item) return;
+
+          if (timeEl) timeEl.textContent = item.time;
+          if (titleEl) titleEl.textContent = item.title;
+          if (msgEl) msgEl.textContent = item.message;
+          if (actionTextEl) actionTextEl.textContent = item.action;
+          if (btnCycleText) btnCycleText.textContent = `Next Notification (${currentTacticIndex + 1} / ${allZomatoNotifications.length}) →`;
+          if (tacticBadge) tacticBadge.textContent = item.badge;
+          if (exposedMsg) exposedMsg.textContent = item.desc;
+
+          if (notifCard) {
+            notifCard.classList.remove('notif-pop');
+            void notifCard.offsetWidth; // trigger reflow
+            notifCard.classList.add('notif-pop');
+          }
+
+          if (playSound) {
+            playNotificationChime();
+          }
+        }
+
+        function cycleNextNotification() {
+          currentTacticIndex = (currentTacticIndex + 1) % allZomatoNotifications.length;
+          renderCurrentNotification(true);
+        }
+
         if (btnCycle) {
           btnCycle.onclick = (e) => {
             e.stopPropagation();
-            currentTacticIndex = (currentTacticIndex + 1) % zomatoTactics.length;
-            const t = zomatoTactics[currentTacticIndex];
-            if (quoteText) quoteText.textContent = t.quote;
-            if (tacticBadge) tacticBadge.textContent = t.badge;
-            if (exposedMsg) exposedMsg.textContent = t.message;
-
-            try {
-              const AudioCtx = window.AudioContext || window.webkitAudioContext;
-              if (AudioCtx) {
-                const ctx = new AudioCtx();
-                if (ctx.state === 'suspended') ctx.resume();
-                const osc = ctx.createOscillator();
-                const g = ctx.createGain();
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(659.25, ctx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.12);
-                g.gain.setValueAtTime(0.2, ctx.currentTime);
-                g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.22);
-                osc.connect(g);
-                g.connect(ctx.destination);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.25);
-              }
-            } catch(err) {}
+            cycleNextNotification();
           };
         }
+
+        if (notifCard) {
+          notifCard.onclick = (e) => {
+            if (e.target.closest('.znotif-act-btn')) return; // handled by buttons
+            e.stopPropagation();
+            cycleNextNotification();
+          };
+        }
+
+        // Action Buttons interaction
+        if (actionBtn1) {
+          actionBtn1.onclick = (e) => {
+            e.stopPropagation();
+            if (toastEl) {
+              toastEl.innerHTML = `<span>🛒 <strong>App Opened!</strong> Impulse craving won — you placed an order!</span>`;
+              toastEl.style.display = 'block';
+              setTimeout(() => {
+                if (toastEl) toastEl.style.display = 'none';
+              }, 2600);
+            }
+          };
+        }
+
+        if (actionBtn2) {
+          actionBtn2.onclick = (e) => {
+            e.stopPropagation();
+            if (toastEl) {
+              toastEl.innerHTML = `<span>❌ <strong>Dismissed:</strong> But another emotional ping will arrive tomorrow!</span>`;
+              toastEl.style.display = 'block';
+              setTimeout(() => {
+                if (toastEl) toastEl.style.display = 'none';
+              }, 2600);
+            }
+          };
+        }
+
+        // Initial setup
+        switchZomatoTab('sim');
+        renderCurrentNotification(false);
       }
 
 
@@ -4795,127 +5966,527 @@
 // Start engine
 
       // =========================================================================
-      // SLIDE 15: THE CART-PADDING TRAP SIMULATOR (10-Minute Grocery App Hostage)
+      // SLIDE 15: THE CART-PADDING TRAP SIMULATOR (Real Grocery Store & Hostage Cart)
       // =========================================================================
       function initCartPaddingSimulator() {
-        const wrapper = document.getElementById('cartPaddingScreenshotWrapper');
-        const btnZoom = document.getElementById('btnCartPaddingZoom');
-        const btnFullscreen = document.getElementById('btnCartPaddingFullscreen');
-        const btnPad = document.getElementById('btnPadCart');
-        const btnPadText = document.getElementById('btnPadCartText');
-        const mathTotal = document.getElementById('mathValTotal');
-        const mathStatus = document.getElementById('mathValStatus');
-        const mathUnwanted = document.getElementById('mathValUnwanted');
-        const mathMult = document.getElementById('mathValMultiplier');
-        const statusBubble = document.getElementById('cartPaddingStatusBubble');
-        const statusText = document.getElementById('cartPaddingStatusText');
-        const statusIcon = document.getElementById('cartStatusIcon');
-        const exposedBox = document.getElementById('cartPaddingExposedBox');
-        const thresholdOverlay = document.getElementById('cartThresholdOverlay');
-        const thresholdAlertText = document.getElementById('thresholdAlertText');
+        // Tab & Views
+        const btnTabStore = document.getElementById('btnTabStore');
+        const btnTabCart = document.getElementById('btnTabCart');
+        const tabCartCount = document.getElementById('tabCartCount');
+        const storeCatalogView = document.getElementById('storeCatalogView');
+        const cartHostageView = document.getElementById('cartHostageView');
+        const btnGoToCart = document.getElementById('btnGoToCart');
+        const btnBackToStore = document.getElementById('btnBackToStore');
+        const floatingCartText = document.getElementById('floatingCartText');
 
-        let isPadded = false;
+        // Cart items container & header
+        const cartTotalItemsCount = document.getElementById('cartTotalItemsCount');
+        const cartItemsList = document.getElementById('cartItemsList');
 
-        // Reset state
-        if (mathTotal) {
-          mathTotal.innerHTML = '&#8377;35';
-          mathTotal.className = 'math-val highlight-red';
+        // Alert banner & progress bar
+        const cartHostageAlertBox = document.getElementById('cartHostageAlertBox');
+        const cartAlertTitle = document.getElementById('cartAlertTitle');
+        const cartAlertBadge = document.getElementById('cartAlertBadge');
+        const cartMeterFill = document.getElementById('cartMeterFill');
+        const cartAlertNote = document.getElementById('cartAlertNote');
+
+        // Bill & Checkout Pay button
+        const cartTotalCostVal = document.getElementById('cartTotalCostVal');
+        const cartGrandTotalVal = document.getElementById('cartGrandTotalVal');
+        const cartDeliveryFee = document.getElementById('cartDeliveryFee');
+        const btnCartPay = document.getElementById('btnCartPay');
+        const btnPayIcon = document.getElementById('btnPayIcon');
+        const btnPayText = document.getElementById('btnPayText');
+
+        // Overlay & Evidence
+        const orderPlacedOverlay = document.getElementById('orderPlacedOverlay');
+        const receiptJunkTotal = document.getElementById('receiptJunkTotal');
+        const receiptFinalTotal = document.getElementById('receiptFinalTotal');
+        const receiptMultiplier = document.getElementById('receiptMultiplier');
+        const btnDemoRestart = document.getElementById('btnDemoRestart');
+
+        const MIN_ORDER = 200;
+
+        // Store Catalog State
+        const storeProducts = {
+          milk: {
+            id: 'milk',
+            name: 'Amul Taaza Toned Milk (1L)',
+            sub: 'Urgent Cooking Need',
+            price: 35,
+            emoji: '🥛',
+            img: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=100&q=80',
+            btnId: 'btnStoreAddMilk',
+            textId: 'btnStoreMilkText',
+            inCart: true,
+            isNeed: true
+          },
+          nuts: {
+            id: 'nuts',
+            name: 'Panchmeva Mix Dry Fruits (500g)',
+            sub: '79% OFF • Premium Jar',
+            price: 251,
+            emoji: '🥜',
+            img: 'https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=100&q=80',
+            btnId: 'btnStoreAddNuts',
+            inCart: false,
+            isNeed: false
+          },
+          spices: {
+            id: 'spices',
+            name: 'Tarkash Garam Masala (100g)',
+            sub: 'Fresh Ground Spices',
+            price: 110,
+            emoji: '🧂',
+            img: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=100&q=80',
+            btnId: 'btnStoreAddSpices',
+            inCart: false,
+            isNeed: false
+          },
+          anjeer: {
+            id: 'anjeer',
+            name: 'Royal Afghan Dried Anjeer (500g)',
+            sub: 'Organic Afghan Figs',
+            price: 325,
+            emoji: '🫐',
+            img: 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=100&q=80',
+            btnId: 'btnStoreAddAnjeer',
+            inCart: false,
+            isNeed: false
+          }
+        };
+
+        // Padded Addon Items State
+        const addonItems = {
+          chips: {
+            id: 'chips',
+            name: 'Bingo! Chips',
+            sub: 'Padded Snack',
+            price: 40,
+            emoji: '🥔',
+            btnId: 'btnAddonChips',
+            chipId: 'addonChips',
+            inCart: false
+          },
+          choc: {
+            id: 'choc',
+            name: 'Dairy Milk Chocolate',
+            sub: 'Padded Snack',
+            price: 60,
+            emoji: '🍫',
+            btnId: 'btnAddonChoc',
+            chipId: 'addonChoc',
+            inCart: false
+          },
+          pepsi: {
+            id: 'pepsi',
+            name: 'Cold Drink (300ml)',
+            sub: 'Padded Drink',
+            price: 40,
+            emoji: '🥤',
+            btnId: 'btnAddonPepsi',
+            chipId: 'addonPepsi',
+            inCart: false
+          },
+          cookies: {
+            id: 'cookies',
+            name: 'Little Hearts Biscuits',
+            sub: 'Padded Snack',
+            price: 35,
+            emoji: '🍪',
+            btnId: 'btnAddonCookies',
+            chipId: 'addonCookies',
+            inCart: false
+          }
+        };
+
+        // Sound generator
+        function playTone(freq, type, duration, startGain = 0.2) {
+          try {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) return;
+            const ctx = new AudioCtx();
+            if (ctx.state === 'suspended') ctx.resume();
+            const osc = ctx.createOscillator();
+            const g = ctx.createGain();
+            osc.type = type || 'sine';
+            osc.frequency.setValueAtTime(freq, ctx.currentTime);
+            g.gain.setValueAtTime(startGain, ctx.currentTime);
+            g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+            osc.connect(g);
+            g.connect(ctx.destination);
+            osc.start();
+            osc.stop(ctx.currentTime + duration + 0.05);
+          } catch(e) {}
         }
-        if (mathStatus) mathStatus.textContent = 'Checkout Blocked';
-        if (mathUnwanted) {
-          mathUnwanted.innerHTML = '&#8377;0';
-          mathUnwanted.className = 'math-val';
+
+        function playSuccessFanfare() {
+          try {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) return;
+            const ctx = new AudioCtx();
+            if (ctx.state === 'suspended') ctx.resume();
+            const notes = [523.25, 659.25, 783.99, 1046.50];
+            notes.forEach((freq, i) => {
+              const osc = ctx.createOscillator();
+              const g = ctx.createGain();
+              osc.type = 'triangle';
+              osc.frequency.setValueAtTime(freq, ctx.currentTime + (i * 0.09));
+              g.gain.setValueAtTime(0.25, ctx.currentTime + (i * 0.09));
+              g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + (i * 0.09) + 0.35);
+              osc.connect(g);
+              g.connect(ctx.destination);
+              osc.start(ctx.currentTime + (i * 0.09));
+              osc.stop(ctx.currentTime + (i * 0.09) + 0.4);
+            });
+          } catch(e) {}
         }
-        if (mathMult) mathMult.textContent = '1.0x (Baseline)';
-        if (thresholdAlertText) thresholdAlertText.innerHTML = '&#9888; Add &#8377;165 more to place order!';
-        if (thresholdOverlay) thresholdOverlay.classList.remove('threshold-unlocked');
-        if (statusBubble) statusBubble.classList.remove('cart-status-padded');
-        if (statusIcon) statusIcon.innerHTML = '&#128308;';
-        if (statusText) statusText.innerHTML = 'Hostage State: &#8377;35 milk held hostage behind &#8377;200 threshold!';
-        if (btnPadText) btnPadText.innerHTML = 'Pad Cart With Snacks (+&#8377;170)';
-        if (exposedBox) exposedBox.style.display = 'none';
 
-        function toggleCartPadding() {
-          if (!isPadded) {
-            isPadded = true;
-            if (mathTotal) {
-              mathTotal.innerHTML = '&#8377;205';
-              mathTotal.className = 'math-val highlight-green';
-            }
-            if (mathStatus) mathStatus.innerHTML = '&#9989; Checkout Unlocked';
-            if (mathUnwanted) {
-              mathUnwanted.innerHTML = '+&#8377;170';
-              mathUnwanted.className = 'math-val highlight-red';
-            }
-            if (mathMult) mathMult.textContent = '5.8x Spent on Junk!';
-
-            if (thresholdAlertText) thresholdAlertText.innerHTML = '&#9989; Threshold Met! Order Unlocked (&#8377;205)';
-            if (thresholdOverlay) thresholdOverlay.classList.add('threshold-unlocked');
-
-            if (statusBubble) statusBubble.classList.add('cart-status-padded');
-            if (statusIcon) statusIcon.innerHTML = '&#127850;';
-            if (statusText) statusText.innerHTML = '<strong>CART PADDED:</strong> Added &#8377;170 in chips, chocolate & soda just to release a &#8377;35 milk packet!';
-
-            if (btnPadText) btnPadText.innerHTML = '&#128260; Reset to &#8377;35 Milk Only';
-            if (exposedBox) exposedBox.style.display = 'block';
-
-            // Play cash register/checkout sound
-            try {
-              const AudioCtx = window.AudioContext || window.webkitAudioContext;
-              if (AudioCtx) {
-                const ctx = new AudioCtx();
-                if (ctx.state === 'suspended') ctx.resume();
-                const osc = ctx.createOscillator();
-                const g = ctx.createGain();
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
-                osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1); // E5
-                osc.frequency.setValueAtTime(783.99, ctx.currentTime + 0.2); // G5
-                osc.frequency.setValueAtTime(1046.50, ctx.currentTime + 0.3); // C6
-                g.gain.setValueAtTime(0.25, ctx.currentTime);
-                g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.5);
-                osc.connect(g);
-                g.connect(ctx.destination);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.55);
-              }
-            } catch(err) {}
-
+        // View Switcher (Store vs Cart)
+        function switchView(viewName) {
+          if (viewName === 'store') {
+            if (storeCatalogView) storeCatalogView.style.display = 'flex';
+            if (cartHostageView) cartHostageView.style.display = 'none';
+            if (btnTabStore) btnTabStore.classList.add('active');
+            if (btnTabCart) btnTabCart.classList.remove('active');
           } else {
-            isPadded = false;
-            if (mathTotal) {
-              mathTotal.innerHTML = '&#8377;35';
-              mathTotal.className = 'math-val highlight-red';
-            }
-            if (mathStatus) mathStatus.textContent = 'Checkout Blocked';
-            if (mathUnwanted) {
-              mathUnwanted.innerHTML = '&#8377;0';
-              mathUnwanted.className = 'math-val';
-            }
-            if (mathMult) mathMult.textContent = '1.0x (Baseline)';
-
-            if (thresholdAlertText) thresholdAlertText.innerHTML = '&#9888; Add &#8377;165 more to place order!';
-            if (thresholdOverlay) thresholdOverlay.classList.remove('threshold-unlocked');
-
-            if (statusBubble) statusBubble.classList.remove('cart-status-padded');
-            if (statusIcon) statusIcon.innerHTML = '&#128308;';
-            if (statusText) statusText.innerHTML = 'Hostage State: &#8377;35 milk held hostage behind &#8377;200 threshold!';
-
-            if (btnPadText) btnPadText.innerHTML = 'Pad Cart With Snacks (+&#8377;170)';
-            if (exposedBox) exposedBox.style.display = 'none';
+            if (storeCatalogView) storeCatalogView.style.display = 'none';
+            if (cartHostageView) cartHostageView.style.display = 'flex';
+            if (btnTabStore) btnTabStore.classList.remove('active');
+            if (btnTabCart) btnTabCart.classList.add('active');
           }
         }
 
-        if (btnPad) btnPad.onclick = (e) => { e.stopPropagation(); toggleCartPadding(); };
+        if (btnTabStore) btnTabStore.onclick = (e) => { e.stopPropagation(); switchView('store'); };
+        if (btnTabCart) btnTabCart.onclick = (e) => { e.stopPropagation(); switchView('cart'); };
+        if (btnGoToCart) btnGoToCart.onclick = (e) => { e.stopPropagation(); switchView('cart'); };
+        if (btnBackToStore) btnBackToStore.onclick = (e) => { e.stopPropagation(); switchView('store'); };
 
-        const triggerFullscreen = (e) => {
-          if (e) e.stopPropagation();
-          openImageLightbox('cart-padding-hostage.jpg', '10-Minute Grocery App Cart Hostage: Adding ₹165 in unwanted snacks just to checkout a ₹35 packet of milk');
-        };
+        // Synchronize buttons and cart state
+        function updateCartUI() {
+          let total = 0;
+          let count = 0;
+          let junkCost = 0;
+          let neededCost = 0;
+          const activeItems = [];
 
-        if (wrapper) wrapper.onclick = triggerFullscreen;
-        if (btnZoom) btnZoom.onclick = triggerFullscreen;
-        if (btnFullscreen) btnFullscreen.onclick = triggerFullscreen;
+          // Collect store products
+          for (const key in storeProducts) {
+            const prod = storeProducts[key];
+            const btn = document.getElementById(prod.btnId);
+            if (prod.inCart) {
+              total += prod.price;
+              count++;
+              if (prod.isNeed) neededCost += prod.price;
+              else junkCost += prod.price;
+              activeItems.push(prod);
+
+              if (btn) {
+                btn.classList.add('in-cart');
+                const textEl = prod.textId ? document.getElementById(prod.textId) : null;
+                if (textEl) textEl.innerHTML = '&#10003; In Cart';
+                else btn.innerHTML = '<span>&#10003; In Cart</span>';
+              }
+            } else {
+              if (btn) {
+                btn.classList.remove('in-cart');
+                const textEl = prod.textId ? document.getElementById(prod.textId) : null;
+                if (textEl) textEl.innerHTML = '+ Add to Cart';
+                else btn.innerHTML = '<span>+ Add to Cart</span>';
+              }
+            }
+          }
+
+          // Collect addon padded items
+          for (const key in addonItems) {
+            const addon = addonItems[key];
+            const btn = document.getElementById(addon.btnId);
+            const chip = document.getElementById(addon.chipId);
+            if (addon.inCart) {
+              total += addon.price;
+              junkCost += addon.price;
+              count++;
+              activeItems.push(addon);
+
+              if (chip) chip.classList.add('is-added');
+              if (btn) btn.innerHTML = '<span>&#10003; Added</span>';
+            } else {
+              if (chip) chip.classList.remove('is-added');
+              if (btn) btn.innerHTML = '<span>+ Add</span>';
+            }
+          }
+
+          // Update header badges and counters
+          if (tabCartCount) tabCartCount.textContent = count;
+          if (floatingCartText) {
+            floatingCartText.textContent = `${count} ${count === 1 ? 'Item' : 'Items'} in Cart • ₹${total}`;
+          }
+          if (cartTotalItemsCount) {
+            cartTotalItemsCount.textContent = `${count} ${count === 1 ? 'item' : 'items'}`;
+          }
+          if (cartTotalCostVal) {
+            cartTotalCostVal.textContent = '₹' + total;
+          }
+          if (cartGrandTotalVal) {
+            cartGrandTotalVal.textContent = '₹' + total;
+          }
+
+          // Render Cart Items List
+          if (cartItemsList) {
+            if (activeItems.length === 0) {
+              cartItemsList.innerHTML = '<div class="cart-empty-msg" style="text-align:center; padding:15px; color:#94a3b8; font-size:0.75rem;">Your cart is empty! Add products from the store.</div>';
+            } else {
+              cartItemsList.innerHTML = activeItems.map(item => `
+                <div class="cart-item-row" id="cartRow_${item.id}">
+                  <div class="cart-item-thumb">
+                    ${item.img ? `<img src="${item.img}" alt="${item.name}" class="cart-thumb-img" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='block';"><span style="display:none;">${item.emoji}</span>` : `<span>${item.emoji}</span>`}
+                  </div>
+                  <div class="cart-item-meta">
+                    <span class="cart-item-name">${item.name}</span>
+                    <span class="cart-item-sub">&#8377;${item.price} &bull; ${item.sub}</span>
+                  </div>
+                  <div class="cart-item-stepper">
+                    <span class="stepper-tag">1x</span>
+                    <span class="cart-item-price">&#8377;${item.price}</span>
+                  </div>
+                </div>
+              `).join('');
+            }
+          }
+
+          // Progress Meter & Hostage Alert Status
+          const percent = Math.min(100, Math.round((total / MIN_ORDER) * 100));
+          if (cartMeterFill) {
+            cartMeterFill.style.width = percent + '%';
+          }
+
+          if (total >= MIN_ORDER) {
+            // UNLOCKED STATE
+            if (cartHostageAlertBox) cartHostageAlertBox.classList.add('unlocked');
+            if (cartAlertTitle) cartAlertTitle.innerHTML = '&#9989; Minimum Order Met!';
+            if (cartAlertBadge) {
+              cartAlertBadge.textContent = 'Ready to Order';
+            }
+            if (cartAlertNote) {
+              cartAlertNote.textContent = `Threshold met (₹${total})! Checkout is now unlocked.`;
+            }
+            if (cartDeliveryFee) {
+              cartDeliveryFee.innerHTML = '<strong style="color:#10b981;">FREE</strong>';
+            }
+
+            if (btnCartPay) {
+              btnCartPay.className = 'btn-cart-pay unlocked';
+              if (btnPayIcon) btnPayIcon.innerHTML = '&#128179;';
+              if (btnPayText) btnPayText.innerHTML = `PROCEED TO PAY &#8377;${total} &rarr;`;
+            }
+          } else {
+            // LOCKED HOSTAGE STATE
+            const needed = MIN_ORDER - total;
+            if (cartHostageAlertBox) cartHostageAlertBox.classList.remove('unlocked');
+            if (cartAlertTitle) cartAlertTitle.innerHTML = 'Minimum order value is &#8377;200';
+            if (cartAlertBadge) {
+              cartAlertBadge.textContent = `Add ₹${needed} more`;
+            }
+            if (cartAlertNote) {
+              cartAlertNote.textContent = `Please add ₹${needed} more to place your order!`;
+            }
+            if (cartDeliveryFee) {
+              cartDeliveryFee.textContent = '₹49 (Free above ₹200)';
+            }
+
+            if (btnCartPay) {
+              btnCartPay.className = 'btn-cart-pay locked';
+              if (btnPayIcon) btnPayIcon.innerHTML = '&#128274;';
+              if (btnPayText) btnPayText.innerHTML = `ADD &#8377;${needed} MORE TO CHECKOUT &rarr;`;
+            }
+          }
+        }
+
+        // Store Product Toggle Listeners
+        for (const key in storeProducts) {
+          const prod = storeProducts[key];
+          const btn = document.getElementById(prod.btnId);
+          if (btn) {
+            btn.onclick = (e) => {
+              e.stopPropagation();
+              prod.inCart = !prod.inCart;
+              if (prod.inCart) {
+                playTone(784, 'sine', 0.12);
+              } else {
+                playTone(392, 'sine', 0.12);
+              }
+              updateCartUI();
+            };
+          }
+        }
+
+        // Padded Addon Toggle Listeners
+        for (const key in addonItems) {
+          const addon = addonItems[key];
+          const btn = document.getElementById(addon.btnId);
+          if (btn) {
+            btn.onclick = (e) => {
+              e.stopPropagation();
+              addon.inCart = !addon.inCart;
+              if (addon.inCart) {
+                playTone(880, 'sine', 0.14);
+              } else {
+                playTone(440, 'sine', 0.12);
+              }
+              updateCartUI();
+            };
+          }
+        }
+
+        // Checkout Button Click Handler
+        if (btnCartPay) {
+          btnCartPay.onclick = (e) => {
+            e.stopPropagation();
+            let total = 0;
+            let junkTotal = 0;
+            let neededVal = storeProducts.milk.inCart ? storeProducts.milk.price : 0;
+
+            for (const key in storeProducts) {
+              const p = storeProducts[key];
+              if (p.inCart) {
+                total += p.price;
+                if (!p.isNeed) junkTotal += p.price;
+              }
+            }
+            for (const key in addonItems) {
+              const a = addonItems[key];
+              if (a.inCart) {
+                total += a.price;
+                junkTotal += a.price;
+              }
+            }
+
+            if (total < MIN_ORDER) {
+              // Shake button & sound error
+              const needed = MIN_ORDER - total;
+              btnCartPay.classList.remove('shake-button');
+              void btnCartPay.offsetWidth; // force reflow
+              btnCartPay.classList.add('shake-button');
+
+              if (cartAlertNote) {
+                cartAlertNote.innerHTML = `&#10060; <strong>Order Blocked!</strong> Must reach &#8377;200 minimum (add &#8377;${needed} more).`;
+              }
+              playTone(180, 'sawtooth', 0.25, 0.3);
+            } else {
+              // SUCCESS: Trigger Order Placed Overlay
+              playSuccessFanfare();
+              if (receiptJunkTotal) receiptJunkTotal.textContent = '+₹' + junkTotal;
+              if (receiptFinalTotal) receiptFinalTotal.textContent = '₹' + total;
+              if (receiptMultiplier) {
+                const baseNeed = neededVal > 0 ? neededVal : 35;
+                const pct = Math.round((total / baseNeed) * 100);
+                const times = (total / baseNeed).toFixed(1);
+                receiptMultiplier.innerHTML = `&#9888; Spent <strong>${pct}% (${times}x)</strong> of your original need!`;
+              }
+              if (orderPlacedOverlay) orderPlacedOverlay.style.display = 'flex';
+            }
+          };
+        }
+
+        // Restart Demo
+        if (btnDemoRestart) {
+          btnDemoRestart.onclick = (e) => {
+            e.stopPropagation();
+            if (orderPlacedOverlay) orderPlacedOverlay.style.display = 'none';
+
+            // Reset state
+            storeProducts.milk.inCart = true;
+            storeProducts.nuts.inCart = false;
+            storeProducts.spices.inCart = false;
+            storeProducts.anjeer.inCart = false;
+
+            for (const key in addonItems) {
+              addonItems[key].inCart = false;
+            }
+
+            switchView('store');
+            updateCartUI();
+            playTone(520, 'sine', 0.15);
+          };
+        }
+
+        // Add More Items CTA in Cart
+        const btnCartAddMore = document.getElementById('btnCartAddMore');
+        if (btnCartAddMore) {
+          btnCartAddMore.onclick = (e) => {
+            e.stopPropagation();
+            switchView('store');
+          };
+        }
+
+        // Full Screen Theater Mode Toggle
+        const cartContainer = document.querySelector('.cart-padding-container');
+        const btnCartFullscreen = document.getElementById('btnCartFullscreen');
+        const btnPhoneFsIcon = document.getElementById('btnPhoneFsIcon');
+        const btnExitExpandedFs = document.getElementById('btnExitExpandedFs');
+        const cartFsBtnText = document.getElementById('cartFsBtnText');
+
+        function toggleCartFullscreen(forceClose = false) {
+          if (!cartContainer) return;
+          const isCurrentlyExpanded = cartContainer.classList.contains('is-fullscreen-expanded');
+          if (forceClose || isCurrentlyExpanded) {
+            cartContainer.classList.remove('is-fullscreen-expanded');
+            document.body.classList.remove('has-simulator-fullscreen');
+            if (btnExitExpandedFs) btnExitExpandedFs.style.display = 'none';
+            if (cartFsBtnText) cartFsBtnText.textContent = 'Expand Simulator Full Screen';
+            if (document.fullscreenElement && document.exitFullscreen) {
+              document.exitFullscreen().catch(() => {});
+            }
+          } else {
+            cartContainer.classList.add('is-fullscreen-expanded');
+            document.body.classList.add('has-simulator-fullscreen');
+            if (btnExitExpandedFs) btnExitExpandedFs.style.display = 'flex';
+            if (cartFsBtnText) cartFsBtnText.textContent = 'Exit Full Screen';
+            if (cartContainer.requestFullscreen) {
+              cartContainer.requestFullscreen().catch(() => {});
+            }
+          }
+        }
+
+        if (btnCartFullscreen) {
+          btnCartFullscreen.onclick = (e) => {
+            e.stopPropagation();
+            toggleCartFullscreen();
+          };
+        }
+
+        if (btnPhoneFsIcon) {
+          btnPhoneFsIcon.onclick = (e) => {
+            e.stopPropagation();
+            toggleCartFullscreen();
+          };
+        }
+
+        if (btnExitExpandedFs) {
+          btnExitExpandedFs.onclick = (e) => {
+            e.stopPropagation();
+            toggleCartFullscreen(true);
+          };
+        }
+
+        // Escape Key & Fullscreen Change Handler
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' || e.key === 'Esc') {
+            if (cartContainer && cartContainer.classList.contains('is-fullscreen-expanded')) {
+              toggleCartFullscreen(true);
+            }
+          }
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+          if (!document.fullscreenElement && cartContainer && cartContainer.classList.contains('is-fullscreen-expanded')) {
+            toggleCartFullscreen(true);
+          }
+        });
+
+        // Initial setup: start on store view with default milk in cart
+        switchView('store');
+        updateCartUI();
       }
 
       // =========================================================================
