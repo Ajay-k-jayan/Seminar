@@ -64,5 +64,17 @@ const slidesData = [
     subtitle: "(The Coffee Stamp Trick)",
     visualType: "coffee-stamp-trick",
     bulletPoints: []
+  },
+  {
+    id: 7,
+    title: "The Trap of Manufactured Scarcity",
+    subtitle: "",
+    visualType: "manufactured-scarcity",
+    bulletPoints: [
+      "\"Have you ever looked at an online shopping site and seen a bright red warning pop up that says, 'Only 1 item left in stock!'?\"",
+      "\"Your heart rate instantly goes up. It triggers an immediate panicâ€”the fear of missing out on a rare item before someone else takes it.\"",
+      "\"You stop comparing prices, skip your research, and rush to buy it right away before you lose your chance.\"",
+      "\"The trick is that the warning is often completely fake. It's just a piece of code designed to manufacture panic, bypass your logical thinking, and force you into an instant purchase.\""
+    ]
   }
 ];
