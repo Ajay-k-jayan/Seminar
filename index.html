@@ -2397,149 +2397,94 @@
             </div>
           </div>
 
-          <!-- Slide 13: Zomato Push Notification Marketing Visual Column -->
+          <!-- Slide 13: Zomato Push Notification Marketing (iPhone Simulator) -->
           <div class="slide-visual-col" id="zomatoCol" style="display: none;">
-            <div class="zomato-card-container">
-              <!-- Zomato Marketing Card -->
-              <div class="zomato-trap-card" id="zomatoTrapCard">
-                <!-- Top Header with Dual Tabs -->
-                <div class="zomato-top-bar">
-                  <div class="zomato-brand-title">
-                    <span class="zomato-icon">&#127829;</span>
-                    <span>ZOMATO &bull; NOTIFICATION TRAP</span>
-                  </div>
-                  <div class="zomato-tab-nav">
-                    <button class="zomato-tab-btn active" id="btnZomatoTabSim" title="Exact simulated mobile notification">
-                      <span>&#128241; Exact Notification</span>
-                    </button>
-                    <button class="zomato-tab-btn" id="btnZomatoTabProof" title="Actual uncropped proof image collage">
-                      <span>&#128248; Actual Proof Image</span>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- VIEW 1: EXACT NOTIFICATION LOCKSCREEN SIMULATOR -->
-                <div class="zomato-sim-view" id="zomatoSimView">
-                  <!-- Phone Mockup Frame -->
-                  <div class="zomato-phone-screen">
-                    <!-- Status Bar -->
-                    <div class="zomato-phone-status">
-                      <span class="phone-clock">10:42 PM</span>
-                      <div class="phone-notch"></div>
-                      <div class="phone-icons">
-                        <span>5G</span>
-                        <span>&#128267; 84%</span>
-                      </div>
-                    </div>
-
-                    <!-- Lockscreen Time & Date -->
-                    <div class="lockscreen-time-wrap">
-                      <div class="lockscreen-clock">10:42</div>
-                      <div class="lockscreen-date">Sunday, September 5</div>
-                    </div>
-
-                    <!-- EXACT ZOMATO PUSH NOTIFICATION CARD -->
-                    <div class="exact-znotif-card" id="exactZnotifCard" title="Click anywhere on card to cycle to next notification">
-                      <div class="znotif-header">
-                        <div class="znotif-app-info">
-                          <div class="znotif-app-logo">
-                            <svg viewBox="0 0 24 24" width="16" height="16">
-                              <circle cx="12" cy="12" r="12" fill="#e23744"/>
-                              <text x="12" y="16" font-size="11" font-weight="900" text-anchor="middle" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif">z</text>
-                            </svg>
-                          </div>
-                          <span class="znotif-app-name">Zomato</span>
-                          <span class="znotif-dot">&bull;</span>
-                          <span class="znotif-time" id="znotifTime">23m</span>
-                        </div>
-                        <div class="znotif-brand-badge">
-                          <span class="znotif-red-pill">zomato</span>
-                        </div>
-                      </div>
-
-                      <div class="znotif-body-wrap">
-                        <div class="znotif-title" id="znotifTitle">dessert menu hi padh lo &#128064;</div>
-                        <div class="znotif-message" id="znotifMessage">love letter toh kisi ne bheja hoga nahi &#128148;</div>
-                      </div>
-
-                      <div class="znotif-quick-actions">
-                        <button class="znotif-act-btn primary" id="btnZnotifAction1">
-                          <span id="znotifActionText">&#127856; Order Dessert</span>
-                        </button>
-                        <button class="znotif-act-btn secondary" id="btnZnotifAction2">
-                          <span>Dismiss</span>
-                        </button>
-                      </div>
-
-                      <!-- Subtle pulse indicator -->
-                      <div class="znotif-ping-indicator" title="Live push notification"></div>
-                    </div>
-
-                    <!-- Notification Feedback Toast (on tapping order) -->
-                    <div class="znotif-toast" id="znotifToast" style="display: none;">
-                      <span>&#128722; App Opened: Impulse craving triggered!</span>
-                    </div>
-
-                    <!-- Interactive Trigger & Cycle Buttons -->
-                    <div class="zomato-action-bar">
-                      <button class="btn-zomato-cycle" id="btnZomatoCycle" title="Cycle through real Zomato notification examples">
-                        <span class="btn-icon">&#128260;</span>
-                        <span id="btnCycleText">Next Notification (1 / 15)</span>
-                      </button>
-                      <button class="btn-zomato-open-proof" id="btnZomatoOpenProof" title="Switch to view the actual proof screenshot">
-                        <span class="btn-icon">&#128248;</span>
-                        <span>Show Proof Image</span>
-                      </button>
-                    </div>
-
-                    <!-- Psychology / Dark Pattern Breakdown -->
-                    <div class="zomato-exposed-box" id="zomatoExposedBox">
-                      <div class="exposed-badge" id="zomatoTacticBadge">&#128148; LONELINESS &amp; BOREDOM TRIGGER</div>
-                      <p id="zomatoExposedMessage">The app pokes fun at being single or bored so you forget it is an ad and order comfort food.</p>
-                    </div>
-
-                    <!-- Clickable Actual Proof Strip Preview -->
-                    <div class="zomato-proof-strip-card" id="zomatoProofStripCard" title="Click to view full uncropped proof collage">
-                      <div class="strip-thumb-wrap">
-                        <img src="zomato-notifications.png" alt="Zomato Proof Thumbnail" class="strip-thumb-img">
-                        <span class="strip-zoom-icon">&#x26F6;</span>
-                      </div>
-                      <div class="strip-meta">
-                        <div class="strip-title">&#128248; ACTUAL APP PROOF SCREENSHOT</div>
-                        <div class="strip-sub">Collage of 15+ authentic push notifications &bull; Click to open</div>
-                      </div>
-                      <button class="btn-strip-expand" id="btnStripExpand">View Full</button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- VIEW 2: ACTUAL PROOF IMAGE FULL SHOWCASE -->
-                <div class="zomato-proof-view" id="zomatoProofView" style="display: none;">
-                  <div class="proof-view-header">
-                    <div class="proof-view-badge">&#128248; AUTHENTIC APP EVIDENCE</div>
-                    <div class="proof-view-sub">Uncropped screenshot collage of 15+ real Zomato push notifications</div>
-                  </div>
-
-                  <div class="zomato-proof-canvas" id="zomatoProofCanvas" title="Click to enlarge in fullscreen modal">
-                    <img src="zomato-notifications.png" alt="Actual Zomato Push Notifications Collage Proof" class="zomato-proof-img" id="zomatoProofImg">
-                    <div class="proof-hover-overlay">
-                      <span class="expand-icon">&#x26F6;</span>
-                      <span>Click to Enlarge Fullscreen Lightbox</span>
+            <div class="iphone-sim-container">
+              <!-- Realistic iPhone Frame Mockup -->
+              <div class="iphone-frame" id="iphoneDeviceFrame">
+                <!-- Inner Screen Area -->
+                <div class="iphone-screen">
+                  <!-- Dynamic Island -->
+                  <div class="iphone-island-wrap">
+                    <div class="iphone-dynamic-island">
+                      <div class="island-camera"></div>
+                      <div class="island-sensor"></div>
                     </div>
                   </div>
 
-                  <div class="proof-view-actions">
-                    <button class="btn-zomato-fullscreen" id="btnZomatoFullscreen" title="Open full screen lightbox modal">
-                      <span class="btn-icon">&#x26F6;</span>
-                      <span>Enlarge Evidence Fullscreen</span>
-                    </button>
-                    <button class="btn-zomato-back-sim" id="btnZomatoBackSim" title="Back to interactive notification">
-                      <span class="btn-icon">&#128241;</span>
-                      <span>Back to Exact Notification</span>
-                    </button>
+                  <!-- iOS Status Bar -->
+                  <div class="iphone-status-bar">
+                    <span class="iphone-status-time">9:41</span>
+                    <div class="iphone-status-icons">
+                      <button class="btn-iphone-fs-icon" id="btnIphoneFsIcon" title="Enter Full Screen Simulator">&#x26F6;</button>
+                      <svg class="ios-signal-icon" viewBox="0 0 17 12" width="16" height="11">
+                        <rect x="0" y="8" width="3" height="4" rx="0.8" fill="#ffffff" />
+                        <rect x="4.5" y="5.5" width="3" height="6.5" rx="0.8" fill="#ffffff" />
+                        <rect x="9" y="3" width="3" height="9" rx="0.8" fill="#ffffff" />
+                        <rect x="13.5" y="0.5" width="3" height="11.5" rx="0.8" fill="#ffffff" />
+                      </svg>
+                      <span class="ios-5g">5G</span>
+                      <div class="ios-battery-pill">
+                        <div class="ios-battery-level"></div>
+                        <div class="ios-battery-cap"></div>
+                      </div>
+                    </div>
                   </div>
+
+                  <!-- iOS Lockscreen Clock & Date -->
+                  <div class="iphone-lock-clock-wrap">
+                    <div class="iphone-lock-date">Sunday, September 5</div>
+                    <div class="iphone-lock-time">09:41</div>
+                  </div>
+
+                  <!-- iPhone Glassmorphism Push Notification Banner -->
+                  <div class="iphone-glass-notif" id="iphoneGlassNotif" title="Tap to cycle next real Zomato notification">
+                    <div class="glass-notif-header">
+                      <div class="glass-notif-app">
+                        <div class="glass-zomato-icon">z</div>
+                        <span class="glass-app-name">ZOMATO</span>
+                      </div>
+                      <div class="glass-notif-time" id="iphoneNotifTime">23m ago</div>
+                    </div>
+
+                    <div class="glass-notif-content">
+                      <div class="glass-notif-title" id="iphoneNotifTitle">dessert menu hi padh lo &#128064;</div>
+                      <div class="glass-notif-body" id="iphoneNotifBody">love letter toh kisi ne bheja hoga nahi &#128148;</div>
+                    </div>
+
+                    <!-- Subtle glass tap hint pill -->
+                    <div class="glass-notif-footer">
+                      <span class="glass-tap-hint" id="iphoneNotifCounter">Tap to cycle real examples &bull; 1 / 15</span>
+                      <span class="glass-chevron">&#8964;</span>
+                    </div>
+                  </div>
+
+                  <!-- Bottom Lockscreen Quick Actions & Home Bar -->
+                  <div class="iphone-bottom-controls">
+                    <div class="iphone-lock-btn" title="Flashlight">
+                      <span>&#128294;</span>
+                    </div>
+                    <div class="iphone-lock-btn" title="Camera">
+                      <span>&#128247;</span>
+                    </div>
+                  </div>
+
+                  <!-- Home Indicator Bar -->
+                  <div class="iphone-home-bar"></div>
                 </div>
               </div>
+
+              <!-- Enter Full Screen Button at the bottom of Zomato simulator -->
+              <button class="btn-zomato-expand-fs" id="btnZomatoExpandFs" title="Expand iPhone Simulator into Full Screen Theater Mode">
+                <span class="fs-icon">&#x26F6;</span>
+                <span id="zomatoFsBtnText">Enter Full Screen Simulator</span>
+              </button>
+
+              <!-- Floating Exit Fullscreen Button in Theater Mode -->
+              <button class="btn-exit-zomato-fs" id="btnExitZomatoFs" style="display: none;" title="Exit Full Screen (Esc)">
+                <span>&#10005;</span>
+                <span>Exit Full Screen</span>
+              </button>
             </div>
           </div>
 
@@ -3432,7 +3377,7 @@
         document.body.classList.remove('has-simulator-fullscreen');
         const activeFsContainers = document.querySelectorAll('.is-fullscreen-expanded');
         activeFsContainers.forEach(c => c.classList.remove('is-fullscreen-expanded'));
-        const activeExitBtns = document.querySelectorAll('.btn-exit-expanded-fs');
+        const activeExitBtns = document.querySelectorAll('.btn-exit-expanded-fs, .btn-exit-zomato-fs');
         activeExitBtns.forEach(b => b.style.display = 'none');
         if (document.fullscreenElement && document.exitFullscreen) {
           document.exitFullscreen().catch(() => {});
@@ -5732,84 +5677,25 @@
       }
 
       function initZomatoSimulator() {
-        // Views & Tabs
-        const btnTabSim = document.getElementById('btnZomatoTabSim');
-        const btnTabProof = document.getElementById('btnZomatoTabProof');
-        const simView = document.getElementById('zomatoSimView');
-        const proofView = document.getElementById('zomatoProofView');
+        const notifCard = document.getElementById('iphoneGlassNotif');
+        const timeEl = document.getElementById('iphoneNotifTime');
+        const titleEl = document.getElementById('iphoneNotifTitle');
+        const msgEl = document.getElementById('iphoneNotifBody');
+        const counterEl = document.getElementById('iphoneNotifCounter');
 
-        // Notification Elements
-        const notifCard = document.getElementById('exactZnotifCard');
-        const timeEl = document.getElementById('znotifTime');
-        const titleEl = document.getElementById('znotifTitle');
-        const msgEl = document.getElementById('znotifMessage');
-        const actionBtn1 = document.getElementById('btnZnotifAction1');
-        const actionBtn2 = document.getElementById('btnZnotifAction2');
-        const actionTextEl = document.getElementById('znotifActionText');
-        const toastEl = document.getElementById('znotifToast');
-
-        // Control & breakdown elements
-        const btnCycle = document.getElementById('btnZomatoCycle');
-        const btnCycleText = document.getElementById('btnCycleText');
-        const tacticBadge = document.getElementById('zomatoTacticBadge');
-        const exposedMsg = document.getElementById('zomatoExposedMessage');
-        const btnOpenProof = document.getElementById('btnZomatoOpenProof');
-        const btnBackSim = document.getElementById('btnZomatoBackSim');
-
-        // Proof elements
-        const proofStripCard = document.getElementById('zomatoProofStripCard');
-        const btnStripExpand = document.getElementById('btnStripExpand');
-        const proofCanvas = document.getElementById('zomatoProofCanvas');
-        const btnFullscreen = document.getElementById('btnZomatoFullscreen');
-
-        // View switching
-        function switchZomatoTab(tab) {
-          if (tab === 'sim') {
-            if (simView) simView.style.display = 'block';
-            if (proofView) proofView.style.display = 'none';
-            if (btnTabSim) btnTabSim.classList.add('active');
-            if (btnTabProof) btnTabProof.classList.remove('active');
-          } else {
-            if (simView) simView.style.display = 'none';
-            if (proofView) proofView.style.display = 'block';
-            if (btnTabSim) btnTabSim.classList.remove('active');
-            if (btnTabProof) btnTabProof.classList.add('active');
-          }
-        }
-
-        if (btnTabSim) btnTabSim.onclick = (e) => { e.stopPropagation(); switchZomatoTab('sim'); };
-        if (btnTabProof) btnTabProof.onclick = (e) => { e.stopPropagation(); switchZomatoTab('proof'); };
-        if (btnOpenProof) btnOpenProof.onclick = (e) => { e.stopPropagation(); switchZomatoTab('proof'); };
-        if (btnBackSim) btnBackSim.onclick = (e) => { e.stopPropagation(); switchZomatoTab('sim'); };
-
-        // Fullscreen Lightbox triggers
-        const triggerFullscreenProof = (e) => {
-          if (e) e.stopPropagation();
-          openImageLightbox('zomato-notifications.png', 'Zomato Push Notifications - 15+ Real-World Proof Screenshots');
-        };
-
-        if (proofCanvas) proofCanvas.onclick = triggerFullscreenProof;
-        if (btnFullscreen) btnFullscreen.onclick = triggerFullscreenProof;
-        if (proofStripCard) proofStripCard.onclick = triggerFullscreenProof;
-        if (btnStripExpand) btnStripExpand.onclick = triggerFullscreenProof;
-
-        // Notification Switcher / Renderer
         function renderCurrentNotification(playSound = true) {
           const item = allZomatoNotifications[currentTacticIndex];
           if (!item) return;
 
-          if (timeEl) timeEl.textContent = item.time;
+          if (timeEl) timeEl.textContent = item.time.includes('ago') || item.time === 'now' || item.time.includes('🔔') ? item.time : `${item.time} ago`;
           if (titleEl) titleEl.textContent = item.title;
           if (msgEl) msgEl.textContent = item.message;
-          if (actionTextEl) actionTextEl.textContent = item.action;
-          if (btnCycleText) btnCycleText.textContent = `Next Notification (${currentTacticIndex + 1} / ${allZomatoNotifications.length}) →`;
-          if (tacticBadge) tacticBadge.textContent = item.badge;
-          if (exposedMsg) exposedMsg.textContent = item.desc;
+          if (counterEl) counterEl.innerHTML = `Tap to cycle real examples &bull; ${currentTacticIndex + 1} / ${allZomatoNotifications.length}`;
 
           if (notifCard) {
-            notifCard.classList.remove('notif-pop');
+            notifCard.classList.remove('glass-pop');
             void notifCard.offsetWidth; // trigger reflow
-            notifCard.classList.add('notif-pop');
+            notifCard.classList.add('glass-pop');
           }
 
           if (playSound) {
@@ -5822,50 +5708,79 @@
           renderCurrentNotification(true);
         }
 
-        if (btnCycle) {
-          btnCycle.onclick = (e) => {
-            e.stopPropagation();
-            cycleNextNotification();
-          };
-        }
-
         if (notifCard) {
           notifCard.onclick = (e) => {
-            if (e.target.closest('.znotif-act-btn')) return; // handled by buttons
             e.stopPropagation();
             cycleNextNotification();
           };
         }
 
-        // Action Buttons interaction
-        if (actionBtn1) {
-          actionBtn1.onclick = (e) => {
-            e.stopPropagation();
-            if (toastEl) {
-              toastEl.innerHTML = `<span>🛒 <strong>App Opened!</strong> Impulse craving won — you placed an order!</span>`;
-              toastEl.style.display = 'block';
-              setTimeout(() => {
-                if (toastEl) toastEl.style.display = 'none';
-              }, 2600);
+        // Full Screen Theater Mode Toggle for iPhone Simulator
+        const iphoneSimContainer = document.querySelector('.iphone-sim-container');
+        const btnZomatoExpandFs = document.getElementById('btnZomatoExpandFs');
+        const btnIphoneFsIcon = document.getElementById('btnIphoneFsIcon');
+        const btnExitZomatoFs = document.getElementById('btnExitZomatoFs');
+        const zomatoFsBtnText = document.getElementById('zomatoFsBtnText');
+
+        function toggleZomatoFullscreen(forceClose = false) {
+          if (!iphoneSimContainer) return;
+          const isCurrentlyExpanded = iphoneSimContainer.classList.contains('is-fullscreen-expanded');
+          if (forceClose || isCurrentlyExpanded) {
+            iphoneSimContainer.classList.remove('is-fullscreen-expanded');
+            document.body.classList.remove('has-simulator-fullscreen');
+            if (btnExitZomatoFs) btnExitZomatoFs.style.display = 'none';
+            if (zomatoFsBtnText) zomatoFsBtnText.textContent = 'Enter Full Screen Simulator';
+            if (document.fullscreenElement && document.exitFullscreen) {
+              document.exitFullscreen().catch(() => {});
             }
+          } else {
+            iphoneSimContainer.classList.add('is-fullscreen-expanded');
+            document.body.classList.add('has-simulator-fullscreen');
+            if (btnExitZomatoFs) btnExitZomatoFs.style.display = 'flex';
+            if (zomatoFsBtnText) zomatoFsBtnText.textContent = 'Exit Full Screen';
+            if (iphoneSimContainer.requestFullscreen) {
+              iphoneSimContainer.requestFullscreen().catch(() => {});
+            }
+          }
+        }
+
+        if (btnZomatoExpandFs) {
+          btnZomatoExpandFs.onclick = (e) => {
+            e.stopPropagation();
+            toggleZomatoFullscreen();
           };
         }
 
-        if (actionBtn2) {
-          actionBtn2.onclick = (e) => {
+        if (btnIphoneFsIcon) {
+          btnIphoneFsIcon.onclick = (e) => {
             e.stopPropagation();
-            if (toastEl) {
-              toastEl.innerHTML = `<span>❌ <strong>Dismissed:</strong> But another emotional ping will arrive tomorrow!</span>`;
-              toastEl.style.display = 'block';
-              setTimeout(() => {
-                if (toastEl) toastEl.style.display = 'none';
-              }, 2600);
-            }
+            toggleZomatoFullscreen();
           };
         }
 
-        // Initial setup
-        switchZomatoTab('sim');
+        if (btnExitZomatoFs) {
+          btnExitZomatoFs.onclick = (e) => {
+            e.stopPropagation();
+            toggleZomatoFullscreen(true);
+          };
+        }
+
+        // Escape Key & Fullscreen Change Handler
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' || e.key === 'Esc') {
+            if (iphoneSimContainer && iphoneSimContainer.classList.contains('is-fullscreen-expanded')) {
+              toggleZomatoFullscreen(true);
+            }
+          }
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+          if (!document.fullscreenElement && iphoneSimContainer && iphoneSimContainer.classList.contains('is-fullscreen-expanded')) {
+            toggleZomatoFullscreen(true);
+          }
+        });
+
+        // Initial render without chime
         renderCurrentNotification(false);
       }
 
