@@ -5500,3 +5500,1115 @@ body.has-simulator-fullscreen .slide-viewport {
   margin: 0;
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
+
+/* ==========================================================================
+   SLIDE 11: 3-APP IPHONE SURVEILLANCE SIMULATOR STYLES
+   ========================================================================== */
+.targeted-iphone-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.targeted-top-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-targeted-ctrl {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #e2e8f0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.btn-targeted-ctrl:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-targeted-ctrl.expand-fs {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+}
+
+.btn-targeted-ctrl.expand-fs:hover {
+  background: rgba(56, 189, 248, 0.28);
+  border-color: #38bdf8;
+}
+
+.targeted-iphone-frame {
+  width: 320px;
+  height: 560px;
+  background: #000000;
+  border-radius: 46px;
+  box-shadow: 
+    0 0 0 3.5px #272a30,
+    0 0 0 5.5px #141619,
+    0 24px 70px rgba(0, 0, 0, 0.8),
+    0 0 35px rgba(56, 189, 248, 0.15);
+  position: relative;
+  overflow: hidden;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.targeted-iphone-screen {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 20%, #1e1b4b 0%, #090a10 70%, #030407 100%);
+  border-radius: 38px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+  padding: 8px 12px 12px;
+}
+
+.targeted-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  animation: fadeInView 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInView {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Home Screen Styles */
+.targeted-home-clock-wrap {
+  text-align: center;
+  margin-top: 14px;
+  margin-bottom: 8px;
+}
+
+.targeted-home-date {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.targeted-home-time {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.targeted-step-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin: 8px auto 18px;
+  backdrop-filter: blur(12px);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.step-indicator-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00ff88;
+  box-shadow: 0 0 8px #00ff88;
+  animation: pulseDot 1.5s infinite;
+}
+
+.targeted-apps-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: auto;
+  margin-bottom: 24px;
+  padding: 0 8px;
+}
+
+.targeted-app-item {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.targeted-app-item:hover {
+  transform: translateY(-4px) scale(1.06);
+}
+
+.targeted-app-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+
+.targeted-app-icon.wa-icon {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+}
+
+.targeted-app-icon.ig-icon {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+
+.targeted-app-icon.yt-icon {
+  background: linear-gradient(135deg, #ff0000 0%, #b91c1c 100%);
+}
+
+.app-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  background: #ef4444;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 0.68rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
+  animation: pulseBadge 1.8s infinite;
+}
+
+@keyframes pulseBadge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); box-shadow: 0 0 14px rgba(239, 68, 68, 1); }
+}
+
+.targeted-app-name {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.targeted-home-dock {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: 8px 12px;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: 8px;
+  backdrop-filter: blur(20px);
+}
+
+.dock-hint {
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+/* WhatsApp View Styles */
+.targeted-view-whatsapp {
+  background: #0b141a;
+  border-radius: 20px;
+  margin: -4px -8px -6px;
+  padding: 6px 8px;
+}
+
+.wa-nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 4px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.wa-back-btn {
+  background: none;
+  border: none;
+  color: #00a884;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.wa-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #128c7e;
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.wa-contact-info {
+  flex: 1;
+}
+
+.wa-contact-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #e9edef;
+  line-height: 1.2;
+}
+
+.wa-contact-status {
+  font-size: 0.64rem;
+  color: #00a884;
+}
+
+.wa-nav-actions {
+  display: flex;
+  gap: 10px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.wa-chat-stream {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 4px;
+  overflow-y: auto;
+}
+
+.wa-bubble {
+  max-width: 82%;
+  padding: 7px 10px 5px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  display: flex;
+  flex-direction: column;
+}
+
+.wa-incoming {
+  background: #202c33;
+  color: #e9edef;
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+}
+
+.wa-outgoing {
+  background: #005c4b;
+  color: #e9edef;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+  animation: popBubble 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popBubble {
+  from { opacity: 0; transform: translateY(6px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.wa-time {
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.5);
+  align-self: flex-end;
+  margin-top: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.wa-ticks {
+  color: #53bdeb;
+  font-weight: 700;
+}
+
+.wa-chat-date-pill {
+  align-self: center;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.58rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.wa-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 4px;
+}
+
+.wa-input-emoji,
+.wa-input-clip {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.wa-input-field {
+  flex: 1;
+  background: #2a3942;
+  border: none;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 0.72rem;
+  padding: 8px 12px;
+  outline: none;
+}
+
+.wa-send-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #00a884;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 168, 132, 0.5);
+  transition: transform 0.18s ease;
+}
+
+.wa-send-btn:hover {
+  transform: scale(1.08);
+}
+
+/* ==========================================
+   REAL INSTAGRAM VIEW STYLES
+   ========================================== */
+.targeted-view-instagram {
+  background: #000000;
+  border-radius: 20px;
+  margin: -4px -8px -6px;
+  padding: 4px 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ig-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 6px 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ig-back-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.ig-logo-text {
+  font-family: 'Segoe UI', cursive, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.ig-nav-icons {
+  display: flex;
+  gap: 12px;
+  font-size: 1rem;
+}
+
+.ig-icon-btn {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+/* Stories Tray */
+.ig-stories-tray {
+  display: flex;
+  gap: 10px;
+  padding: 8px 4px;
+  overflow-x: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  scrollbar-width: none;
+}
+.ig-stories-tray::-webkit-scrollbar { display: none; }
+
+.ig-story-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.ig-story-ring {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.ig-story-ring.has-story {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+
+.ig-story-ring.your-story {
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.story-avatar {
+  width: 38px;
+  height: 38px;
+  background: #181818;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.story-plus {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  background: #0284c7;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.65rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #000;
+}
+
+.story-username {
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 48px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Feed Scroll */
+.ig-feed-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 6px 2px;
+}
+
+.ig-post-card {
+  background: #000000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.ig-post-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 4px 8px;
+}
+
+.ig-author-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.ig-author-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ig-author-name {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.ig-sponsored-label {
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ig-more {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+}
+
+.ig-post-image-wrap {
+  width: 100%;
+  position: relative;
+  background: #111111;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.ig-ad-img {
+  width: 100%;
+  max-height: 175px;
+  object-fit: cover;
+  display: block;
+}
+
+.ig-cta-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0284c7;
+  color: #ffffff;
+  padding: 6px 10px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ig-cta-text {
+  letter-spacing: 0.2px;
+}
+
+.ig-cta-btn {
+  font-weight: 800;
+}
+
+/* Post Actions (Like, Comment, Share, Bookmark) */
+.ig-post-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 4px 4px;
+}
+
+.ig-actions-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ig-action-icon {
+  font-size: 1.05rem;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: transform 0.15s ease;
+}
+
+.ig-action-icon:hover {
+  transform: scale(1.15);
+}
+
+/* Post Details */
+.ig-post-details {
+  padding: 2px 4px 6px;
+}
+
+.ig-likes-count {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 3px;
+}
+
+.ig-caption {
+  font-size: 0.66rem;
+  color: #e2e8f0;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.ig-caption strong {
+  color: #ffffff;
+  margin-right: 4px;
+}
+
+.ig-comments-link {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+.ig-post-timestamp {
+  font-size: 0.52rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.5px;
+}
+
+/* Instagram Bottom Bar */
+.ig-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 6px 2px 2px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ig-tab {
+  font-size: 1.05rem;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.ig-tab.active {
+  opacity: 1;
+}
+
+/* ==========================================
+   REAL YOUTUBE VIEW STYLES
+   ========================================== */
+.targeted-view-youtube {
+  background: #0f0f0f;
+  border-radius: 20px;
+  margin: -4px -8px -6px;
+  padding: 4px 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.yt-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.yt-back-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.yt-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.yt-play-icon {
+  color: #ff0000;
+  font-size: 1rem;
+}
+
+.yt-logo-text {
+  font-weight: 800;
+  font-size: 0.92rem;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.yt-nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+
+.yt-user-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+
+.yt-feed-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 2px;
+}
+
+.yt-player-preview {
+  height: 150px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.yt-ad-badge-top {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background: #facc15;
+  color: #000;
+  font-weight: 800;
+  font-size: 0.58rem;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.yt-skip-ad-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 6px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  font-size: 0.58rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.yt-shoe-visual {
+  text-align: center;
+}
+
+.yt-shoe-emoji {
+  font-size: 2.5rem;
+  display: block;
+}
+
+.yt-shoe-headline {
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.yt-shoe-sub {
+  font-size: 0.62rem;
+  color: #94a3b8;
+}
+
+.yt-ad-link-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 6px;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.56rem;
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.yt-ad-cta {
+  font-weight: 800;
+}
+
+.yt-ad-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.yt-ad-progress-fill {
+  width: 60%;
+  height: 100%;
+  background: #facc15;
+}
+
+/* Video Info Box */
+.yt-video-info-box {
+  padding: 8px 4px 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.yt-ad-title {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 2px;
+}
+
+.yt-video-meta {
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 6px;
+}
+
+.yt-channel-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.yt-channel-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.yt-channel-meta {
+  flex: 1;
+}
+
+.yt-channel-name {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.yt-channel-subs {
+  font-size: 0.56rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.yt-sub-btn {
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 14px;
+  padding: 4px 10px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Video Actions Pill Row */
+.yt-actions-pill-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+.yt-actions-pill-row::-webkit-scrollbar { display: none; }
+
+.yt-action-pill {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 4px 9px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Up Next Section */
+.yt-up-next-section {
+  padding: 8px 4px 4px;
+}
+
+.yt-up-next-header {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.yt-recommended-item {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.yt-rec-thumb {
+  width: 76px;
+  height: 44px;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 2px 4px;
+  flex-shrink: 0;
+}
+
+.yt-rec-thumb.thumb-1 {
+  background: linear-gradient(135deg, #1e3a8a, #0284c7);
+}
+
+.yt-rec-thumb.thumb-2 {
+  background: linear-gradient(135deg, #7c2d12, #ea580c);
+}
+
+.yt-thumb-badge {
+  background: rgba(0, 0, 0, 0.85);
+  font-size: 0.5rem;
+  font-weight: 700;
+  padding: 1px 3px;
+  border-radius: 2px;
+  color: #ffffff;
+}
+
+.yt-rec-info {
+  flex: 1;
+}
+
+.yt-rec-title {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 2px;
+}
+
+.yt-rec-meta {
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* YouTube Bottom Bar */
+.yt-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 6px 2px 2px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.yt-tab {
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.65);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.yt-tab.active {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.yt-tab.yt-plus {
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+/* Home Indicator Bar */
+.iphone-home-indicator-wrap {
+  padding: 8px 0 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+}
+
+/* Fullscreen Theater Mode for Slide 11 iPhone */
+.targeted-iphone-container.is-fullscreen-expanded {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: 100vw !important;
+  z-index: 999999 !important;
+  background: rgba(6, 8, 14, 0.97) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+  animation: fsBackdropFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.targeted-iphone-container.is-fullscreen-expanded .targeted-iphone-frame {
+  width: 380px !important;
+  height: 82vh !important;
+  max-height: 760px !important;
+  border-radius: 54px !important;
+}
+
+.btn-exit-targeted-fs {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  z-index: 1000000;
+  background: rgba(239, 68, 68, 0.3);
+  border: 1px solid rgba(239, 68, 68, 0.7);
+  color: #fee2e2;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  transition: all 0.2s ease;
+}
+
+.btn-exit-targeted-fs:hover {
+  background: rgba(239, 68, 68, 0.95);
+  color: #ffffff;
+}
