@@ -4743,29 +4743,47 @@ html, body {
   font-size: 0.92rem;
 }
 
-/* Fullscreen Expanded Theater Mode */
+/* ==========================================================================
+   FULLSCREEN THEATER MODE - GLOBAL ENGINE FOR ALL SIMULATORS
+   ========================================================================== */
+
 .cart-padding-container.is-fullscreen-expanded,
-.free-delivery-sim-container.is-fullscreen-expanded {
+.free-delivery-sim-container.is-fullscreen-expanded,
+.targeted-iphone-container.is-fullscreen-expanded,
+.iphone-sim-container.is-fullscreen-expanded,
+.scarcity-sim-container.is-fullscreen-expanded {
   position: fixed !important;
   inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
   max-width: 100vw !important;
-  z-index: 999999 !important;
-  background: rgba(5, 7, 13, 0.96) !important;
-  backdrop-filter: blur(20px) !important;
+  max-height: 100vh !important;
+  z-index: 10000000 !important;
+  background: rgba(6, 8, 14, 0.98) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
   padding: 24px !important;
   box-sizing: border-box !important;
-  animation: fsBackdropFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: fsBackdropFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: hidden !important;
 }
 
 @keyframes fsBackdropFadeIn {
   from { opacity: 0; transform: scale(0.98); }
   to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes phonePopIn {
+  from { transform: scale(0.94); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 .cart-padding-container.is-fullscreen-expanded .ecom-website-card.fk-app-frame,
@@ -4777,53 +4795,62 @@ html, body {
   border: 4px solid #2874f0 !important;
   border-radius: 32px !important;
   box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(40, 116, 240, 0.4) !important;
-  animation: phonePopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: phonePopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-@keyframes phonePopIn {
-  from { transform: scale(0.94); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+/* Hide inline expand buttons when simulator is expanded */
+.scarcity-sim-container.is-fullscreen-expanded .scarcity-hover-hint,
+.free-delivery-sim-container.is-fullscreen-expanded .cart-fullscreen-bar,
+.targeted-iphone-container.is-fullscreen-expanded #btnTargetedExpandFs,
+.iphone-sim-container.is-fullscreen-expanded .btn-zomato-expand-fs,
+.cart-padding-container.is-fullscreen-expanded .cart-fullscreen-bar {
+  display: none !important;
 }
 
-/* Reset containing-block traps when in simulator fullscreen */
-body.has-simulator-fullscreen .slide-card {
-  transform: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  filter: none !important;
+/* Floating Exit Fullscreen Button (Top Right) - strictly scoped to is-fullscreen-expanded */
+.btn-exit-expanded-fs,
+.btn-exit-zomato-fs,
+.btn-exit-targeted-fs,
+.btn-exit-scarcity-fs-floating,
+.btn-exit-fd-fs {
+  display: none !important;
+  position: fixed !important;
+  top: 24px !important;
+  right: 32px !important;
+  z-index: 10000005 !important;
+  background: rgba(239, 68, 68, 0.9) !important;
+  border: 1px solid rgba(239, 68, 68, 1) !important;
+  color: #ffffff !important;
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, sans-serif) !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  padding: 10px 22px !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  align-items: center !important;
+  gap: 8px !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.8), 0 0 20px rgba(239, 68, 68, 0.4) !important;
+  transition: all 0.2s ease !important;
+  pointer-events: auto !important;
 }
 
-body.has-simulator-fullscreen .slide-viewport {
-  transform: none !important;
-  filter: none !important;
+.is-fullscreen-expanded .btn-exit-expanded-fs,
+.is-fullscreen-expanded .btn-exit-zomato-fs,
+.is-fullscreen-expanded .btn-exit-targeted-fs,
+.is-fullscreen-expanded .btn-exit-scarcity-fs-floating,
+.is-fullscreen-expanded .btn-exit-fd-fs {
+  display: flex !important;
 }
 
-/* Floating Exit Button in Fullscreen Mode */
-.btn-exit-expanded-fs {
-  position: fixed;
-  top: 24px;
-  right: 32px;
-  z-index: 1000000;
-  background: rgba(239, 68, 68, 0.25);
-  border: 1px solid rgba(239, 68, 68, 0.6);
-  color: #fee2e2;
-  font-size: 0.82rem;
-  font-weight: 800;
-  padding: 8px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-  transition: all 0.2s ease;
-}
-
-.btn-exit-expanded-fs:hover {
-  background: rgba(239, 68, 68, 0.9);
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.5);
+.btn-exit-expanded-fs:hover,
+.btn-exit-zomato-fs:hover,
+.btn-exit-targeted-fs:hover,
+.btn-exit-scarcity-fs-floating:hover,
+.btn-exit-fd-fs:hover {
+  background: #dc2626 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) scale(1.03) !important;
+  box-shadow: 0 8px 30px rgba(239, 68, 68, 0.6) !important;
 }
 
 /* Flipkart Bill Details Box */

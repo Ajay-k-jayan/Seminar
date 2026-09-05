@@ -2667,7 +2667,7 @@
 
           <!-- Slide 13: Zomato Push Notification Marketing (iPhone Simulator) -->
           <div class="slide-visual-col" id="zomatoCol" style="display: none;">
-            <div class="iphone-sim-container">
+            <div class="iphone-sim-container" id="iphoneSimContainer">
               <!-- Realistic iPhone Frame Mockup -->
               <div class="iphone-frame" id="iphoneDeviceFrame">
                 <!-- Inner Screen Area -->
@@ -3527,6 +3527,33 @@
       let targetMouseY = mouseY;
       let animTime = 0;
 
+      // =========================================================================
+      // SIMULATOR FULLSCREEN PORTAL / TELEPORT ENGINE
+      // Moves expanded simulator directly to document.body so that containing blocks
+      // (transforms, filters, backdrop-filters) never trap or offset the simulator!
+      // =========================================================================
+      const simulatorPlaceholders = new Map();
+
+      function expandSimulatorToBody(container) {
+        if (!container || container.parentElement === document.body) return;
+        const placeholder = document.createComment('sim-placeholder-' + (container.id || 'el'));
+        container.parentElement.insertBefore(placeholder, container);
+        simulatorPlaceholders.set(container, placeholder);
+        document.body.appendChild(container);
+        container.classList.add('is-fullscreen-expanded');
+      }
+
+      function restoreSimulatorFromBody(container) {
+        if (!container) return;
+        container.classList.remove('is-fullscreen-expanded');
+        const placeholder = simulatorPlaceholders.get(container);
+        if (placeholder && placeholder.parentElement) {
+          placeholder.parentElement.insertBefore(container, placeholder);
+          placeholder.remove();
+          simulatorPlaceholders.delete(container);
+        }
+      }
+
       // INITIALIZATION
       function init() {
         totalSlideNum.textContent = String(totalSlides).padStart(2, '0');
@@ -3630,6 +3657,7 @@
         if (index < 0 || index >= totalSlides) return;
         currentSlideIndex = index;
         window.location.hash = '#' + (index + 1);
+        window.goToSlide = goToSlide;
 
         const slide = slidesData[currentSlideIndex];
         if (!slide) return;
@@ -3643,11 +3671,16 @@
             ytPlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
           } catch(e) {}
         }
-        // Close any simulator theater mode when changing slides while preserving presentation fullscreen
+        // Close any simulator theater mode and restore to its slide when changing slides
+        if (typeof simulatorPlaceholders !== 'undefined') {
+          simulatorPlaceholders.forEach((placeholder, c) => {
+            restoreSimulatorFromBody(c);
+          });
+        }
         document.body.classList.remove('has-simulator-fullscreen');
         const activeFsContainers = document.querySelectorAll('.is-fullscreen-expanded');
         activeFsContainers.forEach(c => c.classList.remove('is-fullscreen-expanded'));
-        const activeExitBtns = document.querySelectorAll('.btn-exit-expanded-fs, .btn-exit-zomato-fs, .btn-exit-targeted-fs');
+        const activeExitBtns = document.querySelectorAll('.btn-exit-expanded-fs, .btn-exit-zomato-fs, .btn-exit-targeted-fs, .btn-exit-scarcity-fs-floating, .btn-exit-fd-fs');
         activeExitBtns.forEach(b => b.style.display = 'none');
 
         // Header Slide Counter
@@ -4017,6 +4050,17 @@
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
         switch (e.key) {
+          case 'Escape':
+            if (typeof simulatorPlaceholders !== 'undefined' && simulatorPlaceholders.size > 0) {
+              e.preventDefault();
+              simulatorPlaceholders.forEach((placeholder, c) => {
+                restoreSimulatorFromBody(c);
+              });
+              document.body.classList.remove('has-simulator-fullscreen');
+              break;
+            }
+            break;
+
           case 'ArrowRight':
           case 'PageDown':
           case ' ':
@@ -4843,19 +4887,11 @@
           if (!scarcitySimContainer) return;
           const isCurrentlyExpanded = scarcitySimContainer.classList.contains('is-fullscreen-expanded');
           if (forceClose || isCurrentlyExpanded) {
-            scarcitySimContainer.classList.remove('is-fullscreen-expanded');
-            document.body.classList.remove('has-simulator-fullscreen');
+            restoreSimulatorFromBody(scarcitySimContainer);
             if (btnExitScarcityFsFloating) btnExitScarcityFsFloating.style.display = 'none';
-            if (document.fullscreenElement && document.exitFullscreen) {
-              document.exitFullscreen().catch(() => {});
-            }
           } else {
-            scarcitySimContainer.classList.add('is-fullscreen-expanded');
-            document.body.classList.add('has-simulator-fullscreen');
+            expandSimulatorToBody(scarcitySimContainer);
             if (btnExitScarcityFsFloating) btnExitScarcityFsFloating.style.display = 'flex';
-            if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
-              document.documentElement.requestFullscreen().catch(() => {});
-            }
           }
         }
 
@@ -5495,21 +5531,13 @@
           if (!fdContainer) return;
           const isCurrentlyExpanded = fdContainer.classList.contains('is-fullscreen-expanded');
           if (forceClose || isCurrentlyExpanded) {
-            fdContainer.classList.remove('is-fullscreen-expanded');
-            document.body.classList.remove('has-simulator-fullscreen');
+            restoreSimulatorFromBody(fdContainer);
             if (btnExitFdFs) btnExitFdFs.style.display = 'none';
             if (fdFsBtnText) fdFsBtnText.textContent = 'Expand Simulator Full Screen';
-            if (document.fullscreenElement && document.exitFullscreen) {
-              document.exitFullscreen().catch(() => {});
-            }
           } else {
-            fdContainer.classList.add('is-fullscreen-expanded');
-            document.body.classList.add('has-simulator-fullscreen');
+            expandSimulatorToBody(fdContainer);
             if (btnExitFdFs) btnExitFdFs.style.display = 'flex';
             if (fdFsBtnText) fdFsBtnText.textContent = 'Exit Full Screen';
-            if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
-              document.documentElement.requestFullscreen().catch(() => {});
-            }
           }
         }
 
@@ -5665,19 +5693,11 @@
           if (!container) return;
           const isExpanded = container.classList.contains('is-fullscreen-expanded');
           if (forceClose || isExpanded) {
-            container.classList.remove('is-fullscreen-expanded');
-            document.body.classList.remove('has-simulator-fullscreen');
+            restoreSimulatorFromBody(container);
             if (btnExitFs) btnExitFs.style.display = 'none';
-            if (document.fullscreenElement && document.exitFullscreen) {
-              document.exitFullscreen().catch(() => {});
-            }
           } else {
-            container.classList.add('is-fullscreen-expanded');
-            document.body.classList.add('has-simulator-fullscreen');
+            expandSimulatorToBody(container);
             if (btnExitFs) btnExitFs.style.display = 'flex';
-            if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
-              document.documentElement.requestFullscreen().catch(() => {});
-            }
           }
         }
 
@@ -6065,21 +6085,13 @@
           if (!iphoneSimContainer) return;
           const isCurrentlyExpanded = iphoneSimContainer.classList.contains('is-fullscreen-expanded');
           if (forceClose || isCurrentlyExpanded) {
-            iphoneSimContainer.classList.remove('is-fullscreen-expanded');
-            document.body.classList.remove('has-simulator-fullscreen');
+            restoreSimulatorFromBody(iphoneSimContainer);
             if (btnExitZomatoFs) btnExitZomatoFs.style.display = 'none';
             if (zomatoFsBtnText) zomatoFsBtnText.textContent = 'Enter Full Screen Simulator';
-            if (document.fullscreenElement && document.exitFullscreen) {
-              document.exitFullscreen().catch(() => {});
-            }
           } else {
-            iphoneSimContainer.classList.add('is-fullscreen-expanded');
-            document.body.classList.add('has-simulator-fullscreen');
+            expandSimulatorToBody(iphoneSimContainer);
             if (btnExitZomatoFs) btnExitZomatoFs.style.display = 'flex';
             if (zomatoFsBtnText) zomatoFsBtnText.textContent = 'Exit Full Screen';
-            if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
-              document.documentElement.requestFullscreen().catch(() => {});
-            }
           }
         }
 
@@ -6684,21 +6696,13 @@
           if (!cartContainer) return;
           const isCurrentlyExpanded = cartContainer.classList.contains('is-fullscreen-expanded');
           if (forceClose || isCurrentlyExpanded) {
-            cartContainer.classList.remove('is-fullscreen-expanded');
-            document.body.classList.remove('has-simulator-fullscreen');
+            restoreSimulatorFromBody(cartContainer);
             if (btnExitExpandedFs) btnExitExpandedFs.style.display = 'none';
             if (cartFsBtnText) cartFsBtnText.textContent = 'Expand Simulator Full Screen';
-            if (document.fullscreenElement && document.exitFullscreen) {
-              document.exitFullscreen().catch(() => {});
-            }
           } else {
-            cartContainer.classList.add('is-fullscreen-expanded');
-            document.body.classList.add('has-simulator-fullscreen');
+            expandSimulatorToBody(cartContainer);
             if (btnExitExpandedFs) btnExitExpandedFs.style.display = 'flex';
             if (cartFsBtnText) cartFsBtnText.textContent = 'Exit Full Screen';
-            if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
-              document.documentElement.requestFullscreen().catch(() => {});
-            }
           }
         }
 
