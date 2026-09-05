@@ -544,7 +544,6 @@ html, body {
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 50;
   z-index: 1000005 !important;
 }
 

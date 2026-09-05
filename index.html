@@ -3352,16 +3352,12 @@
             ytPlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
           } catch(e) {}
         }
-        // Close any simulator fullscreen mode when changing slides
         // Close any simulator theater mode when changing slides while preserving presentation fullscreen
         document.body.classList.remove('has-simulator-fullscreen');
         const activeFsContainers = document.querySelectorAll('.is-fullscreen-expanded');
         activeFsContainers.forEach(c => c.classList.remove('is-fullscreen-expanded'));
         const activeExitBtns = document.querySelectorAll('.btn-exit-expanded-fs, .btn-exit-zomato-fs');
         activeExitBtns.forEach(b => b.style.display = 'none');
-        if (document.fullscreenElement && document.exitFullscreen) {
-          document.exitFullscreen().catch(() => {});
-        }
 
         // Header Slide Counter
         currentSlideNum.textContent = String(currentSlideIndex + 1).padStart(2, '0');
@@ -4566,8 +4562,6 @@
             scarcitySimContainer.classList.add('is-fullscreen-expanded');
             document.body.classList.add('has-simulator-fullscreen');
             if (btnExitScarcityFsFloating) btnExitScarcityFsFloating.style.display = 'flex';
-            if (scarcitySimContainer.requestFullscreen) {
-              scarcitySimContainer.requestFullscreen().catch(() => {});
             if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
               document.documentElement.requestFullscreen().catch(() => {});
             }
@@ -5222,8 +5216,6 @@
             document.body.classList.add('has-simulator-fullscreen');
             if (btnExitFdFs) btnExitFdFs.style.display = 'flex';
             if (fdFsBtnText) fdFsBtnText.textContent = 'Exit Full Screen';
-            if (fdContainer.requestFullscreen) {
-              fdContainer.requestFullscreen().catch(() => {});
             if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
               document.documentElement.requestFullscreen().catch(() => {});
             }
@@ -5711,8 +5703,6 @@
             document.body.classList.add('has-simulator-fullscreen');
             if (btnExitZomatoFs) btnExitZomatoFs.style.display = 'flex';
             if (zomatoFsBtnText) zomatoFsBtnText.textContent = 'Exit Full Screen';
-            if (iphoneSimContainer.requestFullscreen) {
-              iphoneSimContainer.requestFullscreen().catch(() => {});
             if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
               document.documentElement.requestFullscreen().catch(() => {});
             }
@@ -6332,8 +6322,6 @@
             document.body.classList.add('has-simulator-fullscreen');
             if (btnExitExpandedFs) btnExitExpandedFs.style.display = 'flex';
             if (cartFsBtnText) cartFsBtnText.textContent = 'Exit Full Screen';
-            if (cartContainer.requestFullscreen) {
-              cartContainer.requestFullscreen().catch(() => {});
             if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
               document.documentElement.requestFullscreen().catch(() => {});
             }
