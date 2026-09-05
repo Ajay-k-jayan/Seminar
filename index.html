@@ -1780,57 +1780,34 @@
 
           <!-- Slide 7: The Trap of Manufactured Scarcity Visual Column -->
           <div class="slide-visual-col" id="scarcityCol" style="display: none;">
-            <div class="scarcity-card-container">
-              <!-- Real-World E-commerce Scarcity Card -->
-              <div class="real-evidence-card" id="ecommerceCard">
-                <!-- Top Evidence Header -->
-                <div class="evidence-top-bar">
-                  <div class="evidence-brand">
-                    <span class="brand-dot-fk">&#128722;</span>
-                    <span class="brand-name">FLIPKART.COM EVIDENCE</span>
-                  </div>
-                  <span class="evidence-badge-live">REAL-WORLD CAPTURE</span>
+            <div class="scarcity-sim-container" id="scarcitySimContainer">
+              <!-- Real Evidence Clean Image Card (Image Only - No Bottom Buttons) -->
+              <div class="scarcity-clean-card" id="scarcityCleanCard">
+                <div class="scarcity-img-frame" id="scarcityImgFrame" title="Click for Full Screen">
+                  <img src="flipkart-scarcity.png" alt="Flipkart Real Example - Only 1 left" class="scarcity-clean-img" id="flipkartRealImg">
+                  <button type="button" class="scarcity-hover-hint" id="btnScarcityBadgeFs" title="Click for Full Screen">
+                    <span class="fs-icon">&#x26F6;</span>
+                    <span>Click for Full Screen</span>
+                  </button>
                 </div>
+              </div>
 
-                <!-- Real Flipkart Screenshot Display -->
-                <div class="flipkart-screenshot-wrapper">
-                  <img src="flipkart-scarcity.png" alt="Flipkart Real Example - Only 1 left" class="flipkart-real-img" id="flipkartRealImg">
-                  <!-- Red Warning Callout Pointer -->
-                  <div class="scarcity-spotlight-callout">
-                    <span class="siren-pulse">&#128680;</span>
-                    <span>Dark Pattern: <strong>"Only 1 left"</strong></span>
-                  </div>
-                </div>
+              <!-- Floating Exit Fullscreen Button in Theater Mode (Top Right) -->
+              <button type="button" class="btn-exit-expanded-fs btn-exit-scarcity-fs-floating" id="btnExitScarcityFsFloating" style="display: none;" title="Exit Full Screen (Esc)">
+                <span>&#10005;</span>
+                <span>Close Full Screen</span>
+              </button>
 
-                <!-- Evidence Analysis & Action Panel -->
-                <div class="evidence-info-panel">
-                  <div class="evidence-caption">
-                    Notice the bright red text <strong>"Only 1 left"</strong> right next to the price. It bypasses logical thinking, induces urgency, and forces you to buy before checking elsewhere.
-                  </div>
-
-                  <!-- Interactive Action Buttons -->
-                  <div class="scarcity-actions-row">
-                    <button class="btn-rush-buy" id="btnRushBuy">
-                      <span class="btn-icon">&#9889;</span>
-                      <span id="btnBuyText">RUSH TO BUY (PANIC TRIGGERED)</span>
-                    </button>
-                    <button class="btn-inspect-code" id="btnInspectCode" title="Expose the fake code">
-                      <span>&#128269; Inspect Code</span>
-                    </button>
-                  </div>
-
-                  <!-- The Code Reveal Drawer (Exposes that it's fake code!) -->
-                  <div class="code-inspector-drawer" id="codeInspectorDrawer" style="display: none;">
-                    <div class="inspector-header">
-                      <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
-                      <span class="inspector-title">scarcity_script.js (BEHIND THE CURTAIN)</span>
-                    </div>
-                    <pre class="inspector-code"><code><span class="code-comment">// &#9888; REALITY: INVENTORY IS OFTEN NOT 1</span>
-<span class="code-keyword">const</span> actualStock = <span class="code-num">250</span>;
-<span class="code-keyword">const</span> displayStock = <span class="code-str">"Only 1 left"</span>; <span class="code-comment">// Injected to trigger panic!</span>
-<span class="code-func">triggerFOMOPanic</span>({ rushCheckout: <span class="code-keyword">true</span> });</code></pre>
-                  </div>
-                </div>
+              <!-- Full Screen Bottom Action Bar (Visible ONLY in Fullscreen Mode) -->
+              <div class="scarcity-fs-bottom-bar" id="scarcityFsBottomBar">
+                <a href="https://www.google.com/search?q=Flipkart+Lenovo+Chromebook+%22Only+1+left%22+dark+pattern" target="_blank" rel="noopener noreferrer" class="btn-scarcity-google-link fs-google-link" id="btnScarcityFsGoogleLink" title="Open Real Example on Google Search in New Tab" onclick="event.stopPropagation();">
+                  <span class="google-icon">&#127760;</span>
+                  <span>Search Real Example on Google &nearr;</span>
+                </a>
+                <button type="button" class="btn-exit-expanded-fs btn-exit-scarcity-fs" id="btnExitScarcityFs" title="Close Full Screen (Esc)">
+                  <span>&#10005;</span>
+                  <span>Close Full Screen</span>
+                </button>
               </div>
             </div>
           </div>
@@ -3221,6 +3198,8 @@
       let timerSeconds = 0;
       let timerInterval = null;
       let isTimerRunning = false;
+      let flightTimerInterval = null;
+      let scarcityTimerInterval = null;
 
       // DOM Elements
       const progressBar = document.getElementById('progressBar');
@@ -4561,98 +4540,88 @@
       }
 
       // =========================================================================
-      // SLIDE 7: MANUFACTURED SCARCITY SIMULATOR
+      // SLIDE 7: MANUFACTURED SCARCITY (FLIPKART "ONLY 1 LEFT" REAL PROOF)
       // =========================================================================
-      let scarcityTimerInterval = null;
-      let scarcitySeconds = 165; // 02:45
-      let isCodeInspected = false;
-      let isPanicBought = false;
+      let scarcityFsInitialized = false;
 
       function initScarcitySimulator() {
-        const countdownEl = document.getElementById('scarcityCountdown');
-        const viewerText = document.getElementById('viewerCountText');
-        const btnRushBuy = document.getElementById('btnRushBuy');
-        const btnBuyText = document.getElementById('btnBuyText');
-        const btnInspect = document.getElementById('btnInspectCode');
-        const inspector = document.getElementById('codeInspectorDrawer');
-        const banner = document.getElementById('scarcityBanner');
-        const card = document.getElementById('ecommerceCard');
+        const scarcitySimContainer = document.getElementById('scarcitySimContainer');
+        const btnExitScarcityFs = document.getElementById('btnExitScarcityFs');
+        const btnExitScarcityFsFloating = document.getElementById('btnExitScarcityFsFloating');
+        const scarcityImgFrame = document.getElementById('scarcityImgFrame');
+        const btnScarcityBadgeFs = document.getElementById('btnScarcityBadgeFs');
 
-        if (!countdownEl) return;
-
-        // Reset state
-        scarcitySeconds = 165;
-        isCodeInspected = false;
-        isPanicBought = false;
-        if (inspector) inspector.style.display = 'none';
-        if (banner) banner.classList.remove('panic-active');
-        if (btnBuyText) btnBuyText.textContent = 'RUSH TO BUY (PANIC TRIGGERED)';
-        if (btnRushBuy) btnRushBuy.classList.remove('bought-active');
-
-        // Start ticking countdown
-        if (scarcityTimerInterval) clearInterval(scarcityTimerInterval);
-        scarcityTimerInterval = setInterval(() => {
-          if (scarcitySeconds > 0) {
-            scarcitySeconds--;
+        function toggleScarcityFullscreen(forceClose = false) {
+          if (!scarcitySimContainer) return;
+          const isCurrentlyExpanded = scarcitySimContainer.classList.contains('is-fullscreen-expanded');
+          if (forceClose || isCurrentlyExpanded) {
+            scarcitySimContainer.classList.remove('is-fullscreen-expanded');
+            document.body.classList.remove('has-simulator-fullscreen');
+            if (btnExitScarcityFsFloating) btnExitScarcityFsFloating.style.display = 'none';
+            if (document.fullscreenElement && document.exitFullscreen) {
+              document.exitFullscreen().catch(() => {});
+            }
           } else {
-            scarcitySeconds = 180; // Looping countdown proves it's fake!
+            scarcitySimContainer.classList.add('is-fullscreen-expanded');
+            document.body.classList.add('has-simulator-fullscreen');
+            if (btnExitScarcityFsFloating) btnExitScarcityFsFloating.style.display = 'flex';
+            if (scarcitySimContainer.requestFullscreen) {
+              scarcitySimContainer.requestFullscreen().catch(() => {});
+            }
           }
-          const m = String(Math.floor(scarcitySeconds / 60)).padStart(2, '0');
-          const s = String(scarcitySeconds % 60).padStart(2, '0');
-          countdownEl.textContent = `${m}:${s}`;
-        }, 1000);
-
-        // Fluctuate viewers slightly to simulate live tracking
-        if (viewerText) {
-          const v = Math.floor(Math.random() * 8) + 24;
-          viewerText.textContent = `${v} people viewing now`;
         }
 
-        // Panic Buy Click
-        if (btnRushBuy) {
-          btnRushBuy.onclick = (e) => {
+        if (scarcityImgFrame) {
+          scarcityImgFrame.onclick = (e) => {
             e.stopPropagation();
-            isPanicBought = !isPanicBought;
-            if (isPanicBought) {
-              btnRushBuy.classList.add('bought-active');
-              btnBuyText.innerHTML = '&#10004; BOUGHT IN 4.2s (LOGIC BYPASSED!)';
-              if (banner) banner.classList.add('panic-active');
-              try {
-                const AudioCtx = window.AudioContext || window.webkitAudioContext;
-                if (AudioCtx) {
-                  const ctx = new AudioCtx();
-                  if (ctx.state === 'suspended') ctx.resume();
-                  const osc = ctx.createOscillator();
-                  const g = ctx.createGain();
-                  osc.frequency.setValueAtTime(587.33, ctx.currentTime);
-                  osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.15);
-                  g.gain.setValueAtTime(0.3, ctx.currentTime);
-                  g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.2);
-                  osc.connect(g);
-                  g.connect(ctx.destination);
-                  osc.start();
-                  osc.stop(ctx.currentTime + 0.22);
-                }
-              } catch(err) {}
-            } else {
-              btnRushBuy.classList.remove('bought-active');
-              btnBuyText.textContent = 'RUSH TO BUY (PANIC TRIGGERED)';
-              if (banner) banner.classList.remove('panic-active');
+            toggleScarcityFullscreen();
+          };
+        }
+
+        if (btnScarcityBadgeFs) {
+          btnScarcityBadgeFs.onclick = (e) => {
+            e.stopPropagation();
+            toggleScarcityFullscreen();
+          };
+        }
+
+        if (btnExitScarcityFs) {
+          btnExitScarcityFs.onclick = (e) => {
+            e.stopPropagation();
+            toggleScarcityFullscreen(true);
+          };
+        }
+
+        if (btnExitScarcityFsFloating) {
+          btnExitScarcityFsFloating.onclick = (e) => {
+            e.stopPropagation();
+            toggleScarcityFullscreen(true);
+          };
+        }
+
+        if (scarcitySimContainer) {
+          scarcitySimContainer.onclick = (e) => {
+            if (scarcitySimContainer.classList.contains('is-fullscreen-expanded') && e.target === scarcitySimContainer) {
+              toggleScarcityFullscreen(true);
             }
           };
         }
 
-        // Inspect Code Toggle
-        if (btnInspect) {
-          btnInspect.onclick = (e) => {
-            e.stopPropagation();
-            isCodeInspected = !isCodeInspected;
-            if (inspector) {
-              inspector.style.display = isCodeInspected ? 'block' : 'none';
+        if (!scarcityFsInitialized) {
+          scarcityFsInitialized = true;
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' || e.key === 'Esc') {
+              if (scarcitySimContainer && scarcitySimContainer.classList.contains('is-fullscreen-expanded')) {
+                toggleScarcityFullscreen(true);
+              }
             }
-            btnInspect.style.borderColor = isCodeInspected ? '#38bdf8' : 'rgba(255, 255, 255, 0.15)';
-            btnInspect.style.color = isCodeInspected ? '#38bdf8' : '#cbd5e1';
-          };
+          });
+
+          document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement && scarcitySimContainer && scarcitySimContainer.classList.contains('is-fullscreen-expanded')) {
+              toggleScarcityFullscreen(true);
+            }
+          });
         }
       }
 
@@ -4660,7 +4629,6 @@
       // =========================================================================
       // SLIDE 8: THE PHANTOM COUNTDOWN TIMER SIMULATOR
       // =========================================================================
-      let flightTimerInterval = null;
       let flightTimerSeconds = 599; // 09:59 (10 minutes)
 
       function initPhantomTimerSimulator() {

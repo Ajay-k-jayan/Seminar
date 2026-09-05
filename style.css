@@ -1850,10 +1850,233 @@ html, body {
 #scarcityCol {
   display: none;
 }
+#scarcityCol[style*="display: none"] {
+  display: none !important;
+}
+#scarcityCol[style*="display: flex"] {
+  display: flex !important;
+}
 .slide-visual-col#scarcityCol {
-  flex: 1 1 42% !important;
-  max-width: 440px !important;
+  flex: 1 1 48% !important;
+  max-width: 540px !important;
   width: 100% !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Slide 7: Clean Scarcity Image Container */
+.scarcity-sim-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.scarcity-clean-card {
+  width: 100%;
+  max-width: 530px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 25px rgba(239, 68, 68, 0.22);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.scarcity-clean-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.75), 0 0 35px rgba(239, 68, 68, 0.35);
+}
+
+.scarcity-img-frame {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #ffffff;
+}
+
+.scarcity-clean-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.25s ease;
+}
+
+.scarcity-img-frame:hover .scarcity-clean-img {
+  transform: scale(1.015);
+}
+
+.scarcity-hover-hint {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #f8fafc;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  transition: all 0.2s ease;
+  z-index: 5;
+}
+
+.scarcity-img-frame:hover .scarcity-hover-hint,
+.scarcity-hover-hint:hover {
+  background: rgba(239, 68, 68, 0.92);
+  border-color: #f87171;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.5);
+}
+
+/* Floating Exit Fullscreen Button in Theater Mode (Top Right) */
+.btn-exit-scarcity-fs-floating {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  z-index: 1000000;
+  background: rgba(239, 68, 68, 0.35);
+  border: 1px solid rgba(239, 68, 68, 0.8);
+  color: #fee2e2;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.7);
+  transition: all 0.2s ease;
+}
+
+.btn-exit-scarcity-fs-floating:hover {
+  background: rgba(239, 68, 68, 0.95);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(239, 68, 68, 0.7);
+}
+
+/* Fullscreen Theater Mode for Slide 7 */
+.scarcity-sim-container.is-fullscreen-expanded {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: 100vw !important;
+  z-index: 999999 !important;
+  background: rgba(5, 7, 13, 0.96) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 24px !important;
+  box-sizing: border-box !important;
+  animation: fsBackdropFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scarcity-sim-container.is-fullscreen-expanded .scarcity-clean-card {
+  max-width: 1080px !important;
+  width: 90vw !important;
+  border-radius: 20px !important;
+  padding: 16px !important;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95), 0 0 50px rgba(239, 68, 68, 0.45) !important;
+  animation: phonePopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scarcity-sim-container.is-fullscreen-expanded .scarcity-img-frame {
+  cursor: default;
+}
+
+.scarcity-sim-container.is-fullscreen-expanded .scarcity-hover-hint {
+  display: none !important;
+}
+
+.scarcity-sim-container.is-fullscreen-expanded .scarcity-clean-img {
+  max-height: 72vh !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 0 auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Bottom Actions in Fullscreen Mode Only */
+.scarcity-fs-bottom-bar {
+  display: none;
+}
+
+.scarcity-sim-container.is-fullscreen-expanded .scarcity-fs-bottom-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  margin-top: 16px !important;
+  z-index: 1000000 !important;
+  flex-wrap: wrap !important;
+}
+
+.scarcity-sim-container.is-fullscreen-expanded .fs-google-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: rgba(14, 165, 233, 0.9) !important;
+  border: 1px solid rgba(56, 189, 248, 1) !important;
+  color: #ffffff !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  padding: 10px 22px !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.45) !important;
+  transition: all 0.2s ease !important;
+}
+
+.scarcity-sim-container.is-fullscreen-expanded .fs-google-link:hover {
+  background: #0284c7 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 26px rgba(14, 165, 233, 0.6) !important;
+}
+
+.scarcity-sim-container.is-fullscreen-expanded .btn-exit-scarcity-fs {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: rgba(239, 68, 68, 0.9) !important;
+  border: 1px solid rgba(239, 68, 68, 1) !important;
+  color: #ffffff !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  padding: 10px 22px !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.45) !important;
+  transition: all 0.2s ease !important;
+}
+
+.scarcity-sim-container.is-fullscreen-expanded .btn-exit-scarcity-fs:hover {
+  background: #dc2626 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 26px rgba(239, 68, 68, 0.6) !important;
 }
 
 
