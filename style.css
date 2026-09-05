@@ -545,6 +545,7 @@ html, body {
   left: 50%;
   transform: translateX(-50%);
   z-index: 50;
+  z-index: 1000005 !important;
 }
 
 .hud-inner {

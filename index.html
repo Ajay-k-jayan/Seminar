@@ -3353,6 +3353,7 @@
           } catch(e) {}
         }
         // Close any simulator fullscreen mode when changing slides
+        // Close any simulator theater mode when changing slides while preserving presentation fullscreen
         document.body.classList.remove('has-simulator-fullscreen');
         const activeFsContainers = document.querySelectorAll('.is-fullscreen-expanded');
         activeFsContainers.forEach(c => c.classList.remove('is-fullscreen-expanded'));
@@ -4567,6 +4568,8 @@
             if (btnExitScarcityFsFloating) btnExitScarcityFsFloating.style.display = 'flex';
             if (scarcitySimContainer.requestFullscreen) {
               scarcitySimContainer.requestFullscreen().catch(() => {});
+            if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
+              document.documentElement.requestFullscreen().catch(() => {});
             }
           }
         }
@@ -5221,6 +5224,8 @@
             if (fdFsBtnText) fdFsBtnText.textContent = 'Exit Full Screen';
             if (fdContainer.requestFullscreen) {
               fdContainer.requestFullscreen().catch(() => {});
+            if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
+              document.documentElement.requestFullscreen().catch(() => {});
             }
           }
         }
@@ -5708,6 +5713,8 @@
             if (zomatoFsBtnText) zomatoFsBtnText.textContent = 'Exit Full Screen';
             if (iphoneSimContainer.requestFullscreen) {
               iphoneSimContainer.requestFullscreen().catch(() => {});
+            if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
+              document.documentElement.requestFullscreen().catch(() => {});
             }
           }
         }
@@ -6327,6 +6334,8 @@
             if (cartFsBtnText) cartFsBtnText.textContent = 'Exit Full Screen';
             if (cartContainer.requestFullscreen) {
               cartContainer.requestFullscreen().catch(() => {});
+            if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
+              document.documentElement.requestFullscreen().catch(() => {});
             }
           }
         }
